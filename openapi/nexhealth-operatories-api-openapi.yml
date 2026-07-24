@@ -1,0 +1,449 @@
+openapi: 3.0.0
+info:
+  title: NexHealth Adjustment Types Operatories API
+  description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
+  termsOfService: https://www.nexhealth.com/terms-of-service
+  contact:
+    name: NexHealth
+    email: info@nexhealth.com
+  license:
+    name: NexHealth License 1.0
+    url: https://www.nexhealth.com/privacy
+  version: v20240412
+servers:
+- url: https://nexhealth.info
+security:
+- Authorization: []
+tags:
+- name: Operatories
+  description: A chair or room that can be booked
+paths:
+  /operatories:
+    get:
+      summary: View operatories
+      description: This endpoint returns the operatories for the specified location, narrowed down by the optional filters configured.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Used to scope the request to the specified location
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: start_cursor
+        description: First item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: end_cursor
+        description: Last item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: per_page
+        description: Number of results to return per page. Maximum allowed amount is 1000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+      - in: query
+        name: search_name
+        description: Optional name search filter
+        required: false
+        example: op1
+        schema:
+          type: string
+      - in: query
+        name: foreign_id
+        description: Query by EHR Id
+        required: false
+        example: '1'
+        schema:
+          type: string
+      - in: query
+        name: updated_since
+        description: Query operatories whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000
+        required: false
+        example: '2024-04-12T10:30:00Z'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: include[]
+        description: Resources to be included in the response
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - appointment_types
+            - appt_categories
+            default: appt_categories
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_OperatoryWithResources_Collection_Response_WithCursor'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Operatories
+      operationId: getOperatories
+  /operatories/{id}:
+    get:
+      summary: View operatory
+      parameters:
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        description: The NexHealth id of the operatories
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: include[]
+        description: Resources to be included in the response
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - appointment_types
+            - appt_categories
+            default: appt_categories
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_OperatoryWithResources_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Operatories
+      operationId: getOperatoriesId
+components:
+  schemas:
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_V2_Entities_AppointmentTypeBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Appointment type Id
+        name:
+          type: string
+          example: Medical
+          description: Appointment type name. Unique string identifier
+        parent_type:
+          type: string
+          example: Institution
+          description: Parent type for appointment type. Defines the belongs to relationship with either Institution or Location
+        parent_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Identifies the specific resource the appointment type belongs to (see parent_type)
+        minutes:
+          type: integer
+          format: int32
+          example: 15
+          description: Default duration of appointments of this appointment type
+        bookable_online:
+          type: boolean
+          example: false
+          description: True if this appointment type should be bookable via the NexHealth online booking page
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_V2_Entities_OperatoryWithResources_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_OperatoryWithResources'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V2_Entities_OperatoryWithResources_Collection_Response_WithCursor model
+    API_V2_Entities_OperatoryWithResources:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+          description: Operatories Id
+        name:
+          type: string
+          example: op1
+          description: Name of the operatory from the integrated system
+        foreign_id:
+          type: string
+          example: '1'
+          description: Foreign Id is a unique identifier from the integrated system
+        foreign_id_type:
+          type: string
+          example: --DataSource-
+          description: Foreign Id type is a unique identifier for the integrated system
+        location_id:
+          type: integer
+          format: int32
+          example: 4
+          description: Location ID relevant to the Operatory
+          nullable: true
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2020-06-17T19:23:49.176Z'
+          description: Last time the resource was refreshed with data from the data source in UTC
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Operatories created time in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Operatories last updation time in UTC
+        display_name:
+          type: string
+          example: op1
+          description: Optional custom display name
+          nullable: true
+        active:
+          type: boolean
+          example: true
+          description: Is operatory active?
+        bookable_online:
+          type: boolean
+          example: true
+          description: Operatory is active for online booking?
+        appointment_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeBasic'
+          description: Collection of appointment types
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V2_Entities_OperatoryWithResources_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_OperatoryWithResources'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_OperatoryWithResources_Response model
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header

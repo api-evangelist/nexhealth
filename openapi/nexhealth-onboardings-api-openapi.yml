@@ -1,0 +1,470 @@
+openapi: 3.0.0
+info:
+  title: NexHealth Adjustment Types Onboardings API
+  description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
+  termsOfService: https://www.nexhealth.com/terms-of-service
+  contact:
+    name: NexHealth
+    email: info@nexhealth.com
+  license:
+    name: NexHealth License 1.0
+    url: https://www.nexhealth.com/privacy
+  version: v20240412
+servers:
+- url: https://nexhealth.info
+security:
+- Authorization: []
+tags:
+- name: Onboardings
+  description: An Onboarding resource
+paths:
+  /onboardings:
+    get:
+      summary: View onboardings
+      description: 'Returns the onboardings created by your organization. Each record represents a practice setup flow: either a full onboarding of a new institution or an installation added to an existing institution. Each setup flow appears once: installations that were created as part of an onboarding are represented by their parent onboarding and are not listed separately, although their IDs (e.g. from webhook events) can still be fetched individually via GET /onboardings/:id. Optionally filter by subdomain or status.'
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Filter by institution subdomain. Must be a subdomain your application has access to (as returned by the API in a previous query); an unknown or inaccessible subdomain returns 403 Forbidden. When omitted, onboardings for all of your organization's institutions are returned, including onboardings not yet matched to an institution.
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: status
+        description: Filter by status
+        required: false
+        schema:
+          type: string
+          enum:
+          - in_progress
+          - complete
+          - failed
+      - in: query
+        name: start_cursor
+        description: First item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: end_cursor
+        description: Last item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: per_page
+        description: Number of results to return per page. Maximum allowed amount is 1000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+      - in: query
+        name: sort
+        description: "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * created_at\n  * -created_at\n  * status\n  * -status\n  * subdomain\n  * -subdomain\n"
+        required: false
+        schema:
+          type: string
+          default: -created_at
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Onboardings
+      operationId: getOnboardings
+    post:
+      summary: Create onboarding
+      description: Creates an onboarding link to set up NexHealth at a practice. Include institution_name to onboard a new institution, or subdomain to add locations to an existing institution. Send the returned url to practice staff; it expires 3 months after creation. Only production applications can create onboardings.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postOnboardings'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Onboardings
+      operationId: postOnboardings
+  /onboardings/{hashid}:
+    get:
+      summary: View onboarding
+      description: Returns a single onboarding by its ID. Responds with 404 if the ID does not exist or was created by another organization.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: hashid
+        description: The ID of the onboarding, as returned in the id field by the list and create endpoints.
+        required: true
+        example: y2wxl82zldm4
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Onboardings
+      operationId: getOnboardingsHashid
+components:
+  schemas:
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    postOnboardings:
+      type: object
+      properties:
+        onboarding:
+          type: object
+          description: Onboarding details
+          properties:
+            institution_name:
+              type: string
+              description: The institution's name. Only include this if you are onboarding a new institution.
+              example: Smile Dental Group
+            institution_zip_code:
+              type: string
+              description: The institution's zip code. Only used when onboarding a new institution (institution_name); ignored when subdomain is provided. If you omit it, practice staff will be asked to enter it during setup.
+              example: '94105'
+            institution_website:
+              type: string
+              description: The institution's website URL. Only include this if you are onboarding a new institution. If you omit it, practice staff will be asked to enter it during setup.
+              example: https://www.smiledentalgroup.example.com
+            institution_email:
+              type: string
+              description: The institution's primary email address. Only include this if you are onboarding a new institution. If you omit it, practice staff will be asked to enter it during setup.
+              example: office@smiledentalgroup.example.com
+            subdomain:
+              type: string
+              description: The subdomain for the institution you want to add locations to. You need to include this when you want to add new locations to an existing institution. Ensure the subdomain used is returned by the API in a previous query. If both subdomain and institution_name are provided, subdomain takes precedence and all institution_* fields are ignored.
+              example: smile-dental
+            emr_name:
+              type: string
+              description: 'The name of the electronic medical record (EMR) system where you want to install the Synchronizer. Note: drchrono is only supported when onboarding a new institution (institution_name), not when adding to an existing institution (subdomain).'
+              enum:
+              - athena
+              - curve2
+              - cloud9
+              - denticon
+              - dentrix
+              - dentrixascend
+              - drchrono
+              - eaglesoft
+              - ecw
+              - modmed
+              - nextgen
+              - opendental
+              example: opendental
+      required:
+      - onboarding
+      description: Create onboarding
+    API_V20240412_Entities_Api_Onboarding:
+      type: object
+      properties:
+        id:
+          type: string
+          example: y2wxl82zldm4
+          description: The ID of the onboarding process.
+        created_at:
+          type: string
+          format: date-time
+          example: '2026-01-01T00:00:00Z'
+          description: The timestamp the onboarding url was created.
+        subdomain:
+          type: string
+          example: test-subdomain
+          description: The subdomain of the institution this onboarding belongs to. Null until the onboarding has been matched to an institution (e.g. while a new institution is still being set up).
+          nullable: true
+        url:
+          type: string
+          example: https://app.nexhealth.com/onboardings/y2wxl82zldm4
+          description: The link to send to practice staff to complete setup. Format varies by onboarding type. Expires at url_expires_at.
+        url_expires_at:
+          type: string
+          format: date-time
+          example: '2026-02-01T00:00:00Z'
+          description: When the url will expire and no longer be valid.
+        status:
+          type: string
+          enum:
+          - in_progress
+          - complete
+          - failed
+          example: in_progress
+          description: 'Current state of the onboarding. in_progress: the link has been created and setup is not finished; complete: setup finished (including installations completed manually by NexHealth); failed: the onboarding failed, was cancelled, or was disabled and will not proceed.'
+        booking_params:
+          type: object
+          example:
+            location_id: 105
+            appointment_type_ids:
+            - 19
+            - 20
+          description: Data collected during setup for online booking. Contains "location_id" (ID of the location selected during setup; may be serialized as an integer or numeric string) and "appointment_type_ids" (array of appointment type IDs), each present only after the corresponding setup step has run. Always null for installation-based onboardings. Before setup begins it is an empty object on the retrieve and create endpoints and null on the list endpoint.
+          nullable: true
+        availability_ready_at:
+          type: string
+          format: date-time
+          example: '2026-01-01T00:00:00Z'
+          description: When the onboarding location first became bookable. Null until availability is ready.
+          nullable: true
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor model
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_V20240412_Entities_Api_Onboarding_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V20240412_Entities_Api_Onboarding_Response model
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header

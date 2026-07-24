@@ -1,0 +1,808 @@
+openapi: 3.0.0
+info:
+  title: NexHealth Adjustment Types Appointment Types API
+  description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
+  termsOfService: https://www.nexhealth.com/terms-of-service
+  contact:
+    name: NexHealth
+    email: info@nexhealth.com
+  license:
+    name: NexHealth License 1.0
+    url: https://www.nexhealth.com/privacy
+  version: v20240412
+servers:
+- url: https://nexhealth.info
+security:
+- Authorization: []
+tags:
+- name: Appointment Types
+  description: Defines booking parameters for services offerred by the practice
+paths:
+  /appointment_types:
+    get:
+      summary: View appointment types
+      parameters:
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Id of the associated location,required when appointment types are location specific and when including sub-resources
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: include[]
+        description: Resources to be included in the response
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - descriptors
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeWithResources_Collection_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointment Types
+      operationId: getAppointmentTypes
+    post:
+      summary: Create an appointment type
+      parameters:
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postAppointmentTypes'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeBasic_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointment Types
+      operationId: postAppointmentTypes
+  /appointment_types/{id}:
+    patch:
+      summary: Edit an appointment type
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patchAppointmentTypesId'
+        required: true
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeBasic_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointment Types
+      operationId: patchAppointmentTypesId
+    get:
+      summary: View an appointment type
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Id of the associated location,required when appointment types are location specific and when including sub-resources
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: include[]
+        description: Resources to be included in the response
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - descriptors
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeWithResources_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointment Types
+      operationId: getAppointmentTypesId
+    delete:
+      summary: Delete an appointment type
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Id of the associated location, required when appointment types are location specific
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeBasic_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointment Types
+      operationId: deleteAppointmentTypesId
+  /appointment_types/{id}/appointment_descriptors:
+    get:
+      summary: View appointment type appointment descriptors
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Id of the associated location, required when appointment types are location specific
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: descriptor_type
+        description: Query by descriptor type
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor_Collection_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointment Types
+      operationId: getAppointmentTypesIdAppointmentDescriptors
+components:
+  schemas:
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_V2_Entities_AppointmentTypeWithResources_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeWithResources'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_AppointmentTypeWithResources_Response model
+    API_V2_Entities_AppointmentTypeBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Appointment type Id
+        name:
+          type: string
+          example: Medical
+          description: Appointment type name. Unique string identifier
+        parent_type:
+          type: string
+          example: Institution
+          description: Parent type for appointment type. Defines the belongs to relationship with either Institution or Location
+        parent_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Identifies the specific resource the appointment type belongs to (see parent_type)
+        minutes:
+          type: integer
+          format: int32
+          example: 15
+          description: Default duration of appointments of this appointment type
+        bookable_online:
+          type: boolean
+          example: false
+          description: True if this appointment type should be bookable via the NexHealth online booking page
+    postAppointmentTypes:
+      type: object
+      properties:
+        location_id:
+          type: integer
+          format: int32
+          description: Id of the associated location, required when appointment types are location specific
+        appointment_type:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Appointment type name. Unique string identifier
+            minutes:
+              type: integer
+              format: int32
+              description: The length of time this appointment type takes up, increments of 5 minutes recommended
+            parent_type:
+              type: string
+              description: Parent model to scope appointment types to, defaults to Institution
+              enum:
+              - Institution
+              - Location
+            parent_id:
+              type: integer
+              format: int32
+              description: Id of the parent model of the associated appointment type, required if parent_type is Location
+            bookable_online:
+              type: boolean
+              description: Set to True if this appointment type should be bookable via the NexHealth online booking page
+            emr_appt_descriptor_ids:
+              type: array
+              description: Array of EMR appointment descriptor ids
+              items:
+                type: integer
+                format: int32
+      required:
+      - appointment_type
+      description: Create an appointment type
+    API_V2_Entities_AppointmentTypeBasic_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeBasic'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_AppointmentTypeBasic_Response model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_V2_Entities_EmrApptDescriptor_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_EmrApptDescriptor_Collection_Response model
+    patchAppointmentTypesId:
+      type: object
+      properties:
+        location_id:
+          type: integer
+          format: int32
+          description: Id of the associated location, required when appointment types are location specific
+        appointment_type:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Appointment type name. Unique string identifier
+            minutes:
+              type: integer
+              format: int32
+              description: The length of time this appointment type takes up, increments of 5 minutes recommended
+            parent_type:
+              type: string
+              description: Parent model to scope appointment types to, defaults to Institution
+              enum:
+              - Institution
+              - Location
+            parent_id:
+              type: integer
+              format: int32
+              description: Id of the parent model of the associated appointment type, required if parent_type is Location
+            bookable_online:
+              type: boolean
+              description: Set to True if this appointment type should be bookable via the NexHealth online booking page
+            emr_appt_descriptor_ids:
+              type: array
+              description: Array of EMR appointment descriptor ids
+              items:
+                type: integer
+                format: int32
+      required:
+      - appointment_type
+      description: Edit an appointment type
+    API_V2_Entities_AppointmentTypeWithResources_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeWithResources'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_AppointmentTypeWithResources_Collection_Response model
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V2_Entities_EmrApptDescriptor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1822
+          description: Descriptor id
+        descriptor_type:
+          type: string
+          example: Procedure Code
+          description: The type of descriptor
+        name:
+          type: string
+          example: EHR Descriptor Name
+          description: The name of descriptor
+        code:
+          type: string
+          example: EHR Descriptor Code
+          description: The code of descriptor
+        location_id:
+          type: integer
+          format: int32
+          example: 13
+          description: The location this object belongs to
+        foreign_id:
+          type: string
+          example: '94'
+          description: Unique identifier of this resource from the integrated system
+        foreign_id_type:
+          type: string
+          example: msg-dentrix-DataSource-100
+          description: Unique identifier for the integrated system itself
+        data:
+          type: object
+          example: {}
+          description: The configuration object, structure depends on the underlying EHR
+        active:
+          type: boolean
+          example: true
+          description: Is descriptor active?
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2021-05-21T16:23:03.046Z'
+          description: Last Sync time in UTC
+        created_at:
+          type: string
+          format: date-time
+          example: '2021-05-21T16:23:03.046Z'
+          description: The datetime the descriptor was created in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2021-05-21T16:23:03.046Z'
+          description: The datetime the descriptor was last updated in UTC
+    API_V2_Entities_AppointmentTypeWithResources:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Appointment type Id
+        name:
+          type: string
+          example: Medical
+          description: Appointment type name. Unique string identifier
+        parent_type:
+          type: string
+          example: Institution
+          description: Parent type for appointment type. Defines the belongs to relationship with either Institution or Location
+        parent_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Identifies the specific resource the appointment type belongs to (see parent_type)
+        minutes:
+          type: integer
+          format: int32
+          example: 15
+          description: Default duration of appointments of this appointment type
+        bookable_online:
+          type: boolean
+          example: false
+          description: True if this appointment type should be bookable via the NexHealth online booking page
+        descriptors:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor'
+          description: EHR descriptors
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header

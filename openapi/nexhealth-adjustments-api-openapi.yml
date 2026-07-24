@@ -1,0 +1,1073 @@
+openapi: 3.0.0
+info:
+  title: NexHealth Adjustment Types Adjustments API
+  description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
+  termsOfService: https://www.nexhealth.com/terms-of-service
+  contact:
+    name: NexHealth
+    email: info@nexhealth.com
+  license:
+    name: NexHealth License 1.0
+    url: https://www.nexhealth.com/privacy
+  version: v20240412
+servers:
+- url: https://nexhealth.info
+security:
+- Authorization: []
+tags:
+- name: Adjustments
+  description: Adjustments resources
+paths:
+  /adjustments:
+    get:
+      summary: View adjustments
+      description: This endpoint returns the ledger adjustments for the specified location. At least one of the patient_id, provider_id, guarantor_id, claim_id, charge_id, or updated_since filters must be provided.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Used to scope the request to the specified location
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: patient_id
+        description: Filter by the id of the associated patient
+        required: false
+        example: 3
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: provider_id
+        description: Filter by the id of the associated provider
+        required: false
+        example: 15
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: guarantor_id
+        description: Filter by the id of the associated guarantor
+        required: false
+        example: 5
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: claim_id
+        description: Filter by the id of the associated claim
+        required: false
+        example: 2222
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: charge_id
+        description: Filter by the id of the associated charge
+        required: false
+        example: 1111
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: updated_since
+        description: Adjustments updated after the specified time (UTC)
+        required: false
+        example: '2024-04-12T10:30:00Z'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: include_deleted
+        description: Include deleted adjustments
+        required: false
+        example: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: sort
+        description: "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n"
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: start_cursor
+        description: First item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: end_cursor
+        description: Last item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: per_page
+        description: Number of results to return per page. Maximum allowed amount is 1000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_Ledger_Adjustment_Collection_Response_WithCursor'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Adjustments
+      operationId: getAdjustments
+    post:
+      summary: Create adjustment
+      description: This endpoint enqueues a write-back that records the adjustment in the integrated health record system
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Used to scope the request to the specified location
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postAdjustments'
+        required: true
+      responses:
+        '202':
+          description: Create adjustment
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Adjustments
+      operationId: postAdjustments
+  /adjustments/{id}:
+    get:
+      summary: View adjustment
+      description: This endpoint returns a single ledger adjustment
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: include[]
+        description: Resources to be included in the response
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - patient
+            - provider
+            - guarantor
+            - claim
+            - charge
+            - adjustment_type
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_Ledger_AdjustmentWithIncludes_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Adjustments
+      operationId: getAdjustmentsId
+components:
+  schemas:
+    API_V20240412_Entities_Ledger_AdjustmentWithIncludes_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V20240412_Entities_Ledger_AdjustmentWithIncludes'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V20240412_Entities_Ledger_AdjustmentWithIncludes_Response model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_V20240412_Entities_Ledger_Adjustment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 113
+          description: Resource id
+        foreign_id:
+          type: string
+          example: 1234-5678
+          description: Unique identifier of this resource from the integrated system
+        location_id:
+          type: integer
+          format: int32
+          example: 10
+          description: The ID of the location that this item is for
+          nullable: true
+        patient_id:
+          type: integer
+          format: int32
+          example: 3
+          description: The ID of the patient that this item is for
+          nullable: true
+        guarantor_id:
+          type: integer
+          format: int32
+          example: 5
+          description: The ID of the guarantor that this item is for
+          nullable: true
+        provider_id:
+          type: integer
+          format: int32
+          example: 15
+          description: The ID of the provider that this item is for
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          example: '2024-09-05T20:31:17.007Z'
+          description: Last updated time for item in UTC
+        description:
+          type: string
+          example: This is a description
+          description: A description of the item
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          example: '2024-09-15T11:21:26.003Z'
+          description: Deleted time for item in UTC
+          nullable: true
+        adjustment_amount:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        adjusted_at:
+          type: string
+          format: date
+          example: '2024-10-01'
+          description: The UTC date adjustment was made
+          nullable: true
+        transaction_id:
+          type: string
+          example: NHP:JXZEQ1234
+          description: The ID of the transaction for this adjustment
+          nullable: true
+        charge_id:
+          type: integer
+          format: int64
+          example: 1111
+          description: The ID of the charge for this adjustment
+          nullable: true
+        claim_id:
+          type: integer
+          format: int64
+          example: 2222
+          description: The ID of the insurance claim for this adjustment
+          nullable: true
+        adjustment_type_id:
+          type: integer
+          format: int64
+          example: 5
+          description: The ID of the adjustment type for this adjustment
+          nullable: true
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    postAdjustments:
+      type: object
+      properties:
+        adjustment:
+          type: object
+          description: Adjustment details
+          properties:
+            patient_id:
+              type: integer
+              format: int32
+              description: NexHealth Patient ID
+              example: 1
+            amount:
+              type: number
+              format: double
+              description: Adjustment amount in decimal dollars
+              example: 138
+            currency:
+              type: string
+              description: Currency
+              default: USD
+            adjustment_type_id:
+              type: integer
+              format: int32
+              description: ID of the adjustment type.
+              example: 1234
+            transaction_id:
+              type: string
+              description: The transaction ID of the adjustment with a prefix identifying the API originator this ID will be used to identify the adjustment created in the EHR. Max length is 50 characters.
+              example: API:123456
+            adjusted_at:
+              type: string
+              format: date-time
+              description: Adjustment datetime
+              example: '2024-05-20T21:00:00+00:00'
+            charge_splits:
+              type: object
+              description: Charge splits hash with NexHealth charge IDs and corresponding amounts in decimal dollars
+              default: {}
+              example:
+                charge_id_1: '37.50'
+                charge_id_2: '100.50'
+            provider_splits:
+              type: object
+              description: Provider splits hash with NexHealth provider IDs and corresponding amounts in decimal dollars
+              default: {}
+              example:
+                provider_id_1: '37.50'
+                provider_id_2: '100.50'
+            notes:
+              type: string
+              description: 'Notes that will be saved into the EHR. note: some EHRs may truncate overlong notes'
+              example: Adding taxes
+          required:
+          - patient_id
+          - amount
+          - transaction_id
+      required:
+      - adjustment
+      description: Create adjustment
+    API_V20240412_Entities_Ledger_AdjustmentWithIncludes:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 113
+          description: Resource id
+        foreign_id:
+          type: string
+          example: 1234-5678
+          description: Unique identifier of this resource from the integrated system
+        location_id:
+          type: integer
+          format: int32
+          example: 10
+          description: The ID of the location that this item is for
+          nullable: true
+        patient_id:
+          type: integer
+          format: int32
+          example: 3
+          description: The ID of the patient that this item is for
+          nullable: true
+        guarantor_id:
+          type: integer
+          format: int32
+          example: 5
+          description: The ID of the guarantor that this item is for
+          nullable: true
+        provider_id:
+          type: integer
+          format: int32
+          example: 15
+          description: The ID of the provider that this item is for
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          example: '2024-09-05T20:31:17.007Z'
+          description: Last updated time for item in UTC
+        description:
+          type: string
+          example: This is a description
+          description: A description of the item
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          example: '2024-09-15T11:21:26.003Z'
+          description: Deleted time for item in UTC
+          nullable: true
+        adjustment_amount:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        adjusted_at:
+          type: string
+          format: date
+          example: '2024-10-01'
+          description: The UTC date adjustment was made
+          nullable: true
+        transaction_id:
+          type: string
+          example: NHP:JXZEQ1234
+          description: The ID of the transaction for this adjustment
+          nullable: true
+        charge_id:
+          type: integer
+          format: int64
+          example: 1111
+          description: The ID of the charge for this adjustment
+          nullable: true
+        claim_id:
+          type: integer
+          format: int64
+          example: 2222
+          description: The ID of the insurance claim for this adjustment
+          nullable: true
+        patient:
+          $ref: '#/components/schemas/API_V2_Entities_PatientBasic'
+        provider:
+          $ref: '#/components/schemas/API_V2_Entities_Provider'
+        guarantor:
+          $ref: '#/components/schemas/API_V2_Entities_PatientBasic'
+        claim:
+          $ref: '#/components/schemas/API_V2_Entities_Ledger_Insurance_ClaimBasic'
+        charge:
+          $ref: '#/components/schemas/API_V2_Entities_Patient_Ledger_Charge'
+        adjustment_type:
+          $ref: '#/components/schemas/API_V20240412_Entities_Ledger_AdjustmentType'
+        adjustment_type_id:
+          type: integer
+          format: int64
+          example: 5
+          description: The ID of the adjustment type for this adjustment
+          nullable: true
+    API_V20240412_Entities_Ledger_AdjustmentType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 113
+          description: Resource id
+        name:
+          type: string
+          example: Cash
+          description: The name of the payment type
+        active:
+          type: boolean
+          example: true
+          description: Whether the adjustment type is currently active
+        action:
+          type: string
+          enum:
+          - credit
+          - debit
+          - unknown
+          example: credit
+          description: Indicates if this type will credit or debit the adjustment. Unknown option is for EHRs which doesn't support the concept
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Adjustment Type update date in UTC
+    API_V2_Entities_PatientBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 415
+          description: User id
+        email:
+          type: string
+          example: Amy.Ramos@nexhealth.com
+          description: User email
+          nullable: true
+        first_name:
+          type: string
+          example: John
+          description: First name
+        middle_name:
+          type: string
+          example: Anthony
+          description: Middle name
+          nullable: true
+        last_name:
+          type: string
+          example: Smith
+          description: Last name
+        name:
+          type: string
+          example: John Smith
+          description: Full name
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User creation date in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User last updation date in UTC
+        institution_id:
+          type: integer
+          format: int32
+          example: 105
+          description: The institution this user belongs to
+        foreign_id:
+          type: string
+          example: '100437'
+          description: Foreign Id is a unique identifier from the integrated system
+          nullable: true
+        foreign_id_type:
+          type: string
+          example: --DataSource-
+          description: Foreign Id type is a unique string identifier for the integrated system
+        bio:
+          type: object
+          example:
+            city: New York
+            state: NY
+            gender: Female
+            zip_code: '20814'
+            new_patient: false
+            non_patient: true
+            phone_number: '5163042196'
+            date_of_birth: '1964-05-03'
+            address_line_1: ''
+            address_line_2: ''
+            street_address: ''
+            cell_phone_number: ''
+            home_phone_number: ''
+            work_phone_number: ''
+          description: Patient biographical data, fields shown in our example response represent all possible data we retrieve but depending on system and what is actually saved in the health records system you cannot assume any field will consistently be returned
+        inactive:
+          type: boolean
+          example: false
+          description: Is the user inactivated?
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2024-04-12T10:30:00Z'
+          description: The most recent time the resource's data changed meaningfully at the source
+          nullable: true
+        guarantor_id:
+          type: integer
+          format: int32
+          example: 472
+          description: User id of this patient's responsible party
+          nullable: true
+        billing_type:
+          type: string
+          example: Standard Billing - finance charges
+          description: Used by practices in some integrated systems to categorize and filter patients when creating reports, requesting payments, and performing other related office tasks. Some integrated systems call this an account type rather than a billing type
+          nullable: true
+        chart_id:
+          type: string
+          example: '017407'
+          description: User-facing ID for referencing patient data, used in some integrated systems. Depending on the system, the chart ID supplements or replaces the foreign_id as the ID visible to EHR users
+          nullable: true
+        preferred_language:
+          type: string
+          example: es
+          description: Patient's preferred language as an ISO 639-1 code, if specified in the integrated system
+          nullable: true
+        preferred_locale:
+          type: string
+          example: es
+          description: The patient's preferred language setting used for displaying NexHealth forms and communications
+          nullable: true
+        location_ids:
+          type: array
+          items:
+            type: integer
+            format: int32
+          example:
+          - 101
+          - 102
+          - 103
+          description: Array of location ids associated with the user
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_V2_Entities_Patient_Ledger_Charge:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 113
+          description: Resource id
+        foreign_id:
+          type: string
+          example: 1234-5678
+          description: Unique identifier of this resource from the integrated system
+        location_id:
+          type: integer
+          format: int32
+          example: 10
+          description: The ID of the location that this item is for
+          nullable: true
+        patient_id:
+          type: integer
+          format: int32
+          example: 3
+          description: The ID of the patient that this item is for
+          nullable: true
+        guarantor_id:
+          type: integer
+          format: int32
+          example: 5
+          description: The ID of the guarantor that this item is for
+          nullable: true
+        provider_id:
+          type: integer
+          format: int32
+          example: 15
+          description: The ID of the provider that this item is for
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          example: '2024-09-05T20:31:17.007Z'
+          description: Last updated time for item in UTC
+        description:
+          type: string
+          example: This is a description
+          description: A description of the item
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          example: '2024-09-15T11:21:26.003Z'
+          description: Deleted time for item in UTC
+          nullable: true
+        fee:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        charged_at:
+          type: string
+          format: date
+          example: '2024-10-05'
+          description: The UTC date charge was made
+        procedure_id:
+          type: string
+          example: NHP:JXZEQ1234
+          description: The ID of the procedure associated with this charge
+        claim_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example:
+          - 2222
+          - 3333
+          description: Insurance claim IDs associated with this charge
+        payment_estimate_total:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        write_off_estimate_total:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        write_off_total:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+    API_V2_Entities_Provider:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 415
+          description: User id
+        email:
+          type: string
+          example: Amy.Ramos@nexhealth.com
+          description: User email
+          nullable: true
+        first_name:
+          type: string
+          example: John
+          description: First name
+        middle_name:
+          type: string
+          example: Anthony
+          description: Middle name
+          nullable: true
+        last_name:
+          type: string
+          example: Smith
+          description: Last name
+        name:
+          type: string
+          example: John Smith
+          description: Full name
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User creation date in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User last updation date in UTC
+        institution_id:
+          type: integer
+          format: int32
+          example: 105
+          description: The institution this user belongs to
+        foreign_id:
+          type: string
+          example: '100437'
+          description: Foreign Id is a unique identifier from the integrated system
+          nullable: true
+        foreign_id_type:
+          type: string
+          example: --DataSource-
+          description: Foreign Id type is a unique string identifier for the integrated system
+        bio:
+          type: object
+          example:
+            city: New York
+            state: NY
+            gender: Female
+            zip_code: '20814'
+            new_patient: false
+            non_patient: true
+            phone_number: '5163042196'
+            date_of_birth: '1964-05-03'
+            address_line_1: ''
+            address_line_2: ''
+            street_address: ''
+            cell_phone_number: ''
+            home_phone_number: ''
+            work_phone_number: ''
+          description: Patient biographical data, fields shown in our example response represent all possible data we retrieve but depending on system and what is actually saved in the health records system you cannot assume any field will consistently be returned
+        inactive:
+          type: boolean
+          example: false
+          description: Is the user inactivated?
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2024-04-12T10:30:00Z'
+          description: The most recent time the resource's data changed meaningfully at the source
+          nullable: true
+        display_name:
+          type: string
+          example: John Smith
+          description: Display name
+        npi:
+          type: string
+          example: '1912507500'
+          description: National Provider Identifier as registered in NPPES. May be null if the practice did not enter it into the integrated system.
+        tin:
+          type: string
+          example: 078051120
+          description: Taxpayer Identification Number (SSN or ITIN). May be null if the practice did not enter it into the integrated system.
+        state_license:
+          type: string
+          example: R219935
+          description: State license number. May be null if the practice did not enter it into the integrated system.
+        specialty_code:
+          type: string
+          example: 363L00000X
+          description: Specialty code corresponding to the provider's state license and NPI. May be null if the practice did not enter it into the integrated system.
+    API_V2_Entities_Price:
+      type: object
+      properties:
+        amount:
+          type: string
+          example: '62.00'
+          description: The currency value, in whole units (e.g. dollars)
+        currency:
+          type: string
+          example: USD
+          description: The ISO currency code
+    API_V2_Entities_Ledger_Insurance_ClaimBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+          description: Insurance Claim id
+        location_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Location id
+        patient_id:
+          type: integer
+          format: int32
+          example: 1002
+          description: Patient id
+        provider_id:
+          type: integer
+          format: int32
+          example: 101
+          description: Provider id
+        guarantor_id:
+          type: integer
+          format: int32
+          example: 1001
+          description: User id of the patient's responsible party
+        subscription_id:
+          type: integer
+          format: int64
+          example: 10021
+          description: Id of the patient's insurance subscription
+        status:
+          type: string
+          enum:
+          - draft
+          - sent
+          - received
+          - approved
+          - paid
+          - rejected
+          - canceled
+          example: sent
+          description: Insurance Claim status
+        finalized_at:
+          type: string
+          format: date-time
+          example: '2024-06-10T15:16:57.000Z'
+          description: Time in UTC when claim was closed
+        sent_at:
+          type: string
+          format: date-time
+          example: '2024-06-03T11:23:12.000Z'
+          description: Time in UTC when claim was sent
+        note:
+          type: string
+          example: Claim was sent to the insurance company
+          description: Note associated with the claim
+        payment_estimate_total:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        write_off_estimate_total:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        write_off_total:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        deleted_at:
+          type: string
+          format: date-time
+          example: '2024-09-15T11:21:26.003Z'
+          description: Deleted time for item in UTC
+    API_V20240412_Entities_Ledger_Adjustment_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_Ledger_Adjustment'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_Ledger_Adjustment_Collection_Response_WithCursor model
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header

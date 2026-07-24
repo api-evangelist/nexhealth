@@ -1,0 +1,1128 @@
+openapi: 3.0.0
+info:
+  title: NexHealth Adjustment Types Working Hours API
+  description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
+  termsOfService: https://www.nexhealth.com/terms-of-service
+  contact:
+    name: NexHealth
+    email: info@nexhealth.com
+  license:
+    name: NexHealth License 1.0
+    url: https://www.nexhealth.com/privacy
+  version: v20240412
+servers:
+- url: https://nexhealth.info
+security:
+- Authorization: []
+tags:
+- name: Working Hours
+  description: Configure working hours for providers
+paths:
+  /working_hour_labels:
+    get:
+      summary: View working hour labels
+      description: This endpoint returns a list of Working Hour Labels, narrowed down by the optional filters configured.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it
+        required: false
+        example: 3
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: search_name
+        description: Filter working hour labels by search term
+        required: false
+        example: New patient
+        schema:
+          type: string
+      - in: query
+        name: active
+        description: Filter by active status.
+        required: false
+        example: true
+        schema:
+          type: boolean
+      - in: query
+        name: start_cursor
+        description: First item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: end_cursor
+        description: Last item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: per_page
+        description: Number of results to return per page. Maximum allowed amount is 1000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_WorkingHourLabel_Collection_Response_WithCursor'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Working Hours
+      operationId: getWorkingHourLabels
+  /working_hours:
+    post:
+      summary: Create working hour
+      description: This endpoint creates an availability for a provider at the specified location. Exactly one of days, specific_date, or custom_recurrence must be configured.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Used to scope the request to the specified location
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postWorkingHours'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_WorkingHourBasic_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Working Hours
+      operationId: postWorkingHours
+    get:
+      summary: View working hours
+      description: This endpoint returns the working hours for the specified location, narrowed down by the optional filters configured.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Used to scope the request to the specified location
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: start_cursor
+        description: First item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: end_cursor
+        description: Last item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: per_page
+        description: Number of results to return per page. Maximum allowed amount is 1000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+      - in: query
+        name: provider_id
+        description: Filter for specific provider
+        required: false
+        example: 7
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: operatory_id
+        description: Filter for specific operatory
+        required: false
+        example: 149
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: label_id
+        description: Filter by specific label
+        required: false
+        example: 11
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: source
+        description: Filter by source of working hour
+        required: false
+        example: manual
+        schema:
+          type: string
+          enum:
+          - manual
+          - synced
+      - in: query
+        name: active
+        description: Filter active/not active
+        required: false
+        example: true
+        schema:
+          type: boolean
+          default: true
+      - in: query
+        name: ignore_past_dates
+        description: Filter out working hours configured for specific dates in the past
+        required: false
+        example: false
+        schema:
+          type: boolean
+          default: false
+      - in: query
+        name: include[]
+        description: Resources to be included in the response
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - appointment_types
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_WorkingHour_Collection_Response_WithCursor'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Working Hours
+      operationId: getWorkingHours
+  /working_hours/{id}:
+    get:
+      summary: View working hour
+      description: This endpoint returns a single working hour.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        description: Id of the working hour
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: include[]
+        description: Resources to be included in the response
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - appointment_types
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_WorkingHour_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Working Hours
+      operationId: getWorkingHoursId
+    patch:
+      summary: Edit working hour
+      description: This endpoint updates an existing working hour. At most one of days, specific_date, or custom_recurrence can be provided. The appointment_types field is included in the response only when appointment_type_ids or appointment_category_ids were part of the update.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        description: Id of the working hour
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patchWorkingHoursId'
+        required: true
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V20240412_Entities_WorkingHour_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Working Hours
+      operationId: patchWorkingHoursId
+    delete:
+      summary: Delete working hour
+      description: This endpoint deletes a working hour.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        description: Id of the working hour
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Successful
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Working Hours
+      operationId: deleteWorkingHoursId
+components:
+  schemas:
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_V20240412_Entities_WorkingHour_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_WorkingHour'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_WorkingHour_Collection_Response_WithCursor model
+    API_V2_Entities_AppointmentTypeBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Appointment type Id
+        name:
+          type: string
+          example: Medical
+          description: Appointment type name. Unique string identifier
+        parent_type:
+          type: string
+          example: Institution
+          description: Parent type for appointment type. Defines the belongs to relationship with either Institution or Location
+        parent_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Identifies the specific resource the appointment type belongs to (see parent_type)
+        minutes:
+          type: integer
+          format: int32
+          example: 15
+          description: Default duration of appointments of this appointment type
+        bookable_online:
+          type: boolean
+          example: false
+          description: True if this appointment type should be bookable via the NexHealth online booking page
+    patchWorkingHoursId:
+      type: object
+      properties:
+        working_hour:
+          type: object
+          properties:
+            provider_id:
+              type: integer
+              format: int32
+              description: Id of the provider
+              example: 7
+            begin_time:
+              type: string
+              description: What time working hour starts in UTC. Format is HH:MM
+              example: 09:00
+            end_time:
+              type: string
+              description: What time working hour ends in UTC. Format is HH:MM
+              example: '16:00'
+            operatory_id:
+              type: integer
+              format: int32
+              description: Id of the operatory
+              example: 149
+            appointment_type_ids:
+              type: array
+              description: Associate appointment types with this working hour
+              example:
+              - 27
+              items:
+                type: integer
+                format: int32
+            days:
+              type: array
+              description: Configure days of the week for this working hour
+              example:
+              - Monday
+              - Wednesday
+              items:
+                type: string
+                enum:
+                - Sunday
+                - Monday
+                - Tuesday
+                - Wednesday
+                - Thursday
+                - Friday
+                - Saturday
+            specific_date:
+              type: string
+              format: date
+              description: Configure specific date for this working hour
+              example: '2024-11-03'
+            custom_recurrence:
+              type: object
+              description: Configure custom recurrence
+              properties:
+                num:
+                  type: integer
+                  format: int32
+                  description: Unit count
+                  example: 3
+                ref:
+                  type: string
+                  format: date
+                  description: Starting date
+                  example: '2024-11-03'
+                unit:
+                  type: string
+                  description: 'Every # days/weeks/months'
+                  enum:
+                  - day
+                  - week
+                  - month
+                  example: week
+              required:
+              - num
+              - ref
+              - unit
+            active:
+              type: boolean
+              description: Is this working hour active?
+              example: true
+      required:
+      - working_hour
+      description: Edit working hour
+    API_V20240412_Entities_WorkingHourBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 12
+          description: Resource id
+        provider_id:
+          type: integer
+          format: int32
+          example: 7
+          description: Provider id
+          nullable: true
+        location_id:
+          type: integer
+          format: int32
+          example: 3
+          description: Location id
+          nullable: true
+        operatory_id:
+          type: integer
+          format: int64
+          example: 149
+          description: Operatory id
+          nullable: true
+        begin_time:
+          type: string
+          example: '10:30'
+          description: Availability start time in the practices timezone
+        end_time:
+          type: string
+          example: '17:00'
+          description: Availability end time in the practices timezone
+        days:
+          type: array
+          items:
+            type: string
+          example:
+          - Monday
+          - Tuesday
+          - Wednesday
+          - Thursday
+          - Friday
+          description: Configured week days. Empty when the working hour is configured for a custom recurrence
+          nullable: true
+        specific_date:
+          type: string
+          format: date
+          example: '2022-11-03'
+          description: Configured specific date
+          nullable: true
+        custom_recurrence:
+          type: object
+          example:
+            num: 3
+            unit: day
+            ref: '2022-11-03'
+          description: Configured custom recurrence, with the fields num (recurrence interval count), ref (starting date), and unit (day, week, or month)
+          nullable: true
+        tz_offset:
+          type: string
+          example: '-0700'
+          description: UTC offset for the practice
+        active:
+          type: boolean
+          example: true
+          description: Is active?
+        source:
+          type: string
+          enum:
+          - manual
+          - synced
+          example: synced
+          description: Source of the working hour
+        label:
+          $ref: '#/components/schemas/API_V20240412_Entities_WorkingHourLabel'
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_V20240412_Entities_WorkingHourLabel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 113
+          description: Resource id
+        location_id:
+          type: integer
+          format: int32
+          example: 115
+          description: The location ID
+          nullable: true
+        name:
+          type: string
+          example: New patient appointments
+          description: The name for working hour label
+    API_V20240412_Entities_WorkingHour:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 12
+          description: Resource id
+        provider_id:
+          type: integer
+          format: int32
+          example: 7
+          description: Provider id
+          nullable: true
+        location_id:
+          type: integer
+          format: int32
+          example: 3
+          description: Location id
+          nullable: true
+        operatory_id:
+          type: integer
+          format: int64
+          example: 149
+          description: Operatory id
+          nullable: true
+        begin_time:
+          type: string
+          example: '10:30'
+          description: Availability start time in the practices timezone
+        end_time:
+          type: string
+          example: '17:00'
+          description: Availability end time in the practices timezone
+        days:
+          type: array
+          items:
+            type: string
+          example:
+          - Monday
+          - Tuesday
+          - Wednesday
+          - Thursday
+          - Friday
+          description: Configured week days. Empty when the working hour is configured for a custom recurrence
+          nullable: true
+        specific_date:
+          type: string
+          format: date
+          example: '2022-11-03'
+          description: Configured specific date
+          nullable: true
+        custom_recurrence:
+          type: object
+          example:
+            num: 3
+            unit: day
+            ref: '2022-11-03'
+          description: Configured custom recurrence, with the fields num (recurrence interval count), ref (starting date), and unit (day, week, or month)
+          nullable: true
+        tz_offset:
+          type: string
+          example: '-0700'
+          description: UTC offset for the practice
+        active:
+          type: boolean
+          example: true
+          description: Is active?
+        source:
+          type: string
+          enum:
+          - manual
+          - synced
+          example: synced
+          description: Source of the working hour
+        label:
+          $ref: '#/components/schemas/API_V20240412_Entities_WorkingHourLabel'
+        appointment_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeBasic'
+          description: Associated appointment types
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_V20240412_Entities_WorkingHour_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V20240412_Entities_WorkingHour'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V20240412_Entities_WorkingHour_Response model
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    postWorkingHours:
+      type: object
+      properties:
+        working_hour:
+          type: object
+          description: Configure only one of days, specific_date or custom_recurrence
+          properties:
+            provider_id:
+              type: integer
+              format: int32
+              description: Id of the provider
+              example: 7
+            begin_time:
+              type: string
+              description: At what time working hour starts. Format is HH:MM
+              example: 09:00
+            end_time:
+              type: string
+              description: At what time working hour ends. Format is HH:MM
+              example: '16:00'
+            operatory_id:
+              type: integer
+              format: int32
+              description: Id of the operatory
+              example: 149
+            appointment_type_ids:
+              type: array
+              description: Associate appointment types with this working hour
+              example:
+              - 27
+              items:
+                type: integer
+                format: int32
+            days:
+              type: array
+              description: Configure days of the week for this working hour
+              example:
+              - Monday
+              - Wednesday
+              items:
+                type: string
+                enum:
+                - Sunday
+                - Monday
+                - Tuesday
+                - Wednesday
+                - Thursday
+                - Friday
+                - Saturday
+            specific_date:
+              type: string
+              format: date
+              description: Configure a specific date for this working hour
+              example: '2024-11-03'
+            custom_recurrence:
+              type: object
+              description: Configure custom recurrence
+              properties:
+                num:
+                  type: integer
+                  format: int32
+                  description: Unit count
+                  example: 3
+                ref:
+                  type: string
+                  format: date
+                  description: Starting date
+                  example: '2024-11-03'
+                unit:
+                  type: string
+                  description: 'Every # days/weeks/months'
+                  enum:
+                  - ''
+                  - day
+                  - week
+                  - month
+                  example: week
+              required:
+              - num
+              - ref
+              - unit
+            active:
+              type: boolean
+              description: Is this working hour active?
+              default: true
+              example: true
+          required:
+          - provider_id
+          - begin_time
+          - end_time
+      required:
+      - working_hour
+      description: Create working hour
+    API_V20240412_Entities_WorkingHourLabel_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_WorkingHourLabel'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_WorkingHourLabel_Collection_Response_WithCursor model
+    API_V20240412_Entities_WorkingHourBasic_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V20240412_Entities_WorkingHourBasic'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V20240412_Entities_WorkingHourBasic_Response model
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header

@@ -1,0 +1,659 @@
+openapi: 3.0.0
+info:
+  title: NexHealth Adjustment Types Webhook Subscriptions API
+  description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
+  termsOfService: https://www.nexhealth.com/terms-of-service
+  contact:
+    name: NexHealth
+    email: info@nexhealth.com
+  license:
+    name: NexHealth License 1.0
+    url: https://www.nexhealth.com/privacy
+  version: v20240412
+servers:
+- url: https://nexhealth.info
+security:
+- Authorization: []
+tags:
+- name: Webhook Subscriptions
+  description: Configure webhook subscriptions to receive event based hooks
+paths:
+  /webhook_endpoints/{id}/webhook_subscriptions:
+    get:
+      summary: View webhook subscriptions
+      description: Lists all webhook subscriptions on the given webhook endpoint. When a subdomain is provided, results are scoped to that institution and exclude subscriptions without an institution (e.g. Onboarding); omit the subdomain to list every subscription on the endpoint. Results are not paginated.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        description: Webhook Endpoint id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: resource_type
+        description: Filter by subscribed resource
+        required: false
+        example: Appointment
+        schema:
+          type: string
+          enum:
+          - Adjustment
+          - AdjustmentType
+          - Appointment
+          - Charge
+          - Claim
+          - Document
+          - FeeSchedule
+          - FormResponse
+          - Message
+          - Onboarding
+          - Patient
+          - PatientInsuranceCoverage
+          - Payment
+          - PaymentType
+          - Procedure
+          - ProcedureCode
+          - SyncStatus
+          - TreatmentPlan
+      - in: query
+        name: event
+        description: Filter by event name
+        required: false
+        example: appointment_insertion
+        schema:
+          type: string
+          enum:
+          - adjustment_created
+          - adjustment_updated
+          - adjustment_deleted
+          - adjustment_insertion
+          - adjustment_type_created
+          - adjustment_type_updated
+          - appointment_insertion
+          - appointment_created
+          - appointment_updated
+          - appointment_requested
+          - charge_created
+          - charge_updated
+          - charge_deleted
+          - claim_created
+          - claim_updated
+          - claim_deleted
+          - document_insertion
+          - fee_schedule_created
+          - fee_schedule_updated
+          - form_response_insertion
+          - message_created
+          - message_updated
+          - onboarding_created
+          - onboarding_updated
+          - onboarding_availability_ready
+          - patient_created
+          - patient_updated
+          - patient_insurance_created
+          - patient_insurance_updated
+          - payment_created
+          - payment_updated
+          - payment_deleted
+          - payment_insertion
+          - payment_type_created
+          - payment_type_updated
+          - procedure_created
+          - procedure_updated
+          - procedure_code_created
+          - procedure_code_updated
+          - procedure_code_deleted
+          - sync_status_read_change
+          - sync_status_write_change
+          - treatment_plan_created
+          - treatment_plan_updated
+          - treatment_plan_deleted
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription_Collection_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Webhook Subscriptions
+      operationId: getWebhookEndpointsIdWebhookSubscriptions
+    post:
+      summary: Create webhook subscription
+      description: 'Creates a webhook subscription on the given webhook endpoint. The subscription is pinned to the API version used to create it (v3.0.0): webhook payloads delivered for this subscription use the v3.0.0 entity contract. To pin a subscription to a different version, create it via that version of this endpoint.'
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        description: Webhook Endpoint id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: 'Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding'
+        required: true
+        example: demo-practice
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postWebhookEndpointsIdWebhookSubscriptions'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Webhook Subscriptions
+      operationId: postWebhookEndpointsIdWebhookSubscriptions
+  /webhook_endpoints/{id}/webhook_subscriptions/{subscription_id}:
+    patch:
+      summary: Edit webhook subscription
+      description: Updates a webhook subscription. The subdomain parameter is required for request validation even when the subscription is not scoped to an institution (e.g. Onboarding); pass the subdomain of any institution your API user has access to.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        description: Webhook Endpoint id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: subscription_id
+        description: Webhook Subscription id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patchWebhookEndpointsIdWebhookSubscriptionsSubscriptionId'
+        required: true
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Webhook Subscriptions
+      operationId: patchWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
+    delete:
+      summary: Delete webhook subscription
+      description: Permanently deletes the webhook subscription; deliveries for it stop immediately. Returns 204 No Content on success.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        description: Webhook Endpoint id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: subscription_id
+        description: Webhook Subscription id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: Successful
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Webhook Subscriptions
+      operationId: deleteWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
+components:
+  schemas:
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    postWebhookEndpointsIdWebhookSubscriptions:
+      type: object
+      properties:
+        resource_type:
+          type: string
+          description: The resource to subscribe to
+          enum:
+          - Adjustment
+          - AdjustmentType
+          - Appointment
+          - Charge
+          - Claim
+          - Document
+          - FeeSchedule
+          - FormResponse
+          - Message
+          - Onboarding
+          - Patient
+          - PatientInsuranceCoverage
+          - Payment
+          - PaymentType
+          - Procedure
+          - ProcedureCode
+          - SyncStatus
+          - TreatmentPlan
+          example: Appointment
+        event:
+          type: string
+          description: A valid event type to listen to for the defined resource
+          enum:
+          - adjustment_created
+          - adjustment_updated
+          - adjustment_deleted
+          - adjustment_insertion
+          - adjustment_type_created
+          - adjustment_type_updated
+          - appointment_insertion
+          - appointment_created
+          - appointment_updated
+          - appointment_requested
+          - charge_created
+          - charge_updated
+          - charge_deleted
+          - claim_created
+          - claim_updated
+          - claim_deleted
+          - document_insertion
+          - fee_schedule_created
+          - fee_schedule_updated
+          - form_response_insertion
+          - message_created
+          - message_updated
+          - onboarding_created
+          - onboarding_updated
+          - onboarding_availability_ready
+          - patient_created
+          - patient_updated
+          - patient_insurance_created
+          - patient_insurance_updated
+          - payment_created
+          - payment_updated
+          - payment_deleted
+          - payment_insertion
+          - payment_type_created
+          - payment_type_updated
+          - procedure_created
+          - procedure_updated
+          - procedure_code_created
+          - procedure_code_updated
+          - procedure_code_deleted
+          - sync_status_read_change
+          - sync_status_write_change
+          - treatment_plan_created
+          - treatment_plan_updated
+          - treatment_plan_deleted
+          example: appointment_insertion
+        active:
+          type: boolean
+          description: Whether the subscription is active. Inactive subscriptions are kept but receive no webhook deliveries. Defaults to true.
+          default: true
+          example: true
+      required:
+      - resource_type
+      - event
+      description: Create webhook subscription
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_V2_Entities_WebhookSubscription_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_WebhookSubscription_Response model
+    API_V2_Entities_WebhookSubscription:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Subscription id
+        webhook_endpoint_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Webhook Endpoint id
+        institution_id:
+          type: integer
+          format: int32
+          example: 1
+          description: 'Institution id. Null for subscriptions to resources not owned by an institution (currently: Onboarding)'
+          nullable: true
+        resource_type:
+          type: string
+          example: Appointment
+          description: Resource type
+        event:
+          type: string
+          example: appointment_insertion
+          description: Event type
+        active:
+          type: boolean
+          example: true
+          description: True if subscription is active
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Subscription create date in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Subscription update date in UTC
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    patchWebhookEndpointsIdWebhookSubscriptionsSubscriptionId:
+      type: object
+      properties:
+        new_endpoint_id:
+          type: integer
+          format: int32
+          description: Id of another webhook endpoint owned by the same API user to move this subscription to. Future webhook deliveries go to the new endpoint. Returns 404 if the id does not belong to one of your webhook endpoints. After a successful move, subsequent requests for the subscription must use the new endpoint id in the URL path; requests using the old endpoint id return 404.
+          example: 1
+        active:
+          type: boolean
+          description: Set to false to pause webhook deliveries for this subscription, or true to resume them. Omitting the param leaves the current value unchanged.
+          example: true
+      description: Edit webhook subscription
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V2_Entities_WebhookSubscription_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_WebhookSubscription_Collection_Response model
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header

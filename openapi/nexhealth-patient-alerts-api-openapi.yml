@@ -1,0 +1,482 @@
+openapi: 3.0.0
+info:
+  title: NexHealth Adjustment Types Patient Alerts API
+  description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
+  termsOfService: https://www.nexhealth.com/terms-of-service
+  contact:
+    name: NexHealth
+    email: info@nexhealth.com
+  license:
+    name: NexHealth License 1.0
+    url: https://www.nexhealth.com/privacy
+  version: v20240412
+servers:
+- url: https://nexhealth.info
+security:
+- Authorization: []
+tags:
+- name: Patient Alerts
+  description: Short communication contents to Patients requiring a response
+paths:
+  /patients/{id}/alerts:
+    post:
+      summary: Create patient alert
+      parameters:
+      - in: path
+        name: id
+        description: Id of the patient
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postPatientsIdAlerts'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_PatientAlert_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Patient Alerts
+      operationId: postPatientsIdAlerts
+    get:
+      summary: View patient alerts
+      parameters:
+      - in: path
+        name: id
+        description: Id of the patient
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: include_disabled
+        description: Include disabled patient alerts if true
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_PatientAlert_Collection_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Patient Alerts
+      operationId: getPatientsIdAlerts
+  /patients/{id}/alerts/{alert_id}:
+    get:
+      summary: View patient alert
+      parameters:
+      - in: path
+        name: id
+        description: Id of the patient
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: alert_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_PatientAlert_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Patient Alerts
+      operationId: getPatientsIdAlertsAlertId
+    patch:
+      summary: Edit patient alert
+      parameters:
+      - in: path
+        name: id
+        description: Id of the patient
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: alert_id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patchPatientsIdAlertsAlertId'
+        required: true
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_PatientAlert_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Patient Alerts
+      operationId: patchPatientsIdAlertsAlertId
+components:
+  schemas:
+    patchPatientsIdAlertsAlertId:
+      type: object
+      properties:
+        patient_alert:
+          type: object
+          description: Patient Alert update
+          properties:
+            disabled:
+              type: boolean
+              description: Disable patient alert
+      required:
+      - patient_alert
+      description: Edit patient alert
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_V2_Entities_PatientAlert:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+          description: Patient Alert id
+        patient_id:
+          type: integer
+          format: int32
+          example: 101
+          description: Id of the associated patient
+        note:
+          type: string
+          example: Patient is late on payment
+          description: The note for the patient alert
+        disabled_at:
+          type: string
+          format: date-time
+          example: '2024-02-05T20:16:57.007Z'
+          description: The time that the alert was disabled in UTC
+        created_at:
+          type: string
+          format: date-time
+          example: '2023-11-11T10:11:01.007Z'
+          description: The time that the alert was created in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2024-01-14T14:11:01.007Z'
+          description: The time that the alert was last updated in UTC
+    API_V2_Entities_PatientAlert_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_PatientAlert'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_PatientAlert_Collection_Response model
+    postPatientsIdAlerts:
+      type: object
+      properties:
+        patient_alert:
+          type: object
+          description: Patient alert details
+          properties:
+            note:
+              type: string
+              description: The note for the patient alert
+          required:
+          - note
+      required:
+      - patient_alert
+      description: Create patient alert
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V2_Entities_PatientAlert_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_PatientAlert'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_PatientAlert_Response model
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header

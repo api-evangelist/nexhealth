@@ -1,0 +1,1756 @@
+openapi: 3.0.0
+info:
+  title: NexHealth Adjustment Types Appointments API
+  description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
+  termsOfService: https://www.nexhealth.com/terms-of-service
+  contact:
+    name: NexHealth
+    email: info@nexhealth.com
+  license:
+    name: NexHealth License 1.0
+    url: https://www.nexhealth.com/privacy
+  version: v20240412
+servers:
+- url: https://nexhealth.info
+security:
+- Authorization: []
+tags:
+- name: Appointments
+  description: A booking on the Practice's calendar
+paths:
+  /appointments/{id}:
+    get:
+      summary: View appointment
+      parameters:
+      - in: path
+        name: id
+        description: Id of the appointment
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: include[]
+        description: Resources to be included in the response
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - patient
+            - guarantor
+            - descriptors
+            - booking_details
+            - procedures
+            - operatory
+            - appointment_type
+            default: patient
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_Appointment_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointments
+      operationId: getAppointmentsId
+    patch:
+      summary: Edit Appointment
+      description: This endpoint updates an existing appointment.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: path
+        name: id
+        description: Id of the appointment
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patchAppointmentsId'
+        required: true
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_AppointmentResponse_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointments
+      operationId: patchAppointmentsId
+  /appointments/{id}/appointment_descriptors:
+    get:
+      summary: View appointment descriptors
+      parameters:
+      - in: path
+        name: id
+        description: Id of the appointment
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: descriptor_type
+        description: Query by descriptor type
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor_Collection_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.Nexhealth+json;version=2:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointments
+      operationId: getAppointmentsIdAppointmentDescriptors
+  /appointments:
+    get:
+      summary: View appointments
+      description: This endpoint returns the appointments starting within the requested time window, narrowed down by the optional filters configured. At least one of location_id or foreign_id must be provided.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Used to scope the request to the specified location
+        required: false
+        example: 1
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: sort
+        description: "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n"
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: start
+        description: A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000
+        required: true
+        example: '2024-04-01T00:00:00Z'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: end
+        description: A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000
+        required: true
+        example: '2024-04-30T23:59:59Z'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: timezone
+        description: Timezone for the appointment clinic
+        required: false
+        example: America/New_York
+        schema:
+          type: string
+      - in: query
+        name: cancelled
+        description: Filter by cancelled status.
+        required: false
+        example: false
+        schema:
+          type: boolean
+      - in: query
+        name: unavailable
+        description: Unavailable appointments are used to block availability on a schedule, specify to set the filter
+        required: false
+        example: false
+        schema:
+          type: boolean
+      - in: query
+        name: nex_only
+        description: Only show appointments booked via NexHealth API
+        required: false
+        example: false
+        schema:
+          type: boolean
+      - in: query
+        name: updated_since
+        description: Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000
+        required: false
+        example: '2024-04-12T10:30:00Z'
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: appointment_type_id
+        description: Get appointments for a specific appointment type
+        required: false
+        example: 27
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: foreign_id
+        description: Unique appointment id from the EHR
+        required: false
+        example: '94'
+        schema:
+          type: string
+      - in: query
+        name: created_by
+        description: Query appointments that were created by a specific user
+        required: false
+        example: 197
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: start_cursor
+        description: First item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: end_cursor
+        description: Last item of the current page. Starts empty
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: per_page
+        description: Number of results to return per page. Maximum allowed amount is 1000.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 5
+      - in: query
+        name: patient_ids[]
+        description: Get appointments for specific patients (up to 25 ids)
+        required: false
+        example:
+        - 2897
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: provider_ids[]
+        description: Query appointments that are booked with the specified providers only
+        required: false
+        example:
+        - 104
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - in: query
+        name: operatory_ids[]
+        description: Query appointments that are booked in the specified operatories only
+        required: false
+        example:
+        - 181
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_AppointmentWithoutIncludes_Collection_Response_WithCursor'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointments
+      operationId: getAppointments
+    post:
+      summary: Create appointment
+      description: This endpoint books an appointment for the given patient with the given provider at the specified location. When is_guardian is true, the booking is made by a guardian and a patient object with the dependent's details must be provided. Set unavailable to true to create a block instead of a patient appointment.
+      parameters:
+      - in: header
+        name: Nex-Api-Version
+        description: The NexHealth API version
+        required: true
+        schema:
+          type: string
+          default: v3.0.0
+      - in: query
+        name: subdomain
+        description: Used to scope the request to the specified institution
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: location_id
+        description: Used to scope the request to the specified location
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: notify_patient
+        description: Send NexHealth appointment created notifications to patient
+        required: false
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postAppointments'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_V2_Entities_AppointmentResponse_Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_Forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_NotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API_Errors_InternalServerError'
+      tags:
+      - Appointments
+      operationId: postAppointments
+components:
+  schemas:
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_V2_Entities_AppointmentTypeBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Appointment type Id
+        name:
+          type: string
+          example: Medical
+          description: Appointment type name. Unique string identifier
+        parent_type:
+          type: string
+          example: Institution
+          description: Parent type for appointment type. Defines the belongs to relationship with either Institution or Location
+        parent_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Identifies the specific resource the appointment type belongs to (see parent_type)
+        minutes:
+          type: integer
+          format: int32
+          example: 15
+          description: Default duration of appointments of this appointment type
+        bookable_online:
+          type: boolean
+          example: false
+          description: True if this appointment type should be bookable via the NexHealth online booking page
+    API_V2_Entities_EmrApptDescriptor_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_EmrApptDescriptor_Collection_Response model
+    API_V2_Entities_Price:
+      type: object
+      properties:
+        amount:
+          type: string
+          example: '62.00'
+          description: The currency value, in whole units (e.g. dollars)
+        currency:
+          type: string
+          example: USD
+          description: The ISO currency code
+    API_V2_Entities_ProcedureBodySite:
+      type: object
+      properties:
+        tooth:
+          type: array
+          items:
+            type: string
+          example:
+          - '3'
+          - '14'
+          description: Tooth identifier strings, typically tooth numbers
+        surface:
+          type: string
+          example: MOD
+          description: Tooth surface codes
+    API_V2_Entities_Procedure:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 11
+          description: Procedure id
+        location_id:
+          type: integer
+          format: int32
+          example: 21
+          description: Location id
+          nullable: true
+        patient_id:
+          type: integer
+          format: int32
+          example: 162
+          description: Patient id
+          nullable: true
+        provider_id:
+          type: integer
+          format: int32
+          example: 84
+          description: Provider id
+          nullable: true
+        appointment_id:
+          type: integer
+          format: int64
+          example: 283
+          description: Appointment id. Null when the procedure is not attached to an appointment
+          nullable: true
+        code:
+          type: string
+          example: D6100
+          description: Procedure code
+          nullable: true
+        name:
+          type: string
+          example: Implant Removal
+          description: Procedure name
+          nullable: true
+        status:
+          type: string
+          enum:
+          - planned
+          - scheduled
+          - completed
+          - inactive
+          - referred
+          example: referred
+          description: Procedure status
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Procedure update date in UTC
+        body_site:
+          $ref: '#/components/schemas/API_V2_Entities_ProcedureBodySite'
+        fee:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        start_date:
+          type: string
+          format: date
+          example: '2022-06-24'
+          description: Start date for procedure
+          nullable: true
+        end_date:
+          type: string
+          format: date
+          example: '2022-06-24'
+          description: End date for procedure
+          nullable: true
+    API_V2_Entities_Appointment_OnlineBookingDetail:
+      type: object
+      properties:
+        booked_via_nexhealth_generated_link:
+          type: boolean
+          example: true
+          description: True if the appointment was booked from a link generated by a NexHealth template or campaign
+        campaign_type:
+          type: string
+          enum:
+          - cancelled_recall
+          - continuing_care_recall
+          - manual
+          - missed_recall
+          - recall
+          - google_booking
+          example: recall
+          description: Indicates whether this appointment was booked from a NexHealth template, campaign, or google booking link
+        campaign_id:
+          type: string
+          example: '1'
+          description: Indicates the ID of the template or campaign that included the online booking link the user clicked on
+        campaign_medium:
+          type: string
+          enum:
+          - email
+          - sms
+          example: sms
+          description: Indicates which medium contained the online booking link the user clicked on
+        booked_via_one_click:
+          type: boolean
+          example: false
+          description: True if the appointment was booked by a NexHealth one-click booking link
+    API_V2_Entities_PatientWithGuarantor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 415
+          description: User id
+        email:
+          type: string
+          example: Amy.Ramos@nexhealth.com
+          description: User email
+          nullable: true
+        first_name:
+          type: string
+          example: John
+          description: First name
+        middle_name:
+          type: string
+          example: Anthony
+          description: Middle name
+          nullable: true
+        last_name:
+          type: string
+          example: Smith
+          description: Last name
+        name:
+          type: string
+          example: John Smith
+          description: Full name
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User creation date in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User last updation date in UTC
+        institution_id:
+          type: integer
+          format: int32
+          example: 105
+          description: The institution this user belongs to
+        foreign_id:
+          type: string
+          example: '100437'
+          description: Foreign Id is a unique identifier from the integrated system
+          nullable: true
+        foreign_id_type:
+          type: string
+          example: --DataSource-
+          description: Foreign Id type is a unique string identifier for the integrated system
+        bio:
+          type: object
+          example:
+            city: New York
+            state: NY
+            gender: Female
+            zip_code: '20814'
+            new_patient: false
+            non_patient: true
+            phone_number: '5163042196'
+            date_of_birth: '1964-05-03'
+            address_line_1: ''
+            address_line_2: ''
+            street_address: ''
+            cell_phone_number: ''
+            home_phone_number: ''
+            work_phone_number: ''
+          description: Patient biographical data, fields shown in our example response represent all possible data we retrieve but depending on system and what is actually saved in the health records system you cannot assume any field will consistently be returned
+        inactive:
+          type: boolean
+          example: false
+          description: Is the user inactivated?
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2024-04-12T10:30:00Z'
+          description: The most recent time the resource's data changed meaningfully at the source
+          nullable: true
+        guarantor_id:
+          type: integer
+          format: int32
+          example: 472
+          description: User id of this patient's responsible party
+          nullable: true
+        billing_type:
+          type: string
+          example: Standard Billing - finance charges
+          description: Used by practices in some integrated systems to categorize and filter patients when creating reports, requesting payments, and performing other related office tasks. Some integrated systems call this an account type rather than a billing type
+          nullable: true
+        chart_id:
+          type: string
+          example: '017407'
+          description: User-facing ID for referencing patient data, used in some integrated systems. Depending on the system, the chart ID supplements or replaces the foreign_id as the ID visible to EHR users
+          nullable: true
+        preferred_language:
+          type: string
+          example: es
+          description: Patient's preferred language as an ISO 639-1 code, if specified in the integrated system
+          nullable: true
+        preferred_locale:
+          type: string
+          example: es
+          description: The patient's preferred language setting used for displaying NexHealth forms and communications
+          nullable: true
+        location_ids:
+          type: array
+          items:
+            type: integer
+            format: int32
+          example:
+          - 101
+          - 102
+          - 103
+          description: Array of location ids associated with the user
+        guarantor:
+          $ref: '#/components/schemas/API_V2_Entities_User'
+    postAppointments:
+      type: object
+      properties:
+        appointments_per_timeslot:
+          type: integer
+          format: int32
+          description: Number of appointments (default:1, max:5) that can be booked in a single slot. Only supported for eClinicalWorks and NextGen.
+          minimum: 1
+          maximum: 5
+          default: 1
+        appt:
+          type: object
+          description: Appointment detail object
+          properties:
+            patient_id:
+              type: integer
+              format: int32
+              description: Id of the patient, unless booking is being done by a guardian in which case use the guardian's patient id
+              example: 2897
+            provider_id:
+              type: integer
+              format: int32
+              description: Provider id
+              example: 104
+            operatory_id:
+              type: integer
+              format: int32
+              description: Required if bookings are mapped to operatories for this location
+              example: 181
+            start_time:
+              type: string
+              format: date-time
+              description: Appointment start time. Must be a parseable date/time string, recommended format is YYYY-MM-DDThh:mm:ss+0000
+              example: '2024-04-15T15:00:00Z'
+            end_time:
+              type: string
+              format: date-time
+              description: Appointment end time. Must be a parseable date/time string. Recommended format is YYYY-MM-DDThh:mm:ss+0000.
+              example: '2024-04-15T15:30:00Z'
+            appointment_type_id:
+              type: integer
+              format: int32
+              description: The appointment type for this appointment
+              example: 27
+            note:
+              type: string
+              description: A note that will be written to the EHR. 128 character limit.
+              example: Patient has been having a cough for 3 days
+            unavailable:
+              type: boolean
+              description: Denote this block of time as unavailable on the schedule, don't specify a patient_id with this
+              example: false
+            is_guardian:
+              type: boolean
+              description: Flag to denote this booking is being made by the patient's guardian. If true, patient object must be provided
+              example: false
+            is_new_clients_patient:
+              type: boolean
+              description: Indicates the booking is for a new patient
+              example: false
+            referrer:
+              type: string
+              description: Optionally capture the URL where the booking was made
+              example: http://mypractice.com/book
+            patient:
+              type: object
+              description: Patient details required when is_guardian is true
+              properties:
+                first_name:
+                  type: string
+                  description: Patient's first name
+                  example: John
+                last_name:
+                  type: string
+                  description: Patient's last name
+                  example: Smith
+                bio:
+                  type: object
+                  description: Patient Bio
+                  properties:
+                    date_of_birth:
+                      type: string
+                      format: date
+                      description: Patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD
+                      example: '2015-05-03'
+                    gender:
+                      type: string
+                      description: Patient gender. Gender will default to Female if not provided
+                      enum:
+                      - Male
+                      - Female
+                      - Other
+                      example: Female
+                  required:
+                  - date_of_birth
+              required:
+              - first_name
+              - last_name
+              - bio
+            descriptor_ids:
+              type: array
+              description: Associate descriptors with this appointment, which will also be synchronized on insertion
+              example:
+              - 12
+              - 13
+              items:
+                type: integer
+                format: int32
+          required:
+          - patient_id
+          - provider_id
+          - start_time
+      required:
+      - appt
+      description: Create appointment
+    API_V2_Entities_EmrApptDescriptor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1822
+          description: Descriptor id
+        descriptor_type:
+          type: string
+          example: Procedure Code
+          description: The type of descriptor
+        name:
+          type: string
+          example: EHR Descriptor Name
+          description: The name of descriptor
+        code:
+          type: string
+          example: EHR Descriptor Code
+          description: The code of descriptor
+        location_id:
+          type: integer
+          format: int32
+          example: 13
+          description: The location this object belongs to
+        foreign_id:
+          type: string
+          example: '94'
+          description: Unique identifier of this resource from the integrated system
+        foreign_id_type:
+          type: string
+          example: msg-dentrix-DataSource-100
+          description: Unique identifier for the integrated system itself
+        data:
+          type: object
+          example: {}
+          description: The configuration object, structure depends on the underlying EHR
+        active:
+          type: boolean
+          example: true
+          description: Is descriptor active?
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2021-05-21T16:23:03.046Z'
+          description: Last Sync time in UTC
+        created_at:
+          type: string
+          format: date-time
+          example: '2021-05-21T16:23:03.046Z'
+          description: The datetime the descriptor was created in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2021-05-21T16:23:03.046Z'
+          description: The datetime the descriptor was last updated in UTC
+    API_V2_Entities_OperatoryBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+          description: Operatories Id
+        name:
+          type: string
+          example: op1
+          description: Name of the operatory from the integrated system
+        foreign_id:
+          type: string
+          example: '1'
+          description: Foreign Id is a unique identifier from the integrated system
+        foreign_id_type:
+          type: string
+          example: --DataSource-
+          description: Foreign Id type is a unique identifier for the integrated system
+        location_id:
+          type: integer
+          format: int32
+          example: 4
+          description: Location ID relevant to the Operatory
+          nullable: true
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2020-06-17T19:23:49.176Z'
+          description: Last time the resource was refreshed with data from the data source in UTC
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Operatories created time in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Operatories last updation time in UTC
+        display_name:
+          type: string
+          example: op1
+          description: Optional custom display name
+          nullable: true
+        active:
+          type: boolean
+          example: true
+          description: Is operatory active?
+        bookable_online:
+          type: boolean
+          example: true
+          description: Operatory is active for online booking?
+    API_V2_Entities_AppointmentWithoutIncludes_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_AppointmentWithoutIncludes'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V2_Entities_AppointmentWithoutIncludes_Collection_Response_WithCursor model
+    API_V2_Entities_AppointmentResponse_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_AppointmentResponse'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_AppointmentResponse_Response model
+    API_V2_Entities_AppointmentResponse:
+      type: object
+      properties:
+        appt:
+          $ref: '#/components/schemas/API_V2_Entities_AppointmentWithoutIncludes'
+        stripe_client_secret:
+          type: string
+    patchAppointmentsId:
+      type: object
+      properties:
+        appt:
+          type: object
+          description: Appointment detail object
+          properties:
+            confirmed:
+              type: boolean
+              description: Denotes the office has confirmed the appt, update this to write back confirm status
+              example: true
+            cancelled:
+              type: boolean
+              description: Denotes the office has cancelled the appt, update this to write back cancel status
+              example: false
+            checkin_at:
+              type: string
+              format: date-time
+              description: Denotes the office has checked in the appt at this time, update this to write back checked in status. Must be a parseable date/time string, recommended format is YYYY-MM-DDThh:mm:ss+0000
+              example: '2024-04-15T14:55:00Z'
+            start_time:
+              type: string
+              format: date-time
+              description: Appointment start time. Must be a parseable date/time string. Recommended format is YYYY-MM-DDThh:mm:ss+0000.
+              example: '2024-04-15T15:00:00Z'
+            end_time:
+              type: string
+              format: date-time
+              description: Appointment end time. Must be a parseable date/time string. Recommended format is YYYY-MM-DDThh:mm:ss+0000.
+              example: '2024-04-15T15:30:00Z'
+            operatory_id:
+              type: integer
+              format: int32
+              description: The operatory for this appointment
+              example: 181
+            note:
+              type: string
+              description: A note that will be written to the EHR
+              example: Patient has been having a cough for 3 days
+      required:
+      - appt
+      description: Edit Appointment
+    API_V2_Entities_Appointment_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_Appointment'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_Appointment_Response model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_V2_Entities_User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 415
+          description: User id
+        email:
+          type: string
+          example: Amy.Ramos@nexhealth.com
+          description: User email
+          nullable: true
+        first_name:
+          type: string
+          example: John
+          description: First name
+        middle_name:
+          type: string
+          example: Anthony
+          description: Middle name
+          nullable: true
+        last_name:
+          type: string
+          example: Smith
+          description: Last name
+        name:
+          type: string
+          example: John Smith
+          description: Full name
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User creation date in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User last updation date in UTC
+        institution_id:
+          type: integer
+          format: int32
+          example: 105
+          description: The institution this user belongs to
+        foreign_id:
+          type: string
+          example: '100437'
+          description: Foreign Id is a unique identifier from the integrated system
+          nullable: true
+        foreign_id_type:
+          type: string
+          example: --DataSource-
+          description: Foreign Id type is a unique string identifier for the integrated system
+        bio:
+          type: object
+          example:
+            city: New York
+            state: NY
+            gender: Female
+            zip_code: '20814'
+            new_patient: false
+            non_patient: true
+            phone_number: '5163042196'
+            date_of_birth: '1964-05-03'
+            address_line_1: ''
+            address_line_2: ''
+            street_address: ''
+            cell_phone_number: ''
+            home_phone_number: ''
+            work_phone_number: ''
+          description: Patient biographical data, fields shown in our example response represent all possible data we retrieve but depending on system and what is actually saved in the health records system you cannot assume any field will consistently be returned
+        inactive:
+          type: boolean
+          example: false
+          description: Is the user inactivated?
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2024-04-12T10:30:00Z'
+          description: The most recent time the resource's data changed meaningfully at the source
+          nullable: true
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_V2_Entities_AppointmentWithoutIncludes:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1822
+          description: Appointment id
+        patient_id:
+          type: integer
+          format: int32
+          example: 2897
+          description: Appointment patient id
+          nullable: true
+        provider_id:
+          type: integer
+          format: int32
+          example: 104
+          description: Provider id
+          nullable: true
+        provider_name:
+          type: string
+          example: Dr. John Smith
+          description: Provider name
+          nullable: true
+        start_time:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Appointment scheduled start time in UTC
+        confirmed:
+          type: boolean
+          example: true
+          description: Appointment confirmation status
+          nullable: true
+        patient_missed:
+          type: boolean
+          example: false
+          description: Did the patient no show? Not supported by all integrations
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Appointment created time in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Appointment last updation time in UTC
+        note:
+          type: string
+          example: Patient has been having a cough for 3 days
+          description: Appointment note
+          nullable: true
+        end_time:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Appointment scheduled end time in UTC
+        unavailable:
+          type: boolean
+          example: false
+          description: Is this appointment a scheduling block (blocks off the schedule)
+          nullable: true
+        cancelled:
+          type: boolean
+          example: false
+          description: Is this appointment cancelled?
+        timezone:
+          type: string
+          example: America/New_York
+          description: Appointment timezone
+        institution_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Institution id
+        appointment_type_id:
+          type: integer
+          format: int32
+          example: 27
+          description: Nexhealth appointment_type id, 0 if not set
+          nullable: true
+        checkin_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time the patient checked in at in UTC. Not supported by all integrations
+          nullable: true
+        location_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Appointment location id
+          nullable: true
+        foreign_id:
+          type: string
+          example: '94'
+          description: Unique identifier of this resource from the integrated system
+          nullable: true
+        foreign_id_type:
+          type: string
+          example: msg-dentrix-DataSource-100
+          description: Unique identifier for the integrated system itself
+        misc:
+          type: object
+          example:
+            is_booked_on_nexhealth: true
+          description: Miscellaneous information for the appointment. The is_booked_on_nexhealth key indicates whether the appointment was booked through NexHealth
+          nullable: true
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Last Sync time in UTC
+          nullable: true
+        patient_confirmed:
+          type: boolean
+          example: false
+          description: Is this appointment confirmed by the patient (as opposed to the office)?
+          nullable: true
+        created_by_user_id:
+          type: integer
+          format: int32
+          example: 197
+          description: Id of the user who booked the appointment
+          nullable: true
+        is_guardian:
+          type: boolean
+          example: false
+          description: Was the appointment booked by a guardian?
+          nullable: true
+        patient_confirmed_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time of patient_confirmation in UTC
+          nullable: true
+        cancelled_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time of appointment cancellation in UTC. Note this will not be reset if the appointment is uncancelled
+          nullable: true
+        is_new_clients_patient:
+          type: boolean
+          example: false
+          description: Is this a new patient at this practice?
+          nullable: true
+        confirmed_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time of appointment confirmation by the office in UTC
+          nullable: true
+        sooner_if_possible:
+          type: boolean
+          example: false
+          description: Does patient want an earlier time?
+          nullable: true
+        operatory_id:
+          type: integer
+          format: int64
+          example: 181
+          description: Operatory id for the appointment
+          nullable: true
+        checked_out:
+          type: boolean
+          example: false
+          description: Has the patient checked out? Not supported by all integrations
+          nullable: true
+        checked_out_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time of check out in UTC
+          nullable: true
+        referrer:
+          type: string
+          example: http://mypractice.com/book
+          description: Optional field to store URI origin of the booking
+          nullable: true
+        is_past_patient:
+          type: boolean
+          example: true
+          description: Does this patient have prior appointments?
+          nullable: true
+        timezone_offset:
+          type: string
+          example: '-4:00'
+          description: Timezone offset string
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V2_Entities_Appointment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1822
+          description: Appointment id
+        patient_id:
+          type: integer
+          format: int32
+          example: 2897
+          description: Appointment patient id
+          nullable: true
+        provider_id:
+          type: integer
+          format: int32
+          example: 104
+          description: Provider id
+          nullable: true
+        provider_name:
+          type: string
+          example: Dr. John Smith
+          description: Provider name
+          nullable: true
+        start_time:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Appointment scheduled start time in UTC
+        confirmed:
+          type: boolean
+          example: true
+          description: Appointment confirmation status
+          nullable: true
+        patient_missed:
+          type: boolean
+          example: false
+          description: Did the patient no show? Not supported by all integrations
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Appointment created time in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Appointment last updation time in UTC
+        note:
+          type: string
+          example: Patient has been having a cough for 3 days
+          description: Appointment note
+          nullable: true
+        end_time:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Appointment scheduled end time in UTC
+        unavailable:
+          type: boolean
+          example: false
+          description: Is this appointment a scheduling block (blocks off the schedule)
+          nullable: true
+        cancelled:
+          type: boolean
+          example: false
+          description: Is this appointment cancelled?
+        timezone:
+          type: string
+          example: America/New_York
+          description: Appointment timezone
+        institution_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Institution id
+        appointment_type_id:
+          type: integer
+          format: int32
+          example: 27
+          description: Nexhealth appointment_type id, 0 if not set
+          nullable: true
+        checkin_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time the patient checked in at in UTC. Not supported by all integrations
+          nullable: true
+        location_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Appointment location id
+          nullable: true
+        foreign_id:
+          type: string
+          example: '94'
+          description: Unique identifier of this resource from the integrated system
+          nullable: true
+        foreign_id_type:
+          type: string
+          example: msg-dentrix-DataSource-100
+          description: Unique identifier for the integrated system itself
+        misc:
+          type: object
+          example:
+            is_booked_on_nexhealth: true
+          description: Miscellaneous information for the appointment. The is_booked_on_nexhealth key indicates whether the appointment was booked through NexHealth
+          nullable: true
+        last_sync_time:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Last Sync time in UTC
+          nullable: true
+        patient_confirmed:
+          type: boolean
+          example: false
+          description: Is this appointment confirmed by the patient (as opposed to the office)?
+          nullable: true
+        created_by_user_id:
+          type: integer
+          format: int32
+          example: 197
+          description: Id of the user who booked the appointment
+          nullable: true
+        is_guardian:
+          type: boolean
+          example: false
+          description: Was the appointment booked by a guardian?
+          nullable: true
+        patient_confirmed_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time of patient_confirmation in UTC
+          nullable: true
+        cancelled_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time of appointment cancellation in UTC. Note this will not be reset if the appointment is uncancelled
+          nullable: true
+        is_new_clients_patient:
+          type: boolean
+          example: false
+          description: Is this a new patient at this practice?
+          nullable: true
+        confirmed_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time of appointment confirmation by the office in UTC
+          nullable: true
+        sooner_if_possible:
+          type: boolean
+          example: false
+          description: Does patient want an earlier time?
+          nullable: true
+        operatory_id:
+          type: integer
+          format: int64
+          example: 181
+          description: Operatory id for the appointment
+          nullable: true
+        checked_out:
+          type: boolean
+          example: false
+          description: Has the patient checked out? Not supported by all integrations
+          nullable: true
+        checked_out_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Time of check out in UTC
+          nullable: true
+        referrer:
+          type: string
+          example: http://mypractice.com/book
+          description: Optional field to store URI origin of the booking
+          nullable: true
+        is_past_patient:
+          type: boolean
+          example: true
+          description: Does this patient have prior appointments?
+          nullable: true
+        timezone_offset:
+          type: string
+          example: '-4:00'
+          description: Timezone offset string
+        patient:
+          $ref: '#/components/schemas/API_V2_Entities_PatientWithGuarantor'
+        operatory:
+          $ref: '#/components/schemas/API_V2_Entities_OperatoryBasic'
+        appointment_type:
+          $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeBasic'
+        procedures:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_Procedure'
+          description: Procedures assigned to the appointment
+        descriptors:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor'
+          description: EHR descriptors
+        booking_details:
+          $ref: '#/components/schemas/API_V2_Entities_Appointment_OnlineBookingDetail'
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header
