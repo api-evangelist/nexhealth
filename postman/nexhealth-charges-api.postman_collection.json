@@ -1,0 +1,1123 @@
+{
+  "info": {
+    "_postman_id": "0185d210-621d-4fc2-925b-b7c43a8d1880",
+    "name": "NexHealth Adjustment Types Charges API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:35.000Z",
+    "updatedAt": "2026-07-28T02:17:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0185d210-621d-4fc2-925b-b7c43a8d1880"
+  },
+  "item": [
+    {
+      "name": "charges",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View charge",
+              "id": "d0ab4949-d0de-4bfa-ab0a-44617295061d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges/:id?subdomain=<string>&include[]=totals&include[]=provider",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "totals"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "provider"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "0587956e-d864-418d-b713-ef88835fde96",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single ledger charge"
+              },
+              "response": [
+                {
+                  "id": "94c94d8d-a308-4716-b2da-9f3f57c787df",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"foreign_id\": \"<string>\",\n    \"location_id\": \"<integer>\",\n    \"patient_id\": \"<integer>\",\n    \"guarantor_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"procedure_id\": \"<long>\",\n    \"procedure_code\": \"<string>\",\n    \"updated_at\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"fee\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"charged_at\": \"<date>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"patient\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"provider_id\": \"<integer>\"\n    },\n    \"provider\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"display_name\": \"<string>\",\n      \"npi\": \"<string>\",\n      \"tin\": \"<string>\",\n      \"state_license\": \"<string>\",\n      \"specialty_code\": \"<string>\"\n    },\n    \"guarantor\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\"\n    },\n    \"procedure\": {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"appointment_id\": \"<long>\",\n      \"code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"referred\",\n      \"updated_at\": \"<dateTime>\",\n      \"body_site\": {\n        \"tooth\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"surface\": \"<string>\"\n      },\n      \"fee\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"start_date\": \"<date>\",\n      \"end_date\": \"<date>\",\n      \"treatment_plan_ids\": [\n        \"<long>\",\n        \"<long>\"\n      ]\n    },\n    \"claim_payouts\": [\n      {\n        \"amount_billed_to_insurance\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"estimated_insurance_payment\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"insurance_payment\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"write_off\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"allowed_amount\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"fee_schedule_procedure_code\": {\n          \"procedure_code_id\": \"<string>\",\n          \"fee\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"code\": \"<string>\",\n          \"id\": \"<long>\",\n          \"location_id\": \"<integer>\",\n          \"fee_schedule_id\": \"<long>\",\n          \"updated_at\": \"<dateTime>\"\n        },\n        \"claim_id\": \"<long>\"\n      },\n      {\n        \"amount_billed_to_insurance\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"estimated_insurance_payment\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"insurance_payment\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"write_off\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"allowed_amount\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"fee_schedule_procedure_code\": {\n          \"procedure_code_id\": \"<string>\",\n          \"fee\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"code\": \"<string>\",\n          \"id\": \"<long>\",\n          \"location_id\": \"<integer>\",\n          \"fee_schedule_id\": \"<long>\",\n          \"updated_at\": \"<dateTime>\"\n        },\n        \"claim_id\": \"<long>\"\n      }\n    ],\n    \"claims\": [\n      {\n        \"id\": \"<long>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"guarantor_id\": \"<integer>\",\n        \"status\": \"draft\",\n        \"received_at\": \"<dateTime>\",\n        \"sent_at\": \"<dateTime>\",\n        \"note\": \"<string>\",\n        \"primary_insurance_plan_id\": \"<long>\",\n        \"secondary_insurance_plan_id\": \"<long>\",\n        \"date_of_service\": \"<date>\",\n        \"totals\": {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"write_off\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          }\n        },\n        \"updated_at\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"guarantor_id\": \"<integer>\",\n        \"status\": \"draft\",\n        \"received_at\": \"<dateTime>\",\n        \"sent_at\": \"<dateTime>\",\n        \"note\": \"<string>\",\n        \"primary_insurance_plan_id\": \"<long>\",\n        \"secondary_insurance_plan_id\": \"<long>\",\n        \"date_of_service\": \"<date>\",\n        \"totals\": {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"write_off\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          }\n        },\n        \"updated_at\": \"<dateTime>\"\n      }\n    ],\n    \"totals\": {\n      \"amount_billed_to_insurance\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"estimated_insurance_payment\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"insurance_payment\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"write_off\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      }\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:17:35.000Z",
+                  "updatedAt": "2026-07-28T02:17:35.000Z",
+                  "uid": "35240-94c94d8d-a308-4716-b2da-9f3f57c787df"
+                },
+                {
+                  "id": "b608d4dd-bd5e-4c3f-bd32-b4ad88a23a4f",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:35.000Z",
+                  "updatedAt": "2026-07-28T02:17:35.000Z",
+                  "uid": "35240-b608d4dd-bd5e-4c3f-bd32-b4ad88a23a4f"
+                },
+                {
+                  "id": "b922c482-8d5c-4275-8158-220295904d35",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:35.000Z",
+                  "updatedAt": "2026-07-28T02:17:35.000Z",
+                  "uid": "35240-b922c482-8d5c-4275-8158-220295904d35"
+                },
+                {
+                  "id": "d6a10314-a674-4277-92f8-3bfd9fb66d66",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:35.000Z",
+                  "updatedAt": "2026-07-28T02:17:35.000Z",
+                  "uid": "35240-d6a10314-a674-4277-92f8-3bfd9fb66d66"
+                },
+                {
+                  "id": "853209af-9447-46fa-8cb2-bde5efe22315",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:35.000Z",
+                  "updatedAt": "2026-07-28T02:17:35.000Z",
+                  "uid": "35240-853209af-9447-46fa-8cb2-bde5efe22315"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:35.000Z",
+              "updatedAt": "2026-07-28T02:17:35.000Z",
+              "uid": "35240-d0ab4949-d0de-4bfa-ab0a-44617295061d"
+            }
+          ],
+          "id": "20f82cd3-1a4b-4050-b7c2-04e42f8c2b8c",
+          "createdAt": "2026-07-28T02:17:35.000Z",
+          "updatedAt": "2026-07-28T02:17:35.000Z",
+          "uid": "35240-20f82cd3-1a4b-4050-b7c2-04e42f8c2b8c"
+        },
+        {
+          "name": "View charges",
+          "id": "d5e1826a-cf7c-4695-9285-a7021c8c2a72",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/charges?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&procedure_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&include[]=claim_payouts&include[]=claim_payouts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "charges"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated patient",
+                  "key": "patient_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated provider",
+                  "key": "provider_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated procedure",
+                  "key": "procedure_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated guarantor",
+                  "key": "guarantor_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Charges updated after the specified time (UTC)",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Include deleted charges",
+                  "key": "include_deleted",
+                  "value": "false"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                },
+                {
+                  "description": "Resources to be included in the response",
+                  "key": "include[]",
+                  "value": "claim_payouts"
+                },
+                {
+                  "description": "Resources to be included in the response",
+                  "key": "include[]",
+                  "value": "claim_payouts"
+                }
+              ]
+            },
+            "description": "This endpoint returns the ledger charges for the specified location. At least one of the patient_id, provider_id, procedure_id, guarantor_id, or updated_since filters must be provided."
+          },
+          "response": [
+            {
+              "id": "0550c921-55b4-4ec6-b401-e0cecaec7819",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&procedure_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&include[]=claim_payouts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated procedure",
+                      "key": "procedure_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Charges updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted charges",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "claim_payouts"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"foreign_id\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"procedure_id\": \"<long>\",\n      \"procedure_code\": \"<string>\",\n      \"updated_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"fee\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"charged_at\": \"<date>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"claim_payouts\": [\n        {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"write_off\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"allowed_amount\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"fee_schedule_procedure_code\": {\n            \"procedure_code_id\": \"<string>\",\n            \"fee\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\"\n            },\n            \"code\": \"<string>\",\n            \"id\": \"<long>\",\n            \"location_id\": \"<integer>\",\n            \"fee_schedule_id\": \"<long>\",\n            \"updated_at\": \"<dateTime>\"\n          },\n          \"claim_id\": \"<long>\"\n        },\n        {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"write_off\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"allowed_amount\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"fee_schedule_procedure_code\": {\n            \"procedure_code_id\": \"<string>\",\n            \"fee\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\"\n            },\n            \"code\": \"<string>\",\n            \"id\": \"<long>\",\n            \"location_id\": \"<integer>\",\n            \"fee_schedule_id\": \"<long>\",\n            \"updated_at\": \"<dateTime>\"\n          },\n          \"claim_id\": \"<long>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<long>\",\n      \"foreign_id\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"procedure_id\": \"<long>\",\n      \"procedure_code\": \"<string>\",\n      \"updated_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"fee\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"charged_at\": \"<date>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"claim_payouts\": [\n        {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"write_off\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"allowed_amount\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"fee_schedule_procedure_code\": {\n            \"procedure_code_id\": \"<string>\",\n            \"fee\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\"\n            },\n            \"code\": \"<string>\",\n            \"id\": \"<long>\",\n            \"location_id\": \"<integer>\",\n            \"fee_schedule_id\": \"<long>\",\n            \"updated_at\": \"<dateTime>\"\n          },\n          \"claim_id\": \"<long>\"\n        },\n        {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"write_off\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"allowed_amount\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"<string>\"\n          },\n          \"fee_schedule_procedure_code\": {\n            \"procedure_code_id\": \"<string>\",\n            \"fee\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\"\n            },\n            \"code\": \"<string>\",\n            \"id\": \"<long>\",\n            \"location_id\": \"<integer>\",\n            \"fee_schedule_id\": \"<long>\",\n            \"updated_at\": \"<dateTime>\"\n          },\n          \"claim_id\": \"<long>\"\n        }\n      ]\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:17:35.000Z",
+              "updatedAt": "2026-07-28T02:17:35.000Z",
+              "uid": "35240-0550c921-55b4-4ec6-b401-e0cecaec7819"
+            },
+            {
+              "id": "da030da0-d098-4dd5-af03-7e005ff99dde",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&procedure_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&include[]=claim_payouts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated procedure",
+                      "key": "procedure_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Charges updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted charges",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "claim_payouts"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:35.000Z",
+              "updatedAt": "2026-07-28T02:17:35.000Z",
+              "uid": "35240-da030da0-d098-4dd5-af03-7e005ff99dde"
+            },
+            {
+              "id": "42eef9da-0a08-448f-a399-c2e61fd07163",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&procedure_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&include[]=claim_payouts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated procedure",
+                      "key": "procedure_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Charges updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted charges",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "claim_payouts"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:35.000Z",
+              "updatedAt": "2026-07-28T02:17:35.000Z",
+              "uid": "35240-42eef9da-0a08-448f-a399-c2e61fd07163"
+            },
+            {
+              "id": "4e125b27-b741-4e85-af2d-44b7b5caab9b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&procedure_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&include[]=claim_payouts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated procedure",
+                      "key": "procedure_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Charges updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted charges",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "claim_payouts"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:35.000Z",
+              "updatedAt": "2026-07-28T02:17:35.000Z",
+              "uid": "35240-4e125b27-b741-4e85-af2d-44b7b5caab9b"
+            },
+            {
+              "id": "2c4c83e5-fad2-4894-8263-860202621df0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&procedure_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&include[]=claim_payouts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated procedure",
+                      "key": "procedure_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Charges updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted charges",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "claim_payouts"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:35.000Z",
+              "updatedAt": "2026-07-28T02:17:35.000Z",
+              "uid": "35240-2c4c83e5-fad2-4894-8263-860202621df0"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:35.000Z",
+          "updatedAt": "2026-07-28T02:17:35.000Z",
+          "uid": "35240-d5e1826a-cf7c-4695-9285-a7021c8c2a72"
+        }
+      ],
+      "id": "72775100-4d77-4921-9fc7-518727bbe8a5",
+      "createdAt": "2026-07-28T02:17:35.000Z",
+      "updatedAt": "2026-07-28T02:17:35.000Z",
+      "uid": "35240-72775100-4d77-4921-9fc7-518727bbe8a5"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

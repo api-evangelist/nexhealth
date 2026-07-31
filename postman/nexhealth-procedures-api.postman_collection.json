@@ -1,0 +1,1292 @@
+{
+  "info": {
+    "_postman_id": "2be99b19-2861-478a-aae8-0a993a8f317c",
+    "name": "NexHealth Adjustment Types Procedures API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:33.000Z",
+    "updatedAt": "2026-07-28T02:20:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2be99b19-2861-478a-aae8-0a993a8f317c"
+  },
+  "item": [
+    {
+      "name": "procedures",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View procedure",
+              "id": "f3012a7e-1ab0-4f3d-beb4-50cda6b5b005",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procedures/:id?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procedures",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "2a5412e4-9d4b-4a0b-b7ab-3c1f46b72f2f",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) The ID of the procedure"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single procedure by its NexHealth id. Note: the list endpoint is not filtered by your token's location access, so ids returned by GET /procedures may return 404 here if the procedure belongs to a location your token cannot access or has no location assigned."
+              },
+              "response": [
+                {
+                  "id": "91baf1d9-71aa-474f-b44c-98c253b20da5",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procedures/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procedures",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"location_id\": \"<integer>\",\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"appointment_id\": \"<long>\",\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"status\": \"inactive\",\n    \"updated_at\": \"<dateTime>\",\n    \"body_site\": {\n      \"tooth\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"surface\": \"<string>\"\n    },\n    \"fee\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"start_date\": \"<date>\",\n    \"end_date\": \"<date>\",\n    \"treatment_plan_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ]\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:20:34.000Z",
+                  "updatedAt": "2026-07-28T02:20:34.000Z",
+                  "uid": "35240-91baf1d9-71aa-474f-b44c-98c253b20da5"
+                },
+                {
+                  "id": "ad026344-6eac-4ab6-9595-771d85ab3cb5",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procedures/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procedures",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:34.000Z",
+                  "updatedAt": "2026-07-28T02:20:34.000Z",
+                  "uid": "35240-ad026344-6eac-4ab6-9595-771d85ab3cb5"
+                },
+                {
+                  "id": "5f60b1fa-4210-4f1a-8fa0-72662eea1ff7",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procedures/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procedures",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:34.000Z",
+                  "updatedAt": "2026-07-28T02:20:34.000Z",
+                  "uid": "35240-5f60b1fa-4210-4f1a-8fa0-72662eea1ff7"
+                },
+                {
+                  "id": "db4b1976-9f32-4049-8c94-f17ffface36c",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procedures/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procedures",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:34.000Z",
+                  "updatedAt": "2026-07-28T02:20:34.000Z",
+                  "uid": "35240-db4b1976-9f32-4049-8c94-f17ffface36c"
+                },
+                {
+                  "id": "11fb4012-58a3-450c-bc6e-55aee185fa29",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procedures/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procedures",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:34.000Z",
+                  "updatedAt": "2026-07-28T02:20:34.000Z",
+                  "uid": "35240-11fb4012-58a3-450c-bc6e-55aee185fa29"
+                },
+                {
+                  "id": "173b3a04-bdb5-4267-91b7-ca1167dfc7ac",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procedures/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procedures",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:34.000Z",
+                  "updatedAt": "2026-07-28T02:20:34.000Z",
+                  "uid": "35240-173b3a04-bdb5-4267-91b7-ca1167dfc7ac"
+                }
+              ],
+              "createdAt": "2026-07-28T02:20:34.000Z",
+              "updatedAt": "2026-07-28T02:20:34.000Z",
+              "uid": "35240-f3012a7e-1ab0-4f3d-beb4-50cda6b5b005"
+            }
+          ],
+          "id": "0ba977c0-de06-4314-8d20-8273f928d328",
+          "createdAt": "2026-07-28T02:20:33.000Z",
+          "updatedAt": "2026-07-28T02:20:33.000Z",
+          "uid": "35240-0ba977c0-de06-4314-8d20-8273f928d328"
+        },
+        {
+          "name": "View procedures",
+          "id": "b875bbdd-c0d2-4e96-97e0-c6e966768de1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/procedures?subdomain=<string>&sort=<string>&location_id=<integer>&provider_id=<integer>&patient_id=<integer>&appointment_id=<integer>&updated_since=<dateTime>&started_after=<date>&started_before=<date>&ended_after=<date>&ended_before=<date>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "procedures"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter for specific location. Cannot be used as the only filter \u2014 combine it with at least one other filter",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter for specific provider",
+                  "key": "provider_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter for specific patient",
+                  "key": "patient_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter for specific appointment",
+                  "key": "appointment_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Procedures updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filter for procedures with start_date after a specific date (including the date)",
+                  "key": "started_after",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Filter for procedures with start_date before a specific date (including the date)",
+                  "key": "started_before",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Filter for procedures with end_date after a specific date (including the date)",
+                  "key": "ended_after",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Filter for procedures with end_date before a specific date (including the date)",
+                  "key": "ended_before",
+                  "value": "<date>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "This endpoint returns a list of procedures.\n You can filter by provider_id, patient_id, appointment_id, started_after, started_before, ended_after, ended_before or\n updated_since. You must provide at least one filter. You may additionally narrow any of these filters by location_id,\n but location_id alone does not satisfy the at-least-one-filter requirement."
+          },
+          "response": [
+            {
+              "id": "668610a3-013f-4ffd-85c9-dcab3ae83b7a",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procedures?subdomain=<string>&sort=<string>&location_id=<integer>&provider_id=<integer>&patient_id=<integer>&appointment_id=<integer>&updated_since=<dateTime>&started_after=<date>&started_before=<date>&ended_after=<date>&ended_before=<date>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for specific location. Cannot be used as the only filter \u2014 combine it with at least one other filter",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific appointment",
+                      "key": "appointment_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Procedures updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date after a specific date (including the date)",
+                      "key": "started_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date before a specific date (including the date)",
+                      "key": "started_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date after a specific date (including the date)",
+                      "key": "ended_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date before a specific date (including the date)",
+                      "key": "ended_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"appointment_id\": \"<long>\",\n      \"code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"scheduled\",\n      \"updated_at\": \"<dateTime>\",\n      \"body_site\": {\n        \"tooth\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"surface\": \"<string>\"\n      },\n      \"fee\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"start_date\": \"<date>\",\n      \"end_date\": \"<date>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"appointment_id\": \"<long>\",\n      \"code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"planned\",\n      \"updated_at\": \"<dateTime>\",\n      \"body_site\": {\n        \"tooth\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"surface\": \"<string>\"\n      },\n      \"fee\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"start_date\": \"<date>\",\n      \"end_date\": \"<date>\"\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:20:34.000Z",
+              "updatedAt": "2026-07-28T02:20:34.000Z",
+              "uid": "35240-668610a3-013f-4ffd-85c9-dcab3ae83b7a"
+            },
+            {
+              "id": "7757ce18-d15b-483c-b767-935a5d0dd291",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procedures?subdomain=<string>&sort=<string>&location_id=<integer>&provider_id=<integer>&patient_id=<integer>&appointment_id=<integer>&updated_since=<dateTime>&started_after=<date>&started_before=<date>&ended_after=<date>&ended_before=<date>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for specific location. Cannot be used as the only filter \u2014 combine it with at least one other filter",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific appointment",
+                      "key": "appointment_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Procedures updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date after a specific date (including the date)",
+                      "key": "started_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date before a specific date (including the date)",
+                      "key": "started_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date after a specific date (including the date)",
+                      "key": "ended_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date before a specific date (including the date)",
+                      "key": "ended_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:34.000Z",
+              "updatedAt": "2026-07-28T02:20:34.000Z",
+              "uid": "35240-7757ce18-d15b-483c-b767-935a5d0dd291"
+            },
+            {
+              "id": "8053c75b-bf37-4211-a16c-0745d3fd274e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procedures?subdomain=<string>&sort=<string>&location_id=<integer>&provider_id=<integer>&patient_id=<integer>&appointment_id=<integer>&updated_since=<dateTime>&started_after=<date>&started_before=<date>&ended_after=<date>&ended_before=<date>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for specific location. Cannot be used as the only filter \u2014 combine it with at least one other filter",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific appointment",
+                      "key": "appointment_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Procedures updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date after a specific date (including the date)",
+                      "key": "started_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date before a specific date (including the date)",
+                      "key": "started_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date after a specific date (including the date)",
+                      "key": "ended_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date before a specific date (including the date)",
+                      "key": "ended_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:34.000Z",
+              "updatedAt": "2026-07-28T02:20:34.000Z",
+              "uid": "35240-8053c75b-bf37-4211-a16c-0745d3fd274e"
+            },
+            {
+              "id": "f5ab31ab-5aab-461a-8820-06f2980f7fbd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procedures?subdomain=<string>&sort=<string>&location_id=<integer>&provider_id=<integer>&patient_id=<integer>&appointment_id=<integer>&updated_since=<dateTime>&started_after=<date>&started_before=<date>&ended_after=<date>&ended_before=<date>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for specific location. Cannot be used as the only filter \u2014 combine it with at least one other filter",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific appointment",
+                      "key": "appointment_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Procedures updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date after a specific date (including the date)",
+                      "key": "started_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date before a specific date (including the date)",
+                      "key": "started_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date after a specific date (including the date)",
+                      "key": "ended_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date before a specific date (including the date)",
+                      "key": "ended_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:34.000Z",
+              "updatedAt": "2026-07-28T02:20:34.000Z",
+              "uid": "35240-f5ab31ab-5aab-461a-8820-06f2980f7fbd"
+            },
+            {
+              "id": "07f79498-0c7d-42cc-824b-b7ce4ad8346d",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procedures?subdomain=<string>&sort=<string>&location_id=<integer>&provider_id=<integer>&patient_id=<integer>&appointment_id=<integer>&updated_since=<dateTime>&started_after=<date>&started_before=<date>&ended_after=<date>&ended_before=<date>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for specific location. Cannot be used as the only filter \u2014 combine it with at least one other filter",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific appointment",
+                      "key": "appointment_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Procedures updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date after a specific date (including the date)",
+                      "key": "started_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date before a specific date (including the date)",
+                      "key": "started_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date after a specific date (including the date)",
+                      "key": "ended_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date before a specific date (including the date)",
+                      "key": "ended_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:34.000Z",
+              "updatedAt": "2026-07-28T02:20:34.000Z",
+              "uid": "35240-07f79498-0c7d-42cc-824b-b7ce4ad8346d"
+            },
+            {
+              "id": "0f5192df-5323-4194-822c-5468a3aa36c4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procedures?subdomain=<string>&sort=<string>&location_id=<integer>&provider_id=<integer>&patient_id=<integer>&appointment_id=<integer>&updated_since=<dateTime>&started_after=<date>&started_before=<date>&ended_after=<date>&ended_before=<date>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for specific location. Cannot be used as the only filter \u2014 combine it with at least one other filter",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific appointment",
+                      "key": "appointment_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Procedures updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date after a specific date (including the date)",
+                      "key": "started_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with start_date before a specific date (including the date)",
+                      "key": "started_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date after a specific date (including the date)",
+                      "key": "ended_after",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter for procedures with end_date before a specific date (including the date)",
+                      "key": "ended_before",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:34.000Z",
+              "updatedAt": "2026-07-28T02:20:34.000Z",
+              "uid": "35240-0f5192df-5323-4194-822c-5468a3aa36c4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:34.000Z",
+          "updatedAt": "2026-07-28T02:20:34.000Z",
+          "uid": "35240-b875bbdd-c0d2-4e96-97e0-c6e966768de1"
+        }
+      ],
+      "id": "cce32c8e-5c0a-4311-a42d-524034b33f81",
+      "createdAt": "2026-07-28T02:20:33.000Z",
+      "updatedAt": "2026-07-28T02:20:33.000Z",
+      "uid": "35240-cce32c8e-5c0a-4311-a42d-524034b33f81"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

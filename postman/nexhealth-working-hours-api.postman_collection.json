@@ -1,0 +1,3206 @@
+{
+  "info": {
+    "_postman_id": "47e78350-37c4-499e-a449-bb80ab846ac2",
+    "name": "NexHealth Adjustment Types Working Hours API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:49.000Z",
+    "updatedAt": "2026-07-28T02:20:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-47e78350-37c4-499e-a449-bb80ab846ac2"
+  },
+  "item": [
+    {
+      "name": "working_hour_labels",
+      "item": [
+        {
+          "name": "View working hour labels",
+          "id": "92c4587e-00c2-4ce2-a83f-1edd5226cf1a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/working_hour_labels?subdomain=<string>&location_id=<integer>&search_name=<string>&active=<boolean>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "working_hour_labels"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter working hour labels by search term",
+                  "key": "search_name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by active status.",
+                  "key": "active",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "This endpoint returns a list of Working Hour Labels, narrowed down by the optional filters configured."
+          },
+          "response": [
+            {
+              "id": "dcfdffbf-5fc0-42bb-be2d-80a923af94dd",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hour_labels?subdomain=<string>&location_id=<integer>&search_name=<string>&active=<boolean>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hour_labels"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter working hour labels by search term",
+                      "key": "search_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by active status.",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-dcfdffbf-5fc0-42bb-be2d-80a923af94dd"
+            },
+            {
+              "id": "032d270a-a1f6-4932-8070-7dbd3c184e19",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hour_labels?subdomain=<string>&location_id=<integer>&search_name=<string>&active=<boolean>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hour_labels"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter working hour labels by search term",
+                      "key": "search_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by active status.",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-032d270a-a1f6-4932-8070-7dbd3c184e19"
+            },
+            {
+              "id": "570e5483-9bf4-497b-9806-d16c6ca40b7d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hour_labels?subdomain=<string>&location_id=<integer>&search_name=<string>&active=<boolean>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hour_labels"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter working hour labels by search term",
+                      "key": "search_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by active status.",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-570e5483-9bf4-497b-9806-d16c6ca40b7d"
+            },
+            {
+              "id": "c8f4389c-6c68-4f6d-bca2-feed5eb7bc05",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hour_labels?subdomain=<string>&location_id=<integer>&search_name=<string>&active=<boolean>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hour_labels"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter working hour labels by search term",
+                      "key": "search_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by active status.",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-c8f4389c-6c68-4f6d-bca2-feed5eb7bc05"
+            },
+            {
+              "id": "4ca22b7c-b458-4d24-8ce8-6fff9d41753c",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hour_labels?subdomain=<string>&location_id=<integer>&search_name=<string>&active=<boolean>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hour_labels"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter working hour labels by search term",
+                      "key": "search_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by active status.",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-4ca22b7c-b458-4d24-8ce8-6fff9d41753c"
+            },
+            {
+              "id": "7a605a82-c54a-42bd-b303-e391bf8b2c34",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hour_labels?subdomain=<string>&location_id=<integer>&search_name=<string>&active=<boolean>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hour_labels"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter working hour labels by search term",
+                      "key": "search_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by active status.",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-7a605a82-c54a-42bd-b303-e391bf8b2c34"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:49.000Z",
+          "updatedAt": "2026-07-28T02:20:49.000Z",
+          "uid": "35240-92c4587e-00c2-4ce2-a83f-1edd5226cf1a"
+        }
+      ],
+      "id": "44dfd521-4054-4bab-b0a2-10824b832c71",
+      "createdAt": "2026-07-28T02:20:49.000Z",
+      "updatedAt": "2026-07-28T02:20:49.000Z",
+      "uid": "35240-44dfd521-4054-4bab-b0a2-10824b832c71"
+    },
+    {
+      "name": "working_hours",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View working hour",
+              "id": "85138406-7a5b-426d-b71c-3bd85b48035d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>&include[]=appointment_types&include[]=appointment_types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "appointment_types"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "appointment_types"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "1dbb30c2-d1d6-432b-8465-dccf63b49195",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Id of the working hour"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single working hour."
+              },
+              "response": [
+                {
+                  "id": "07a9f6b2-bce0-49e4-bca8-122fd9ab1ee1",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>&include[]=appointment_types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "appointment_types"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"location_id\": \"<integer>\",\n    \"operatory_id\": \"<long>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"days\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {},\n    \"tz_offset\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"source\": \"synced\",\n    \"label\": {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"appointment_types\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"parent_type\": \"<string>\",\n        \"parent_id\": \"<integer>\",\n        \"minutes\": \"<integer>\",\n        \"bookable_online\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"parent_type\": \"<string>\",\n        \"parent_id\": \"<integer>\",\n        \"minutes\": \"<integer>\",\n        \"bookable_online\": \"<boolean>\"\n      }\n    ]\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-07a9f6b2-bce0-49e4-bca8-122fd9ab1ee1"
+                },
+                {
+                  "id": "ef495249-2ebc-4f94-9b35-43c53bed5aaf",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>&include[]=appointment_types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "appointment_types"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-ef495249-2ebc-4f94-9b35-43c53bed5aaf"
+                },
+                {
+                  "id": "4c09263d-6c74-46c4-b911-34dcfa212691",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>&include[]=appointment_types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "appointment_types"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-4c09263d-6c74-46c4-b911-34dcfa212691"
+                },
+                {
+                  "id": "99dde30e-3130-4630-a732-95e3a239fdc6",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>&include[]=appointment_types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "appointment_types"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-99dde30e-3130-4630-a732-95e3a239fdc6"
+                },
+                {
+                  "id": "80d76a08-08ae-41f1-ab4f-7c8cb9c1ce91",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>&include[]=appointment_types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "appointment_types"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-80d76a08-08ae-41f1-ab4f-7c8cb9c1ce91"
+                },
+                {
+                  "id": "e570a530-37c9-4a12-a713-d5b70861cf66",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>&include[]=appointment_types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "appointment_types"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-e570a530-37c9-4a12-a713-d5b70861cf66"
+                }
+              ],
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-85138406-7a5b-426d-b71c-3bd85b48035d"
+            },
+            {
+              "name": "Edit working hour",
+              "id": "bddb9bb0-f3df-4faa-a829-c53584633263",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Monday\",\n      \"Wednesday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"week\"\n    },\n    \"active\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "ddaf63ce-bef1-4c2d-a627-632074023d5d",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Id of the working hour"
+                    }
+                  ]
+                },
+                "description": "This endpoint updates an existing working hour. At most one of days, specific_date, or custom_recurrence can be provided. The appointment_types field is included in the response only when appointment_type_ids or appointment_category_ids were part of the update."
+              },
+              "response": [
+                {
+                  "id": "47d41fc7-cccd-47b5-82a9-85f5a5ed214f",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Monday\",\n      \"Wednesday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"week\"\n    },\n    \"active\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"location_id\": \"<integer>\",\n    \"operatory_id\": \"<long>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"days\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {},\n    \"tz_offset\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"source\": \"synced\",\n    \"label\": {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"appointment_types\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"parent_type\": \"<string>\",\n        \"parent_id\": \"<integer>\",\n        \"minutes\": \"<integer>\",\n        \"bookable_online\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"parent_type\": \"<string>\",\n        \"parent_id\": \"<integer>\",\n        \"minutes\": \"<integer>\",\n        \"bookable_online\": \"<boolean>\"\n      }\n    ]\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-47d41fc7-cccd-47b5-82a9-85f5a5ed214f"
+                },
+                {
+                  "id": "a5548b9e-d7b2-494a-9298-71c1d741cc14",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Monday\",\n      \"Wednesday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"week\"\n    },\n    \"active\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-a5548b9e-d7b2-494a-9298-71c1d741cc14"
+                },
+                {
+                  "id": "e276320f-a6f3-453b-aac0-29b7f0307a3d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Monday\",\n      \"Wednesday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"week\"\n    },\n    \"active\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-e276320f-a6f3-453b-aac0-29b7f0307a3d"
+                },
+                {
+                  "id": "06bae924-3e81-473f-b236-a463b91e2129",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Monday\",\n      \"Wednesday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"week\"\n    },\n    \"active\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-06bae924-3e81-473f-b236-a463b91e2129"
+                },
+                {
+                  "id": "c14d5ae8-f395-4353-8ee6-c9b11121d6c9",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Monday\",\n      \"Wednesday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"week\"\n    },\n    \"active\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-c14d5ae8-f395-4353-8ee6-c9b11121d6c9"
+                },
+                {
+                  "id": "e4338dda-3dd5-41e2-8bd5-988bb7437607",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Monday\",\n      \"Wednesday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"week\"\n    },\n    \"active\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-e4338dda-3dd5-41e2-8bd5-988bb7437607"
+                }
+              ],
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-bddb9bb0-f3df-4faa-a829-c53584633263"
+            },
+            {
+              "name": "Delete working hour",
+              "id": "55f46f63-6280-4a83-b99e-b5aa4c4c9802",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "7b372bcf-38ae-4069-8bdb-2d08986e4af1",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Id of the working hour"
+                    }
+                  ]
+                },
+                "description": "This endpoint deletes a working hour."
+              },
+              "response": [
+                {
+                  "id": "afbeb6ab-1294-4f73-885a-90af18a8af6d",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-afbeb6ab-1294-4f73-885a-90af18a8af6d"
+                },
+                {
+                  "id": "115ef915-43a3-45f8-8684-99ef83378182",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-115ef915-43a3-45f8-8684-99ef83378182"
+                },
+                {
+                  "id": "e1668f4d-3d6a-403f-8d1c-386afbd979dc",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-e1668f4d-3d6a-403f-8d1c-386afbd979dc"
+                },
+                {
+                  "id": "31d313f3-6e80-4726-b315-74029329870a",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-31d313f3-6e80-4726-b315-74029329870a"
+                },
+                {
+                  "id": "0d4c02f9-0d1d-4a15-9c8f-58449942c6fc",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/working_hours/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "working_hours",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:49.000Z",
+                  "updatedAt": "2026-07-28T02:20:49.000Z",
+                  "uid": "35240-0d4c02f9-0d1d-4a15-9c8f-58449942c6fc"
+                }
+              ],
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-55f46f63-6280-4a83-b99e-b5aa4c4c9802"
+            }
+          ],
+          "id": "dfd33426-cdf4-466a-b921-0b08d489fcf7",
+          "createdAt": "2026-07-28T02:20:49.000Z",
+          "updatedAt": "2026-07-28T02:20:49.000Z",
+          "uid": "35240-dfd33426-cdf4-466a-b921-0b08d489fcf7"
+        },
+        {
+          "name": "Create working hour",
+          "id": "54b64c9a-7724-416b-9188-f0d35ea272e8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Friday\",\n      \"Monday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"day\"\n    },\n    \"active\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "working_hours"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint creates an availability for a provider at the specified location. Exactly one of days, specific_date, or custom_recurrence must be configured."
+          },
+          "response": [
+            {
+              "id": "e51550c9-066d-4633-9ede-f4b40b910b70",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Friday\",\n      \"Monday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"day\"\n    },\n    \"active\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"location_id\": \"<integer>\",\n    \"operatory_id\": \"<long>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"days\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {},\n    \"tz_offset\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"source\": \"synced\",\n    \"label\": {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-e51550c9-066d-4633-9ede-f4b40b910b70"
+            },
+            {
+              "id": "49e48bd0-e5aa-4b8a-bf53-12c464994a43",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Friday\",\n      \"Monday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"day\"\n    },\n    \"active\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-49e48bd0-e5aa-4b8a-bf53-12c464994a43"
+            },
+            {
+              "id": "8e31fa34-3728-4317-813b-3a2c3c0c6146",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Friday\",\n      \"Monday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"day\"\n    },\n    \"active\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-8e31fa34-3728-4317-813b-3a2c3c0c6146"
+            },
+            {
+              "id": "80cb9be0-d5a0-47fa-84f6-8def8a377017",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Friday\",\n      \"Monday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"day\"\n    },\n    \"active\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-80cb9be0-d5a0-47fa-84f6-8def8a377017"
+            },
+            {
+              "id": "6f2ab480-ecb0-41cc-8602-7901fc8c4421",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Friday\",\n      \"Monday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"day\"\n    },\n    \"active\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-6f2ab480-ecb0-41cc-8602-7901fc8c4421"
+            },
+            {
+              "id": "5919c87c-294b-40cb-884a-ee99f827833b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"working_hour\": {\n    \"provider_id\": \"<integer>\",\n    \"begin_time\": \"<string>\",\n    \"end_time\": \"<string>\",\n    \"operatory_id\": \"<integer>\",\n    \"appointment_type_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"days\": [\n      \"Friday\",\n      \"Monday\"\n    ],\n    \"specific_date\": \"<date>\",\n    \"custom_recurrence\": {\n      \"num\": \"<integer>\",\n      \"ref\": \"<date>\",\n      \"unit\": \"day\"\n    },\n    \"active\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-5919c87c-294b-40cb-884a-ee99f827833b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:49.000Z",
+          "updatedAt": "2026-07-28T02:20:49.000Z",
+          "uid": "35240-54b64c9a-7724-416b-9188-f0d35ea272e8"
+        },
+        {
+          "name": "View working hours",
+          "id": "94432976-8269-4f27-8f36-bad4eda2b331",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&provider_id=<integer>&operatory_id=<integer>&label_id=<integer>&source=synced&active=true&ignore_past_dates=false&include[]=appointment_types&include[]=appointment_types",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "working_hours"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                },
+                {
+                  "description": "Filter for specific provider",
+                  "key": "provider_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter for specific operatory",
+                  "key": "operatory_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by specific label",
+                  "key": "label_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by source of working hour",
+                  "key": "source",
+                  "value": "synced"
+                },
+                {
+                  "description": "Filter active/not active",
+                  "key": "active",
+                  "value": "true"
+                },
+                {
+                  "description": "Filter out working hours configured for specific dates in the past",
+                  "key": "ignore_past_dates",
+                  "value": "false"
+                },
+                {
+                  "description": "Resources to be included in the response",
+                  "key": "include[]",
+                  "value": "appointment_types"
+                },
+                {
+                  "description": "Resources to be included in the response",
+                  "key": "include[]",
+                  "value": "appointment_types"
+                }
+              ]
+            },
+            "description": "This endpoint returns the working hours for the specified location, narrowed down by the optional filters configured."
+          },
+          "response": [
+            {
+              "id": "740e5899-985d-4332-926f-0f2c4f87ebe2",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&provider_id=<integer>&operatory_id=<integer>&label_id=<integer>&source=synced&active=true&ignore_past_dates=false&include[]=appointment_types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific operatory",
+                      "key": "operatory_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific label",
+                      "key": "label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hour",
+                      "key": "source",
+                      "value": "synced"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter out working hours configured for specific dates in the past",
+                      "key": "ignore_past_dates",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "appointment_types"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"location_id\": \"<integer>\",\n      \"operatory_id\": \"<long>\",\n      \"begin_time\": \"<string>\",\n      \"end_time\": \"<string>\",\n      \"days\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"specific_date\": \"<date>\",\n      \"custom_recurrence\": {},\n      \"tz_offset\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"source\": \"synced\",\n      \"label\": {\n        \"id\": \"<long>\",\n        \"location_id\": \"<integer>\",\n        \"name\": \"<string>\"\n      },\n      \"appointment_types\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_type\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"minutes\": \"<integer>\",\n          \"bookable_online\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_type\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"minutes\": \"<integer>\",\n          \"bookable_online\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"location_id\": \"<integer>\",\n      \"operatory_id\": \"<long>\",\n      \"begin_time\": \"<string>\",\n      \"end_time\": \"<string>\",\n      \"days\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"specific_date\": \"<date>\",\n      \"custom_recurrence\": {},\n      \"tz_offset\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"source\": \"synced\",\n      \"label\": {\n        \"id\": \"<long>\",\n        \"location_id\": \"<integer>\",\n        \"name\": \"<string>\"\n      },\n      \"appointment_types\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_type\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"minutes\": \"<integer>\",\n          \"bookable_online\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"parent_type\": \"<string>\",\n          \"parent_id\": \"<integer>\",\n          \"minutes\": \"<integer>\",\n          \"bookable_online\": \"<boolean>\"\n        }\n      ]\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-740e5899-985d-4332-926f-0f2c4f87ebe2"
+            },
+            {
+              "id": "230d41e3-3960-48e4-8209-e454abc4b876",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&provider_id=<integer>&operatory_id=<integer>&label_id=<integer>&source=synced&active=true&ignore_past_dates=false&include[]=appointment_types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific operatory",
+                      "key": "operatory_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific label",
+                      "key": "label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hour",
+                      "key": "source",
+                      "value": "synced"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter out working hours configured for specific dates in the past",
+                      "key": "ignore_past_dates",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "appointment_types"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-230d41e3-3960-48e4-8209-e454abc4b876"
+            },
+            {
+              "id": "380ae488-bdce-4f79-9ca7-171ec26c78f9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&provider_id=<integer>&operatory_id=<integer>&label_id=<integer>&source=synced&active=true&ignore_past_dates=false&include[]=appointment_types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific operatory",
+                      "key": "operatory_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific label",
+                      "key": "label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hour",
+                      "key": "source",
+                      "value": "synced"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter out working hours configured for specific dates in the past",
+                      "key": "ignore_past_dates",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "appointment_types"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-380ae488-bdce-4f79-9ca7-171ec26c78f9"
+            },
+            {
+              "id": "a2c4ef5f-11a4-4c78-a8df-3b38fff8683f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&provider_id=<integer>&operatory_id=<integer>&label_id=<integer>&source=synced&active=true&ignore_past_dates=false&include[]=appointment_types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific operatory",
+                      "key": "operatory_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific label",
+                      "key": "label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hour",
+                      "key": "source",
+                      "value": "synced"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter out working hours configured for specific dates in the past",
+                      "key": "ignore_past_dates",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "appointment_types"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-a2c4ef5f-11a4-4c78-a8df-3b38fff8683f"
+            },
+            {
+              "id": "db421741-d3dc-4f31-aa93-67f625cda02a",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&provider_id=<integer>&operatory_id=<integer>&label_id=<integer>&source=synced&active=true&ignore_past_dates=false&include[]=appointment_types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific operatory",
+                      "key": "operatory_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific label",
+                      "key": "label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hour",
+                      "key": "source",
+                      "value": "synced"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter out working hours configured for specific dates in the past",
+                      "key": "ignore_past_dates",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "appointment_types"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-db421741-d3dc-4f31-aa93-67f625cda02a"
+            },
+            {
+              "id": "f273df8e-1adb-4774-b3b0-26898e60cf19",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working_hours?subdomain=<string>&location_id=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&provider_id=<integer>&operatory_id=<integer>&label_id=<integer>&source=synced&active=true&ignore_past_dates=false&include[]=appointment_types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working_hours"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter for specific provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for specific operatory",
+                      "key": "operatory_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific label",
+                      "key": "label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hour",
+                      "key": "source",
+                      "value": "synced"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter out working hours configured for specific dates in the past",
+                      "key": "ignore_past_dates",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "appointment_types"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:49.000Z",
+              "updatedAt": "2026-07-28T02:20:49.000Z",
+              "uid": "35240-f273df8e-1adb-4774-b3b0-26898e60cf19"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:49.000Z",
+          "updatedAt": "2026-07-28T02:20:49.000Z",
+          "uid": "35240-94432976-8269-4f27-8f36-bad4eda2b331"
+        }
+      ],
+      "id": "d955a188-2524-48e7-b925-ddebf8a996b8",
+      "createdAt": "2026-07-28T02:20:49.000Z",
+      "updatedAt": "2026-07-28T02:20:49.000Z",
+      "uid": "35240-d955a188-2524-48e7-b925-ddebf8a996b8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

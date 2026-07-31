@@ -1,0 +1,90 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.nexhealth.com/reference/introduction
+description: Cross-cutting request/response semantics for the NexHealth Synchronizer API, captured from the docs and derived from the OpenAPI.
+authentication:
+  style: api-key-to-bearer-jwt
+  detail: API key POSTed to /authenticates returns a bearer JWT (1h production, 24h sandbox); Bearer token sent on all routes.
+  required_headers:
+  - Authorization
+  - Nex-Api-Version
+  see: authentication/nexhealth-authentication.yml
+versioning:
+  style: header
+  header: Nex-Api-Version
+  current: v3.0.0
+  alias: v20240412
+  note: v3.0.0 and v20240412 are interchangeable names for the same version; the header is required on every request.
+  see: lifecycle/nexhealth-lifecycle.yml
+idempotency:
+  supported: false
+  note: >-
+    NexHealth does not document a dedicated Idempotency-Key header. Create-patient (postPatients)
+    offers a return_existing_if_match flag for deduplication (returns 200 with the existing record
+    instead of 201), but this is a match-or-create convenience, not a general idempotency-key contract.
+pagination:
+  styles:
+  - style: cursor
+    params:
+    - start_cursor
+    - end_cursor
+    - per_page
+    defaults:
+      per_page_default: 5
+      per_page_max: 1000
+    response_field: page_info
+    response_shape:
+    - has_previous_page
+    - has_next_page
+    - start_cursor
+    - end_cursor
+    endpoints:
+    - Procedures
+    - Adjustments
+    - Charges
+    - Payments
+    - Claims
+    - Appointments
+  - style: page-offset
+    params:
+    - page
+    - per_page
+    note: Legacy page-number pagination still used by endpoints not yet migrated to cursors.
+scoping:
+  required_params:
+    subdomain: Identifies the institution (practice brand) whose data is being accessed.
+    location_id: Required by most collection endpoints to scope to a single office.
+  note: Many list endpoints require at least one business filter in addition to location_id.
+error_envelope:
+  shape:
+    code: boolean success flag (true = success/accepted, false = error)
+    data: object or array of the requested resource(s)
+    description: array of human-readable messaging about the result
+    count: integer total for collections (total, not page length)
+    error: array of error strings accumulated during execution
+  note: >-
+    Non-fatal validation problems (e.g. unknown query parameter) can appear in error[] while
+    code is still true and the request succeeds. Format is a custom envelope, not RFC 9457.
+  see: errors/nexhealth-problem-types.yml
+rate_limiting:
+  signal: HTTP 429
+  limits:
+  - scope: patients and appointments endpoints
+    limit: 1000 requests/minute
+  - scope: other endpoints
+    limit: 2000 requests/minute
+  guidance: Handle 429 with sleep-and-retry; prefer webhook subscriptions over polling cron jobs.
+webhooks:
+  supported: true
+  signing: HMAC-SHA256 over "{timestamp}.{base64(payload)}" using the endpoint secret_key
+  headers:
+  - timestamp
+  - signature
+  - content-type
+  see: asyncapi/nexhealth-webhooks.yml
+datetime:
+  format: ISO 8601 UTC (yyyy-MM-ddTHH:mm:ssZ)
+  note: Many resources also expose *_with_tz fields plus a timezone_offset.
+identifiers:
+  primary: NexHealth integer id
+  foreign: foreign_id + foreign_id_type map records back to the source EHR/PMS system.

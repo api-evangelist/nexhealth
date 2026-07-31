@@ -1,0 +1,493 @@
+{
+  "info": {
+    "_postman_id": "d32370e5-ac16-42e9-935c-04523ed569a6",
+    "name": "NexHealth Adjustment Types Institutions API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:18:52.000Z",
+    "updatedAt": "2026-07-28T02:18:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d32370e5-ac16-42e9-935c-04523ed569a6"
+  },
+  "item": [
+    {
+      "name": "institutions",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View institution",
+              "id": "44fdcc7c-b2b1-4ad4-9af8-5db174691a79",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/institutions/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "institutions",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4cfeb6bf-eab6-42c2-8780-0de411e7144e",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The NexHealth id of the institution"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f6b9f57a-17ce-43c3-a6a8-a81031b69d0f",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"subdomain\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"emrs\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"country_code\": \"<string>\",\n    \"appointment_types_location_scoped\": \"<boolean>\",\n    \"is_sync_notifications\": \"<boolean>\",\n    \"notify_insert_fails\": \"<boolean>\",\n    \"locations\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"street_address\": \"<string>\",\n        \"street_address_2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip_code\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"email\": \"<string>\",\n        \"inactive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"street_address\": \"<string>\",\n        \"street_address_2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip_code\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"email\": \"<string>\",\n        \"inactive\": \"<boolean>\"\n      }\n    ]\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:18:52.000Z",
+                  "updatedAt": "2026-07-28T02:18:52.000Z",
+                  "uid": "35240-f6b9f57a-17ce-43c3-a6a8-a81031b69d0f"
+                },
+                {
+                  "id": "acb23bf7-89f9-4187-9de6-b9e7cff4ec3d",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:52.000Z",
+                  "updatedAt": "2026-07-28T02:18:52.000Z",
+                  "uid": "35240-acb23bf7-89f9-4187-9de6-b9e7cff4ec3d"
+                },
+                {
+                  "id": "1d93bd2e-46e2-4db9-b71e-fadb6da58e46",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:52.000Z",
+                  "updatedAt": "2026-07-28T02:18:52.000Z",
+                  "uid": "35240-1d93bd2e-46e2-4db9-b71e-fadb6da58e46"
+                },
+                {
+                  "id": "0a064721-b0e1-48a2-9583-fd0f02270476",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:52.000Z",
+                  "updatedAt": "2026-07-28T02:18:52.000Z",
+                  "uid": "35240-0a064721-b0e1-48a2-9583-fd0f02270476"
+                },
+                {
+                  "id": "b5ef30ed-1b2a-427e-a2d5-0e4cb6a75689",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:52.000Z",
+                  "updatedAt": "2026-07-28T02:18:52.000Z",
+                  "uid": "35240-b5ef30ed-1b2a-427e-a2d5-0e4cb6a75689"
+                }
+              ],
+              "createdAt": "2026-07-28T02:18:52.000Z",
+              "updatedAt": "2026-07-28T02:18:52.000Z",
+              "uid": "35240-44fdcc7c-b2b1-4ad4-9af8-5db174691a79"
+            }
+          ],
+          "id": "42011604-a461-486b-a1fc-884455a11d5d",
+          "createdAt": "2026-07-28T02:18:52.000Z",
+          "updatedAt": "2026-07-28T02:18:52.000Z",
+          "uid": "35240-42011604-a461-486b-a1fc-884455a11d5d"
+        },
+        {
+          "name": "View institutions",
+          "id": "0a0655eb-1083-48ea-b8e6-edf9ae41c68f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.Nexhealth+json;version=2"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/institutions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "institutions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "963d7f77-08e7-4bf6-acb2-b0899769d00f",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/institutions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "institutions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"subdomain\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"emrs\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"country_code\": \"<string>\",\n      \"appointment_types_location_scoped\": \"<boolean>\",\n      \"is_sync_notifications\": \"<boolean>\",\n      \"notify_insert_fails\": \"<boolean>\",\n      \"locations\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"phone_number\": \"<string>\",\n          \"email\": \"<string>\",\n          \"inactive\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"phone_number\": \"<string>\",\n          \"email\": \"<string>\",\n          \"inactive\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"subdomain\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"emrs\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"country_code\": \"<string>\",\n      \"appointment_types_location_scoped\": \"<boolean>\",\n      \"is_sync_notifications\": \"<boolean>\",\n      \"notify_insert_fails\": \"<boolean>\",\n      \"locations\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"phone_number\": \"<string>\",\n          \"email\": \"<string>\",\n          \"inactive\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"phone_number\": \"<string>\",\n          \"email\": \"<string>\",\n          \"inactive\": \"<boolean>\"\n        }\n      ]\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:18:52.000Z",
+              "updatedAt": "2026-07-28T02:18:52.000Z",
+              "uid": "35240-963d7f77-08e7-4bf6-acb2-b0899769d00f"
+            },
+            {
+              "id": "36202e75-9c6f-4dc3-94b4-99ee3cfbc6ac",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/institutions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "institutions"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:52.000Z",
+              "updatedAt": "2026-07-28T02:18:52.000Z",
+              "uid": "35240-36202e75-9c6f-4dc3-94b4-99ee3cfbc6ac"
+            },
+            {
+              "id": "09231d49-45d9-499d-905c-720f49f48051",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/institutions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "institutions"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:52.000Z",
+              "updatedAt": "2026-07-28T02:18:52.000Z",
+              "uid": "35240-09231d49-45d9-499d-905c-720f49f48051"
+            }
+          ],
+          "createdAt": "2026-07-28T02:18:52.000Z",
+          "updatedAt": "2026-07-28T02:18:52.000Z",
+          "uid": "35240-0a0655eb-1083-48ea-b8e6-edf9ae41c68f"
+        }
+      ],
+      "id": "a6cedcde-d85f-46c7-bbe3-c22501146a6a",
+      "createdAt": "2026-07-28T02:18:52.000Z",
+      "updatedAt": "2026-07-28T02:18:52.000Z",
+      "uid": "35240-a6cedcde-d85f-46c7-bbe3-c22501146a6a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

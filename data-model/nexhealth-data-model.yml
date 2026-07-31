@@ -1,0 +1,102 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nexhealth-openapi-original.json
+description: Entity-relationship graph derived from OpenAPI schemas and id-reference fields across the NexHealth Synchronizer API.
+identifiers:
+  primary: NexHealth integer id per resource
+  foreign: foreign_id + foreign_id_type map each record back to the source EHR/PMS (e.g. Open Dental).
+entities:
+- name: Institution
+  description: A group of practices operating under one brand; the top scoping unit (subdomain).
+- name: Location
+  description: A single office where treatment is provided.
+  relationships:
+  - {type: belongs_to, target: Institution, via: institution_id}
+- name: Operatory
+  description: A treatment room / chair at a location.
+  relationships:
+  - {type: belongs_to, target: Location, via: location_id}
+- name: Provider
+  description: A clinician (dentist/hygienist/physician).
+  relationships:
+  - {type: belongs_to, target: Institution, via: institution_id}
+- name: Patient
+  description: A patient record synced from the EHR/PMS.
+- name: Appointment
+  relationships:
+  - {type: belongs_to, target: Patient, via: patient_id}
+  - {type: belongs_to, target: Provider, via: provider_id}
+  - {type: belongs_to, target: Location, via: location_id}
+  - {type: belongs_to, target: Institution, via: institution_id}
+  - {type: belongs_to, target: AppointmentType, via: appointment_type_id}
+  - {type: belongs_to, target: Operatory, via: operatory_id}
+- name: AppointmentType
+  relationships:
+  - {type: has_many, target: AppointmentDescriptor}
+- name: AvailableSlot
+  description: Bookable slots computed from provider availabilities and existing appointments.
+- name: WorkingHour
+  description: Provider availability at a location.
+  relationships:
+  - {type: belongs_to, target: Provider, via: provider_id}
+  - {type: belongs_to, target: Location, via: location_id}
+- name: Procedure
+  relationships:
+  - {type: belongs_to, target: Patient, via: patient_id}
+  - {type: belongs_to, target: Provider, via: provider_id}
+  - {type: belongs_to, target: Location, via: location_id}
+  - {type: belongs_to, target: Appointment, via: appointment_id}
+- name: Charge
+  description: Ledger charge.
+  relationships:
+  - {type: belongs_to, target: Patient, via: patient_id}
+  - {type: belongs_to, target: Provider, via: provider_id}
+  - {type: belongs_to, target: Procedure, via: procedure_id}
+- name: Adjustment
+  description: Ledger adjustment (write-back to the integrated system).
+  relationships:
+  - {type: belongs_to, target: AdjustmentType, via: adjustment_type_id}
+- name: Payment
+  description: Ledger payment (write-back to the integrated system).
+  relationships:
+  - {type: belongs_to, target: PaymentType, via: payment_type_id}
+- name: PaymentPlan
+- name: Claim
+  description: Insurance claim.
+  relationships:
+  - {type: belongs_to, target: Patient, via: patient_id}
+  - {type: has_many, target: Charge}
+- name: InsurancePlan
+- name: InsuranceCoverage
+  relationships:
+  - {type: belongs_to, target: InsurancePlan, via: insurance_plan_id}
+- name: GuarantorBalance
+- name: InsuranceBalance
+- name: FeeSchedule
+  relationships:
+  - {type: has_many, target: FeeScheduleProcedure}
+- name: ClinicalNote
+  relationships:
+  - {type: belongs_to, target: Patient, via: patient_id}
+  - {type: belongs_to, target: Procedure, via: procedure_id}
+- name: TreatmentPlan
+  relationships:
+  - {type: belongs_to, target: Patient, via: patient_id}
+  - {type: has_many, target: Procedure}
+- name: Document
+  relationships:
+  - {type: belongs_to, target: Patient, via: patient_id}
+- name: PatientAlert
+  relationships:
+  - {type: belongs_to, target: Patient, via: patient_id}
+- name: PatientRecall
+- name: WebhookEndpoint
+  relationships:
+  - {type: has_many, target: WebhookSubscription}
+- name: WebhookSubscription
+  relationships:
+  - {type: belongs_to, target: WebhookEndpoint, via: webhook_endpoint_id}
+- name: SyncStatus
+  description: Synchronizer sync state per location.
+- name: Onboarding
+  description: Practice onboarding record (hashid-addressed).

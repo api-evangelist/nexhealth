@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.nexhealth.com/docs/getting-started
+description: NexHealth test/sandbox environment. New developers self-serve a test API key and get a pre-provisioned demo institution and location.
+environment:
+  test_base_url: https://nexhealth.info
+  production_base_url: https://nexhealth.info
+  note: The same host serves both environments; access is determined by whether your API key is a test (sandbox) key or a production key.
+credentials:
+  test_api_key: https://developers.nexhealth.com/test/api-key
+  signup: https://developers.nexhealth.com/signup
+  production_access: https://www.nexhealth.com/api-request/request-access
+token:
+  bearer_lifetime_sandbox: 24 hours
+  bearer_lifetime_production: 1 hour
+  exchange: POST /authenticates
+demo_data:
+  description: Developer Portal accounts come with a demo institution and location already set up.
+  institutions: https://developers.nexhealth.com/test/institutions
+open_dental_sandbox:
+  description: A guide to stand up an Open Dental sandbox sync for realistic read/write testing.
+  docs: https://docs.nexhealth.com/docs/setting-up-an-open-dental-sandbox-sync
+notes:
+- No published magic test values (card numbers, etc.); test data comes from the provisioned demo sync.
+- Requests are made against subdomain + location_id scoped to your sandbox account.

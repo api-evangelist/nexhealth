@@ -1,0 +1,1267 @@
+{
+  "info": {
+    "_postman_id": "380a81b6-c539-4dda-b1f1-bda352719bc4",
+    "name": "NexHealth Adjustment Types Providers API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:41.000Z",
+    "updatedAt": "2026-07-28T02:20:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-380a81b6-c539-4dda-b1f1-bda352719bc4"
+  },
+  "item": [
+    {
+      "name": "providers",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View provider",
+              "id": "8dd8ce65-3018-4ba0-a0fc-4a1a5b7783d6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/providers/:id?subdomain=<string>&include[]=locations&include[]=locations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "providers",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "locations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "20d3b9a8-fe79-45ce-a586-9f967b212c94",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The NexHealth id of the Provider"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single provider."
+              },
+              "response": [
+                {
+                  "id": "63ba6226-0f43-4e7f-b5a7-1aaf9014d244",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/providers/:id?subdomain=<string>&include[]=locations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "locations"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"name\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"institution_id\": \"<integer>\",\n    \"foreign_id\": \"<string>\",\n    \"foreign_id_type\": \"<string>\",\n    \"bio\": {},\n    \"inactive\": \"<boolean>\",\n    \"last_sync_time\": \"<dateTime>\",\n    \"display_name\": \"<string>\",\n    \"npi\": \"<string>\",\n    \"tin\": \"<string>\",\n    \"state_license\": \"<string>\",\n    \"specialty_code\": \"<string>\",\n    \"locations\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"institution_id\": \"<integer>\",\n        \"street_address\": \"<string>\",\n        \"street_address_2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip_code\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"created_at\": \"<string>\",\n        \"updated_at\": \"<string>\",\n        \"latitude\": \"<float>\",\n        \"longitude\": \"<float>\",\n        \"phone_number\": \"<string>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"email\": \"<string>\",\n        \"tz\": \"<string>\",\n        \"last_sync_time\": \"<string>\",\n        \"insert_appt_client\": \"<boolean>\",\n        \"map_by_operatory\": \"<boolean>\",\n        \"set_availability_by_operatory\": \"<boolean>\",\n        \"inactive\": \"<boolean>\",\n        \"specialty\": {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"institution_id\": \"<integer>\",\n        \"street_address\": \"<string>\",\n        \"street_address_2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip_code\": \"<string>\",\n        \"country_code\": \"<string>\",\n        \"created_at\": \"<string>\",\n        \"updated_at\": \"<string>\",\n        \"latitude\": \"<float>\",\n        \"longitude\": \"<float>\",\n        \"phone_number\": \"<string>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"email\": \"<string>\",\n        \"tz\": \"<string>\",\n        \"last_sync_time\": \"<string>\",\n        \"insert_appt_client\": \"<boolean>\",\n        \"map_by_operatory\": \"<boolean>\",\n        \"set_availability_by_operatory\": \"<boolean>\",\n        \"inactive\": \"<boolean>\",\n        \"specialty\": {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\"\n        }\n      }\n    ],\n    \"provider_requestables\": [\n      {\n        \"location_id\": \"<integer>\"\n      },\n      {\n        \"location_id\": \"<integer>\"\n      }\n    ],\n    \"availabilities\": [\n      {\n        \"id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"location_id\": \"<integer>\",\n        \"operatory_id\": \"<long>\",\n        \"begin_time\": \"<string>\",\n        \"end_time\": \"<string>\",\n        \"days\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"specific_date\": \"<date>\",\n        \"custom_recurrence\": {},\n        \"tz_offset\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"source\": \"synced\",\n        \"label\": {\n          \"id\": \"<long>\",\n          \"location_id\": \"<integer>\",\n          \"name\": \"<string>\"\n        },\n        \"appointment_types\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_type\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"minutes\": \"<integer>\",\n            \"bookable_online\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_type\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"minutes\": \"<integer>\",\n            \"bookable_online\": \"<boolean>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"location_id\": \"<integer>\",\n        \"operatory_id\": \"<long>\",\n        \"begin_time\": \"<string>\",\n        \"end_time\": \"<string>\",\n        \"days\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"specific_date\": \"<date>\",\n        \"custom_recurrence\": {},\n        \"tz_offset\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"source\": \"manual\",\n        \"label\": {\n          \"id\": \"<long>\",\n          \"location_id\": \"<integer>\",\n          \"name\": \"<string>\"\n        },\n        \"appointment_types\": [\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_type\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"minutes\": \"<integer>\",\n            \"bookable_online\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"parent_type\": \"<string>\",\n            \"parent_id\": \"<integer>\",\n            \"minutes\": \"<integer>\",\n            \"bookable_online\": \"<boolean>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:20:42.000Z",
+                  "updatedAt": "2026-07-28T02:20:42.000Z",
+                  "uid": "35240-63ba6226-0f43-4e7f-b5a7-1aaf9014d244"
+                },
+                {
+                  "id": "2e6c1abe-ba55-4c4c-a493-443beed1cf0d",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/providers/:id?subdomain=<string>&include[]=locations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "locations"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:42.000Z",
+                  "updatedAt": "2026-07-28T02:20:42.000Z",
+                  "uid": "35240-2e6c1abe-ba55-4c4c-a493-443beed1cf0d"
+                },
+                {
+                  "id": "37592a59-3a63-4c9a-a1d9-9687bf6d1d5f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/providers/:id?subdomain=<string>&include[]=locations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "locations"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:42.000Z",
+                  "updatedAt": "2026-07-28T02:20:42.000Z",
+                  "uid": "35240-37592a59-3a63-4c9a-a1d9-9687bf6d1d5f"
+                },
+                {
+                  "id": "fef18f18-9c8e-4cb7-9b42-c9887f573407",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/providers/:id?subdomain=<string>&include[]=locations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "locations"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:42.000Z",
+                  "updatedAt": "2026-07-28T02:20:42.000Z",
+                  "uid": "35240-fef18f18-9c8e-4cb7-9b42-c9887f573407"
+                },
+                {
+                  "id": "9a546375-7229-49e6-a492-6a5b481e31ec",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/providers/:id?subdomain=<string>&include[]=locations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "locations"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:42.000Z",
+                  "updatedAt": "2026-07-28T02:20:42.000Z",
+                  "uid": "35240-9a546375-7229-49e6-a492-6a5b481e31ec"
+                },
+                {
+                  "id": "03d2ada4-a5a0-4fe8-83f4-cf8f9acfdc7c",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/providers/:id?subdomain=<string>&include[]=locations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "locations"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:42.000Z",
+                  "updatedAt": "2026-07-28T02:20:42.000Z",
+                  "uid": "35240-03d2ada4-a5a0-4fe8-83f4-cf8f9acfdc7c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:20:42.000Z",
+              "updatedAt": "2026-07-28T02:20:42.000Z",
+              "uid": "35240-8dd8ce65-3018-4ba0-a0fc-4a1a5b7783d6"
+            }
+          ],
+          "id": "95ef8f1a-f7e0-44e5-a595-905b88931238",
+          "createdAt": "2026-07-28T02:20:42.000Z",
+          "updatedAt": "2026-07-28T02:20:42.000Z",
+          "uid": "35240-95ef8f1a-f7e0-44e5-a595-905b88931238"
+        },
+        {
+          "name": "View providers",
+          "id": "2e2d9676-99b1-4455-a6b5-40bff75cdfc4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/providers?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&location_id=<integer>&foreign_id=<string>&requestable=<boolean>&inactive=false&updated_since=<dateTime>&include[]=locations&include[]=locations&ids[]=<integer>,<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "providers"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Only return providers associated with the specified Location Id",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Unique provider id from the EHR",
+                  "key": "foreign_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Only return providers who are bookable via NexHealth online booking at the specified location_id",
+                  "key": "requestable",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Filter result set based on inactive status, defaults to false if not specified",
+                  "key": "inactive",
+                  "value": "false"
+                },
+                {
+                  "description": "Query providers whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Resources to be included in the response",
+                  "key": "include[]",
+                  "value": "locations"
+                },
+                {
+                  "description": "Resources to be included in the response",
+                  "key": "include[]",
+                  "value": "locations"
+                },
+                {
+                  "description": "NexHealth IDs",
+                  "key": "ids[]",
+                  "value": "<integer>,<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint returns the providers for the institution, narrowed down by the optional filters configured."
+          },
+          "response": [
+            {
+              "id": "ecb66db2-038e-4055-bd24-e23dce80dff5",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/providers?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&location_id=<integer>&foreign_id=<string>&requestable=<boolean>&inactive=false&updated_since=<dateTime>&include[]=locations&ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers associated with the specified Location Id",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique provider id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers who are bookable via NexHealth online booking at the specified location_id",
+                      "key": "requestable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter result set based on inactive status, defaults to false if not specified",
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Query providers whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "description": "NexHealth IDs",
+                      "key": "ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"display_name\": \"<string>\",\n      \"npi\": \"<string>\",\n      \"tin\": \"<string>\",\n      \"state_license\": \"<string>\",\n      \"specialty_code\": \"<string>\",\n      \"locations\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"institution_id\": \"<integer>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"country_code\": \"<string>\",\n          \"created_at\": \"<string>\",\n          \"updated_at\": \"<string>\",\n          \"latitude\": \"<float>\",\n          \"longitude\": \"<float>\",\n          \"phone_number\": \"<string>\",\n          \"foreign_id\": \"<string>\",\n          \"foreign_id_type\": \"<string>\",\n          \"email\": \"<string>\",\n          \"tz\": \"<string>\",\n          \"last_sync_time\": \"<string>\",\n          \"insert_appt_client\": \"<boolean>\",\n          \"map_by_operatory\": \"<boolean>\",\n          \"set_availability_by_operatory\": \"<boolean>\",\n          \"inactive\": \"<boolean>\",\n          \"specialty\": {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\"\n          }\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"institution_id\": \"<integer>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"country_code\": \"<string>\",\n          \"created_at\": \"<string>\",\n          \"updated_at\": \"<string>\",\n          \"latitude\": \"<float>\",\n          \"longitude\": \"<float>\",\n          \"phone_number\": \"<string>\",\n          \"foreign_id\": \"<string>\",\n          \"foreign_id_type\": \"<string>\",\n          \"email\": \"<string>\",\n          \"tz\": \"<string>\",\n          \"last_sync_time\": \"<string>\",\n          \"insert_appt_client\": \"<boolean>\",\n          \"map_by_operatory\": \"<boolean>\",\n          \"set_availability_by_operatory\": \"<boolean>\",\n          \"inactive\": \"<boolean>\",\n          \"specialty\": {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\"\n          }\n        }\n      ],\n      \"provider_requestables\": [\n        {\n          \"location_id\": \"<integer>\"\n        },\n        {\n          \"location_id\": \"<integer>\"\n        }\n      ],\n      \"availabilities\": [\n        {\n          \"id\": \"<integer>\",\n          \"provider_id\": \"<integer>\",\n          \"location_id\": \"<integer>\",\n          \"operatory_id\": \"<long>\",\n          \"begin_time\": \"<string>\",\n          \"end_time\": \"<string>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"specific_date\": \"<date>\",\n          \"custom_recurrence\": {},\n          \"tz_offset\": \"<string>\",\n          \"active\": \"<boolean>\",\n          \"source\": \"synced\",\n          \"label\": {\n            \"id\": \"<long>\",\n            \"location_id\": \"<integer>\",\n            \"name\": \"<string>\"\n          },\n          \"appointment_types\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_type\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"minutes\": \"<integer>\",\n              \"bookable_online\": \"<boolean>\"\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_type\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"minutes\": \"<integer>\",\n              \"bookable_online\": \"<boolean>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<integer>\",\n          \"provider_id\": \"<integer>\",\n          \"location_id\": \"<integer>\",\n          \"operatory_id\": \"<long>\",\n          \"begin_time\": \"<string>\",\n          \"end_time\": \"<string>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"specific_date\": \"<date>\",\n          \"custom_recurrence\": {},\n          \"tz_offset\": \"<string>\",\n          \"active\": \"<boolean>\",\n          \"source\": \"manual\",\n          \"label\": {\n            \"id\": \"<long>\",\n            \"location_id\": \"<integer>\",\n            \"name\": \"<string>\"\n          },\n          \"appointment_types\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_type\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"minutes\": \"<integer>\",\n              \"bookable_online\": \"<boolean>\"\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_type\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"minutes\": \"<integer>\",\n              \"bookable_online\": \"<boolean>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"display_name\": \"<string>\",\n      \"npi\": \"<string>\",\n      \"tin\": \"<string>\",\n      \"state_license\": \"<string>\",\n      \"specialty_code\": \"<string>\",\n      \"locations\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"institution_id\": \"<integer>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"country_code\": \"<string>\",\n          \"created_at\": \"<string>\",\n          \"updated_at\": \"<string>\",\n          \"latitude\": \"<float>\",\n          \"longitude\": \"<float>\",\n          \"phone_number\": \"<string>\",\n          \"foreign_id\": \"<string>\",\n          \"foreign_id_type\": \"<string>\",\n          \"email\": \"<string>\",\n          \"tz\": \"<string>\",\n          \"last_sync_time\": \"<string>\",\n          \"insert_appt_client\": \"<boolean>\",\n          \"map_by_operatory\": \"<boolean>\",\n          \"set_availability_by_operatory\": \"<boolean>\",\n          \"inactive\": \"<boolean>\",\n          \"specialty\": {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\"\n          }\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"institution_id\": \"<integer>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"country_code\": \"<string>\",\n          \"created_at\": \"<string>\",\n          \"updated_at\": \"<string>\",\n          \"latitude\": \"<float>\",\n          \"longitude\": \"<float>\",\n          \"phone_number\": \"<string>\",\n          \"foreign_id\": \"<string>\",\n          \"foreign_id_type\": \"<string>\",\n          \"email\": \"<string>\",\n          \"tz\": \"<string>\",\n          \"last_sync_time\": \"<string>\",\n          \"insert_appt_client\": \"<boolean>\",\n          \"map_by_operatory\": \"<boolean>\",\n          \"set_availability_by_operatory\": \"<boolean>\",\n          \"inactive\": \"<boolean>\",\n          \"specialty\": {\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\"\n          }\n        }\n      ],\n      \"provider_requestables\": [\n        {\n          \"location_id\": \"<integer>\"\n        },\n        {\n          \"location_id\": \"<integer>\"\n        }\n      ],\n      \"availabilities\": [\n        {\n          \"id\": \"<integer>\",\n          \"provider_id\": \"<integer>\",\n          \"location_id\": \"<integer>\",\n          \"operatory_id\": \"<long>\",\n          \"begin_time\": \"<string>\",\n          \"end_time\": \"<string>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"specific_date\": \"<date>\",\n          \"custom_recurrence\": {},\n          \"tz_offset\": \"<string>\",\n          \"active\": \"<boolean>\",\n          \"source\": \"manual\",\n          \"label\": {\n            \"id\": \"<long>\",\n            \"location_id\": \"<integer>\",\n            \"name\": \"<string>\"\n          },\n          \"appointment_types\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_type\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"minutes\": \"<integer>\",\n              \"bookable_online\": \"<boolean>\"\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_type\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"minutes\": \"<integer>\",\n              \"bookable_online\": \"<boolean>\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<integer>\",\n          \"provider_id\": \"<integer>\",\n          \"location_id\": \"<integer>\",\n          \"operatory_id\": \"<long>\",\n          \"begin_time\": \"<string>\",\n          \"end_time\": \"<string>\",\n          \"days\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"specific_date\": \"<date>\",\n          \"custom_recurrence\": {},\n          \"tz_offset\": \"<string>\",\n          \"active\": \"<boolean>\",\n          \"source\": \"synced\",\n          \"label\": {\n            \"id\": \"<long>\",\n            \"location_id\": \"<integer>\",\n            \"name\": \"<string>\"\n          },\n          \"appointment_types\": [\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_type\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"minutes\": \"<integer>\",\n              \"bookable_online\": \"<boolean>\"\n            },\n            {\n              \"id\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"parent_type\": \"<string>\",\n              \"parent_id\": \"<integer>\",\n              \"minutes\": \"<integer>\",\n              \"bookable_online\": \"<boolean>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:20:42.000Z",
+              "updatedAt": "2026-07-28T02:20:42.000Z",
+              "uid": "35240-ecb66db2-038e-4055-bd24-e23dce80dff5"
+            },
+            {
+              "id": "0ad960c5-f8e6-43c2-a948-64a530478efd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/providers?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&location_id=<integer>&foreign_id=<string>&requestable=<boolean>&inactive=false&updated_since=<dateTime>&include[]=locations&ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers associated with the specified Location Id",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique provider id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers who are bookable via NexHealth online booking at the specified location_id",
+                      "key": "requestable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter result set based on inactive status, defaults to false if not specified",
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Query providers whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "description": "NexHealth IDs",
+                      "key": "ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:42.000Z",
+              "updatedAt": "2026-07-28T02:20:42.000Z",
+              "uid": "35240-0ad960c5-f8e6-43c2-a948-64a530478efd"
+            },
+            {
+              "id": "5a0b998f-2286-497c-a0a6-76ed704fc746",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/providers?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&location_id=<integer>&foreign_id=<string>&requestable=<boolean>&inactive=false&updated_since=<dateTime>&include[]=locations&ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers associated with the specified Location Id",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique provider id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers who are bookable via NexHealth online booking at the specified location_id",
+                      "key": "requestable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter result set based on inactive status, defaults to false if not specified",
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Query providers whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "description": "NexHealth IDs",
+                      "key": "ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:42.000Z",
+              "updatedAt": "2026-07-28T02:20:42.000Z",
+              "uid": "35240-5a0b998f-2286-497c-a0a6-76ed704fc746"
+            },
+            {
+              "id": "da232a37-00ef-4d2c-b9bc-7a7272756a12",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/providers?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&location_id=<integer>&foreign_id=<string>&requestable=<boolean>&inactive=false&updated_since=<dateTime>&include[]=locations&ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers associated with the specified Location Id",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique provider id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers who are bookable via NexHealth online booking at the specified location_id",
+                      "key": "requestable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter result set based on inactive status, defaults to false if not specified",
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Query providers whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "description": "NexHealth IDs",
+                      "key": "ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:42.000Z",
+              "updatedAt": "2026-07-28T02:20:42.000Z",
+              "uid": "35240-da232a37-00ef-4d2c-b9bc-7a7272756a12"
+            },
+            {
+              "id": "f974c4ae-14bd-4037-8c02-4c444a118848",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/providers?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&location_id=<integer>&foreign_id=<string>&requestable=<boolean>&inactive=false&updated_since=<dateTime>&include[]=locations&ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers associated with the specified Location Id",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique provider id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers who are bookable via NexHealth online booking at the specified location_id",
+                      "key": "requestable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter result set based on inactive status, defaults to false if not specified",
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Query providers whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "description": "NexHealth IDs",
+                      "key": "ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:42.000Z",
+              "updatedAt": "2026-07-28T02:20:42.000Z",
+              "uid": "35240-f974c4ae-14bd-4037-8c02-4c444a118848"
+            },
+            {
+              "id": "f6b56489-f8a4-4577-8f0e-ad3747c08f5a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/providers?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&location_id=<integer>&foreign_id=<string>&requestable=<boolean>&inactive=false&updated_since=<dateTime>&include[]=locations&ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers associated with the specified Location Id",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique provider id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return providers who are bookable via NexHealth online booking at the specified location_id",
+                      "key": "requestable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter result set based on inactive status, defaults to false if not specified",
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Query providers whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "description": "NexHealth IDs",
+                      "key": "ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:42.000Z",
+              "updatedAt": "2026-07-28T02:20:42.000Z",
+              "uid": "35240-f6b56489-f8a4-4577-8f0e-ad3747c08f5a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:42.000Z",
+          "updatedAt": "2026-07-28T02:20:42.000Z",
+          "uid": "35240-2e2d9676-99b1-4455-a6b5-40bff75cdfc4"
+        }
+      ],
+      "id": "827671f8-f91e-491f-8f2f-a009b4fac232",
+      "createdAt": "2026-07-28T02:20:42.000Z",
+      "updatedAt": "2026-07-28T02:20:42.000Z",
+      "uid": "35240-827671f8-f91e-491f-8f2f-a009b4fac232"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

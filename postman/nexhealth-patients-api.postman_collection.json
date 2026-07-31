@@ -1,0 +1,2010 @@
+{
+  "info": {
+    "_postman_id": "8cd74914-647f-44f7-836d-228e43cd740a",
+    "name": "NexHealth Adjustment Types Patients API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:10.000Z",
+    "updatedAt": "2026-07-28T02:20:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8cd74914-647f-44f7-836d-228e43cd740a"
+  },
+  "item": [
+    {
+      "name": "patients",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View patient",
+              "id": "42ddd1a6-b4d3-42ac-b316-d4f4f13b71c9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/patients/:id?subdomain=<string>&include[]=payments&include[]=provider",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "payments"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "provider"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "a5c290b0-d66a-4dcd-81de-1f3b04e6e2c6",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single patient. You must provide a valid patient NexHealth ID."
+              },
+              "response": [
+                {
+                  "id": "e47d7763-a27c-4782-9593-d34325d4cd23",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"name\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"institution_id\": \"<integer>\",\n    \"foreign_id\": \"<string>\",\n    \"foreign_id_type\": \"<string>\",\n    \"bio\": {},\n    \"inactive\": \"<boolean>\",\n    \"last_sync_time\": \"<dateTime>\",\n    \"guarantor_id\": \"<integer>\",\n    \"billing_type\": \"<string>\",\n    \"chart_id\": \"<string>\",\n    \"preferred_language\": \"<string>\",\n    \"provider_id\": \"<integer>\",\n    \"hipaa\": {\n      \"authorization\": \"<boolean>\",\n      \"authorization_date\": \"<date>\",\n      \"privacy\": \"<boolean>\",\n      \"privacy_date\": \"<date>\",\n      \"consent\": \"<boolean>\",\n      \"consent_date\": \"<date>\"\n    },\n    \"children\": [\n      {\n        \"id\": \"<integer>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"middle_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"institution_id\": \"<integer>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"bio\": {},\n        \"inactive\": \"<boolean>\",\n        \"last_sync_time\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"middle_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"institution_id\": \"<integer>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"bio\": {},\n        \"inactive\": \"<boolean>\",\n        \"last_sync_time\": \"<dateTime>\"\n      }\n    ],\n    \"guarantor\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\"\n    },\n    \"provider\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\"\n    },\n    \"last_visited_appointment\": {\n      \"id\": \"<long>\",\n      \"provider_id\": \"<integer>\",\n      \"provider_name\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"end_time\": \"<dateTime>\",\n      \"location_id\": \"<integer>\",\n      \"confirmed\": \"<boolean>\"\n    },\n    \"upcoming_appts\": [\n      {\n        \"id\": \"<long>\",\n        \"provider_id\": \"<integer>\",\n        \"provider_name\": \"<string>\",\n        \"start_time\": \"<dateTime>\",\n        \"end_time\": \"<dateTime>\",\n        \"location_id\": \"<integer>\",\n        \"confirmed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"provider_id\": \"<integer>\",\n        \"provider_name\": \"<string>\",\n        \"start_time\": \"<dateTime>\",\n        \"end_time\": \"<dateTime>\",\n        \"location_id\": \"<integer>\",\n        \"confirmed\": \"<boolean>\"\n      }\n    ],\n    \"procedures\": [\n      {\n        \"id\": \"<long>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"appointment_id\": \"<long>\",\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"status\": \"inactive\",\n        \"updated_at\": \"<dateTime>\",\n        \"body_site\": {\n          \"tooth\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"surface\": \"<string>\"\n        },\n        \"fee\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"start_date\": \"<date>\",\n        \"end_date\": \"<date>\",\n        \"treatment_plan_ids\": [\n          \"<long>\",\n          \"<long>\"\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"appointment_id\": \"<long>\",\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"status\": \"referred\",\n        \"updated_at\": \"<dateTime>\",\n        \"body_site\": {\n          \"tooth\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"surface\": \"<string>\"\n        },\n        \"fee\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"start_date\": \"<date>\",\n        \"end_date\": \"<date>\",\n        \"treatment_plan_ids\": [\n          \"<long>\",\n          \"<long>\"\n        ]\n      }\n    ],\n    \"insurance_coverages\": [\n      {\n        \"id\": \"<long>\",\n        \"subscription_relation\": \"handicap_dep\",\n        \"patient_id\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"plan_id\": \"<long>\",\n        \"subscriber_num\": \"<string>\",\n        \"effective_date\": \"<date>\",\n        \"expiration_date\": \"<date>\",\n        \"plan\": {\n          \"id\": \"<long>\",\n          \"payer_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"address\": \"<string>\",\n          \"address2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"country_code\": \"<string>\",\n          \"group_num\": \"<string>\",\n          \"employer_name\": \"<string>\",\n          \"foreign_id\": \"<string>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\"\n        },\n        \"subscriber\": {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"date_of_birth\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"subscription_relation\": \"signif_other\",\n        \"patient_id\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"plan_id\": \"<long>\",\n        \"subscriber_num\": \"<string>\",\n        \"effective_date\": \"<date>\",\n        \"expiration_date\": \"<date>\",\n        \"plan\": {\n          \"id\": \"<long>\",\n          \"payer_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"address\": \"<string>\",\n          \"address2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"country_code\": \"<string>\",\n          \"group_num\": \"<string>\",\n          \"employer_name\": \"<string>\",\n          \"foreign_id\": \"<string>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\"\n        },\n        \"subscriber\": {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"date_of_birth\": \"<string>\"\n        }\n      }\n    ],\n    \"adjustments\": [\n      {\n        \"id\": \"<long>\",\n        \"foreign_id\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"guarantor_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"adjustment_amount\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"adjusted_at\": \"<date>\",\n        \"transaction_id\": \"<string>\",\n        \"charge_id\": \"<long>\",\n        \"claim_id\": \"<long>\",\n        \"adjustment_type_id\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"foreign_id\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"guarantor_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"adjustment_amount\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"adjusted_at\": \"<date>\",\n        \"transaction_id\": \"<string>\",\n        \"charge_id\": \"<long>\",\n        \"claim_id\": \"<long>\",\n        \"adjustment_type_id\": \"<long>\"\n      }\n    ],\n    \"charges\": [\n      {\n        \"id\": \"<long>\",\n        \"foreign_id\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"guarantor_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"procedure_id\": \"<long>\",\n        \"procedure_code\": \"<string>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"fee\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"charged_at\": \"<date>\",\n        \"deleted_at\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"foreign_id\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"guarantor_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"procedure_id\": \"<long>\",\n        \"procedure_code\": \"<string>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"fee\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"charged_at\": \"<date>\",\n        \"deleted_at\": \"<dateTime>\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"id\": \"<long>\",\n        \"foreign_id\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"guarantor_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"payment_amount\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"paid_at\": \"<date>\",\n        \"transaction_id\": \"<string>\",\n        \"charge_id\": \"<long>\",\n        \"claim_id\": \"<long>\",\n        \"payment_plan_id\": \"<long>\",\n        \"insurance_plan_id\": \"<long>\",\n        \"payment_type_id\": \"<long>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"foreign_id\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"guarantor_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"payment_amount\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"paid_at\": \"<date>\",\n        \"transaction_id\": \"<string>\",\n        \"charge_id\": \"<long>\",\n        \"claim_id\": \"<long>\",\n        \"payment_plan_id\": \"<long>\",\n        \"insurance_plan_id\": \"<long>\",\n        \"payment_type_id\": \"<long>\"\n      }\n    ],\n    \"patient_alerts\": [\n      {\n        \"id\": \"<long>\",\n        \"patient_id\": \"<integer>\",\n        \"note\": \"<string>\",\n        \"disabled_at\": \"<dateTime>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"patient_id\": \"<integer>\",\n        \"note\": \"<string>\",\n        \"disabled_at\": \"<dateTime>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\"\n      }\n    ],\n    \"appointments\": [\n      {\n        \"id\": \"<long>\",\n        \"provider_id\": \"<integer>\",\n        \"provider_name\": \"<string>\",\n        \"start_time\": \"<dateTime>\",\n        \"end_time\": \"<dateTime>\",\n        \"location_id\": \"<integer>\",\n        \"confirmed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"provider_id\": \"<integer>\",\n        \"provider_name\": \"<string>\",\n        \"start_time\": \"<dateTime>\",\n        \"end_time\": \"<dateTime>\",\n        \"location_id\": \"<integer>\",\n        \"confirmed\": \"<boolean>\"\n      }\n    ],\n    \"location_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"address\": {\n      \"line_1\": \"<string>\",\n      \"line_2\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\"\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:20:10.000Z",
+                  "updatedAt": "2026-07-28T02:20:10.000Z",
+                  "uid": "35240-e47d7763-a27c-4782-9593-d34325d4cd23"
+                },
+                {
+                  "id": "327a0912-503a-4d74-b650-99ab62b1afac",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:10.000Z",
+                  "updatedAt": "2026-07-28T02:20:10.000Z",
+                  "uid": "35240-327a0912-503a-4d74-b650-99ab62b1afac"
+                },
+                {
+                  "id": "bd2a572d-2f86-4566-9457-de499edf7711",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:10.000Z",
+                  "updatedAt": "2026-07-28T02:20:10.000Z",
+                  "uid": "35240-bd2a572d-2f86-4566-9457-de499edf7711"
+                },
+                {
+                  "id": "955d7756-1e48-4f13-a0c2-d20ddb8e0dfc",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:10.000Z",
+                  "updatedAt": "2026-07-28T02:20:10.000Z",
+                  "uid": "35240-955d7756-1e48-4f13-a0c2-d20ddb8e0dfc"
+                },
+                {
+                  "id": "60771fe5-b9d4-41ea-a7ff-47bceebeb3ff",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:10.000Z",
+                  "updatedAt": "2026-07-28T02:20:10.000Z",
+                  "uid": "35240-60771fe5-b9d4-41ea-a7ff-47bceebeb3ff"
+                },
+                {
+                  "id": "371cca5f-c12e-4acd-a982-506925a18cf9",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:10.000Z",
+                  "updatedAt": "2026-07-28T02:20:10.000Z",
+                  "uid": "35240-371cca5f-c12e-4acd-a982-506925a18cf9"
+                }
+              ],
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-42ddd1a6-b4d3-42ac-b316-d4f4f13b71c9"
+            }
+          ],
+          "id": "a42eb5c9-ef21-49e5-9657-632aeca324d0",
+          "createdAt": "2026-07-28T02:20:10.000Z",
+          "updatedAt": "2026-07-28T02:20:10.000Z",
+          "uid": "35240-a42eb5c9-ef21-49e5-9657-632aeca324d0"
+        },
+        {
+          "name": "View patients",
+          "id": "94c2703c-0424-48ea-9c0a-af27e376f565",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>&sort=id&name=<string>&email=<string>&phone_number=<string>&date_of_birth=<date>&inactive=<boolean>&foreign_id=<string>&updated_since=<dateTime>&new_patient=<boolean>&non_patient=<boolean>&forms_syncable=<boolean>&location_strict=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "patients"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "id"
+                },
+                {
+                  "description": "Filter by patient name",
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by patient email",
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by patient phone number",
+                  "key": "phone_number",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD",
+                  "key": "date_of_birth",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter",
+                  "key": "inactive",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Filter by the unique patient id from the EHR",
+                  "key": "foreign_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted.",
+                  "key": "new_patient",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any",
+                  "key": "non_patient",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter",
+                  "key": "forms_syncable",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system",
+                  "key": "location_strict",
+                  "value": "false"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "This endpoint returns a list of patients for the specified location, narrowed down by the optional filters configured."
+          },
+          "response": [
+            {
+              "id": "1b6e7488-dccc-4b78-8259-fb873f77dc03",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>&sort=id&name=<string>&email=<string>&phone_number=<string>&date_of_birth=<date>&inactive=<boolean>&foreign_id=<string>&updated_since=<dateTime>&new_patient=<boolean>&non_patient=<boolean>&forms_syncable=<boolean>&location_strict=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "description": "Filter by patient name",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient email",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient phone number",
+                      "key": "phone_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD",
+                      "key": "date_of_birth",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter",
+                      "key": "inactive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by the unique patient id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted.",
+                      "key": "new_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any",
+                      "key": "non_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter",
+                      "key": "forms_syncable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system",
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"provider_id\": \"<integer>\",\n      \"hipaa\": {\n        \"authorization\": \"<boolean>\",\n        \"authorization_date\": \"<date>\",\n        \"privacy\": \"<boolean>\",\n        \"privacy_date\": \"<date>\",\n        \"consent\": \"<boolean>\",\n        \"consent_date\": \"<date>\"\n      }\n    },\n    {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"provider_id\": \"<integer>\",\n      \"hipaa\": {\n        \"authorization\": \"<boolean>\",\n        \"authorization_date\": \"<date>\",\n        \"privacy\": \"<boolean>\",\n        \"privacy_date\": \"<date>\",\n        \"consent\": \"<boolean>\",\n        \"consent_date\": \"<date>\"\n      }\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-1b6e7488-dccc-4b78-8259-fb873f77dc03"
+            },
+            {
+              "id": "6089d9ce-871c-48a1-ae08-45cda4aee0df",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>&sort=id&name=<string>&email=<string>&phone_number=<string>&date_of_birth=<date>&inactive=<boolean>&foreign_id=<string>&updated_since=<dateTime>&new_patient=<boolean>&non_patient=<boolean>&forms_syncable=<boolean>&location_strict=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "description": "Filter by patient name",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient email",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient phone number",
+                      "key": "phone_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD",
+                      "key": "date_of_birth",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter",
+                      "key": "inactive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by the unique patient id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted.",
+                      "key": "new_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any",
+                      "key": "non_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter",
+                      "key": "forms_syncable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system",
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-6089d9ce-871c-48a1-ae08-45cda4aee0df"
+            },
+            {
+              "id": "216e4d47-1a60-4b5c-bfc3-90c88b0f5e0a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>&sort=id&name=<string>&email=<string>&phone_number=<string>&date_of_birth=<date>&inactive=<boolean>&foreign_id=<string>&updated_since=<dateTime>&new_patient=<boolean>&non_patient=<boolean>&forms_syncable=<boolean>&location_strict=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "description": "Filter by patient name",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient email",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient phone number",
+                      "key": "phone_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD",
+                      "key": "date_of_birth",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter",
+                      "key": "inactive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by the unique patient id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted.",
+                      "key": "new_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any",
+                      "key": "non_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter",
+                      "key": "forms_syncable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system",
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-216e4d47-1a60-4b5c-bfc3-90c88b0f5e0a"
+            },
+            {
+              "id": "ea1aa09a-4d1f-4e93-b4b7-420e8df98720",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>&sort=id&name=<string>&email=<string>&phone_number=<string>&date_of_birth=<date>&inactive=<boolean>&foreign_id=<string>&updated_since=<dateTime>&new_patient=<boolean>&non_patient=<boolean>&forms_syncable=<boolean>&location_strict=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "description": "Filter by patient name",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient email",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient phone number",
+                      "key": "phone_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD",
+                      "key": "date_of_birth",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter",
+                      "key": "inactive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by the unique patient id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted.",
+                      "key": "new_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any",
+                      "key": "non_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter",
+                      "key": "forms_syncable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system",
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-ea1aa09a-4d1f-4e93-b4b7-420e8df98720"
+            },
+            {
+              "id": "6c97df6a-deae-4ad6-b967-17b4af535ba4",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>&sort=id&name=<string>&email=<string>&phone_number=<string>&date_of_birth=<date>&inactive=<boolean>&foreign_id=<string>&updated_since=<dateTime>&new_patient=<boolean>&non_patient=<boolean>&forms_syncable=<boolean>&location_strict=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "description": "Filter by patient name",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient email",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient phone number",
+                      "key": "phone_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD",
+                      "key": "date_of_birth",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter",
+                      "key": "inactive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by the unique patient id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted.",
+                      "key": "new_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any",
+                      "key": "non_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter",
+                      "key": "forms_syncable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system",
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-6c97df6a-deae-4ad6-b967-17b4af535ba4"
+            },
+            {
+              "id": "7e5a46e4-60be-49af-b3d4-c1a1e56f3763",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>&sort=id&name=<string>&email=<string>&phone_number=<string>&date_of_birth=<date>&inactive=<boolean>&foreign_id=<string>&updated_since=<dateTime>&new_patient=<boolean>&non_patient=<boolean>&forms_syncable=<boolean>&location_strict=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "description": "Filter by patient name",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient email",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient phone number",
+                      "key": "phone_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD",
+                      "key": "date_of_birth",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter",
+                      "key": "inactive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by the unique patient id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted.",
+                      "key": "new_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any",
+                      "key": "non_patient",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter",
+                      "key": "forms_syncable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system",
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-7e5a46e4-60be-49af-b3d4-c1a1e56f3763"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:10.000Z",
+          "updatedAt": "2026-07-28T02:20:10.000Z",
+          "uid": "35240-94c2703c-0424-48ea-9c0a-af27e376f565"
+        },
+        {
+          "name": "Create patient",
+          "id": "8ff87568-56b2-4990-9c19-edb41d1f70c2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"Other\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "patients"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint creates a new patient or returns an existing patient if return_existing_if_match is true. Responds with 201 when a new patient is created, or with 200 and the existing patient when return_existing_if_match is true and a patient with matching information already exists."
+          },
+          "response": [
+            {
+              "id": "cc9a2244-cf40-4554-99ea-a0221a827bf2",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"Other\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"user\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"preferred_locale\": \"<string>\",\n      \"location_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-cc9a2244-cf40-4554-99ea-a0221a827bf2"
+            },
+            {
+              "id": "a03ede61-c735-4063-9be0-c81979a20153",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"Other\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"user\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"preferred_locale\": \"<string>\",\n      \"location_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-a03ede61-c735-4063-9be0-c81979a20153"
+            },
+            {
+              "id": "a8a66b94-c925-4a12-8fa1-340cedd44cfe",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"Other\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-a8a66b94-c925-4a12-8fa1-340cedd44cfe"
+            },
+            {
+              "id": "2cf64b50-c407-4f8b-a391-25b004618da3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"Other\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-2cf64b50-c407-4f8b-a391-25b004618da3"
+            },
+            {
+              "id": "6452d1be-ddff-4695-b655-29d0119fd20d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"Other\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-6452d1be-ddff-4695-b655-29d0119fd20d"
+            },
+            {
+              "id": "a3edd8cd-97f6-4dc0-84a4-8ad4ee7152ba",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"Other\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-a3edd8cd-97f6-4dc0-84a4-8ad4ee7152ba"
+            },
+            {
+              "id": "40b2c760-be23-42aa-9222-b518bcdd07ac",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"Other\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/patients?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:10.000Z",
+              "updatedAt": "2026-07-28T02:20:10.000Z",
+              "uid": "35240-40b2c760-be23-42aa-9222-b518bcdd07ac"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:10.000Z",
+          "updatedAt": "2026-07-28T02:20:10.000Z",
+          "uid": "35240-8ff87568-56b2-4990-9c19-edb41d1f70c2"
+        }
+      ],
+      "id": "e80b6cf7-44ae-49a3-9491-e9411997f21f",
+      "createdAt": "2026-07-28T02:20:10.000Z",
+      "updatedAt": "2026-07-28T02:20:10.000Z",
+      "uid": "35240-e80b6cf7-44ae-49a3-9491-e9411997f21f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

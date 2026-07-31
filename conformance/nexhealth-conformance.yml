@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nexhealth-openapi-original.json
+standards:
+- id: apikey-auth
+  conforms: true
+  evidence: OpenAPI securityScheme type apiKey (Authorization header) exchanged for a bearer JWT.
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 security scheme; authentication is API-key-to-JWT.
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom {code,data,description,count,error} envelope, not application/problem+json.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset header advertised; deprecation handled via versioned migration guide.
+- id: cursor-pagination
+  conforms: true
+  evidence: start_cursor/end_cursor/per_page with a page_info response object on high-volume collections.
+- id: webhooks-hmac-signing
+  conforms: true
+  evidence: Webhook events signed with HMAC-SHA256 over timestamp + base64 payload using the endpoint secret_key.
+- id: fhir
+  conforms: false
+  evidence: Proprietary normalized schema across EHR/PMS systems; not a FHIR resource API.
+- id: soc2
+  conforms: true
+  evidence: SOC 2 published on https://security.nexhealth.com (see security/nexhealth-trust-center.yml).
+- id: hipaa
+  conforms: true
+  evidence: HIPAA compliance published on https://security.nexhealth.com; webhooks may carry PHI and require HTTPS endpoints.
+compliance_program:
+  url: https://security.nexhealth.com
+  certifications:
+  - SOC 2
+  - HIPAA

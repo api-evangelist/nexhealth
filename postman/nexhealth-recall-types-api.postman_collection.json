@@ -1,0 +1,870 @@
+{
+  "info": {
+    "_postman_id": "8a5fd3ae-278f-4dd3-9794-e03386a30440",
+    "name": "NexHealth Adjustment Types Recall Types API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:42.000Z",
+    "updatedAt": "2026-07-28T02:20:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8a5fd3ae-278f-4dd3-9794-e03386a30440"
+  },
+  "item": [
+    {
+      "name": "recall_types",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View recall type",
+              "id": "ee1d04c6-dc94-4236-b7b6-a8b3bff6fb31",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recall_types/:id?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recall_types",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "c38bad90-42cb-4c06-acfc-4d65330b5162",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6a02b2f2-a4ad-45d8-895d-60eed481b2a0",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/recall_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recall_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"foreign_id\": \"<string>\",\n    \"foreign_id_type\": \"<string>\",\n    \"interval_num\": \"<integer>\",\n    \"interval_unit\": \"<string>\",\n    \"location_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:20:43.000Z",
+                  "updatedAt": "2026-07-28T02:20:43.000Z",
+                  "uid": "35240-6a02b2f2-a4ad-45d8-895d-60eed481b2a0"
+                },
+                {
+                  "id": "af5ec4be-71bc-4986-8d94-e14a95de9204",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/recall_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recall_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:43.000Z",
+                  "updatedAt": "2026-07-28T02:20:43.000Z",
+                  "uid": "35240-af5ec4be-71bc-4986-8d94-e14a95de9204"
+                },
+                {
+                  "id": "f1d0df9b-9258-43aa-ac3c-b43f4e1c914f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/recall_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recall_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:43.000Z",
+                  "updatedAt": "2026-07-28T02:20:43.000Z",
+                  "uid": "35240-f1d0df9b-9258-43aa-ac3c-b43f4e1c914f"
+                },
+                {
+                  "id": "4c6c5018-4197-46bc-926d-c2e872ee7341",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/recall_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recall_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:43.000Z",
+                  "updatedAt": "2026-07-28T02:20:43.000Z",
+                  "uid": "35240-4c6c5018-4197-46bc-926d-c2e872ee7341"
+                },
+                {
+                  "id": "b8db60c8-273a-4392-9f53-1cfdd572f70e",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/recall_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recall_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:43.000Z",
+                  "updatedAt": "2026-07-28T02:20:43.000Z",
+                  "uid": "35240-b8db60c8-273a-4392-9f53-1cfdd572f70e"
+                },
+                {
+                  "id": "3029c845-a679-46d2-a28f-826cc7affa70",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/recall_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recall_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:43.000Z",
+                  "updatedAt": "2026-07-28T02:20:43.000Z",
+                  "uid": "35240-3029c845-a679-46d2-a28f-826cc7affa70"
+                }
+              ],
+              "createdAt": "2026-07-28T02:20:43.000Z",
+              "updatedAt": "2026-07-28T02:20:43.000Z",
+              "uid": "35240-ee1d04c6-dc94-4236-b7b6-a8b3bff6fb31"
+            }
+          ],
+          "id": "a726f915-9f21-4b66-b263-4785fcd02591",
+          "createdAt": "2026-07-28T02:20:43.000Z",
+          "updatedAt": "2026-07-28T02:20:43.000Z",
+          "uid": "35240-a726f915-9f21-4b66-b263-4785fcd02591"
+        },
+        {
+          "name": "View recall types",
+          "id": "90f0f997-cf9c-4ef3-92b4-6c7ccb702d52",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.Nexhealth+json;version=2"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/recall_types?subdomain=<string>&location_id=<integer>&foreign_id=<string>&updated_since=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "recall_types"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by EHR id",
+                  "key": "foreign_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return records updated since the specified date/time in ISO8601 format",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f1e00d01-d458-41a6-9548-30e7893dab45",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recall_types?subdomain=<string>&location_id=<integer>&foreign_id=<string>&updated_since=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recall_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by EHR id",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return records updated since the specified date/time in ISO8601 format",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"interval_num\": \"<integer>\",\n      \"interval_unit\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"interval_num\": \"<integer>\",\n      \"interval_unit\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:20:43.000Z",
+              "updatedAt": "2026-07-28T02:20:43.000Z",
+              "uid": "35240-f1e00d01-d458-41a6-9548-30e7893dab45"
+            },
+            {
+              "id": "aec269b8-6b64-4024-87a6-0ad83ffd05ba",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recall_types?subdomain=<string>&location_id=<integer>&foreign_id=<string>&updated_since=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recall_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by EHR id",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return records updated since the specified date/time in ISO8601 format",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:43.000Z",
+              "updatedAt": "2026-07-28T02:20:43.000Z",
+              "uid": "35240-aec269b8-6b64-4024-87a6-0ad83ffd05ba"
+            },
+            {
+              "id": "f210727d-fb94-4f0d-b535-0dc7fd825328",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recall_types?subdomain=<string>&location_id=<integer>&foreign_id=<string>&updated_since=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recall_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by EHR id",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return records updated since the specified date/time in ISO8601 format",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:43.000Z",
+              "updatedAt": "2026-07-28T02:20:43.000Z",
+              "uid": "35240-f210727d-fb94-4f0d-b535-0dc7fd825328"
+            },
+            {
+              "id": "37406318-3aa9-46d8-86c5-be68adb485ea",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recall_types?subdomain=<string>&location_id=<integer>&foreign_id=<string>&updated_since=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recall_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by EHR id",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return records updated since the specified date/time in ISO8601 format",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:43.000Z",
+              "updatedAt": "2026-07-28T02:20:43.000Z",
+              "uid": "35240-37406318-3aa9-46d8-86c5-be68adb485ea"
+            },
+            {
+              "id": "7fbb2837-5eee-4bc6-96b1-4ea3116d3407",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recall_types?subdomain=<string>&location_id=<integer>&foreign_id=<string>&updated_since=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recall_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by EHR id",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return records updated since the specified date/time in ISO8601 format",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:43.000Z",
+              "updatedAt": "2026-07-28T02:20:43.000Z",
+              "uid": "35240-7fbb2837-5eee-4bc6-96b1-4ea3116d3407"
+            },
+            {
+              "id": "d5480f9b-3ee0-4dad-a3d8-17bf23f712d9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recall_types?subdomain=<string>&location_id=<integer>&foreign_id=<string>&updated_since=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recall_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by EHR id",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return records updated since the specified date/time in ISO8601 format",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:43.000Z",
+              "updatedAt": "2026-07-28T02:20:43.000Z",
+              "uid": "35240-d5480f9b-3ee0-4dad-a3d8-17bf23f712d9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:43.000Z",
+          "updatedAt": "2026-07-28T02:20:43.000Z",
+          "uid": "35240-90f0f997-cf9c-4ef3-92b4-6c7ccb702d52"
+        }
+      ],
+      "id": "02908e6b-22f0-4902-beac-435bf67584a6",
+      "createdAt": "2026-07-28T02:20:43.000Z",
+      "updatedAt": "2026-07-28T02:20:43.000Z",
+      "uid": "35240-02908e6b-22f0-4902-beac-435bf67584a6"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

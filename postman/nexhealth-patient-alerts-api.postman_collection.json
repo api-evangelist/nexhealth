@@ -1,0 +1,1901 @@
+{
+  "info": {
+    "_postman_id": "7a8ccea4-03fc-4a6d-86b8-713ef154d1cb",
+    "name": "NexHealth Adjustment Types Patient Alerts API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:05.000Z",
+    "updatedAt": "2026-07-28T02:20:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7a8ccea4-03fc-4a6d-86b8-713ef154d1cb"
+  },
+  "item": [
+    {
+      "name": "patients",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "alerts",
+              "item": [
+                {
+                  "name": "{alert_id}",
+                  "item": [
+                    {
+                      "name": "View patient alert",
+                      "id": "0721771e-7c11-4ddf-bfdc-c3f9af48c9a1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts",
+                            ":alert_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "baa51c89-1ec1-494b-8bf1-67aa92b36b6a",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) Id of the patient"
+                            },
+                            {
+                              "id": "b2b964fd-f4fd-4edb-86e0-cb379f4d58d0",
+                              "key": "alert_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6484af4f-a46d-493e-9369-a61634838477",
+                          "name": "Successful",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"patient_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"disabled_at\": \"<dateTime>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-6484af4f-a46d-493e-9369-a61634838477"
+                        },
+                        {
+                          "id": "9e5483c7-20c1-4248-9a66-a15ed0316af0",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-9e5483c7-20c1-4248-9a66-a15ed0316af0"
+                        },
+                        {
+                          "id": "12d176f6-201e-48aa-ab7e-9196f3c126d2",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-12d176f6-201e-48aa-ab7e-9196f3c126d2"
+                        },
+                        {
+                          "id": "5c8556b1-b967-4858-804e-0c3248e7c080",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-5c8556b1-b967-4858-804e-0c3248e7c080"
+                        },
+                        {
+                          "id": "95b9231f-83ca-48d8-9dd2-56e08232b4ca",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-95b9231f-83ca-48d8-9dd2-56e08232b4ca"
+                        },
+                        {
+                          "id": "3ebff05f-4cc7-4abc-82a6-2a8be40a2262",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-3ebff05f-4cc7-4abc-82a6-2a8be40a2262"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-0721771e-7c11-4ddf-bfdc-c3f9af48c9a1"
+                    },
+                    {
+                      "name": "Edit patient alert",
+                      "id": "902125d9-3823-40b5-ab67-c1ef566633a4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"patient_alert\": {\n    \"disabled\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts",
+                            ":alert_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c41e9a33-5d4c-4cd6-8682-86e5cd493dca",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) Id of the patient"
+                            },
+                            {
+                              "id": "0ca3ac2e-7ab3-4882-8c08-9a125b6c79b3",
+                              "key": "alert_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "37aae732-6e95-4922-877d-21ed80692c8b",
+                          "name": "Successful",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"patient_alert\": {\n    \"disabled\": \"<boolean>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"patient_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"disabled_at\": \"<dateTime>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-37aae732-6e95-4922-877d-21ed80692c8b"
+                        },
+                        {
+                          "id": "e8bb7f3a-e90e-4b9c-8820-4a7f75c0a57c",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"patient_alert\": {\n    \"disabled\": \"<boolean>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-e8bb7f3a-e90e-4b9c-8820-4a7f75c0a57c"
+                        },
+                        {
+                          "id": "0def672c-a005-4862-8c54-9debc80d9487",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"patient_alert\": {\n    \"disabled\": \"<boolean>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-0def672c-a005-4862-8c54-9debc80d9487"
+                        },
+                        {
+                          "id": "3c33ef35-c3ab-4f09-a364-801c43084fa5",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"patient_alert\": {\n    \"disabled\": \"<boolean>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-3c33ef35-c3ab-4f09-a364-801c43084fa5"
+                        },
+                        {
+                          "id": "917e4419-6598-40cf-8394-6421cd1d365d",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"patient_alert\": {\n    \"disabled\": \"<boolean>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-917e4419-6598-40cf-8394-6421cd1d365d"
+                        },
+                        {
+                          "id": "affd8b4e-1805-4cbb-8485-e8a5e421244e",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.Nexhealth+json;version=2"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"patient_alert\": {\n    \"disabled\": \"<boolean>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/patients/:id/alerts/:alert_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "patients",
+                                ":id",
+                                "alerts",
+                                ":alert_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "alert_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.Nexhealth+json;version=2"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:05.000Z",
+                          "updatedAt": "2026-07-28T02:20:05.000Z",
+                          "uid": "35240-affd8b4e-1805-4cbb-8485-e8a5e421244e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-902125d9-3823-40b5-ab67-c1ef566633a4"
+                    }
+                  ],
+                  "id": "db7e36d1-e1b4-4d7b-980a-3ca4962f1bdb",
+                  "createdAt": "2026-07-28T02:20:05.000Z",
+                  "updatedAt": "2026-07-28T02:20:05.000Z",
+                  "uid": "35240-db7e36d1-e1b4-4d7b-980a-3ca4962f1bdb"
+                },
+                {
+                  "name": "Create patient alert",
+                  "id": "232d13bd-dbde-42b7-8915-30cebab6e0b8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"patient_alert\": {\n    \"note\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id",
+                        "alerts"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "1f7aa9ca-7714-40f6-82a5-e2d953289147",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Id of the patient"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c2f2bae7-7f57-482d-95f4-9e28c4ac4282",
+                      "name": "Successful",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"patient_alert\": {\n    \"note\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"patient_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"disabled_at\": \"<dateTime>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-c2f2bae7-7f57-482d-95f4-9e28c4ac4282"
+                    },
+                    {
+                      "id": "9eb550b6-c84c-4065-8618-1812787ead75",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"patient_alert\": {\n    \"note\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-9eb550b6-c84c-4065-8618-1812787ead75"
+                    },
+                    {
+                      "id": "32cdab0c-5318-4a56-85c1-f77227dfc75f",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"patient_alert\": {\n    \"note\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-32cdab0c-5318-4a56-85c1-f77227dfc75f"
+                    },
+                    {
+                      "id": "b39c5952-0665-4a5b-9704-8e4fed8dc566",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"patient_alert\": {\n    \"note\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-b39c5952-0665-4a5b-9704-8e4fed8dc566"
+                    },
+                    {
+                      "id": "f5d177fb-12f5-4d5d-b1eb-b37106ae88de",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"patient_alert\": {\n    \"note\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-f5d177fb-12f5-4d5d-b1eb-b37106ae88de"
+                    },
+                    {
+                      "id": "dc45465d-29e4-40f6-a84f-123d23ed91ac",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"patient_alert\": {\n    \"note\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-dc45465d-29e4-40f6-a84f-123d23ed91ac"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:20:05.000Z",
+                  "updatedAt": "2026-07-28T02:20:05.000Z",
+                  "uid": "35240-232d13bd-dbde-42b7-8915-30cebab6e0b8"
+                },
+                {
+                  "name": "View patient alerts",
+                  "id": "3a2012c3-8fd5-48d5-acc5-bc8ba0bf4758",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>&include_disabled=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id",
+                        "alerts"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include disabled patient alerts if true",
+                          "key": "include_disabled",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "52c8b1c5-5ee4-4b91-8f72-150b41bfe98d",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Id of the patient"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1b3f2a3a-6574-459e-99bd-e0bf24cdd521",
+                      "name": "Successful",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>&include_disabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Include disabled patient alerts if true",
+                              "key": "include_disabled",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"note\": \"<string>\",\n      \"disabled_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"note\": \"<string>\",\n      \"disabled_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-1b3f2a3a-6574-459e-99bd-e0bf24cdd521"
+                    },
+                    {
+                      "id": "9b546f43-da8f-4ccf-b1b7-ce6e7c89cab6",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>&include_disabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Include disabled patient alerts if true",
+                              "key": "include_disabled",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-9b546f43-da8f-4ccf-b1b7-ce6e7c89cab6"
+                    },
+                    {
+                      "id": "5c564234-5237-40b1-a223-d34cb3db775e",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>&include_disabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Include disabled patient alerts if true",
+                              "key": "include_disabled",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-5c564234-5237-40b1-a223-d34cb3db775e"
+                    },
+                    {
+                      "id": "760ca22b-a999-4d8b-b66d-bf2d7a44b6a3",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>&include_disabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Include disabled patient alerts if true",
+                              "key": "include_disabled",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-760ca22b-a999-4d8b-b66d-bf2d7a44b6a3"
+                    },
+                    {
+                      "id": "45e99298-ce73-4425-91b6-a6ac7a851c9d",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>&include_disabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Include disabled patient alerts if true",
+                              "key": "include_disabled",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-45e99298-ce73-4425-91b6-a6ac7a851c9d"
+                    },
+                    {
+                      "id": "3c662d84-48bd-4c30-ab47-e25aa48a775c",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/alerts?subdomain=<string>&include_disabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Include disabled patient alerts if true",
+                              "key": "include_disabled",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:05.000Z",
+                      "updatedAt": "2026-07-28T02:20:05.000Z",
+                      "uid": "35240-3c662d84-48bd-4c30-ab47-e25aa48a775c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:20:05.000Z",
+                  "updatedAt": "2026-07-28T02:20:05.000Z",
+                  "uid": "35240-3a2012c3-8fd5-48d5-acc5-bc8ba0bf4758"
+                }
+              ],
+              "id": "39de2464-9e53-42cd-81e6-b08e706b34c4",
+              "createdAt": "2026-07-28T02:20:05.000Z",
+              "updatedAt": "2026-07-28T02:20:05.000Z",
+              "uid": "35240-39de2464-9e53-42cd-81e6-b08e706b34c4"
+            }
+          ],
+          "id": "ec099090-e8b5-400a-a418-7bfeb8978ba4",
+          "createdAt": "2026-07-28T02:20:05.000Z",
+          "updatedAt": "2026-07-28T02:20:05.000Z",
+          "uid": "35240-ec099090-e8b5-400a-a418-7bfeb8978ba4"
+        }
+      ],
+      "id": "12b54b74-3642-4075-9752-066e0dd192d8",
+      "createdAt": "2026-07-28T02:20:05.000Z",
+      "updatedAt": "2026-07-28T02:20:05.000Z",
+      "uid": "35240-12b54b74-3642-4075-9752-066e0dd192d8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

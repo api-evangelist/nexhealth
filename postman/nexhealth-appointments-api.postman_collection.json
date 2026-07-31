@@ -1,0 +1,2943 @@
+{
+  "info": {
+    "_postman_id": "2cc363ed-d74e-4de7-9a0d-69c08e4423b0",
+    "name": "NexHealth Adjustment Types Appointments API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:20.000Z",
+    "updatedAt": "2026-07-28T02:17:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2cc363ed-d74e-4de7-9a0d-69c08e4423b0"
+  },
+  "item": [
+    {
+      "name": "appointments",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "appointment_descriptors",
+              "item": [
+                {
+                  "name": "View appointment descriptors",
+                  "id": "31901050-dc3d-4442-ab22-38e6da675f0d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id/appointment_descriptors?subdomain=<string>&descriptor_type=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id",
+                        "appointment_descriptors"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Query by descriptor type",
+                          "key": "descriptor_type",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "36f2e149-1303-4045-a538-939e42e016d8",
+                          "key": "id",
+                          "value": "<long>",
+                          "description": "(Required) Id of the appointment"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8e6a7869-9ee5-404e-94c0-215a7ed468f8",
+                      "name": "Successful",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointments/:id/appointment_descriptors?subdomain=<string>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointments",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"descriptor_type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"data\": {},\n      \"active\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"descriptor_type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"data\": {},\n      \"active\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:17:21.000Z",
+                      "updatedAt": "2026-07-28T02:17:21.000Z",
+                      "uid": "35240-8e6a7869-9ee5-404e-94c0-215a7ed468f8"
+                    },
+                    {
+                      "id": "014b4a11-2659-4e98-88da-76a1522925f9",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointments/:id/appointment_descriptors?subdomain=<string>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointments",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:21.000Z",
+                      "updatedAt": "2026-07-28T02:17:21.000Z",
+                      "uid": "35240-014b4a11-2659-4e98-88da-76a1522925f9"
+                    },
+                    {
+                      "id": "dc151c0e-5552-495a-b69b-b41f3d4dac81",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointments/:id/appointment_descriptors?subdomain=<string>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointments",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:21.000Z",
+                      "updatedAt": "2026-07-28T02:17:21.000Z",
+                      "uid": "35240-dc151c0e-5552-495a-b69b-b41f3d4dac81"
+                    },
+                    {
+                      "id": "0e6d6ba4-f5e3-4853-857e-57128c46fe32",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointments/:id/appointment_descriptors?subdomain=<string>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointments",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:21.000Z",
+                      "updatedAt": "2026-07-28T02:17:21.000Z",
+                      "uid": "35240-0e6d6ba4-f5e3-4853-857e-57128c46fe32"
+                    },
+                    {
+                      "id": "32d5b889-8d32-4a68-84d1-b4da3164e044",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointments/:id/appointment_descriptors?subdomain=<string>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointments",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:21.000Z",
+                      "updatedAt": "2026-07-28T02:17:21.000Z",
+                      "uid": "35240-32d5b889-8d32-4a68-84d1-b4da3164e044"
+                    },
+                    {
+                      "id": "6a2fb844-3e94-41e6-96fa-cb011831bc76",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointments/:id/appointment_descriptors?subdomain=<string>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointments",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:21.000Z",
+                      "updatedAt": "2026-07-28T02:17:21.000Z",
+                      "uid": "35240-6a2fb844-3e94-41e6-96fa-cb011831bc76"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-31901050-dc3d-4442-ab22-38e6da675f0d"
+                }
+              ],
+              "id": "f0a32302-4410-4aac-9881-f5741bf5b18d",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-f0a32302-4410-4aac-9881-f5741bf5b18d"
+            },
+            {
+              "name": "View appointment",
+              "id": "9c0faeaf-bfd3-48dd-98d2-ef7e9f5f6365",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>&include[]=patient&include[]=patient",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "patient"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "patient"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "a5c383f6-3400-4a68-aab8-520286646269",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) Id of the appointment"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "924296e5-08f0-46c9-8d5f-fa429ff7b37e",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>&include[]=patient",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "patient"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"provider_name\": \"<string>\",\n    \"start_time\": \"<dateTime>\",\n    \"confirmed\": \"<boolean>\",\n    \"patient_missed\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"note\": \"<string>\",\n    \"end_time\": \"<dateTime>\",\n    \"unavailable\": \"<boolean>\",\n    \"cancelled\": \"<boolean>\",\n    \"timezone\": \"<string>\",\n    \"institution_id\": \"<integer>\",\n    \"appointment_type_id\": \"<integer>\",\n    \"checkin_at\": \"<dateTime>\",\n    \"location_id\": \"<integer>\",\n    \"foreign_id\": \"<string>\",\n    \"foreign_id_type\": \"<string>\",\n    \"misc\": {},\n    \"last_sync_time\": \"<dateTime>\",\n    \"patient_confirmed\": \"<boolean>\",\n    \"created_by_user_id\": \"<integer>\",\n    \"is_guardian\": \"<boolean>\",\n    \"patient_confirmed_at\": \"<dateTime>\",\n    \"cancelled_at\": \"<dateTime>\",\n    \"is_new_clients_patient\": \"<boolean>\",\n    \"confirmed_at\": \"<dateTime>\",\n    \"sooner_if_possible\": \"<boolean>\",\n    \"operatory_id\": \"<long>\",\n    \"checked_out\": \"<boolean>\",\n    \"checked_out_at\": \"<dateTime>\",\n    \"referrer\": \"<string>\",\n    \"is_past_patient\": \"<boolean>\",\n    \"timezone_offset\": \"<string>\",\n    \"patient\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"preferred_locale\": \"<string>\",\n      \"location_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"guarantor\": {\n        \"id\": \"<integer>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"middle_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"name\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"institution_id\": \"<integer>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"bio\": {},\n        \"inactive\": \"<boolean>\",\n        \"last_sync_time\": \"<dateTime>\"\n      }\n    },\n    \"operatory\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"display_name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"bookable_online\": \"<boolean>\"\n    },\n    \"appointment_type\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_type\": \"<string>\",\n      \"parent_id\": \"<integer>\",\n      \"minutes\": \"<integer>\",\n      \"bookable_online\": \"<boolean>\"\n    },\n    \"procedures\": [\n      {\n        \"id\": \"<long>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"appointment_id\": \"<long>\",\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"status\": \"completed\",\n        \"updated_at\": \"<dateTime>\",\n        \"body_site\": {\n          \"tooth\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"surface\": \"<string>\"\n        },\n        \"fee\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"start_date\": \"<date>\",\n        \"end_date\": \"<date>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"location_id\": \"<integer>\",\n        \"patient_id\": \"<integer>\",\n        \"provider_id\": \"<integer>\",\n        \"appointment_id\": \"<long>\",\n        \"code\": \"<string>\",\n        \"name\": \"<string>\",\n        \"status\": \"scheduled\",\n        \"updated_at\": \"<dateTime>\",\n        \"body_site\": {\n          \"tooth\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"surface\": \"<string>\"\n        },\n        \"fee\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"start_date\": \"<date>\",\n        \"end_date\": \"<date>\"\n      }\n    ],\n    \"descriptors\": [\n      {\n        \"id\": \"<integer>\",\n        \"descriptor_type\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"data\": {},\n        \"active\": \"<boolean>\",\n        \"last_sync_time\": \"<dateTime>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"descriptor_type\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"data\": {},\n        \"active\": \"<boolean>\",\n        \"last_sync_time\": \"<dateTime>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\"\n      }\n    ],\n    \"booking_details\": {\n      \"booked_via_nexhealth_generated_link\": \"<boolean>\",\n      \"campaign_type\": \"recall\",\n      \"campaign_id\": \"<string>\",\n      \"campaign_medium\": \"sms\",\n      \"booked_via_one_click\": \"<boolean>\"\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-924296e5-08f0-46c9-8d5f-fa429ff7b37e"
+                },
+                {
+                  "id": "38bfd222-fba2-4b96-96f8-c9991ecce299",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>&include[]=patient",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "patient"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-38bfd222-fba2-4b96-96f8-c9991ecce299"
+                },
+                {
+                  "id": "da262a5b-04c7-42f5-b9d7-f8bf45bea01e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>&include[]=patient",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "patient"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-da262a5b-04c7-42f5-b9d7-f8bf45bea01e"
+                },
+                {
+                  "id": "77adb592-f6f4-44bf-ae37-99bf777ac2c8",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>&include[]=patient",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "patient"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-77adb592-f6f4-44bf-ae37-99bf777ac2c8"
+                },
+                {
+                  "id": "10cde09e-5e9f-459a-a4f6-356533f1b4a9",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>&include[]=patient",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "patient"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-10cde09e-5e9f-459a-a4f6-356533f1b4a9"
+                },
+                {
+                  "id": "df172d0a-8f09-4dc8-927d-28ce7333e3f1",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>&include[]=patient",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "patient"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-df172d0a-8f09-4dc8-927d-28ce7333e3f1"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-9c0faeaf-bfd3-48dd-98d2-ef7e9f5f6365"
+            },
+            {
+              "name": "Edit Appointment",
+              "id": "e71d3596-bd69-426f-a022-0564e908d174",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appt\": {\n    \"confirmed\": \"<boolean>\",\n    \"cancelled\": \"<boolean>\",\n    \"checkin_at\": \"<dateTime>\",\n    \"start_time\": \"<dateTime>\",\n    \"end_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"note\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "63ff8e10-ae07-472c-b3ce-4882da8bceee",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) Id of the appointment"
+                    }
+                  ]
+                },
+                "description": "This endpoint updates an existing appointment."
+              },
+              "response": [
+                {
+                  "id": "26149e31-ed4e-407b-ba27-fd437573522b",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appt\": {\n    \"confirmed\": \"<boolean>\",\n    \"cancelled\": \"<boolean>\",\n    \"checkin_at\": \"<dateTime>\",\n    \"start_time\": \"<dateTime>\",\n    \"end_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"note\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"appt\": {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"provider_name\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"confirmed\": \"<boolean>\",\n      \"patient_missed\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"note\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"unavailable\": \"<boolean>\",\n      \"cancelled\": \"<boolean>\",\n      \"timezone\": \"<string>\",\n      \"institution_id\": \"<integer>\",\n      \"appointment_type_id\": \"<integer>\",\n      \"checkin_at\": \"<dateTime>\",\n      \"location_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"misc\": {},\n      \"last_sync_time\": \"<dateTime>\",\n      \"patient_confirmed\": \"<boolean>\",\n      \"created_by_user_id\": \"<integer>\",\n      \"is_guardian\": \"<boolean>\",\n      \"patient_confirmed_at\": \"<dateTime>\",\n      \"cancelled_at\": \"<dateTime>\",\n      \"is_new_clients_patient\": \"<boolean>\",\n      \"confirmed_at\": \"<dateTime>\",\n      \"sooner_if_possible\": \"<boolean>\",\n      \"operatory_id\": \"<long>\",\n      \"checked_out\": \"<boolean>\",\n      \"checked_out_at\": \"<dateTime>\",\n      \"referrer\": \"<string>\",\n      \"is_past_patient\": \"<boolean>\",\n      \"timezone_offset\": \"<string>\"\n    },\n    \"stripe_client_secret\": \"<string>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-26149e31-ed4e-407b-ba27-fd437573522b"
+                },
+                {
+                  "id": "0857fc00-9fd5-4051-932e-2383d48ceb33",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appt\": {\n    \"confirmed\": \"<boolean>\",\n    \"cancelled\": \"<boolean>\",\n    \"checkin_at\": \"<dateTime>\",\n    \"start_time\": \"<dateTime>\",\n    \"end_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"note\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-0857fc00-9fd5-4051-932e-2383d48ceb33"
+                },
+                {
+                  "id": "488932ba-1624-446b-81ea-c2d4821ebda0",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appt\": {\n    \"confirmed\": \"<boolean>\",\n    \"cancelled\": \"<boolean>\",\n    \"checkin_at\": \"<dateTime>\",\n    \"start_time\": \"<dateTime>\",\n    \"end_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"note\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-488932ba-1624-446b-81ea-c2d4821ebda0"
+                },
+                {
+                  "id": "f402ec83-e0fa-41a5-bcff-392cac7e03cc",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appt\": {\n    \"confirmed\": \"<boolean>\",\n    \"cancelled\": \"<boolean>\",\n    \"checkin_at\": \"<dateTime>\",\n    \"start_time\": \"<dateTime>\",\n    \"end_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"note\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-f402ec83-e0fa-41a5-bcff-392cac7e03cc"
+                },
+                {
+                  "id": "211ad2be-4530-40c0-afa2-b817642773b9",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appt\": {\n    \"confirmed\": \"<boolean>\",\n    \"cancelled\": \"<boolean>\",\n    \"checkin_at\": \"<dateTime>\",\n    \"start_time\": \"<dateTime>\",\n    \"end_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"note\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-211ad2be-4530-40c0-afa2-b817642773b9"
+                },
+                {
+                  "id": "2f1f3166-d9a4-4f0f-ab1d-47a4a28f835f",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appt\": {\n    \"confirmed\": \"<boolean>\",\n    \"cancelled\": \"<boolean>\",\n    \"checkin_at\": \"<dateTime>\",\n    \"start_time\": \"<dateTime>\",\n    \"end_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"note\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointments/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-2f1f3166-d9a4-4f0f-ab1d-47a4a28f835f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-e71d3596-bd69-426f-a022-0564e908d174"
+            }
+          ],
+          "id": "9d5636c6-fcf9-4477-b2ab-cee5eb4b9467",
+          "createdAt": "2026-07-28T02:17:21.000Z",
+          "updatedAt": "2026-07-28T02:17:21.000Z",
+          "uid": "35240-9d5636c6-fcf9-4477-b2ab-cee5eb4b9467"
+        },
+        {
+          "name": "View appointments",
+          "id": "a355ec4c-d1df-46a4-bd7e-c6eb91f29b70",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&sort=<string>&start=<dateTime>&end=<dateTime>&timezone=<string>&cancelled=<boolean>&unavailable=<boolean>&nex_only=<boolean>&updated_since=<dateTime>&appointment_type_id=<integer>&foreign_id=<string>&created_by=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&patient_ids[]=<integer>,<integer>&provider_ids[]=<integer>,<integer>&operatory_ids[]=<integer>,<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "appointments"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                  "key": "start",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                  "key": "end",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Timezone for the appointment clinic",
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by cancelled status.",
+                  "key": "cancelled",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Unavailable appointments are used to block availability on a schedule, specify to set the filter",
+                  "key": "unavailable",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Only show appointments booked via NexHealth API",
+                  "key": "nex_only",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Get appointments for a specific appointment type",
+                  "key": "appointment_type_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Unique appointment id from the EHR",
+                  "key": "foreign_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Query appointments that were created by a specific user",
+                  "key": "created_by",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                },
+                {
+                  "description": "Get appointments for specific patients (up to 25 ids)",
+                  "key": "patient_ids[]",
+                  "value": "<integer>,<integer>"
+                },
+                {
+                  "description": "Query appointments that are booked with the specified providers only",
+                  "key": "provider_ids[]",
+                  "value": "<integer>,<integer>"
+                },
+                {
+                  "description": "Query appointments that are booked in the specified operatories only",
+                  "key": "operatory_ids[]",
+                  "value": "<integer>,<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint returns the appointments starting within the requested time window, narrowed down by the optional filters configured. At least one of location_id or foreign_id must be provided."
+          },
+          "response": [
+            {
+              "id": "eaa14612-5abb-470a-a9de-9b91aafe4f8a",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&sort=<string>&start=<dateTime>&end=<dateTime>&timezone=<string>&cancelled=<boolean>&unavailable=<boolean>&nex_only=<boolean>&updated_since=<dateTime>&appointment_type_id=<integer>&foreign_id=<string>&created_by=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&patient_ids[]=<integer>,<integer>&provider_ids[]=<integer>,<integer>&operatory_ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Timezone for the appointment clinic",
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by cancelled status.",
+                      "key": "cancelled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Unavailable appointments are used to block availability on a schedule, specify to set the filter",
+                      "key": "unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only show appointments booked via NexHealth API",
+                      "key": "nex_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Get appointments for a specific appointment type",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique appointment id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Query appointments that were created by a specific user",
+                      "key": "created_by",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Get appointments for specific patients (up to 25 ids)",
+                      "key": "patient_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked with the specified providers only",
+                      "key": "provider_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked in the specified operatories only",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"provider_name\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"confirmed\": \"<boolean>\",\n      \"patient_missed\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"note\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"unavailable\": \"<boolean>\",\n      \"cancelled\": \"<boolean>\",\n      \"timezone\": \"<string>\",\n      \"institution_id\": \"<integer>\",\n      \"appointment_type_id\": \"<integer>\",\n      \"checkin_at\": \"<dateTime>\",\n      \"location_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"misc\": {},\n      \"last_sync_time\": \"<dateTime>\",\n      \"patient_confirmed\": \"<boolean>\",\n      \"created_by_user_id\": \"<integer>\",\n      \"is_guardian\": \"<boolean>\",\n      \"patient_confirmed_at\": \"<dateTime>\",\n      \"cancelled_at\": \"<dateTime>\",\n      \"is_new_clients_patient\": \"<boolean>\",\n      \"confirmed_at\": \"<dateTime>\",\n      \"sooner_if_possible\": \"<boolean>\",\n      \"operatory_id\": \"<long>\",\n      \"checked_out\": \"<boolean>\",\n      \"checked_out_at\": \"<dateTime>\",\n      \"referrer\": \"<string>\",\n      \"is_past_patient\": \"<boolean>\",\n      \"timezone_offset\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"provider_name\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"confirmed\": \"<boolean>\",\n      \"patient_missed\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"note\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"unavailable\": \"<boolean>\",\n      \"cancelled\": \"<boolean>\",\n      \"timezone\": \"<string>\",\n      \"institution_id\": \"<integer>\",\n      \"appointment_type_id\": \"<integer>\",\n      \"checkin_at\": \"<dateTime>\",\n      \"location_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"misc\": {},\n      \"last_sync_time\": \"<dateTime>\",\n      \"patient_confirmed\": \"<boolean>\",\n      \"created_by_user_id\": \"<integer>\",\n      \"is_guardian\": \"<boolean>\",\n      \"patient_confirmed_at\": \"<dateTime>\",\n      \"cancelled_at\": \"<dateTime>\",\n      \"is_new_clients_patient\": \"<boolean>\",\n      \"confirmed_at\": \"<dateTime>\",\n      \"sooner_if_possible\": \"<boolean>\",\n      \"operatory_id\": \"<long>\",\n      \"checked_out\": \"<boolean>\",\n      \"checked_out_at\": \"<dateTime>\",\n      \"referrer\": \"<string>\",\n      \"is_past_patient\": \"<boolean>\",\n      \"timezone_offset\": \"<string>\"\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-eaa14612-5abb-470a-a9de-9b91aafe4f8a"
+            },
+            {
+              "id": "7f7b4c87-020a-495d-9eec-4b2b51eeddc3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&sort=<string>&start=<dateTime>&end=<dateTime>&timezone=<string>&cancelled=<boolean>&unavailable=<boolean>&nex_only=<boolean>&updated_since=<dateTime>&appointment_type_id=<integer>&foreign_id=<string>&created_by=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&patient_ids[]=<integer>,<integer>&provider_ids[]=<integer>,<integer>&operatory_ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Timezone for the appointment clinic",
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by cancelled status.",
+                      "key": "cancelled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Unavailable appointments are used to block availability on a schedule, specify to set the filter",
+                      "key": "unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only show appointments booked via NexHealth API",
+                      "key": "nex_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Get appointments for a specific appointment type",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique appointment id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Query appointments that were created by a specific user",
+                      "key": "created_by",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Get appointments for specific patients (up to 25 ids)",
+                      "key": "patient_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked with the specified providers only",
+                      "key": "provider_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked in the specified operatories only",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-7f7b4c87-020a-495d-9eec-4b2b51eeddc3"
+            },
+            {
+              "id": "64667ea0-c48c-4a62-9264-4ca2f9949cd1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&sort=<string>&start=<dateTime>&end=<dateTime>&timezone=<string>&cancelled=<boolean>&unavailable=<boolean>&nex_only=<boolean>&updated_since=<dateTime>&appointment_type_id=<integer>&foreign_id=<string>&created_by=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&patient_ids[]=<integer>,<integer>&provider_ids[]=<integer>,<integer>&operatory_ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Timezone for the appointment clinic",
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by cancelled status.",
+                      "key": "cancelled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Unavailable appointments are used to block availability on a schedule, specify to set the filter",
+                      "key": "unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only show appointments booked via NexHealth API",
+                      "key": "nex_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Get appointments for a specific appointment type",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique appointment id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Query appointments that were created by a specific user",
+                      "key": "created_by",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Get appointments for specific patients (up to 25 ids)",
+                      "key": "patient_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked with the specified providers only",
+                      "key": "provider_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked in the specified operatories only",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-64667ea0-c48c-4a62-9264-4ca2f9949cd1"
+            },
+            {
+              "id": "ebaa10f9-312d-4d21-a4b7-f8b3c9fcba8a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&sort=<string>&start=<dateTime>&end=<dateTime>&timezone=<string>&cancelled=<boolean>&unavailable=<boolean>&nex_only=<boolean>&updated_since=<dateTime>&appointment_type_id=<integer>&foreign_id=<string>&created_by=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&patient_ids[]=<integer>,<integer>&provider_ids[]=<integer>,<integer>&operatory_ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Timezone for the appointment clinic",
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by cancelled status.",
+                      "key": "cancelled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Unavailable appointments are used to block availability on a schedule, specify to set the filter",
+                      "key": "unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only show appointments booked via NexHealth API",
+                      "key": "nex_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Get appointments for a specific appointment type",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique appointment id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Query appointments that were created by a specific user",
+                      "key": "created_by",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Get appointments for specific patients (up to 25 ids)",
+                      "key": "patient_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked with the specified providers only",
+                      "key": "provider_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked in the specified operatories only",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-ebaa10f9-312d-4d21-a4b7-f8b3c9fcba8a"
+            },
+            {
+              "id": "04d1620a-ba31-46f1-ab43-c17614a9514a",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&sort=<string>&start=<dateTime>&end=<dateTime>&timezone=<string>&cancelled=<boolean>&unavailable=<boolean>&nex_only=<boolean>&updated_since=<dateTime>&appointment_type_id=<integer>&foreign_id=<string>&created_by=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&patient_ids[]=<integer>,<integer>&provider_ids[]=<integer>,<integer>&operatory_ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Timezone for the appointment clinic",
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by cancelled status.",
+                      "key": "cancelled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Unavailable appointments are used to block availability on a schedule, specify to set the filter",
+                      "key": "unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only show appointments booked via NexHealth API",
+                      "key": "nex_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Get appointments for a specific appointment type",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique appointment id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Query appointments that were created by a specific user",
+                      "key": "created_by",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Get appointments for specific patients (up to 25 ids)",
+                      "key": "patient_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked with the specified providers only",
+                      "key": "provider_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked in the specified operatories only",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-04d1620a-ba31-46f1-ab43-c17614a9514a"
+            },
+            {
+              "id": "225884d3-182e-4d43-a96c-3f634c0f2cb9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&sort=<string>&start=<dateTime>&end=<dateTime>&timezone=<string>&cancelled=<boolean>&unavailable=<boolean>&nex_only=<boolean>&updated_since=<dateTime>&appointment_type_id=<integer>&foreign_id=<string>&created_by=<integer>&start_cursor=<string>&end_cursor=<string>&per_page=5&patient_ids[]=<integer>,<integer>&provider_ids[]=<integer>,<integer>&operatory_ids[]=<integer>,<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000",
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Timezone for the appointment clinic",
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by cancelled status.",
+                      "key": "cancelled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Unavailable appointments are used to block availability on a schedule, specify to set the filter",
+                      "key": "unavailable",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Only show appointments booked via NexHealth API",
+                      "key": "nex_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Get appointments for a specific appointment type",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Unique appointment id from the EHR",
+                      "key": "foreign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Query appointments that were created by a specific user",
+                      "key": "created_by",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Get appointments for specific patients (up to 25 ids)",
+                      "key": "patient_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked with the specified providers only",
+                      "key": "provider_ids[]",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "description": "Query appointments that are booked in the specified operatories only",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>,<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-225884d3-182e-4d43-a96c-3f634c0f2cb9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:21.000Z",
+          "updatedAt": "2026-07-28T02:17:21.000Z",
+          "uid": "35240-a355ec4c-d1df-46a4-bd7e-c6eb91f29b70"
+        },
+        {
+          "name": "Create appointment",
+          "id": "0543323f-4879-434f-8f91-09d024a8d200",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appt\": {\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"start_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"end_time\": \"<dateTime>\",\n    \"appointment_type_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"unavailable\": \"<boolean>\",\n    \"is_guardian\": \"<boolean>\",\n    \"is_new_clients_patient\": \"<boolean>\",\n    \"referrer\": \"<string>\",\n    \"patient\": {\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"bio\": {\n        \"date_of_birth\": \"<date>\",\n        \"gender\": \"Male\"\n      }\n    },\n    \"descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"appointments_per_timeslot\": 1\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&notify_patient=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "appointments"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Send NexHealth appointment created notifications to patient",
+                  "key": "notify_patient",
+                  "value": "false"
+                }
+              ]
+            },
+            "description": "This endpoint books an appointment for the given patient with the given provider at the specified location. When is_guardian is true, the booking is made by a guardian and a patient object with the dependent's details must be provided. Set unavailable to true to create a block instead of a patient appointment."
+          },
+          "response": [
+            {
+              "id": "cb3411e8-b2c2-4f26-8bf5-8bc6fa08f8ca",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appt\": {\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"start_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"end_time\": \"<dateTime>\",\n    \"appointment_type_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"unavailable\": \"<boolean>\",\n    \"is_guardian\": \"<boolean>\",\n    \"is_new_clients_patient\": \"<boolean>\",\n    \"referrer\": \"<string>\",\n    \"patient\": {\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"bio\": {\n        \"date_of_birth\": \"<date>\",\n        \"gender\": \"Male\"\n      }\n    },\n    \"descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"appointments_per_timeslot\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&notify_patient=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Send NexHealth appointment created notifications to patient",
+                      "key": "notify_patient",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"appt\": {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"provider_name\": \"<string>\",\n      \"start_time\": \"<dateTime>\",\n      \"confirmed\": \"<boolean>\",\n      \"patient_missed\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"note\": \"<string>\",\n      \"end_time\": \"<dateTime>\",\n      \"unavailable\": \"<boolean>\",\n      \"cancelled\": \"<boolean>\",\n      \"timezone\": \"<string>\",\n      \"institution_id\": \"<integer>\",\n      \"appointment_type_id\": \"<integer>\",\n      \"checkin_at\": \"<dateTime>\",\n      \"location_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"misc\": {},\n      \"last_sync_time\": \"<dateTime>\",\n      \"patient_confirmed\": \"<boolean>\",\n      \"created_by_user_id\": \"<integer>\",\n      \"is_guardian\": \"<boolean>\",\n      \"patient_confirmed_at\": \"<dateTime>\",\n      \"cancelled_at\": \"<dateTime>\",\n      \"is_new_clients_patient\": \"<boolean>\",\n      \"confirmed_at\": \"<dateTime>\",\n      \"sooner_if_possible\": \"<boolean>\",\n      \"operatory_id\": \"<long>\",\n      \"checked_out\": \"<boolean>\",\n      \"checked_out_at\": \"<dateTime>\",\n      \"referrer\": \"<string>\",\n      \"is_past_patient\": \"<boolean>\",\n      \"timezone_offset\": \"<string>\"\n    },\n    \"stripe_client_secret\": \"<string>\"\n  },\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-cb3411e8-b2c2-4f26-8bf5-8bc6fa08f8ca"
+            },
+            {
+              "id": "5fdf7f2a-27d3-4159-a3a8-39d13304cbc1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appt\": {\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"start_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"end_time\": \"<dateTime>\",\n    \"appointment_type_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"unavailable\": \"<boolean>\",\n    \"is_guardian\": \"<boolean>\",\n    \"is_new_clients_patient\": \"<boolean>\",\n    \"referrer\": \"<string>\",\n    \"patient\": {\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"bio\": {\n        \"date_of_birth\": \"<date>\",\n        \"gender\": \"Male\"\n      }\n    },\n    \"descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"appointments_per_timeslot\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&notify_patient=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Send NexHealth appointment created notifications to patient",
+                      "key": "notify_patient",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-5fdf7f2a-27d3-4159-a3a8-39d13304cbc1"
+            },
+            {
+              "id": "e2eab30c-06ad-4028-b2ac-0129ad84bf3b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appt\": {\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"start_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"end_time\": \"<dateTime>\",\n    \"appointment_type_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"unavailable\": \"<boolean>\",\n    \"is_guardian\": \"<boolean>\",\n    \"is_new_clients_patient\": \"<boolean>\",\n    \"referrer\": \"<string>\",\n    \"patient\": {\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"bio\": {\n        \"date_of_birth\": \"<date>\",\n        \"gender\": \"Male\"\n      }\n    },\n    \"descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"appointments_per_timeslot\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&notify_patient=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Send NexHealth appointment created notifications to patient",
+                      "key": "notify_patient",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-e2eab30c-06ad-4028-b2ac-0129ad84bf3b"
+            },
+            {
+              "id": "c7872152-6cfe-4761-a7e9-6678724997f0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appt\": {\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"start_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"end_time\": \"<dateTime>\",\n    \"appointment_type_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"unavailable\": \"<boolean>\",\n    \"is_guardian\": \"<boolean>\",\n    \"is_new_clients_patient\": \"<boolean>\",\n    \"referrer\": \"<string>\",\n    \"patient\": {\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"bio\": {\n        \"date_of_birth\": \"<date>\",\n        \"gender\": \"Male\"\n      }\n    },\n    \"descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"appointments_per_timeslot\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&notify_patient=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Send NexHealth appointment created notifications to patient",
+                      "key": "notify_patient",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-c7872152-6cfe-4761-a7e9-6678724997f0"
+            },
+            {
+              "id": "89a87c0b-f8e6-40b8-91fa-f76acec26ea7",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appt\": {\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"start_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"end_time\": \"<dateTime>\",\n    \"appointment_type_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"unavailable\": \"<boolean>\",\n    \"is_guardian\": \"<boolean>\",\n    \"is_new_clients_patient\": \"<boolean>\",\n    \"referrer\": \"<string>\",\n    \"patient\": {\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"bio\": {\n        \"date_of_birth\": \"<date>\",\n        \"gender\": \"Male\"\n      }\n    },\n    \"descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"appointments_per_timeslot\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&notify_patient=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Send NexHealth appointment created notifications to patient",
+                      "key": "notify_patient",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-89a87c0b-f8e6-40b8-91fa-f76acec26ea7"
+            },
+            {
+              "id": "e75d5463-57f9-41c8-8858-159e12cd3965",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appt\": {\n    \"patient_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"start_time\": \"<dateTime>\",\n    \"operatory_id\": \"<integer>\",\n    \"end_time\": \"<dateTime>\",\n    \"appointment_type_id\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"unavailable\": \"<boolean>\",\n    \"is_guardian\": \"<boolean>\",\n    \"is_new_clients_patient\": \"<boolean>\",\n    \"referrer\": \"<string>\",\n    \"patient\": {\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"bio\": {\n        \"date_of_birth\": \"<date>\",\n        \"gender\": \"Male\"\n      }\n    },\n    \"descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"appointments_per_timeslot\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointments?subdomain=<string>&location_id=<integer>&notify_patient=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Send NexHealth appointment created notifications to patient",
+                      "key": "notify_patient",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-e75d5463-57f9-41c8-8858-159e12cd3965"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:21.000Z",
+          "updatedAt": "2026-07-28T02:17:21.000Z",
+          "uid": "35240-0543323f-4879-434f-8f91-09d024a8d200"
+        }
+      ],
+      "id": "63f278aa-9c23-466c-93c1-156c82598ec0",
+      "createdAt": "2026-07-28T02:17:21.000Z",
+      "updatedAt": "2026-07-28T02:17:21.000Z",
+      "uid": "35240-63f278aa-9c23-466c-93c1-156c82598ec0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

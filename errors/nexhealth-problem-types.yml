@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nexhealth-openapi-original.json
+docs: https://docs.nexhealth.com/reference/response-codes
+format: custom-envelope
+envelope:
+  description: >-
+    NexHealth does not use RFC 9457 problem+json. Every response is a JSON envelope with a boolean
+    code flag, a data object, a description array, an optional count, and an error array of strings.
+    HTTP status conveys success/failure class; error[] carries the messages.
+  fields:
+  - code
+  - data
+  - description
+  - count
+  - error
+problems:
+- status: 400
+  name: Bad request
+  schema: API_Errors_BadRequest
+  title: Bad request
+  remediation: The request was invalid because the format was incorrect or the resource method was unsupported for that type.
+- status: 401
+  name: Unauthorized
+  schema: API_Errors_Unauthorized
+  title: Unauthorized
+  remediation: Authorization credentials were missing, invalid, or the bearer token expired. Re-authenticate via POST /authenticates. All unauthenticated requests return 401.
+- status: 403
+  name: Forbidden
+  schema: API_Errors_Forbidden
+  title: Forbidden
+  remediation: The request is authenticated but the token lacks permission for that resource (e.g. a location your token cannot access).
+- status: 404
+  name: Not found
+  schema: API_Errors_NotFound
+  title: Resource not found
+  remediation: The resource was not found, or it belongs to a location your token cannot access. Note some claim endpoints currently return 500 rather than 404 for unknown ids.
+- status: 500
+  name: Internal server error
+  schema: API_Errors_InternalServerError
+  title: Internal server error
+  remediation: An unexpected server error occurred. Retry with backoff; contact support if persistent.
+notes:
+- Non-fatal validation issues (e.g. an unknown query parameter) can be returned in error[] while code remains true and HTTP status is 2xx.
+- Rate limiting returns HTTP 429; handle with sleep-and-retry.

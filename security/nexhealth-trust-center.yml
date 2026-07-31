@@ -1,0 +1,14 @@
+generated: '2026-07-20'
+method: searched
+probe: true
+source: https://security.nexhealth.com/
+url: https://security.nexhealth.com/
+certifications:
+- SOC 2
+- HIPAA
+evidence:
+- source: https://security.nexhealth.com/
+  keywords:
+  - soc 2
+  - hipaa
+  - trust center

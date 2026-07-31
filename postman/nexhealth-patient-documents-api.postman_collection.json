@@ -1,0 +1,1009 @@
+{
+  "info": {
+    "_postman_id": "985978e7-d08a-4ef7-a9bd-b4d896d1cdd9",
+    "name": "NexHealth Adjustment Types Patient Documents API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:07.000Z",
+    "updatedAt": "2026-07-28T02:20:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-985978e7-d08a-4ef7-a9bd-b4d896d1cdd9"
+  },
+  "item": [
+    {
+      "name": "patients",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "documents",
+              "item": [
+                {
+                  "name": "View patient documents",
+                  "id": "571f6dcb-3280-4b82-af2d-560a5e338f98",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id",
+                        "documents"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "3f9f6cf5-6d18-4f53-bbe1-4211adf6b1cd",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Id of the patient"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e6265aa9-a0ba-4d15-a896-dc559a75de47",
+                      "name": "Successful",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"filename\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"document_type_id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"filename\": \"<string>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"document_type_id\": \"<integer>\"\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-e6265aa9-a0ba-4d15-a896-dc559a75de47"
+                    },
+                    {
+                      "id": "d45641e9-4aa5-458d-b404-2e724c59d9bc",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-d45641e9-4aa5-458d-b404-2e724c59d9bc"
+                    },
+                    {
+                      "id": "e0940bda-3710-42df-922b-8d1806bd6d20",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-e0940bda-3710-42df-922b-8d1806bd6d20"
+                    },
+                    {
+                      "id": "493b0906-60da-472c-b0ac-014c1268096e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-493b0906-60da-472c-b0ac-014c1268096e"
+                    },
+                    {
+                      "id": "4f02bda4-134f-46cd-b822-c13d3a28f4fa",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-4f02bda4-134f-46cd-b822-c13d3a28f4fa"
+                    },
+                    {
+                      "id": "013d3d14-cdd6-495c-b611-fa79a35f1b68",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-013d3d14-cdd6-495c-b611-fa79a35f1b68"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:20:08.000Z",
+                  "updatedAt": "2026-07-28T02:20:08.000Z",
+                  "uid": "35240-571f6dcb-3280-4b82-af2d-560a5e338f98"
+                },
+                {
+                  "name": "Create patient document",
+                  "id": "608d0616-fa8f-478a-82bf-d8b1443a0d6e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The file being uploaded. The name of this file will be used when inserting the file into the EHRs filesystem",
+                          "key": "file",
+                          "type": "file",
+                          "value": null
+                        },
+                        {
+                          "description": "The id of the document type to assign to the uploaded document",
+                          "key": "document_type_id",
+                          "value": "<integer>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>&location_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "patients",
+                        ":id",
+                        "documents"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Used to scope the request to the specified location",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "60debbf7-d99e-43c6-9286-5df448800cb4",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Id of the patient"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1c97ffcd-5e01-434f-919b-f95681a6b4b0",
+                      "name": "Successful",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The file being uploaded. The name of this file will be used when inserting the file into the EHRs filesystem",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "The id of the document type to assign to the uploaded document",
+                              "key": "document_type_id",
+                              "value": "<integer>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>&location_id=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Used to scope the request to the specified location",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"filename\": \"<string>\",\n    \"type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"document_type_id\": \"<integer>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-1c97ffcd-5e01-434f-919b-f95681a6b4b0"
+                    },
+                    {
+                      "id": "5071d535-5189-4f94-a61a-09142319460f",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The file being uploaded. The name of this file will be used when inserting the file into the EHRs filesystem",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "The id of the document type to assign to the uploaded document",
+                              "key": "document_type_id",
+                              "value": "<integer>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>&location_id=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Used to scope the request to the specified location",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-5071d535-5189-4f94-a61a-09142319460f"
+                    },
+                    {
+                      "id": "540b36b4-45a3-4f12-b60f-df378d037146",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The file being uploaded. The name of this file will be used when inserting the file into the EHRs filesystem",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "The id of the document type to assign to the uploaded document",
+                              "key": "document_type_id",
+                              "value": "<integer>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>&location_id=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Used to scope the request to the specified location",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-540b36b4-45a3-4f12-b60f-df378d037146"
+                    },
+                    {
+                      "id": "3ff0dd52-7a71-419d-9873-a6a61084c5c6",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The file being uploaded. The name of this file will be used when inserting the file into the EHRs filesystem",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "The id of the document type to assign to the uploaded document",
+                              "key": "document_type_id",
+                              "value": "<integer>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>&location_id=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Used to scope the request to the specified location",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-3ff0dd52-7a71-419d-9873-a6a61084c5c6"
+                    },
+                    {
+                      "id": "b60409b8-53ac-4b38-85fa-1d5353310c35",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The file being uploaded. The name of this file will be used when inserting the file into the EHRs filesystem",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "The id of the document type to assign to the uploaded document",
+                              "key": "document_type_id",
+                              "value": "<integer>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>&location_id=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Used to scope the request to the specified location",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-b60409b8-53ac-4b38-85fa-1d5353310c35"
+                    },
+                    {
+                      "id": "045dc670-1caa-43ca-8e63-e0b4b6a7d1bf",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The file being uploaded. The name of this file will be used when inserting the file into the EHRs filesystem",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "The id of the document type to assign to the uploaded document",
+                              "key": "document_type_id",
+                              "value": "<integer>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/patients/:id/documents?subdomain=<string>&location_id=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "patients",
+                            ":id",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Used to scope the request to the specified location",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:08.000Z",
+                      "updatedAt": "2026-07-28T02:20:08.000Z",
+                      "uid": "35240-045dc670-1caa-43ca-8e63-e0b4b6a7d1bf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:20:08.000Z",
+                  "updatedAt": "2026-07-28T02:20:08.000Z",
+                  "uid": "35240-608d0616-fa8f-478a-82bf-d8b1443a0d6e"
+                }
+              ],
+              "id": "e3fa4f57-762b-4da1-ae1a-ae8700644301",
+              "createdAt": "2026-07-28T02:20:08.000Z",
+              "updatedAt": "2026-07-28T02:20:08.000Z",
+              "uid": "35240-e3fa4f57-762b-4da1-ae1a-ae8700644301"
+            }
+          ],
+          "id": "e921f60f-6d69-4864-b416-4decfa74724c",
+          "createdAt": "2026-07-28T02:20:08.000Z",
+          "updatedAt": "2026-07-28T02:20:08.000Z",
+          "uid": "35240-e921f60f-6d69-4864-b416-4decfa74724c"
+        }
+      ],
+      "id": "58c90e2a-2148-461d-aa18-edca4fba95fd",
+      "createdAt": "2026-07-28T02:20:08.000Z",
+      "updatedAt": "2026-07-28T02:20:08.000Z",
+      "uid": "35240-58c90e2a-2148-461d-aa18-edca4fba95fd"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/nexhealth-openapi-original.json
+skills:
+- file: nexhealth-book-an-appointment.md
+  name: Book a patient appointment
+  api: openapi/nexhealth-openapi-original.json
+  operations: [postAuthenticates, getLocations, getProviders, getAppointmentTypes, getAvailableSlots, postPatients, postAppointments]
+- file: nexhealth-sync-patient-data.md
+  name: Sync patients and appointments from a practice
+  api: openapi/nexhealth-openapi-original.json
+  operations: [postAuthenticates, getInstitutions, getLocations, getPatients, getPatientsId, getAppointments]
+- file: nexhealth-setup-webhooks.md
+  name: Register webhooks and subscribe to practice events
+  api: openapi/nexhealth-openapi-original.json
+  operations: [postAuthenticates, postWebhookEndpoints, postWebhookEndpointsIdWebhookSubscriptions, getWebhookEndpoints]

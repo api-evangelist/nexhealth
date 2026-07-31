@@ -1,25 +1,591 @@
 aid: nexhealth
 name: NexHealth
-description: NexHealth is a company surfaced as a portfolio company of point-nine and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  NexHealth is a universal, real-time API for healthcare that lets developers read from and write to
+  dozens of electronic health record (EHR) and practice management systems through a single standardized
+  interface. The NexHealth Synchronizer API covers patients, providers, locations, scheduling and
+  available slots, appointments, working hours, clinical notes, treatment plans, documents, insurance
+  (plans, coverages, claims, balances), and practice financials (charges, payments, adjustments, fee
+  schedules), with signed webhooks for real-time events. It is used across dental and medical practices
+  and by health-tech companies building scheduling, billing, and patient-engagement products.
 url: https://raw.githubusercontent.com/api-evangelist/nexhealth/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://files.readme.io/85735db-Full_Logo_White.svg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - point-nine
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-with-real-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Healthcare
+- EHR
+- Practice Management
+- Scheduling
+- Appointments
+- Dental
+- Patients
+- Health Records
+- Insurance
+- Webhooks
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: nexhealth:nexhealth-adjustment-types-api
+  name: NexHealth Adjustment Types API
+  description: Adjustment types used to create adjustment
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Adjustment Types
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-adjustment-types-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-adjustments-api
+  name: NexHealth Adjustments API
+  description: Adjustments resources
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Adjustments
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-adjustments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-appointment-types-api
+  name: NexHealth Appointment Types API
+  description: Defines booking parameters for services offerred by the practice
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Appointment Types
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-appointment-types-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-appointments-api
+  name: NexHealth Appointments API
+  description: A booking on the Practice's calendar
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Appointments
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-appointments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-authenticates-api
+  name: NexHealth Authenticates API
+  description: Authentication endpoints for NexHealth resources
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Authenticates
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-authenticates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-available-slots-api
+  name: NexHealth Available Slots API
+  description: Available start date/times for an appointment
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Available Slots
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-available-slots-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-balances-api
+  name: NexHealth Balances API
+  description: Guarantor and Insurance Balances resources
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Balances
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-balances-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-charges-api
+  name: NexHealth Charges API
+  description: Charges resources
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Charges
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-charges-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-claims-api
+  name: NexHealth Claims API
+  description: Claims resources
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Claims
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-claims-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-clinical-notes-api
+  name: NexHealth Clinical Notes API
+  description: >-
+    Clinical notes are the official documentation of a patient's clinical encounter or care interaction
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Clinical Notes
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-clinical-notes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-document-types-api
+  name: NexHealth Document Types API
+  description: A document types resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Document Types
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-document-types-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-fee-schedules-api
+  name: NexHealth Fee Schedules API
+  description: A fee schedules resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Fee Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-fee-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-institutions-api
+  name: NexHealth Institutions API
+  description: An organization containing at least one location is refered to as Institution
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Institutions
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-institutions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-insurance-api
+  name: NexHealth Insurance API
+  description: An insurance resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Insurance
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-insurance-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-locations-api
+  name: NexHealth Locations API
+  description: A singular Practice/clinic/office
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-locations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-nex-staff-api
+  name: NexHealth Nex Staff API
+  description: NexHealth staff users
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Nex Staff
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-nex-staff-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-onboardings-api
+  name: NexHealth Onboardings API
+  description: An Onboarding resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Onboardings
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-onboardings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-operatories-api
+  name: NexHealth Operatories API
+  description: A chair or room that can be booked
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Operatories
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-operatories-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-patient-alerts-api
+  name: NexHealth Patient Alerts API
+  description: Short communication contents to Patients requiring a response
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Patient Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-patient-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-patient-documents-api
+  name: NexHealth Patient Documents API
+  description: A patient documents resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Patient Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-patient-documents-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-patient-recalls-api
+  name: NexHealth Patient Recalls API
+  description: >-
+    Notifications used for encouraging patients to book follow-up appointments with providers
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Patient Recalls
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-patient-recalls-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-patients-api
+  name: NexHealth Patients API
+  description: A patients resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Patients
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-patients-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-payment-plans-api
+  name: NexHealth Payment Plans API
+  description: Payment plans resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Payment Plans
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-payment-plans-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-payment-types-api
+  name: NexHealth Payment Types API
+  description: Payments types used to create payments
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Payment Types
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-payment-types-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-payments-api
+  name: NexHealth Payments API
+  description: Payments resources to view and create payments
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-payments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-procedures-api
+  name: NexHealth Procedures API
+  description: A procedures resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Procedures
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-procedures-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-providers-api
+  name: NexHealth Providers API
+  description: A providers resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-providers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-recall-types-api
+  name: NexHealth Recall Types API
+  description: A recall notification type
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Recall Types
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-recall-types-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-sync-status-api
+  name: NexHealth Sync Status API
+  description: Status of a NexHealth EHR synchronization service
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Sync Status
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-sync-status-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-treatment-plans-api
+  name: NexHealth Treatment Plans API
+  description: A treatment plans resource
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Treatment Plans
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-treatment-plans-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-webhook-endpoints-api
+  name: NexHealth Webhook Endpoints API
+  description: Save and configure API user endpoints for use with webhooks
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Webhook Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-webhook-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-webhook-subscriptions-api
+  name: NexHealth Webhook Subscriptions API
+  description: Configure webhook subscriptions to receive event based hooks
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Webhook Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-webhook-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
+- aid: nexhealth:nexhealth-working-hours-api
+  name: NexHealth Working Hours API
+  description: Configure working hours for providers
+  humanURL: https://docs.nexhealth.com/reference/introduction
+  baseURL: https://nexhealth.info
+  tags:
+  - Working Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/nexhealth-working-hours-api-openapi.yml
+  - type: Documentation
+    url: https://docs.nexhealth.com
+  - type: Authentication
+    url: authentication/nexhealth-authentication.yml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/nexhealth/overview
+- type: OpenAPI
+  url: openapi/nexhealth-openapi-original.json
+- type: Authentication
+  url: authentication/nexhealth-authentication.yml
+- type: AgenticAccess
+  url: agentic-access/nexhealth-agentic-access.yml
+- type: Conventions
+  url: conventions/nexhealth-conventions.yml
+- type: ErrorCatalog
+  url: errors/nexhealth-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/nexhealth-lifecycle.yml
+- type: StatusPage
+  url: https://status.nexhealth.com
+- type: Deprecation
+  url: https://docs.nexhealth.com/docs/api-v2-to-v20240412-migration-guide
+- type: ChangeLog
+  url: changelog/nexhealth-changelog.yml
+- type: Sandbox
+  url: sandbox/nexhealth-sandbox.yml
+- type: DataModel
+  url: data-model/nexhealth-data-model.yml
+- type: Conformance
+  url: conformance/nexhealth-conformance.yml
+- type: Compliance
+  url: security/nexhealth-trust-center.yml
+- type: TrustCenter
+  url: security/nexhealth-trust-center.yml
+- type: DomainSecurity
+  url: security/nexhealth-domain-security.yml
+- type: MCPServer
+  url: mcp/nexhealth-mcp.yml
+- type: LLMsTxt
+  url: llms/nexhealth-llms.txt
+- type: Overlay
+  url: overlays/nexhealth-openapi-overlay.yaml
+- type: Packages
+  url: packages/nexhealth-packages.yml
+- type: Webhooks
+  url: asyncapi/nexhealth-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DeveloperPortal
+  url: https://developers.nexhealth.com
+- type: Documentation
+  url: https://docs.nexhealth.com
+- type: APIReference
+  url: https://docs.nexhealth.com/reference/introduction
+- type: GettingStarted
+  url: https://docs.nexhealth.com/docs/getting-started
+- type: Support
+  url: https://docs.nexhealth.com/reference/contact-us-1
+- type: Blog
+  url: https://www.nexhealth.com/blog
+- type: GitHubOrganization
+  url: https://github.com/nexhealth
+- type: Pricing
+  url: https://www.nexhealth.com/pricing
+- type: SignUp
+  url: https://developers.nexhealth.com/signup
+- type: TermsOfService
+  url: https://www.nexhealth.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.nexhealth.com/privacy
+- type: Postman
+  url: https://god.gw.postman.com/run-collection/19774779-358d4afa-f4b1-4aac-8167-2d73f9a92882
 - type: Website
   url: https://www.nexhealth.com
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

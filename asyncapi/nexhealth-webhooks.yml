@@ -1,0 +1,59 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.nexhealth.com/docs/webhooks
+spec_type: Webhooks
+description: >-
+  NexHealth delivers server-to-server webhooks for events occurring within a subscribed institution.
+  Consumers register an HTTPS endpoint, then create subscriptions scoped by resource_type and event.
+  There is no published AsyncAPI document; this captures the documented webhook surface.
+transport: http-post
+delivery:
+  method: POST
+  target: consumer-registered HTTPS URL (required; payloads may contain PHI)
+  headers:
+  - name: timestamp
+    value: ISO8601 timestamp of sending the message
+  - name: signature
+    value: HMAC-SHA256 of the message using the endpoint secret_key
+  - name: content-type
+    value: application/json
+signing:
+  algorithm: HMAC-SHA256
+  signed_payload: "{timestamp}.{base64(payload)}"
+  secret: endpoint secret_key returned when the webhook endpoint is created
+retries:
+  policy: Exponential backoff over ~48 hours; endpoint deactivated (active=false) after 48h of continuous failures.
+  schedule:
+  - {attempt: 1, after: 30s}
+  - {attempt: 2, after: 1.5m}
+  - {attempt: 3, after: 3.5m}
+  - {attempt: 4, after: 10m}
+  - {attempt: 5, after: 30m}
+  - {attempt: 6, after: 2h}
+  - {attempt: 7, after: 5h}
+  - {attempt: 8, after: 10h}
+  - {attempt: 9, after: 24h}
+  - {attempt: 10, after: 48h}
+management_operations:
+  register_endpoint: postWebhookEndpoints
+  list_endpoints: getWebhookEndpoints
+  edit_endpoint: patchWebhookEndpointsId
+  delete_endpoint: deleteWebhookEndpointsId
+  create_subscription: postWebhookEndpointsIdWebhookSubscriptions
+  list_subscriptions: getWebhookEndpointsIdWebhookSubscriptions
+  edit_subscription: patchWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
+  delete_subscription: deleteWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
+subscription:
+  required_fields:
+  - resource_type
+  - event
+  - subdomain
+  reference: https://docs.nexhealth.com/reference/webhook-subscriptions
+events_example:
+  resource_type: appointment
+  event: appointment_insertion
+  event_name_delivered: appointment_insertion.complete
+  note: >-
+    resource_type + event pairs (e.g. appointment / appointment_insertion) define the subscription;
+    delivered payloads carry resource_type, event_name, event_time, a data object, and delivery_errors.
+    See the Webhook Subscriptions reference page for the full catalog of resource types and events.

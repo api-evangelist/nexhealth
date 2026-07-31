@@ -1,0 +1,162 @@
+# NexHealth API Documentation Documentation
+
+> The NexHealth Universal EHR API provides a single, standardized interface for integrating with practice management and electronic health record systems.  Trusted by the world’s most innovative practices and health tech companies like Birdeye and Peerlogic.
+
+## Guides
+- [Developer Portal Quickstart Guide](https://docs.nexhealth.com/docs/developer-portal-quickstart-guide.md)
+- [Signing up for the NexHealth API](https://docs.nexhealth.com/docs/signing-up-for-the-nexhealth-api.md)
+- [Getting started](https://docs.nexhealth.com/docs/getting-started.md)
+- [What's possible with NexHealth](https://docs.nexhealth.com/docs/whats-possible-with-nexhealth.md)
+- [Supported health record systems](https://docs.nexhealth.com/docs/supported-health-record-systems.md)
+- [Installing the NexHealth Synchronizer](https://docs.nexhealth.com/docs/nexhealth-synchronizer-installation-guide-1.md)
+- [Glossary](https://docs.nexhealth.com/docs/glossary.md)
+- [Troubleshooting Synchronizer Install Failures](https://docs.nexhealth.com/docs/troubleshooting-installs.md)
+- [Migration Guide to Stable](https://docs.nexhealth.com/docs/api-v2-to-v20240412-migration-guide.md): Migrating from v2.2.2 to v20240412
+- [Getting started with Postman](https://docs.nexhealth.com/docs/working-with-postman.md)
+- [Setting up an Open Dental Sandbox Sync](https://docs.nexhealth.com/docs/setting-up-an-open-dental-sandbox-sync.md)
+- [Scheduling Quickstart Guide](https://docs.nexhealth.com/docs/scheduling-quickstart-guide.md)
+- [Scheduling Configuration Guide](https://docs.nexhealth.com/docs/scheduling-configuration-guide.md)
+- [Payments Quickstart Guide](https://docs.nexhealth.com/docs/payments-quickstart-guide.md)
+- [Institutions, syncs, and locations](https://docs.nexhealth.com/docs/institutions-syncs-and-locations.md)
+- [Setting up webhooks](https://docs.nexhealth.com/docs/webhooks.md)
+- [Interpreting sync status](https://docs.nexhealth.com/docs/interpreting-sync-status.md)
+- [Cloud based synchronizer setup](https://docs.nexhealth.com/docs/copy-of-synchronizer-installation-details.md): Setting up the synchronizer for practices with cloud based health record systems.
+- [Accessing procedure codes and EHR-specific appointment types](https://docs.nexhealth.com/docs/access-procedure-codes.md)
+
+## API Reference
+- [Introduction](https://docs.nexhealth.com/reference/introduction.md)
+- [Authentication](https://docs.nexhealth.com/reference/authentication-1.md)
+- [Resource relationships](https://docs.nexhealth.com/reference/resource-relationships.md)
+- [Response body](https://docs.nexhealth.com/reference/response-body.md)
+- [Response codes](https://docs.nexhealth.com/reference/response-codes.md)
+- [Versioning](https://docs.nexhealth.com/reference/versioning.md)
+- [Rate limiting](https://docs.nexhealth.com/reference/rate-limiting.md)
+- [Contact us](https://docs.nexhealth.com/reference/contact-us-1.md)
+- [Pagination](https://docs.nexhealth.com/reference/pagination.md)
+- [Institutions](https://docs.nexhealth.com/reference/institutions-1.md)
+- [View institutions](https://docs.nexhealth.com/reference/getinstitutions.md)
+- [View institution](https://docs.nexhealth.com/reference/getinstitutionsid.md)
+- [Locations](https://docs.nexhealth.com/reference/locations-1.md)
+- [View locations](https://docs.nexhealth.com/reference/getlocations.md): This endpoint returns the institutions accessible to the caller, each with its nested list of locations. Pass subdomain to scope the response to a single institution.
+- [View location](https://docs.nexhealth.com/reference/getlocationsid.md)
+- [View location appointment descriptors](https://docs.nexhealth.com/reference/getlocationsidappointmentdescriptors.md)
+- [Operatories](https://docs.nexhealth.com/reference/operatories-1.md)
+- [View operatories](https://docs.nexhealth.com/reference/getoperatories.md): This endpoint returns the operatories for the specified location, narrowed down by the optional filters configured.
+- [View operatory](https://docs.nexhealth.com/reference/getoperatoriesid.md)
+- [Patients](https://docs.nexhealth.com/reference/patients-1.md)
+- [View patients](https://docs.nexhealth.com/reference/getpatients.md): This endpoint returns a list of patients for the specified location, narrowed down by the optional filters configured.
+- [Create patient](https://docs.nexhealth.com/reference/postpatients.md): This endpoint creates a new patient or returns an existing patient if return_existing_if_match is true. Responds with 201 when a new patient is created, or with 200 and the existing patient when return_existing_if_match is true and a patient with matching information already exists.
+- [View patient](https://docs.nexhealth.com/reference/getpatientsid.md): This endpoint returns a single patient. You must provide a valid patient NexHealth ID.
+- [Providers](https://docs.nexhealth.com/reference/providers-1.md)
+- [View providers](https://docs.nexhealth.com/reference/getproviders.md): This endpoint returns the providers for the institution, narrowed down by the optional filters configured.
+- [View provider](https://docs.nexhealth.com/reference/getprovidersid.md): This endpoint returns a single provider.
+- [Procedures](https://docs.nexhealth.com/reference/procedures.md)
+- [View procedures](https://docs.nexhealth.com/reference/getprocedures.md): This endpoint returns a list of procedures.  You can filter by provider_id, patient_id, appointment_id, started_after, started_before, ended_after, ended_before or  updated_since. You must provide at least one filter. You may additionally narrow any of these filters by location_id,  but location_id alone does not satisfy the at-least-one-filter requirement.
+- [View procedure](https://docs.nexhealth.com/reference/getproceduresid.md): This endpoint returns a single procedure by its NexHealth id. Note: the list endpoint is not filtered by your token's location access, so ids returned by GET /procedures may return 404 here if the procedure belongs to a location your token cannot access or has no location assigned.
+- [Appointment Types](https://docs.nexhealth.com/reference/appointment-types.md)
+- [View appointment types](https://docs.nexhealth.com/reference/getappointmenttypes.md)
+- [Create an appointment type](https://docs.nexhealth.com/reference/postappointmenttypes.md)
+- [Edit an appointment type](https://docs.nexhealth.com/reference/patchappointmenttypesid.md)
+- [View an appointment type](https://docs.nexhealth.com/reference/getappointmenttypesid.md)
+- [Delete an appointment type](https://docs.nexhealth.com/reference/deleteappointmenttypesid.md)
+- [View appointment type appointment descriptors](https://docs.nexhealth.com/reference/getappointmenttypesidappointmentdescriptors.md)
+- [Appointments](https://docs.nexhealth.com/reference/appointments-1.md)
+- [View appointment](https://docs.nexhealth.com/reference/getappointmentsid.md)
+- [Edit Appointment](https://docs.nexhealth.com/reference/patchappointmentsid.md): This endpoint updates an existing appointment.
+- [View appointment descriptors](https://docs.nexhealth.com/reference/getappointmentsidappointmentdescriptors.md)
+- [View appointments](https://docs.nexhealth.com/reference/getappointments.md): This endpoint returns the appointments starting within the requested time window, narrowed down by the optional filters configured. At least one of location_id or foreign_id must be provided.
+- [Create appointment](https://docs.nexhealth.com/reference/postappointments.md): This endpoint books an appointment for the given patient with the given provider at the specified location. When is_guardian is true, the booking is made by a guardian and a patient object with the dependent's details must be provided. Set unavailable to true to create a block instead of a patient appointment.
+- [Available Slots](https://docs.nexhealth.com/reference/available-slots.md)
+- [View available slots](https://docs.nexhealth.com/reference/getavailableslots.md): This endpoint returns the bookable slots for the requested locations over the given date range, computed from provider availabilities and existing appointments. At least one of pids or appointment_type_id must be provided.
+- [Working Hours](https://docs.nexhealth.com/reference/working-hours.md)
+- [View working hour labels](https://docs.nexhealth.com/reference/getworkinghourlabels.md): This endpoint returns a list of Working Hour Labels, narrowed down by the optional filters configured.
+- [Create working hour](https://docs.nexhealth.com/reference/postworkinghours.md): This endpoint creates an availability for a provider at the specified location. Exactly one of days, specific_date, or custom_recurrence must be configured.
+- [View working hours](https://docs.nexhealth.com/reference/getworkinghours.md): This endpoint returns the working hours for the specified location, narrowed down by the optional filters configured.
+- [View working hour](https://docs.nexhealth.com/reference/getworkinghoursid.md): This endpoint returns a single working hour.
+- [Edit working hour](https://docs.nexhealth.com/reference/patchworkinghoursid.md): This endpoint updates an existing working hour. At most one of days, specific_date, or custom_recurrence can be provided. The appointment_types field is included in the response only when appointment_type_ids or appointment_category_ids were part of the update.
+- [Delete working hour](https://docs.nexhealth.com/reference/deleteworkinghoursid.md): This endpoint deletes a working hour.
+- [Adjustments](https://docs.nexhealth.com/reference/adjustments.md)
+- [View adjustments](https://docs.nexhealth.com/reference/getadjustments.md): This endpoint returns the ledger adjustments for the specified location. At least one of the patient_id, provider_id, guarantor_id, claim_id, charge_id, or updated_since filters must be provided.
+- [Create adjustment](https://docs.nexhealth.com/reference/postadjustments.md): This endpoint enqueues a write-back that records the adjustment in the integrated health record system
+- [View adjustment](https://docs.nexhealth.com/reference/getadjustmentsid.md): This endpoint returns a single ledger adjustment
+- [Adjustment Types](https://docs.nexhealth.com/reference/adjustment-types.md)
+- [View adjustment types](https://docs.nexhealth.com/reference/getadjustmenttypes.md): This endpoint returns the adjustment types configured in the integrated system for the specified location
+- [View adjustment type](https://docs.nexhealth.com/reference/getadjustmenttypesid.md): This endpoint returns a single adjustment type
+- [Fee Schedules](https://docs.nexhealth.com/reference/fee-schedules.md)
+- [View fee schedule procedures](https://docs.nexhealth.com/reference/getfeescheduleprocedures.md): This endpoint returns the procedure fees for the specified location. At least one of the fee_schedule_id or updated_since filters must be provided
+- [View fee schedules](https://docs.nexhealth.com/reference/getfeeschedules.md): This endpoint returns the fee schedules for the specified location
+- [View fee schedule](https://docs.nexhealth.com/reference/getfeeschedulesid.md): This endpoint returns a single fee schedule
+- [Payment Plans](https://docs.nexhealth.com/reference/payment-plans.md)
+- [View payment plans](https://docs.nexhealth.com/reference/getpaymentplans.md)
+- [View payment plan](https://docs.nexhealth.com/reference/getpaymentplansid.md)
+- [Payment Types](https://docs.nexhealth.com/reference/payment-types.md)
+- [View payment types](https://docs.nexhealth.com/reference/getpaymenttypes.md): This endpoint returns the payment types configured in the integrated system for the specified location
+- [View payment type](https://docs.nexhealth.com/reference/getpaymenttypesid.md): This endpoint returns a single payment type
+- [Balances](https://docs.nexhealth.com/reference/balances.md)
+- [View guarantor balances](https://docs.nexhealth.com/reference/getguarantorbalances.md): This endpoint returns the guarantor balances for the specified location. At least one of the guarantor_id or updated_since filters must be provided
+- [View guarantor balance](https://docs.nexhealth.com/reference/getguarantorbalancesid.md): This endpoint returns a single guarantor balance
+- [View insurance balances](https://docs.nexhealth.com/reference/getinsurancebalances.md): This endpoint returns a list of insurance balances for a location: the amounts insurance is expected to pay, broken into aging buckets. You can filter by patient_id, guarantor_id or updated_since, and must provide at least one of these filters. location_id is always required, but does not satisfy the at-least-one-filter requirement on its own.
+- [View insurance balance](https://docs.nexhealth.com/reference/getinsurancebalancesid.md): This endpoint returns a single insurance balance by its NexHealth id. Responds with a 404 when no insurance balance with this id exists or when it belongs to a location your token cannot access.
+- [Charges](https://docs.nexhealth.com/reference/charges.md)
+- [View charges](https://docs.nexhealth.com/reference/getcharges.md): This endpoint returns the ledger charges for the specified location. At least one of the patient_id, provider_id, procedure_id, guarantor_id, or updated_since filters must be provided.
+- [View charge](https://docs.nexhealth.com/reference/getchargesid.md): This endpoint returns a single ledger charge
+- [Claims](https://docs.nexhealth.com/reference/claims.md)
+- [View claims](https://docs.nexhealth.com/reference/getclaims.md): This endpoint returns a list of insurance claims for a location. You can filter by patient_id, guarantor_id, provider_id, updated_since or date_of_service, and must provide at least one of these filters. location_id is always required, but does not satisfy the at-least-one-filter requirement on its own. Soft-deleted claims are excluded unless include_deleted is true.
+- [View claim](https://docs.nexhealth.com/reference/getclaimsid.md): This endpoint returns a single insurance claim by its NexHealth id. Use the include parameter to embed related resources: patient, provider, guarantor, charges and/or charge_payouts. Note: when no claim with the given id exists, or it belongs to a location your token cannot access, this endpoint currently responds with HTTP 500 rather than a 404.
+- [View insurance plans](https://docs.nexhealth.com/reference/getinsuranceplans.md): This endpoint returns a list of insurance plans. All filters are optional: without any filters, every insurance plan for the institution is returned. You can narrow the results by payer_id, group_num or updated_since. Soft-deleted plans are excluded unless include_deleted is true.
+- [View insurance plan](https://docs.nexhealth.com/reference/getinsuranceplansid.md): This endpoint returns a single insurance plan by its NexHealth id. Use the include parameter to embed related resources: patient_coverages, subscribers and/or fee_schedule. Responds with a 404 when no plan with the given id exists for the institution.
+- [View insurance coverages](https://docs.nexhealth.com/reference/getinsurancecoverages.md): This endpoint returns a list of insurance coverages. All filters are optional: without any filters, every active insurance coverage for the institution is returned. Only active coverages are included by default; pass active=false to list inactive coverages instead.
+- [View insurance coverage](https://docs.nexhealth.com/reference/getinsurancecoveragesid.md): This endpoint returns a single insurance coverage by its NexHealth id, including details of the subscriber who holds the coverage. Responds with a 404 when no coverage with this id exists for the institution.
+- [Payments](https://docs.nexhealth.com/reference/payments.md)
+- [View payments](https://docs.nexhealth.com/reference/getpayments.md): This endpoint returns the ledger payments for the specified location, narrowed down by the configured filters (at least one filter is required)
+- [Create payment](https://docs.nexhealth.com/reference/postpayments.md): This endpoint enqueues a write-back that records the payment in the integrated health record system
+- [View payment](https://docs.nexhealth.com/reference/getpaymentsid.md): This endpoint returns a single ledger payment
+- [Clinical Notes](https://docs.nexhealth.com/reference/clinical-notes.md)
+- [View clinical notes](https://docs.nexhealth.com/reference/getclinicalnotes.md): This endpoint returns the clinical notes for the specified location. At least one of the patient_id, procedure_id, entered_before, entered_after, or updated_since filters must be provided. Results are cursor-paginated.
+- [Document Types](https://docs.nexhealth.com/reference/document-types.md)
+- [View document types](https://docs.nexhealth.com/reference/getdocumenttypes.md)
+- [View document type](https://docs.nexhealth.com/reference/getdocumenttypesid.md)
+- [Patient Alerts](https://docs.nexhealth.com/reference/patient-alerts.md)
+- [Create patient alert](https://docs.nexhealth.com/reference/postpatientsidalerts.md)
+- [View patient alerts](https://docs.nexhealth.com/reference/getpatientsidalerts.md)
+- [View patient alert](https://docs.nexhealth.com/reference/getpatientsidalertsalertid.md)
+- [Edit patient alert](https://docs.nexhealth.com/reference/patchpatientsidalertsalertid.md)
+- [Patient Documents](https://docs.nexhealth.com/reference/patient-documents.md)
+- [View patient documents](https://docs.nexhealth.com/reference/getpatientsiddocuments.md)
+- [Create patient document](https://docs.nexhealth.com/reference/postpatientsiddocuments.md)
+- [Patient Recalls](https://docs.nexhealth.com/reference/patient-recalls-1.md)
+- [View patient recalls](https://docs.nexhealth.com/reference/getpatientrecalls.md): This endpoint returns the patient recalls for the specified location, narrowed down by the optional filters configured.
+- [View patient recall](https://docs.nexhealth.com/reference/getpatientrecallsid.md)
+- [Recall Types](https://docs.nexhealth.com/reference/recall-types-1.md)
+- [View recall types](https://docs.nexhealth.com/reference/getrecalltypes.md)
+- [View recall type](https://docs.nexhealth.com/reference/getrecalltypesid.md)
+- [Treatment Plans](https://docs.nexhealth.com/reference/treatment-plans.md)
+- [View treatment plans](https://docs.nexhealth.com/reference/gettreatmentplans.md): Returns a cursor-paginated list of treatment plans for the institution, with each plan's procedures embedded. Soft-deleted treatment plans are excluded. Results can be filtered by patient_id, status, and updated_since, and are ordered by id ascending — when using updated_since for incremental sync, do not assume results are ordered by update time.
+- [View treatment plan](https://docs.nexhealth.com/reference/gettreatmentplansid.md): Returns a single treatment plan with its procedures embedded. Requesting a soft-deleted or unknown treatment plan returns 404.
+- [Authenticates](https://docs.nexhealth.com/reference/authenticates.md)
+- [Retrieve bearer token](https://docs.nexhealth.com/reference/postauthenticates.md)
+- [Nex Staff](https://docs.nexhealth.com/reference/nex-staff.md)
+- [View nex staff](https://docs.nexhealth.com/reference/getnexstaff.md)
+- [Onboardings](https://docs.nexhealth.com/reference/onboardings.md)
+- [View onboarding](https://docs.nexhealth.com/reference/getonboardingshashid.md): Returns a single onboarding by its ID. Responds with 404 if the ID does not exist or was created by another organization.
+- [Create onboarding](https://docs.nexhealth.com/reference/postonboardings.md): Creates an onboarding link to set up NexHealth at a practice. Include institution_name to onboard a new institution, or subdomain to add locations to an existing institution. Send the returned url to practice staff; it expires 3 months after creation. Only production applications can create onboardings.
+- [View onboardings](https://docs.nexhealth.com/reference/getonboardings.md): Returns the onboardings created by your organization. Each record represents a practice setup flow: either a full onboarding of a new institution or an installation added to an existing institution. Each setup flow appears once: installations that were created as part of an onboarding are represented by their parent onboarding and are not listed separately, although their IDs (e.g. from webhook events) can still be fetched individually via GET /onboardings/:id. Optionally filter by subdomain or status.
+- [Sync Status](https://docs.nexhealth.com/reference/sync-status.md)
+- [View sync statuses](https://docs.nexhealth.com/reference/getsyncstatus.md)
+- [Webhook Endpoints](https://docs.nexhealth.com/reference/webhook-endpoints.md)
+- [View webhook endpoints](https://docs.nexhealth.com/reference/getwebhookendpoints.md)
+- [Create webhook endpoint](https://docs.nexhealth.com/reference/postwebhookendpoints.md)
+- [Edit webhook endpoint](https://docs.nexhealth.com/reference/patchwebhookendpointsid.md)
+- [Delete webhook endpoint](https://docs.nexhealth.com/reference/deletewebhookendpointsid.md)
+- [Webhook Subscriptions](https://docs.nexhealth.com/reference/webhook-subscriptions.md)
+- [View webhook subscriptions](https://docs.nexhealth.com/reference/getwebhookendpointsidwebhooksubscriptions.md): Lists all webhook subscriptions on the given webhook endpoint. When a subdomain is provided, results are scoped to that institution and exclude subscriptions without an institution (e.g. Onboarding); omit the subdomain to list every subscription on the endpoint. Results are not paginated.
+- [Create webhook subscription](https://docs.nexhealth.com/reference/postwebhookendpointsidwebhooksubscriptions.md): Creates a webhook subscription on the given webhook endpoint. The subscription is pinned to the API version used to create it (v3.0.0): webhook payloads delivered for this subscription use the v3.0.0 entity contract. To pin a subscription to a different version, create it via that version of this endpoint.
+- [Edit webhook subscription](https://docs.nexhealth.com/reference/patchwebhookendpointsidwebhooksubscriptionssubscriptionid.md): Updates a webhook subscription. The subdomain parameter is required for request validation even when the subscription is not scoped to an institution (e.g. Onboarding); pass the subdomain of any institution your API user has access to.
+- [Delete webhook subscription](https://docs.nexhealth.com/reference/deletewebhookendpointsidwebhooksubscriptionssubscriptionid.md): Permanently deletes the webhook subscription; deliveries for it stop immediately. Returns 204 No Content on success.
+
+## Changelog
+- [June 2026](https://docs.nexhealth.com/changelog/june-2026.md)
+- [January 2026 updates](https://docs.nexhealth.com/changelog/january-2025-updates-1.md)
+- [December 2025 updates](https://docs.nexhealth.com/changelog/december-2025-updates.md)
+- [November 2025 updates](https://docs.nexhealth.com/changelog/november-2025-updates.md)
+- [September 2025 updates](https://docs.nexhealth.com/changelog/september-2025-updates.md)

@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.nexhealth.com/changelog
+scheme: monthly-dated update posts
+current_version: v3.0.0
+current_version_alias: v20240412
+url: https://docs.nexhealth.com/changelog
+entries:
+- title: June 2026
+  slug: june-2026
+  url: https://docs.nexhealth.com/changelog/june-2026
+- title: January 2026 updates
+  slug: january-2026-updates
+  url: https://docs.nexhealth.com/changelog/january-2026-updates
+- title: December 2025 updates
+  slug: december-2025-updates
+  url: https://docs.nexhealth.com/changelog/december-2025-updates
+- title: November 2025 updates
+  slug: november-2025-updates
+  url: https://docs.nexhealth.com/changelog/november-2025-updates
+- title: September 2025 updates
+  slug: september-2025-updates
+  url: https://docs.nexhealth.com/changelog/september-2025-updates
+- title: July 2025 updates
+  slug: july-2025-updates
+  url: https://docs.nexhealth.com/changelog/july-2025-updates
+- title: June 2025 updates
+  slug: june-2025-updates
+  url: https://docs.nexhealth.com/changelog/june-2025-updates
+- title: May 2025 updates
+  slug: may-2025-updates
+  url: https://docs.nexhealth.com/changelog/may-2025-updates
+- title: April 2025 updates
+  slug: april-2025-updates
+  url: https://docs.nexhealth.com/changelog/april-2025-updates
+- title: March 2025 Updates
+  slug: march-2025-updates
+  url: https://docs.nexhealth.com/changelog/march-2025-updates
+note: Titles and slugs captured from the ReadMe changelog index; NexHealth publishes a monthly rollup post. See each URL for per-release additions and fixes.

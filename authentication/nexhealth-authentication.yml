@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/nexhealth-openapi-original.json
+docs: https://docs.nexhealth.com/reference/authentication-1
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  model: api-key-exchanged-for-bearer-jwt
+schemes:
+- name: Authorization
+  type: apiKey
+  in: header
+  parameter: Authorization
+  sources:
+  - openapi/nexhealth-openapi-original.json
+flow:
+  description: "Request an API key via the developer portal, then POST it in the Authorization header to /authenticates to receive a short-lived bearer JWT used on all other routes. Every request must also send the Nex-Api-Version header."
+  steps:
+  - Obtain an API key from the NexHealth Developer Portal (test key self-serve; production via request-access).
+  - "POST /authenticates with header 'Authorization: <API_KEY>' and 'Nex-Api-Version: v3.0.0'."
+  - Read the returned data.token (a JSON Web Token).
+  - "Send 'Authorization: Bearer <token>' on all subsequent requests."
+  token:
+    type: bearer-jwt
+    format: JWT
+    lifetime_production: 1 hour
+    lifetime_sandbox: 24 hours
+    exchange_operation: postAuthenticates
+  required_headers:
+  - Authorization
+  - Nex-Api-Version
+  key_provisioning:
+    test_key: https://developers.nexhealth.com/test/api-key
+    production_access: https://www.nexhealth.com/api-request/request-access
+  unauthenticated_response: 401

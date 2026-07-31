@@ -1,0 +1,426 @@
+{
+  "info": {
+    "_postman_id": "868ba135-2377-42ab-849d-49154bc44a32",
+    "name": "NexHealth Adjustment Types Sync Status API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:43.000Z",
+    "updatedAt": "2026-07-28T02:20:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-868ba135-2377-42ab-849d-49154bc44a32"
+  },
+  "item": [
+    {
+      "name": "sync_status",
+      "item": [
+        {
+          "name": "View sync statuses",
+          "id": "0436f769-0ded-41a3-829a-98f2ecdd4a1c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.Nexhealth+json;version=2"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sync_status?subdomain=<string>&read_status=green&write_status=green&location_ids[]=<integer>&location_ids[]=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sync_status"
+              ],
+              "query": [
+                {
+                  "description": "Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by read status",
+                  "key": "read_status",
+                  "value": "green"
+                },
+                {
+                  "description": "Filter by write status",
+                  "key": "write_status",
+                  "value": "green"
+                },
+                {
+                  "description": "Return the status of sync services running on the specified locations",
+                  "key": "location_ids[]",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Return the status of sync services running on the specified locations",
+                  "key": "location_ids[]",
+                  "value": "<integer>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d6831de-1e70-46c0-a4f8-f8617588437b",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sync_status?subdomain=<string>&read_status=green&write_status=green&location_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sync_status"
+                  ],
+                  "query": [
+                    {
+                      "description": "Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by read status",
+                      "key": "read_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Filter by write status",
+                      "key": "write_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Return the status of sync services running on the specified locations",
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"institution_id\": \"<integer>\",\n      \"sync_source_type\": \"<string>\",\n      \"sync_source_name\": \"<string>\",\n      \"emr\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"type\": \"cloud\"\n      },\n      \"read_status\": \"red\",\n      \"read_status_at\": \"<dateTime>\",\n      \"write_status\": \"green\",\n      \"write_status_at\": \"<dateTime>\",\n      \"locations\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"phone_number\": \"<string>\",\n          \"email\": \"<string>\",\n          \"inactive\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"phone_number\": \"<string>\",\n          \"email\": \"<string>\",\n          \"inactive\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"institution_id\": \"<integer>\",\n      \"sync_source_type\": \"<string>\",\n      \"sync_source_name\": \"<string>\",\n      \"emr\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"type\": \"cloud\"\n      },\n      \"read_status\": \"green\",\n      \"read_status_at\": \"<dateTime>\",\n      \"write_status\": \"red\",\n      \"write_status_at\": \"<dateTime>\",\n      \"locations\": [\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"phone_number\": \"<string>\",\n          \"email\": \"<string>\",\n          \"inactive\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"street_address\": \"<string>\",\n          \"street_address_2\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip_code\": \"<string>\",\n          \"phone_number\": \"<string>\",\n          \"email\": \"<string>\",\n          \"inactive\": \"<boolean>\"\n        }\n      ]\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:20:44.000Z",
+              "updatedAt": "2026-07-28T02:20:44.000Z",
+              "uid": "35240-6d6831de-1e70-46c0-a4f8-f8617588437b"
+            },
+            {
+              "id": "311a994e-4bf2-48f9-b32f-10346beca035",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sync_status?subdomain=<string>&read_status=green&write_status=green&location_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sync_status"
+                  ],
+                  "query": [
+                    {
+                      "description": "Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by read status",
+                      "key": "read_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Filter by write status",
+                      "key": "write_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Return the status of sync services running on the specified locations",
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:44.000Z",
+              "updatedAt": "2026-07-28T02:20:44.000Z",
+              "uid": "35240-311a994e-4bf2-48f9-b32f-10346beca035"
+            },
+            {
+              "id": "7f584c0f-10b8-4e41-ba0a-2df0320ba30a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sync_status?subdomain=<string>&read_status=green&write_status=green&location_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sync_status"
+                  ],
+                  "query": [
+                    {
+                      "description": "Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by read status",
+                      "key": "read_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Filter by write status",
+                      "key": "write_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Return the status of sync services running on the specified locations",
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:44.000Z",
+              "updatedAt": "2026-07-28T02:20:44.000Z",
+              "uid": "35240-7f584c0f-10b8-4e41-ba0a-2df0320ba30a"
+            },
+            {
+              "id": "288a6f96-60e3-4f1d-acd5-00737ad2f62a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sync_status?subdomain=<string>&read_status=green&write_status=green&location_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sync_status"
+                  ],
+                  "query": [
+                    {
+                      "description": "Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by read status",
+                      "key": "read_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Filter by write status",
+                      "key": "write_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Return the status of sync services running on the specified locations",
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:44.000Z",
+              "updatedAt": "2026-07-28T02:20:44.000Z",
+              "uid": "35240-288a6f96-60e3-4f1d-acd5-00737ad2f62a"
+            },
+            {
+              "id": "6e913134-275c-46ae-9bbc-41730773b3fb",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sync_status?subdomain=<string>&read_status=green&write_status=green&location_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sync_status"
+                  ],
+                  "query": [
+                    {
+                      "description": "Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by read status",
+                      "key": "read_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Filter by write status",
+                      "key": "write_status",
+                      "value": "green"
+                    },
+                    {
+                      "description": "Return the status of sync services running on the specified locations",
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:44.000Z",
+              "updatedAt": "2026-07-28T02:20:44.000Z",
+              "uid": "35240-6e913134-275c-46ae-9bbc-41730773b3fb"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:44.000Z",
+          "updatedAt": "2026-07-28T02:20:44.000Z",
+          "uid": "35240-0436f769-0ded-41a3-829a-98f2ecdd4a1c"
+        }
+      ],
+      "id": "4b597b15-8480-4b82-a097-efc73c841df2",
+      "createdAt": "2026-07-28T02:20:44.000Z",
+      "updatedAt": "2026-07-28T02:20:44.000Z",
+      "uid": "35240-4b597b15-8480-4b82-a097-efc73c841df2"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

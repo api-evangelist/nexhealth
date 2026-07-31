@@ -1,0 +1,737 @@
+{
+  "info": {
+    "_postman_id": "541b6fdc-b217-4ed9-a3b3-750799ba7145",
+    "name": "NexHealth Adjustment Types Available Slots API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:23.000Z",
+    "updatedAt": "2026-07-28T02:17:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-541b6fdc-b217-4ed9-a3b3-750799ba7145"
+  },
+  "item": [
+    {
+      "name": "available_slots",
+      "item": [
+        {
+          "name": "View available slots",
+          "id": "2633d8ae-98f4-4164-bebe-830d2255f2a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/available_slots?subdomain=<string>&start_date=<date>&days=<integer>&appointment_type_id=<integer>&working_hour_label_id=<integer>&working_hour_source=manual&slot_length=<integer>&slot_interval=<integer>&overlapping_operatory_slots=false&appointments_per_timeslot=1&lids[]=<integer>&lids[]=<integer>&pids[]=<integer>&pids[]=<integer>&operatory_ids[]=<integer>&operatory_ids[]=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "available_slots"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Date string you want results to start at, format YYYY-MM-DD",
+                  "key": "start_date",
+                  "value": "<date>"
+                },
+                {
+                  "description": "(Required) Number of days to include, counting the start date. For best performance, this value should not exceed 14 days.",
+                  "key": "days",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specify an appointment type to filter returned slots and set slot_length to appointment_type.minutes",
+                  "key": "appointment_type_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by specific working hour label",
+                  "key": "working_hour_label_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by source of working hours",
+                  "key": "working_hour_source",
+                  "value": "manual"
+                },
+                {
+                  "description": "Manually specify slot length in minutes. Defaults to 15 minutes",
+                  "key": "slot_length",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Manually specify the time in minutes between returned slot start times when a contiguous opening exists longer than the slot_length",
+                  "key": "slot_interval",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Return all available slots for operatories at a given time instead of returning only the first found. Default is false",
+                  "key": "overlapping_operatory_slots",
+                  "value": "false"
+                },
+                {
+                  "description": "Number of appointments (default:1, max:5) that can be booked in a single slot. Only supported for eClinicalWorks and NextGen.",
+                  "key": "appointments_per_timeslot",
+                  "value": "1"
+                },
+                {
+                  "description": "(Required) Array of Location Ids",
+                  "key": "lids[]",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "(Required) Array of Location Ids",
+                  "key": "lids[]",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Array of Provider Ids",
+                  "key": "pids[]",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Array of Provider Ids",
+                  "key": "pids[]",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specify this if booking is mapped to operatory in this location",
+                  "key": "operatory_ids[]",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specify this if booking is mapped to operatory in this location",
+                  "key": "operatory_ids[]",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint returns the bookable slots for the requested locations over the given date range, computed from provider availabilities and existing appointments. At least one of pids or appointment_type_id must be provided."
+          },
+          "response": [
+            {
+              "id": "056a4a0a-d5b1-4f06-93da-8bbdc7832f76",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/available_slots?subdomain=<string>&start_date=<date>&days=<integer>&appointment_type_id=<integer>&working_hour_label_id=<integer>&working_hour_source=manual&slot_length=<integer>&slot_interval=<integer>&overlapping_operatory_slots=false&appointments_per_timeslot=1&lids[]=<integer>&pids[]=<integer>&operatory_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "available_slots"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Date string you want results to start at, format YYYY-MM-DD",
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) Number of days to include, counting the start date. For best performance, this value should not exceed 14 days.",
+                      "key": "days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify an appointment type to filter returned slots and set slot_length to appointment_type.minutes",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific working hour label",
+                      "key": "working_hour_label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hours",
+                      "key": "working_hour_source",
+                      "value": "manual"
+                    },
+                    {
+                      "description": "Manually specify slot length in minutes. Defaults to 15 minutes",
+                      "key": "slot_length",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Manually specify the time in minutes between returned slot start times when a contiguous opening exists longer than the slot_length",
+                      "key": "slot_interval",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return all available slots for operatories at a given time instead of returning only the first found. Default is false",
+                      "key": "overlapping_operatory_slots",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Number of appointments (default:1, max:5) that can be booked in a single slot. Only supported for eClinicalWorks and NextGen.",
+                      "key": "appointments_per_timeslot",
+                      "value": "1"
+                    },
+                    {
+                      "description": "(Required) Array of Location Ids",
+                      "key": "lids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Array of Provider Ids",
+                      "key": "pids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify this if booking is mapped to operatory in this location",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"lid\": \"<integer>\",\n      \"pid\": \"<integer>\",\n      \"operatory_id\": \"<long>\",\n      \"slots\": [\n        {\n          \"time\": \"<string>\",\n          \"end_time\": \"<string>\",\n          \"operatory_id\": \"<long>\",\n          \"provider_id\": \"<integer>\",\n          \"working_hour_label_id\": \"<long>\"\n        },\n        {\n          \"time\": \"<string>\",\n          \"end_time\": \"<string>\",\n          \"operatory_id\": \"<long>\",\n          \"provider_id\": \"<integer>\",\n          \"working_hour_label_id\": \"<long>\"\n        }\n      ],\n      \"next_available_date\": \"<date>\"\n    },\n    {\n      \"lid\": \"<integer>\",\n      \"pid\": \"<integer>\",\n      \"operatory_id\": \"<long>\",\n      \"slots\": [\n        {\n          \"time\": \"<string>\",\n          \"end_time\": \"<string>\",\n          \"operatory_id\": \"<long>\",\n          \"provider_id\": \"<integer>\",\n          \"working_hour_label_id\": \"<long>\"\n        },\n        {\n          \"time\": \"<string>\",\n          \"end_time\": \"<string>\",\n          \"operatory_id\": \"<long>\",\n          \"provider_id\": \"<integer>\",\n          \"working_hour_label_id\": \"<long>\"\n        }\n      ],\n      \"next_available_date\": \"<date>\"\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:17:23.000Z",
+              "updatedAt": "2026-07-28T02:17:23.000Z",
+              "uid": "35240-056a4a0a-d5b1-4f06-93da-8bbdc7832f76"
+            },
+            {
+              "id": "e8cf3ad8-629c-40d2-b0a2-c99701aed8de",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/available_slots?subdomain=<string>&start_date=<date>&days=<integer>&appointment_type_id=<integer>&working_hour_label_id=<integer>&working_hour_source=manual&slot_length=<integer>&slot_interval=<integer>&overlapping_operatory_slots=false&appointments_per_timeslot=1&lids[]=<integer>&pids[]=<integer>&operatory_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "available_slots"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Date string you want results to start at, format YYYY-MM-DD",
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) Number of days to include, counting the start date. For best performance, this value should not exceed 14 days.",
+                      "key": "days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify an appointment type to filter returned slots and set slot_length to appointment_type.minutes",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific working hour label",
+                      "key": "working_hour_label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hours",
+                      "key": "working_hour_source",
+                      "value": "manual"
+                    },
+                    {
+                      "description": "Manually specify slot length in minutes. Defaults to 15 minutes",
+                      "key": "slot_length",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Manually specify the time in minutes between returned slot start times when a contiguous opening exists longer than the slot_length",
+                      "key": "slot_interval",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return all available slots for operatories at a given time instead of returning only the first found. Default is false",
+                      "key": "overlapping_operatory_slots",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Number of appointments (default:1, max:5) that can be booked in a single slot. Only supported for eClinicalWorks and NextGen.",
+                      "key": "appointments_per_timeslot",
+                      "value": "1"
+                    },
+                    {
+                      "description": "(Required) Array of Location Ids",
+                      "key": "lids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Array of Provider Ids",
+                      "key": "pids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify this if booking is mapped to operatory in this location",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:23.000Z",
+              "updatedAt": "2026-07-28T02:17:23.000Z",
+              "uid": "35240-e8cf3ad8-629c-40d2-b0a2-c99701aed8de"
+            },
+            {
+              "id": "75882c15-3a1b-4476-8af1-6a8311722100",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/available_slots?subdomain=<string>&start_date=<date>&days=<integer>&appointment_type_id=<integer>&working_hour_label_id=<integer>&working_hour_source=manual&slot_length=<integer>&slot_interval=<integer>&overlapping_operatory_slots=false&appointments_per_timeslot=1&lids[]=<integer>&pids[]=<integer>&operatory_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "available_slots"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Date string you want results to start at, format YYYY-MM-DD",
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) Number of days to include, counting the start date. For best performance, this value should not exceed 14 days.",
+                      "key": "days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify an appointment type to filter returned slots and set slot_length to appointment_type.minutes",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific working hour label",
+                      "key": "working_hour_label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hours",
+                      "key": "working_hour_source",
+                      "value": "manual"
+                    },
+                    {
+                      "description": "Manually specify slot length in minutes. Defaults to 15 minutes",
+                      "key": "slot_length",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Manually specify the time in minutes between returned slot start times when a contiguous opening exists longer than the slot_length",
+                      "key": "slot_interval",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return all available slots for operatories at a given time instead of returning only the first found. Default is false",
+                      "key": "overlapping_operatory_slots",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Number of appointments (default:1, max:5) that can be booked in a single slot. Only supported for eClinicalWorks and NextGen.",
+                      "key": "appointments_per_timeslot",
+                      "value": "1"
+                    },
+                    {
+                      "description": "(Required) Array of Location Ids",
+                      "key": "lids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Array of Provider Ids",
+                      "key": "pids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify this if booking is mapped to operatory in this location",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:23.000Z",
+              "updatedAt": "2026-07-28T02:17:23.000Z",
+              "uid": "35240-75882c15-3a1b-4476-8af1-6a8311722100"
+            },
+            {
+              "id": "28d54af1-9408-48ef-9ae3-5548c09d71f4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/available_slots?subdomain=<string>&start_date=<date>&days=<integer>&appointment_type_id=<integer>&working_hour_label_id=<integer>&working_hour_source=manual&slot_length=<integer>&slot_interval=<integer>&overlapping_operatory_slots=false&appointments_per_timeslot=1&lids[]=<integer>&pids[]=<integer>&operatory_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "available_slots"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Date string you want results to start at, format YYYY-MM-DD",
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) Number of days to include, counting the start date. For best performance, this value should not exceed 14 days.",
+                      "key": "days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify an appointment type to filter returned slots and set slot_length to appointment_type.minutes",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific working hour label",
+                      "key": "working_hour_label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hours",
+                      "key": "working_hour_source",
+                      "value": "manual"
+                    },
+                    {
+                      "description": "Manually specify slot length in minutes. Defaults to 15 minutes",
+                      "key": "slot_length",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Manually specify the time in minutes between returned slot start times when a contiguous opening exists longer than the slot_length",
+                      "key": "slot_interval",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return all available slots for operatories at a given time instead of returning only the first found. Default is false",
+                      "key": "overlapping_operatory_slots",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Number of appointments (default:1, max:5) that can be booked in a single slot. Only supported for eClinicalWorks and NextGen.",
+                      "key": "appointments_per_timeslot",
+                      "value": "1"
+                    },
+                    {
+                      "description": "(Required) Array of Location Ids",
+                      "key": "lids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Array of Provider Ids",
+                      "key": "pids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify this if booking is mapped to operatory in this location",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:23.000Z",
+              "updatedAt": "2026-07-28T02:17:23.000Z",
+              "uid": "35240-28d54af1-9408-48ef-9ae3-5548c09d71f4"
+            },
+            {
+              "id": "cca40dc4-9eea-46de-aabf-6bdbf7ceb7d8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/available_slots?subdomain=<string>&start_date=<date>&days=<integer>&appointment_type_id=<integer>&working_hour_label_id=<integer>&working_hour_source=manual&slot_length=<integer>&slot_interval=<integer>&overlapping_operatory_slots=false&appointments_per_timeslot=1&lids[]=<integer>&pids[]=<integer>&operatory_ids[]=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "available_slots"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Date string you want results to start at, format YYYY-MM-DD",
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) Number of days to include, counting the start date. For best performance, this value should not exceed 14 days.",
+                      "key": "days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify an appointment type to filter returned slots and set slot_length to appointment_type.minutes",
+                      "key": "appointment_type_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by specific working hour label",
+                      "key": "working_hour_label_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by source of working hours",
+                      "key": "working_hour_source",
+                      "value": "manual"
+                    },
+                    {
+                      "description": "Manually specify slot length in minutes. Defaults to 15 minutes",
+                      "key": "slot_length",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Manually specify the time in minutes between returned slot start times when a contiguous opening exists longer than the slot_length",
+                      "key": "slot_interval",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return all available slots for operatories at a given time instead of returning only the first found. Default is false",
+                      "key": "overlapping_operatory_slots",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Number of appointments (default:1, max:5) that can be booked in a single slot. Only supported for eClinicalWorks and NextGen.",
+                      "key": "appointments_per_timeslot",
+                      "value": "1"
+                    },
+                    {
+                      "description": "(Required) Array of Location Ids",
+                      "key": "lids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Array of Provider Ids",
+                      "key": "pids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify this if booking is mapped to operatory in this location",
+                      "key": "operatory_ids[]",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:23.000Z",
+              "updatedAt": "2026-07-28T02:17:23.000Z",
+              "uid": "35240-cca40dc4-9eea-46de-aabf-6bdbf7ceb7d8"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:23.000Z",
+          "updatedAt": "2026-07-28T02:17:23.000Z",
+          "uid": "35240-2633d8ae-98f4-4164-bebe-830d2255f2a6"
+        }
+      ],
+      "id": "81a9064c-6dbf-4fa5-978f-b0da46aad4b9",
+      "createdAt": "2026-07-28T02:17:23.000Z",
+      "updatedAt": "2026-07-28T02:17:23.000Z",
+      "uid": "35240-81a9064c-6dbf-4fa5-978f-b0da46aad4b9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

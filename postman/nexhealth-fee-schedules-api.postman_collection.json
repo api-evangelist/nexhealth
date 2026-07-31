@@ -1,0 +1,1505 @@
+{
+  "info": {
+    "_postman_id": "47cd39ae-63a8-4357-8c3a-ee8cfe032c25",
+    "name": "NexHealth Adjustment Types Fee Schedules API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:18:51.000Z",
+    "updatedAt": "2026-07-28T02:18:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-47cd39ae-63a8-4357-8c3a-ee8cfe032c25"
+  },
+  "item": [
+    {
+      "name": "fee_schedule_procedures",
+      "item": [
+        {
+          "name": "View fee schedule procedures",
+          "id": "2cba0db7-0559-4836-9c3c-8deca5e31814",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fee_schedule_procedures?subdomain=<string>&location_id=<integer>&fee_schedule_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fee_schedule_procedures"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by fee schedule id",
+                  "key": "fee_schedule_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Fee schedule procedures updated after the specified time (UTC)",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "This endpoint returns the procedure fees for the specified location. At least one of the fee_schedule_id or updated_since filters must be provided"
+          },
+          "response": [
+            {
+              "id": "267b8142-2fe6-44bd-bbe6-0b8408007cd7",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedule_procedures?subdomain=<string>&location_id=<integer>&fee_schedule_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedule_procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by fee schedule id",
+                      "key": "fee_schedule_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedule procedures updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"procedure_code_id\": \"<string>\",\n      \"fee\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"code\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"fee_schedule_id\": \"<long>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"procedure_code_id\": \"<string>\",\n      \"fee\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"code\": \"<string>\",\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"fee_schedule_id\": \"<long>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-267b8142-2fe6-44bd-bbe6-0b8408007cd7"
+            },
+            {
+              "id": "307e9235-40a5-4d2f-b631-4d2602b42e87",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedule_procedures?subdomain=<string>&location_id=<integer>&fee_schedule_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedule_procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by fee schedule id",
+                      "key": "fee_schedule_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedule procedures updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-307e9235-40a5-4d2f-b631-4d2602b42e87"
+            },
+            {
+              "id": "10f725eb-66c2-47a0-abe9-a1231adf48a2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedule_procedures?subdomain=<string>&location_id=<integer>&fee_schedule_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedule_procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by fee schedule id",
+                      "key": "fee_schedule_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedule procedures updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-10f725eb-66c2-47a0-abe9-a1231adf48a2"
+            },
+            {
+              "id": "3e19178a-ff15-4dd1-b2c6-11018cc72f17",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedule_procedures?subdomain=<string>&location_id=<integer>&fee_schedule_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedule_procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by fee schedule id",
+                      "key": "fee_schedule_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedule procedures updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-3e19178a-ff15-4dd1-b2c6-11018cc72f17"
+            },
+            {
+              "id": "c4d0735c-8ee2-497d-bbd6-0847bed5683a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedule_procedures?subdomain=<string>&location_id=<integer>&fee_schedule_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedule_procedures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by fee schedule id",
+                      "key": "fee_schedule_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedule procedures updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-c4d0735c-8ee2-497d-bbd6-0847bed5683a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:18:51.000Z",
+          "updatedAt": "2026-07-28T02:18:51.000Z",
+          "uid": "35240-2cba0db7-0559-4836-9c3c-8deca5e31814"
+        }
+      ],
+      "id": "84e54ed0-461b-4135-a249-a27b21818116",
+      "createdAt": "2026-07-28T02:18:51.000Z",
+      "updatedAt": "2026-07-28T02:18:51.000Z",
+      "uid": "35240-84e54ed0-461b-4135-a249-a27b21818116"
+    },
+    {
+      "name": "fee_schedules",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View fee schedule",
+              "id": "ca81bc63-d177-4fb7-8646-2a2ff1be16ac",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedules/:id?subdomain=<string>&include[]=procedure_fees&include[]=procedure_fees",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedules",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "procedure_fees"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "procedure_fees"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "a3cec341-d28c-4f84-b7ab-5c8c52843d84",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single fee schedule"
+              },
+              "response": [
+                {
+                  "id": "70a8f43e-1947-4755-80f6-435b7982d580",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fee_schedules/:id?subdomain=<string>&include[]=procedure_fees",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fee_schedules",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "procedure_fees"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"location_id\": \"<integer>\",\n    \"updated_at\": \"<dateTime>\",\n    \"procedure_fees\": [\n      {\n        \"procedure_code_id\": \"<string>\",\n        \"fee\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"code\": \"<string>\"\n      },\n      {\n        \"procedure_code_id\": \"<string>\",\n        \"fee\": {\n          \"amount\": \"<string>\",\n          \"currency\": \"<string>\"\n        },\n        \"code\": \"<string>\"\n      }\n    ]\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:18:51.000Z",
+                  "updatedAt": "2026-07-28T02:18:51.000Z",
+                  "uid": "35240-70a8f43e-1947-4755-80f6-435b7982d580"
+                },
+                {
+                  "id": "7840d260-af18-4b30-9953-b005eca2ae9b",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fee_schedules/:id?subdomain=<string>&include[]=procedure_fees",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fee_schedules",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "procedure_fees"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:51.000Z",
+                  "updatedAt": "2026-07-28T02:18:51.000Z",
+                  "uid": "35240-7840d260-af18-4b30-9953-b005eca2ae9b"
+                },
+                {
+                  "id": "2e273232-c986-4390-bb2a-e66cd9ff751b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fee_schedules/:id?subdomain=<string>&include[]=procedure_fees",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fee_schedules",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "procedure_fees"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:51.000Z",
+                  "updatedAt": "2026-07-28T02:18:51.000Z",
+                  "uid": "35240-2e273232-c986-4390-bb2a-e66cd9ff751b"
+                },
+                {
+                  "id": "7615102d-034b-4829-a382-d1991232b493",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fee_schedules/:id?subdomain=<string>&include[]=procedure_fees",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fee_schedules",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "procedure_fees"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:51.000Z",
+                  "updatedAt": "2026-07-28T02:18:51.000Z",
+                  "uid": "35240-7615102d-034b-4829-a382-d1991232b493"
+                },
+                {
+                  "id": "af3dc10b-91d2-40d2-8dae-aa204bb65210",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fee_schedules/:id?subdomain=<string>&include[]=procedure_fees",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fee_schedules",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "procedure_fees"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:51.000Z",
+                  "updatedAt": "2026-07-28T02:18:51.000Z",
+                  "uid": "35240-af3dc10b-91d2-40d2-8dae-aa204bb65210"
+                },
+                {
+                  "id": "bcd06ff5-684b-4b25-89d1-a1884b51fc39",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fee_schedules/:id?subdomain=<string>&include[]=procedure_fees",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fee_schedules",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "procedure_fees"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:18:51.000Z",
+                  "updatedAt": "2026-07-28T02:18:51.000Z",
+                  "uid": "35240-bcd06ff5-684b-4b25-89d1-a1884b51fc39"
+                }
+              ],
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-ca81bc63-d177-4fb7-8646-2a2ff1be16ac"
+            }
+          ],
+          "id": "467b7c38-f143-46c2-bf8e-883216ee1959",
+          "createdAt": "2026-07-28T02:18:51.000Z",
+          "updatedAt": "2026-07-28T02:18:51.000Z",
+          "uid": "35240-467b7c38-f143-46c2-bf8e-883216ee1959"
+        },
+        {
+          "name": "View fee schedules",
+          "id": "43c03714-8286-4ce1-a79b-cf7fb69a6362",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fee_schedules?subdomain=<string>&location_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5&active=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fee_schedules"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Fee schedules updated after the specified time (UTC)",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                },
+                {
+                  "description": "Filter active/not active",
+                  "key": "active",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "This endpoint returns the fee schedules for the specified location"
+          },
+          "response": [
+            {
+              "id": "9693d05e-1d73-4b7e-aa5c-812fbc9a1b5d",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedules?subdomain=<string>&location_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedules"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedules updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"location_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"location_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-9693d05e-1d73-4b7e-aa5c-812fbc9a1b5d"
+            },
+            {
+              "id": "97d1b863-9703-4633-af23-f69e83cbb50c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedules?subdomain=<string>&location_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedules"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedules updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-97d1b863-9703-4633-af23-f69e83cbb50c"
+            },
+            {
+              "id": "cffd05a2-84ad-46cf-91cd-1258e0c5d98e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedules?subdomain=<string>&location_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedules"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedules updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-cffd05a2-84ad-46cf-91cd-1258e0c5d98e"
+            },
+            {
+              "id": "b7160c8c-6070-4374-b5dc-53f3bb78e3af",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedules?subdomain=<string>&location_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedules"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedules updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-b7160c8c-6070-4374-b5dc-53f3bb78e3af"
+            },
+            {
+              "id": "1123a251-1f1b-40a0-bb27-58d288667d7b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fee_schedules?subdomain=<string>&location_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fee_schedules"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Fee schedules updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Filter active/not active",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:18:51.000Z",
+              "updatedAt": "2026-07-28T02:18:51.000Z",
+              "uid": "35240-1123a251-1f1b-40a0-bb27-58d288667d7b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:18:51.000Z",
+          "updatedAt": "2026-07-28T02:18:51.000Z",
+          "uid": "35240-43c03714-8286-4ce1-a79b-cf7fb69a6362"
+        }
+      ],
+      "id": "dfbca383-0e19-44aa-85b0-244bc5e5e07b",
+      "createdAt": "2026-07-28T02:18:51.000Z",
+      "updatedAt": "2026-07-28T02:18:51.000Z",
+      "uid": "35240-dfbca383-0e19-44aa-85b0-244bc5e5e07b"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

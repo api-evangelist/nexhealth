@@ -1,0 +1,2691 @@
+{
+  "info": {
+    "_postman_id": "6f5d7d48-4d01-49bb-b69c-9329bdbab35c",
+    "name": "NexHealth Adjustment Types Appointment Types API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:18.000Z",
+    "updatedAt": "2026-07-28T02:17:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6f5d7d48-4d01-49bb-b69c-9329bdbab35c"
+  },
+  "item": [
+    {
+      "name": "appointment_types",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "appointment_descriptors",
+              "item": [
+                {
+                  "name": "View appointment type appointment descriptors",
+                  "id": "dc25b46b-212c-41e2-9a18-83a6eda5521a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id/appointment_descriptors?subdomain=<string>&location_id=<integer>&descriptor_type=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id",
+                        "appointment_descriptors"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location, required when appointment types are location specific",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Query by descriptor type",
+                          "key": "descriptor_type",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2d35f94d-f980-48e7-ac7a-a7cf06e2c862",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "136bc583-8075-4e32-a098-3aed3d2986a7",
+                      "name": "Successful",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointment_types/:id/appointment_descriptors?subdomain=<string>&location_id=<integer>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointment_types",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the associated location, required when appointment types are location specific",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"descriptor_type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"data\": {},\n      \"active\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"descriptor_type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"code\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"data\": {},\n      \"active\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:17:19.000Z",
+                      "updatedAt": "2026-07-28T02:17:19.000Z",
+                      "uid": "35240-136bc583-8075-4e32-a098-3aed3d2986a7"
+                    },
+                    {
+                      "id": "761993c1-1c4b-4e4e-9bb7-e3db082f20e0",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointment_types/:id/appointment_descriptors?subdomain=<string>&location_id=<integer>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointment_types",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the associated location, required when appointment types are location specific",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:19.000Z",
+                      "updatedAt": "2026-07-28T02:17:19.000Z",
+                      "uid": "35240-761993c1-1c4b-4e4e-9bb7-e3db082f20e0"
+                    },
+                    {
+                      "id": "8155678f-e5b1-4a91-ae7b-951d47dcff4a",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointment_types/:id/appointment_descriptors?subdomain=<string>&location_id=<integer>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointment_types",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the associated location, required when appointment types are location specific",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:19.000Z",
+                      "updatedAt": "2026-07-28T02:17:19.000Z",
+                      "uid": "35240-8155678f-e5b1-4a91-ae7b-951d47dcff4a"
+                    },
+                    {
+                      "id": "403f59fb-7970-42de-b87c-ecb3907f6d9d",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointment_types/:id/appointment_descriptors?subdomain=<string>&location_id=<integer>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointment_types",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the associated location, required when appointment types are location specific",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:19.000Z",
+                      "updatedAt": "2026-07-28T02:17:19.000Z",
+                      "uid": "35240-403f59fb-7970-42de-b87c-ecb3907f6d9d"
+                    },
+                    {
+                      "id": "78ab097e-27a7-4f04-9666-faf1645e5a11",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointment_types/:id/appointment_descriptors?subdomain=<string>&location_id=<integer>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointment_types",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the associated location, required when appointment types are location specific",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:19.000Z",
+                      "updatedAt": "2026-07-28T02:17:19.000Z",
+                      "uid": "35240-78ab097e-27a7-4f04-9666-faf1645e5a11"
+                    },
+                    {
+                      "id": "88cdaf3c-1eaf-43c7-99e3-599cd23cd54c",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.Nexhealth+json;version=2"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/appointment_types/:id/appointment_descriptors?subdomain=<string>&location_id=<integer>&descriptor_type=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "appointment_types",
+                            ":id",
+                            "appointment_descriptors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the associated location, required when appointment types are location specific",
+                              "key": "location_id",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Query by descriptor type",
+                              "key": "descriptor_type",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.Nexhealth+json;version=2"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:19.000Z",
+                      "updatedAt": "2026-07-28T02:17:19.000Z",
+                      "uid": "35240-88cdaf3c-1eaf-43c7-99e3-599cd23cd54c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-dc25b46b-212c-41e2-9a18-83a6eda5521a"
+                }
+              ],
+              "id": "fa9f202d-8b2a-4b61-bca7-43d2f3f5f5a3",
+              "createdAt": "2026-07-28T02:17:18.000Z",
+              "updatedAt": "2026-07-28T02:17:18.000Z",
+              "uid": "35240-fa9f202d-8b2a-4b61-bca7-43d2f3f5f5a3"
+            },
+            {
+              "name": "Edit an appointment type",
+              "id": "c65343f2-4e3c-44bc-9690-112e475e6ccc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Location\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "e3b3016a-77e4-4417-8f39-a2fb7bc178bd",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a513c1e2-8298-49d3-be0e-0af4b5832145",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Location\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parent_type\": \"<string>\",\n    \"parent_id\": \"<integer>\",\n    \"minutes\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-a513c1e2-8298-49d3-be0e-0af4b5832145"
+                },
+                {
+                  "id": "20053ee4-123f-4cdb-84d2-bb2eb1746b48",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Location\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-20053ee4-123f-4cdb-84d2-bb2eb1746b48"
+                },
+                {
+                  "id": "6b8fe945-97c5-41f0-b80f-6011160a75c6",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Location\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-6b8fe945-97c5-41f0-b80f-6011160a75c6"
+                },
+                {
+                  "id": "c6ac880f-1251-4c96-b3da-898342154042",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Location\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-c6ac880f-1251-4c96-b3da-898342154042"
+                },
+                {
+                  "id": "ab87c7ae-4a95-4982-a080-f484c14c0414",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Location\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-ab87c7ae-4a95-4982-a080-f484c14c0414"
+                },
+                {
+                  "id": "9d748b85-83b1-4bc7-9d18-da3698dcf35e",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Location\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-9d748b85-83b1-4bc7-9d18-da3698dcf35e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-c65343f2-4e3c-44bc-9690-112e475e6ccc"
+            },
+            {
+              "name": "View an appointment type",
+              "id": "3dd5d173-ed9f-40e8-952b-7b1f21812077",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>&include[]=descriptors&include[]=descriptors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "descriptors"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "descriptors"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "848d6074-7d11-4898-ad01-1924e0c96f78",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b03570e5-c98d-40b0-8403-f3a65797e749",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "descriptors"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parent_type\": \"<string>\",\n    \"parent_id\": \"<integer>\",\n    \"minutes\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"descriptors\": [\n      {\n        \"id\": \"<integer>\",\n        \"descriptor_type\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"data\": {},\n        \"active\": \"<boolean>\",\n        \"last_sync_time\": \"<dateTime>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"descriptor_type\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"location_id\": \"<integer>\",\n        \"foreign_id\": \"<string>\",\n        \"foreign_id_type\": \"<string>\",\n        \"data\": {},\n        \"active\": \"<boolean>\",\n        \"last_sync_time\": \"<dateTime>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\"\n      }\n    ]\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-b03570e5-c98d-40b0-8403-f3a65797e749"
+                },
+                {
+                  "id": "da9279d2-d4b2-4ee3-82fb-41113525024b",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "descriptors"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-da9279d2-d4b2-4ee3-82fb-41113525024b"
+                },
+                {
+                  "id": "8fc5a137-0cd3-4d54-b274-10f0e982a968",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "descriptors"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-8fc5a137-0cd3-4d54-b274-10f0e982a968"
+                },
+                {
+                  "id": "f02e6f1f-0c71-4d4c-9f24-6d5b3f9e8327",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "descriptors"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-f02e6f1f-0c71-4d4c-9f24-6d5b3f9e8327"
+                },
+                {
+                  "id": "ed5b2f67-a28d-4c7b-9630-dde96b94934b",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "descriptors"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-ed5b2f67-a28d-4c7b-9630-dde96b94934b"
+                },
+                {
+                  "id": "5b328b47-5771-4cf0-b95b-134480d1a473",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "descriptors"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-5b328b47-5771-4cf0-b95b-134480d1a473"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-3dd5d173-ed9f-40e8-952b-7b1f21812077"
+            },
+            {
+              "name": "Delete an appointment type",
+              "id": "ef014376-7120-4a6a-beb0-89d0ba3fe21f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location, required when appointment types are location specific",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "0df7cd66-dbc4-4a8f-9e9e-17326e5f641f",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "258dafae-9e88-4a3f-bcc2-ab5406835b25",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location, required when appointment types are location specific",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parent_type\": \"<string>\",\n    \"parent_id\": \"<integer>\",\n    \"minutes\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-258dafae-9e88-4a3f-bcc2-ab5406835b25"
+                },
+                {
+                  "id": "795d036a-65f3-442d-a4f4-fe673c2ef8aa",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location, required when appointment types are location specific",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-795d036a-65f3-442d-a4f4-fe673c2ef8aa"
+                },
+                {
+                  "id": "2ab2fd68-7af4-4805-b73c-1760a65ea49c",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location, required when appointment types are location specific",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-2ab2fd68-7af4-4805-b73c-1760a65ea49c"
+                },
+                {
+                  "id": "e1cf1966-4e70-4be7-98d2-30d6db131fed",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location, required when appointment types are location specific",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-e1cf1966-4e70-4be7-98d2-30d6db131fed"
+                },
+                {
+                  "id": "5e1bb9bc-637a-44bb-ada3-b81b0b037862",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location, required when appointment types are location specific",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-5e1bb9bc-637a-44bb-ada3-b81b0b037862"
+                },
+                {
+                  "id": "1dd670cb-9c91-4068-a325-f6bcbce119ac",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.Nexhealth+json;version=2"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/appointment_types/:id?subdomain=<string>&location_id=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "appointment_types",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the associated location, required when appointment types are location specific",
+                          "key": "location_id",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.Nexhealth+json;version=2"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:19.000Z",
+                  "updatedAt": "2026-07-28T02:17:19.000Z",
+                  "uid": "35240-1dd670cb-9c91-4068-a325-f6bcbce119ac"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-ef014376-7120-4a6a-beb0-89d0ba3fe21f"
+            }
+          ],
+          "id": "8fb2762a-eda9-4dc1-b857-d669dd2ea817",
+          "createdAt": "2026-07-28T02:17:18.000Z",
+          "updatedAt": "2026-07-28T02:17:18.000Z",
+          "uid": "35240-8fb2762a-eda9-4dc1-b857-d669dd2ea817"
+        },
+        {
+          "name": "View appointment types",
+          "id": "089f7c89-0e95-4a19-834b-7fcbcd29cd6f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.Nexhealth+json;version=2"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/appointment_types?subdomain=<string>&location_id=<integer>&include[]=descriptors&include[]=descriptors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "appointment_types"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Resources to be included in the response",
+                  "key": "include[]",
+                  "value": "descriptors"
+                },
+                {
+                  "description": "Resources to be included in the response",
+                  "key": "include[]",
+                  "value": "descriptors"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "39f5fbb4-876a-4899-9a0c-77915d501d0c",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "descriptors"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_type\": \"<string>\",\n      \"parent_id\": \"<integer>\",\n      \"minutes\": \"<integer>\",\n      \"bookable_online\": \"<boolean>\",\n      \"descriptors\": [\n        {\n          \"id\": \"<integer>\",\n          \"descriptor_type\": \"<string>\",\n          \"name\": \"<string>\",\n          \"code\": \"<string>\",\n          \"location_id\": \"<integer>\",\n          \"foreign_id\": \"<string>\",\n          \"foreign_id_type\": \"<string>\",\n          \"data\": {},\n          \"active\": \"<boolean>\",\n          \"last_sync_time\": \"<dateTime>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"descriptor_type\": \"<string>\",\n          \"name\": \"<string>\",\n          \"code\": \"<string>\",\n          \"location_id\": \"<integer>\",\n          \"foreign_id\": \"<string>\",\n          \"foreign_id_type\": \"<string>\",\n          \"data\": {},\n          \"active\": \"<boolean>\",\n          \"last_sync_time\": \"<dateTime>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_type\": \"<string>\",\n      \"parent_id\": \"<integer>\",\n      \"minutes\": \"<integer>\",\n      \"bookable_online\": \"<boolean>\",\n      \"descriptors\": [\n        {\n          \"id\": \"<integer>\",\n          \"descriptor_type\": \"<string>\",\n          \"name\": \"<string>\",\n          \"code\": \"<string>\",\n          \"location_id\": \"<integer>\",\n          \"foreign_id\": \"<string>\",\n          \"foreign_id_type\": \"<string>\",\n          \"data\": {},\n          \"active\": \"<boolean>\",\n          \"last_sync_time\": \"<dateTime>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<integer>\",\n          \"descriptor_type\": \"<string>\",\n          \"name\": \"<string>\",\n          \"code\": \"<string>\",\n          \"location_id\": \"<integer>\",\n          \"foreign_id\": \"<string>\",\n          \"foreign_id_type\": \"<string>\",\n          \"data\": {},\n          \"active\": \"<boolean>\",\n          \"last_sync_time\": \"<dateTime>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        }\n      ]\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-39f5fbb4-876a-4899-9a0c-77915d501d0c"
+            },
+            {
+              "id": "552f2d34-3459-4229-a17c-065632d01ad2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "descriptors"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-552f2d34-3459-4229-a17c-065632d01ad2"
+            },
+            {
+              "id": "55161ad5-2923-4bef-9043-f2d5b6dff16c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "descriptors"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-55161ad5-2923-4bef-9043-f2d5b6dff16c"
+            },
+            {
+              "id": "ba905662-6ff7-4d2b-a252-166daf42fe73",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "descriptors"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-ba905662-6ff7-4d2b-a252-166daf42fe73"
+            },
+            {
+              "id": "a34c8a70-3361-4301-b0bc-23243a566b56",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "descriptors"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-a34c8a70-3361-4301-b0bc-23243a566b56"
+            },
+            {
+              "id": "3969f5ae-1010-4cfb-a0ec-7d0e4563065c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>&location_id=<integer>&include[]=descriptors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "descriptors"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-3969f5ae-1010-4cfb-a0ec-7d0e4563065c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:19.000Z",
+          "updatedAt": "2026-07-28T02:17:19.000Z",
+          "uid": "35240-089f7c89-0e95-4a19-834b-7fcbcd29cd6f"
+        },
+        {
+          "name": "Create an appointment type",
+          "id": "21ba8acd-5ac8-47e2-a9d2-f71e7fbde393",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.Nexhealth+json;version=2"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Institution\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/appointment_types?subdomain=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "appointment_types"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b2ae8738-cd75-4dd0-83de-3985c4b79693",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Institution\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"parent_type\": \"<string>\",\n    \"parent_id\": \"<integer>\",\n    \"minutes\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\"\n  },\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-b2ae8738-cd75-4dd0-83de-3985c4b79693"
+            },
+            {
+              "id": "2143818a-ce3e-4db0-928d-9793481b7bdd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Institution\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-2143818a-ce3e-4db0-928d-9793481b7bdd"
+            },
+            {
+              "id": "bf4f7a58-cce4-4727-bde4-635d8c07b519",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Institution\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-bf4f7a58-cce4-4727-bde4-635d8c07b519"
+            },
+            {
+              "id": "42bffce4-0474-4795-ac87-8dd0b7290f13",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Institution\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-42bffce4-0474-4795-ac87-8dd0b7290f13"
+            },
+            {
+              "id": "16aa5510-c260-420b-a81a-75249b68f529",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Institution\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-16aa5510-c260-420b-a81a-75249b68f529"
+            },
+            {
+              "id": "828994c1-80ab-4462-bd4e-c62339f86954",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appointment_type\": {\n    \"name\": \"<string>\",\n    \"minutes\": \"<integer>\",\n    \"parent_type\": \"Institution\",\n    \"parent_id\": \"<integer>\",\n    \"bookable_online\": \"<boolean>\",\n    \"emr_appt_descriptor_ids\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"location_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/appointment_types?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "appointment_types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:19.000Z",
+              "updatedAt": "2026-07-28T02:17:19.000Z",
+              "uid": "35240-828994c1-80ab-4462-bd4e-c62339f86954"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:19.000Z",
+          "updatedAt": "2026-07-28T02:17:19.000Z",
+          "uid": "35240-21ba8acd-5ac8-47e2-a9d2-f71e7fbde393"
+        }
+      ],
+      "id": "061c77a2-dcf5-440d-88d8-791c02d42964",
+      "createdAt": "2026-07-28T02:17:18.000Z",
+      "updatedAt": "2026-07-28T02:17:18.000Z",
+      "uid": "35240-061c77a2-dcf5-440d-88d8-791c02d42964"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

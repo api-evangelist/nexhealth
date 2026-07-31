@@ -1,0 +1,1566 @@
+{
+  "info": {
+    "_postman_id": "a4aedb43-969c-4a88-857f-3b2856d9175e",
+    "name": "NexHealth Adjustment Types Payments API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:32.000Z",
+    "updatedAt": "2026-07-28T02:20:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a4aedb43-969c-4a88-857f-3b2856d9175e"
+  },
+  "item": [
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View payment",
+              "id": "2ecc9cfd-bd5d-4100-868f-e6d29941c407",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments/:id?subdomain=<string>&include[]=payment_plan&include[]=provider",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "payment_plan"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "provider"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "35142570-1c93-45ff-8568-e6166af7bdda",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single ledger payment"
+              },
+              "response": [
+                {
+                  "id": "d1e8ad8b-8465-469d-8883-4d692f2593b9",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"foreign_id\": \"<string>\",\n    \"location_id\": \"<integer>\",\n    \"patient_id\": \"<integer>\",\n    \"guarantor_id\": \"<integer>\",\n    \"provider_id\": \"<integer>\",\n    \"updated_at\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"payment_amount\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"paid_at\": \"<date>\",\n    \"transaction_id\": \"<string>\",\n    \"charge_id\": \"<long>\",\n    \"claim_id\": \"<long>\",\n    \"payment_plan_id\": \"<long>\",\n    \"insurance_plan_id\": \"<long>\",\n    \"patient\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"preferred_locale\": \"<string>\",\n      \"location_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"provider\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"display_name\": \"<string>\",\n      \"npi\": \"<string>\",\n      \"tin\": \"<string>\",\n      \"state_license\": \"<string>\",\n      \"specialty_code\": \"<string>\"\n    },\n    \"guarantor\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"preferred_locale\": \"<string>\",\n      \"location_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"claim\": {\n      \"id\": \"<long>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"subscription_id\": \"<long>\",\n      \"status\": \"draft\",\n      \"finalized_at\": \"<dateTime>\",\n      \"sent_at\": \"<dateTime>\",\n      \"note\": \"<string>\",\n      \"payment_estimate_total\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"write_off_estimate_total\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"write_off_total\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"deleted_at\": \"<dateTime>\"\n    },\n    \"charge\": {\n      \"id\": \"<long>\",\n      \"foreign_id\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"fee\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"charged_at\": \"<date>\",\n      \"procedure_id\": \"<string>\",\n      \"claim_ids\": [\n        \"<long>\",\n        \"<long>\"\n      ],\n      \"payment_estimate_total\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"write_off_estimate_total\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"write_off_total\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      }\n    },\n    \"payment_plan\": {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"first_payment_due_date\": \"<date>\",\n      \"created_date\": \"<date>\",\n      \"active\": \"<boolean>\"\n    },\n    \"payment_type\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    \"payment_type_id\": \"<long>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:20:32.000Z",
+                  "updatedAt": "2026-07-28T02:20:32.000Z",
+                  "uid": "35240-d1e8ad8b-8465-469d-8883-4d692f2593b9"
+                },
+                {
+                  "id": "91e8d949-d7c1-4f29-b1cc-073978cb4bdf",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:32.000Z",
+                  "updatedAt": "2026-07-28T02:20:32.000Z",
+                  "uid": "35240-91e8d949-d7c1-4f29-b1cc-073978cb4bdf"
+                },
+                {
+                  "id": "d1028898-ec70-4c07-81f6-24fa3d48d2ef",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:32.000Z",
+                  "updatedAt": "2026-07-28T02:20:32.000Z",
+                  "uid": "35240-d1028898-ec70-4c07-81f6-24fa3d48d2ef"
+                },
+                {
+                  "id": "87c0bf50-6cfb-4c5a-a891-da94723a9bba",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:32.000Z",
+                  "updatedAt": "2026-07-28T02:20:32.000Z",
+                  "uid": "35240-87c0bf50-6cfb-4c5a-a891-da94723a9bba"
+                },
+                {
+                  "id": "701f9958-c96f-4227-b338-ae958e36700e",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:id?subdomain=<string>&include[]=provider",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "provider"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:20:32.000Z",
+                  "updatedAt": "2026-07-28T02:20:32.000Z",
+                  "uid": "35240-701f9958-c96f-4227-b338-ae958e36700e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-2ecc9cfd-bd5d-4100-868f-e6d29941c407"
+            }
+          ],
+          "id": "6326b3c1-415a-4baa-93fd-5af8c17dc5ed",
+          "createdAt": "2026-07-28T02:20:32.000Z",
+          "updatedAt": "2026-07-28T02:20:32.000Z",
+          "uid": "35240-6326b3c1-415a-4baa-93fd-5af8c17dc5ed"
+        },
+        {
+          "name": "View payments",
+          "id": "8ee6ebf1-6ad2-4c38-b25f-66c386b6a614",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&guarantor_id=<integer>&charge_id=<integer>&claim_id=<integer>&transaction_id=<string>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated patient",
+                  "key": "patient_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated provider",
+                  "key": "provider_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated guarantor",
+                  "key": "guarantor_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated charge",
+                  "key": "charge_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by the id of the associated claim",
+                  "key": "claim_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by transaction id",
+                  "key": "transaction_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter for payments updated since a specific time (UTC)",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Include deleted payments",
+                  "key": "include_deleted",
+                  "value": "false"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "This endpoint returns the ledger payments for the specified location, narrowed down by the configured filters (at least one filter is required)"
+          },
+          "response": [
+            {
+              "id": "be6f446d-7bbb-4b98-b9e8-0e414a43bc60",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&guarantor_id=<integer>&charge_id=<integer>&claim_id=<integer>&transaction_id=<string>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated charge",
+                      "key": "charge_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated claim",
+                      "key": "claim_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by transaction id",
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for payments updated since a specific time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted payments",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"foreign_id\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"payment_amount\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"paid_at\": \"<date>\",\n      \"transaction_id\": \"<string>\",\n      \"charge_id\": \"<long>\",\n      \"claim_id\": \"<long>\",\n      \"payment_plan_id\": \"<long>\",\n      \"insurance_plan_id\": \"<long>\",\n      \"payment_type_id\": \"<long>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"foreign_id\": \"<string>\",\n      \"location_id\": \"<integer>\",\n      \"patient_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"provider_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"payment_amount\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"paid_at\": \"<date>\",\n      \"transaction_id\": \"<string>\",\n      \"charge_id\": \"<long>\",\n      \"claim_id\": \"<long>\",\n      \"payment_plan_id\": \"<long>\",\n      \"insurance_plan_id\": \"<long>\",\n      \"payment_type_id\": \"<long>\"\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-be6f446d-7bbb-4b98-b9e8-0e414a43bc60"
+            },
+            {
+              "id": "b174c72f-733a-4bb6-993a-b71c4ef9f27c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&guarantor_id=<integer>&charge_id=<integer>&claim_id=<integer>&transaction_id=<string>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated charge",
+                      "key": "charge_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated claim",
+                      "key": "claim_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by transaction id",
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for payments updated since a specific time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted payments",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-b174c72f-733a-4bb6-993a-b71c4ef9f27c"
+            },
+            {
+              "id": "f4535432-fc79-42b0-a253-95b4839b3e85",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&guarantor_id=<integer>&charge_id=<integer>&claim_id=<integer>&transaction_id=<string>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated charge",
+                      "key": "charge_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated claim",
+                      "key": "claim_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by transaction id",
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for payments updated since a specific time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted payments",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-f4535432-fc79-42b0-a253-95b4839b3e85"
+            },
+            {
+              "id": "0c7814c4-eaef-4fb7-a87e-4a9168203fb9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&guarantor_id=<integer>&charge_id=<integer>&claim_id=<integer>&transaction_id=<string>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated charge",
+                      "key": "charge_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated claim",
+                      "key": "claim_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by transaction id",
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for payments updated since a specific time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted payments",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-0c7814c4-eaef-4fb7-a87e-4a9168203fb9"
+            },
+            {
+              "id": "9ff1e0d5-d0bc-4e07-a81c-a6ab90995d9c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>&patient_id=<integer>&provider_id=<integer>&guarantor_id=<integer>&charge_id=<integer>&claim_id=<integer>&transaction_id=<string>&updated_since=<dateTime>&include_deleted=false&sort=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated provider",
+                      "key": "provider_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated charge",
+                      "key": "charge_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated claim",
+                      "key": "claim_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by transaction id",
+                      "key": "transaction_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for payments updated since a specific time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Include deleted payments",
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-9ff1e0d5-d0bc-4e07-a81c-a6ab90995d9c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:32.000Z",
+          "updatedAt": "2026-07-28T02:20:32.000Z",
+          "uid": "35240-8ee6ebf1-6ad2-4c38-b25f-66c386b6a614"
+        },
+        {
+          "name": "Create payment",
+          "id": "7aaa2a9c-927a-46c0-91b2-9356878dd69e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": {\n    \"patient_id\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"transaction_id\": \"<string>\",\n    \"currency\": \"USD\",\n    \"payment_type_id\": \"<integer>\",\n    \"paid_at\": \"<dateTime>\",\n    \"charge_splits\": {},\n    \"provider_splits\": {},\n    \"notes\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint enqueues a write-back that records the payment in the integrated health record system"
+          },
+          "response": [
+            {
+              "id": "b1f5433b-1692-4a4f-9214-1973a5fb6f97",
+              "name": "Create payment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"patient_id\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"transaction_id\": \"<string>\",\n    \"currency\": \"USD\",\n    \"payment_type_id\": \"<integer>\",\n    \"paid_at\": \"<dateTime>\",\n    \"charge_splits\": {},\n    \"provider_splits\": {},\n    \"notes\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-b1f5433b-1692-4a4f-9214-1973a5fb6f97"
+            },
+            {
+              "id": "990f80bb-03c8-4b90-82d9-e8001590c4af",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"patient_id\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"transaction_id\": \"<string>\",\n    \"currency\": \"USD\",\n    \"payment_type_id\": \"<integer>\",\n    \"paid_at\": \"<dateTime>\",\n    \"charge_splits\": {},\n    \"provider_splits\": {},\n    \"notes\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-990f80bb-03c8-4b90-82d9-e8001590c4af"
+            },
+            {
+              "id": "61d29409-1c3f-4306-a8f4-28fff86edde8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"patient_id\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"transaction_id\": \"<string>\",\n    \"currency\": \"USD\",\n    \"payment_type_id\": \"<integer>\",\n    \"paid_at\": \"<dateTime>\",\n    \"charge_splits\": {},\n    \"provider_splits\": {},\n    \"notes\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-61d29409-1c3f-4306-a8f4-28fff86edde8"
+            },
+            {
+              "id": "87680c81-f028-408f-8818-65b02789ee7e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"patient_id\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"transaction_id\": \"<string>\",\n    \"currency\": \"USD\",\n    \"payment_type_id\": \"<integer>\",\n    \"paid_at\": \"<dateTime>\",\n    \"charge_splits\": {},\n    \"provider_splits\": {},\n    \"notes\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-87680c81-f028-408f-8818-65b02789ee7e"
+            },
+            {
+              "id": "4a7e2c96-c6c6-4cad-876a-0bdb15a05330",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"patient_id\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"transaction_id\": \"<string>\",\n    \"currency\": \"USD\",\n    \"payment_type_id\": \"<integer>\",\n    \"paid_at\": \"<dateTime>\",\n    \"charge_splits\": {},\n    \"provider_splits\": {},\n    \"notes\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payments?subdomain=<string>&location_id=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:20:32.000Z",
+              "updatedAt": "2026-07-28T02:20:32.000Z",
+              "uid": "35240-4a7e2c96-c6c6-4cad-876a-0bdb15a05330"
+            }
+          ],
+          "createdAt": "2026-07-28T02:20:32.000Z",
+          "updatedAt": "2026-07-28T02:20:32.000Z",
+          "uid": "35240-7aaa2a9c-927a-46c0-91b2-9356878dd69e"
+        }
+      ],
+      "id": "37ce0d93-5896-4e63-8c20-6f8530b745d8",
+      "createdAt": "2026-07-28T02:20:32.000Z",
+      "updatedAt": "2026-07-28T02:20:32.000Z",
+      "uid": "35240-37ce0d93-5896-4e63-8c20-6f8530b745d8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

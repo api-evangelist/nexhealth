@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.nexhealth.com/reference/versioning
+versioning:
+  scheme: header
+  header: Nex-Api-Version
+  current: v3.0.0
+  alias: v20240412
+  docs: https://docs.nexhealth.com/reference/versioning
+  note: v3.0.0 and v20240412 are two interchangeable names for the same current major version.
+deprecation:
+  policy_url: https://docs.nexhealth.com/docs/api-v2-to-v20240412-migration-guide
+  deprecated_versions:
+  - version: v2.2.2
+    status: deprecated
+    guidance: Legacy version; NexHealth plans to deprecate it soon and does not encourage new development on it. A migration guide documents every breaking change endpoint-by-endpoint.
+  sunset_header: false
+status_page: https://status.nexhealth.com
+status_page_provider: Atlassian Statuspage (nexhealth.statuspage.io)
+changelog: https://docs.nexhealth.com/changelog
+sla:
+  url: null
+  note: No public uptime SLA target published; operational status is tracked on the status page.
+deprecated_operations: []

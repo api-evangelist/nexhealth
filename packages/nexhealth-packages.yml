@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: npm registry search; NexHealth docs
+note: >-
+  NexHealth does not publish first-party client SDKs. Its documented integration paths are the raw
+  OpenAPI spec (https://docs.nexhealth.com/v20240412/openapi/nexhealth-api.json) and a public Postman
+  collection. The packages below are community/third-party libraries, not official — none carry an SDKs pointer.
+packages:
+- language: javascript
+  registry: npm
+  name: nexhealth-js-sdk
+  url: https://www.npmjs.com/package/nexhealth-js-sdk
+  repository: https://github.com/Etonio99/nexhealth-js-sdk
+  official: false
+- language: javascript
+  registry: npm
+  name: "@fincuratech/nexhealth-sdk-js"
+  url: https://www.npmjs.com/package/@fincuratech/nexhealth-sdk-js
+  repository: https://github.com/fincura-ai/nexhealth-sdk-js
+  official: false
+official_integration_assets:
+- kind: openapi
+  url: https://docs.nexhealth.com/v20240412/openapi/nexhealth-api.json
+- kind: postman
+  url: https://god.gw.postman.com/run-collection/19774779-358d4afa-f4b1-4aac-8167-2d73f9a92882

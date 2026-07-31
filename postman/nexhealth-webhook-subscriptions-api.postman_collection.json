@@ -1,0 +1,2022 @@
+{
+  "info": {
+    "_postman_id": "03c02740-014e-490f-9bc6-cc900f5a37dc",
+    "name": "NexHealth Adjustment Types Webhook Subscriptions API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:20:48.000Z",
+    "updatedAt": "2026-07-28T02:20:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-03c02740-014e-490f-9bc6-cc900f5a37dc"
+  },
+  "item": [
+    {
+      "name": "webhook_endpoints",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "webhook_subscriptions",
+              "item": [
+                {
+                  "name": "{subscription_id}",
+                  "item": [
+                    {
+                      "name": "Edit webhook subscription",
+                      "id": "334753b3-7e5a-4eb5-b018-b7349ae6978e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"new_endpoint_id\": \"<integer>\",\n  \"active\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions",
+                            ":subscription_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "67f0d181-84cd-4fe0-b1b9-d86678490247",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) Webhook Endpoint id"
+                            },
+                            {
+                              "id": "e5e99380-e7ee-4914-85d2-93b76e16c556",
+                              "key": "subscription_id",
+                              "value": "<integer>",
+                              "description": "(Required) Webhook Subscription id"
+                            }
+                          ]
+                        },
+                        "description": "Updates a webhook subscription. The subdomain parameter is required for request validation even when the subscription is not scoped to an institution (e.g. Onboarding); pass the subdomain of any institution your API user has access to."
+                      },
+                      "response": [
+                        {
+                          "id": "0a19e7e7-db83-44d0-aa67-d19fc60305fa",
+                          "name": "Successful",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"new_endpoint_id\": \"<integer>\",\n  \"active\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"webhook_endpoint_id\": \"<integer>\",\n    \"institution_id\": \"<integer>\",\n    \"resource_type\": \"<string>\",\n    \"event\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-0a19e7e7-db83-44d0-aa67-d19fc60305fa"
+                        },
+                        {
+                          "id": "f640ad5b-6332-4d4e-9d28-fc73bd1c73fb",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"new_endpoint_id\": \"<integer>\",\n  \"active\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-f640ad5b-6332-4d4e-9d28-fc73bd1c73fb"
+                        },
+                        {
+                          "id": "b5238f84-776c-4e8f-8c21-5c720d8d4850",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"new_endpoint_id\": \"<integer>\",\n  \"active\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-b5238f84-776c-4e8f-8c21-5c720d8d4850"
+                        },
+                        {
+                          "id": "c51ce825-3716-4136-bcb2-6a6ad6429470",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"new_endpoint_id\": \"<integer>\",\n  \"active\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-c51ce825-3716-4136-bcb2-6a6ad6429470"
+                        },
+                        {
+                          "id": "aaf8836f-d4f7-4321-b2f8-46279638998b",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"new_endpoint_id\": \"<integer>\",\n  \"active\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-aaf8836f-d4f7-4321-b2f8-46279638998b"
+                        },
+                        {
+                          "id": "63286371-5dfe-4c18-ab61-09bd1476cc93",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"new_endpoint_id\": \"<integer>\",\n  \"active\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id?subdomain=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Used to scope the request to the specified institution",
+                                  "key": "subdomain",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-63286371-5dfe-4c18-ab61-09bd1476cc93"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-334753b3-7e5a-4eb5-b018-b7349ae6978e"
+                    },
+                    {
+                      "name": "Delete webhook subscription",
+                      "id": "025b2bee-56ae-4cbe-aa77-2f86a42b10ee",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions",
+                            ":subscription_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d884733c-e1ef-4bf1-a587-6e3236e3b3fc",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) Webhook Endpoint id"
+                            },
+                            {
+                              "id": "39686a22-6544-4119-a471-e6e1c1019535",
+                              "key": "subscription_id",
+                              "value": "<integer>",
+                              "description": "(Required) Webhook Subscription id"
+                            }
+                          ]
+                        },
+                        "description": "Permanently deletes the webhook subscription; deliveries for it stop immediately. Returns 204 No Content on success."
+                      },
+                      "response": [
+                        {
+                          "id": "f633ef8d-d532-4013-a6e2-60df6f76b675",
+                          "name": "Successful",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-f633ef8d-d532-4013-a6e2-60df6f76b675"
+                        },
+                        {
+                          "id": "bca557a2-8ce1-4a47-a8b9-8c0ed11458fd",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-bca557a2-8ce1-4a47-a8b9-8c0ed11458fd"
+                        },
+                        {
+                          "id": "35b3edf8-2a27-4e10-a644-75790dd53e20",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-35b3edf8-2a27-4e10-a644-75790dd53e20"
+                        },
+                        {
+                          "id": "d7542639-105a-47b7-a2b0-783ac1d9e86d",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-d7542639-105a-47b7-a2b0-783ac1d9e86d"
+                        },
+                        {
+                          "id": "6b3ceca3-119f-4877-86dc-44adda16693d",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-6b3ceca3-119f-4877-86dc-44adda16693d"
+                        },
+                        {
+                          "id": "9d467221-b55d-4bba-bd7c-47a4f346f416",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) The NexHealth API version",
+                                "key": "Nex-Api-Version",
+                                "value": "v3.0.0"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhook_endpoints",
+                                ":id",
+                                "webhook_subscriptions",
+                                ":subscription_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "subscription_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:20:48.000Z",
+                          "updatedAt": "2026-07-28T02:20:48.000Z",
+                          "uid": "35240-9d467221-b55d-4bba-bd7c-47a4f346f416"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-025b2bee-56ae-4cbe-aa77-2f86a42b10ee"
+                    }
+                  ],
+                  "id": "30391b1b-16f1-4eea-9bee-7f4311fbe973",
+                  "createdAt": "2026-07-28T02:20:48.000Z",
+                  "updatedAt": "2026-07-28T02:20:48.000Z",
+                  "uid": "35240-30391b1b-16f1-4eea-9bee-7f4311fbe973"
+                },
+                {
+                  "name": "View webhook subscriptions",
+                  "id": "205f3a4c-92c6-422a-9c71-0c231a58a50b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>&resource_type=Payment&event=appointment_updated",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhook_endpoints",
+                        ":id",
+                        "webhook_subscriptions"
+                      ],
+                      "query": [
+                        {
+                          "description": "Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by subscribed resource",
+                          "key": "resource_type",
+                          "value": "Payment"
+                        },
+                        {
+                          "description": "Filter by event name",
+                          "key": "event",
+                          "value": "appointment_updated"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "4863eba9-edac-40b1-aa8e-7aa6ba5c34ba",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Webhook Endpoint id"
+                        }
+                      ]
+                    },
+                    "description": "Lists all webhook subscriptions on the given webhook endpoint. When a subdomain is provided, results are scoped to that institution and exclude subscriptions without an institution (e.g. Onboarding); omit the subdomain to list every subscription on the endpoint. Results are not paginated."
+                  },
+                  "response": [
+                    {
+                      "id": "585fa833-4455-43dd-b065-920a943919ae",
+                      "name": "Successful",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>&resource_type=Payment&event=appointment_updated",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by subscribed resource",
+                              "key": "resource_type",
+                              "value": "Payment"
+                            },
+                            {
+                              "description": "Filter by event name",
+                              "key": "event",
+                              "value": "appointment_updated"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"webhook_endpoint_id\": \"<integer>\",\n      \"institution_id\": \"<integer>\",\n      \"resource_type\": \"<string>\",\n      \"event\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"webhook_endpoint_id\": \"<integer>\",\n      \"institution_id\": \"<integer>\",\n      \"resource_type\": \"<string>\",\n      \"event\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-585fa833-4455-43dd-b065-920a943919ae"
+                    },
+                    {
+                      "id": "03a4aaae-7ea5-4080-919f-a4687c96567a",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>&resource_type=Payment&event=appointment_updated",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by subscribed resource",
+                              "key": "resource_type",
+                              "value": "Payment"
+                            },
+                            {
+                              "description": "Filter by event name",
+                              "key": "event",
+                              "value": "appointment_updated"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-03a4aaae-7ea5-4080-919f-a4687c96567a"
+                    },
+                    {
+                      "id": "65df1595-917b-4cfc-b55d-25a2f3662f45",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>&resource_type=Payment&event=appointment_updated",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by subscribed resource",
+                              "key": "resource_type",
+                              "value": "Payment"
+                            },
+                            {
+                              "description": "Filter by event name",
+                              "key": "event",
+                              "value": "appointment_updated"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-65df1595-917b-4cfc-b55d-25a2f3662f45"
+                    },
+                    {
+                      "id": "07158500-c112-454e-8103-bfd0f560452d",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>&resource_type=Payment&event=appointment_updated",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by subscribed resource",
+                              "key": "resource_type",
+                              "value": "Payment"
+                            },
+                            {
+                              "description": "Filter by event name",
+                              "key": "event",
+                              "value": "appointment_updated"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-07158500-c112-454e-8103-bfd0f560452d"
+                    },
+                    {
+                      "id": "c7566efb-ea31-4f9b-8399-081a94efb8cf",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>&resource_type=Payment&event=appointment_updated",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by subscribed resource",
+                              "key": "resource_type",
+                              "value": "Payment"
+                            },
+                            {
+                              "description": "Filter by event name",
+                              "key": "event",
+                              "value": "appointment_updated"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-c7566efb-ea31-4f9b-8399-081a94efb8cf"
+                    },
+                    {
+                      "id": "a3237646-589f-4e87-8eda-0fecc7ccaab8",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>&resource_type=Payment&event=appointment_updated",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Used to scope the request to the specified institution",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by subscribed resource",
+                              "key": "resource_type",
+                              "value": "Payment"
+                            },
+                            {
+                              "description": "Filter by event name",
+                              "key": "event",
+                              "value": "appointment_updated"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-a3237646-589f-4e87-8eda-0fecc7ccaab8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:20:48.000Z",
+                  "updatedAt": "2026-07-28T02:20:48.000Z",
+                  "uid": "35240-205f3a4c-92c6-422a-9c71-0c231a58a50b"
+                },
+                {
+                  "name": "Create webhook subscription",
+                  "id": "7b0e30ce-488e-4e65-afb7-de5256c85b7d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"resource_type\": \"Charge\",\n  \"event\": \"payment_updated\",\n  \"active\": true\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhook_endpoints",
+                        ":id",
+                        "webhook_subscriptions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "af4c5449-5d32-45bc-bede-db7a2f64335c",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) Webhook Endpoint id"
+                        }
+                      ]
+                    },
+                    "description": "Creates a webhook subscription on the given webhook endpoint. The subscription is pinned to the API version used to create it (v3.0.0): webhook payloads delivered for this subscription use the v3.0.0 entity contract. To pin a subscription to a different version, create it via that version of this endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "87c75306-5705-46b5-b59e-ef6e42ba703d",
+                      "name": "Successful",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resource_type\": \"Charge\",\n  \"event\": \"payment_updated\",\n  \"active\": true\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"webhook_endpoint_id\": \"<integer>\",\n    \"institution_id\": \"<integer>\",\n    \"resource_type\": \"<string>\",\n    \"event\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-87c75306-5705-46b5-b59e-ef6e42ba703d"
+                    },
+                    {
+                      "id": "23752712-b932-47eb-b833-15a76fcac61f",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resource_type\": \"Charge\",\n  \"event\": \"payment_updated\",\n  \"active\": true\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-23752712-b932-47eb-b833-15a76fcac61f"
+                    },
+                    {
+                      "id": "9c9c953c-7663-4fdd-8330-be452eb762e4",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resource_type\": \"Charge\",\n  \"event\": \"payment_updated\",\n  \"active\": true\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-9c9c953c-7663-4fdd-8330-be452eb762e4"
+                    },
+                    {
+                      "id": "c4c9fe2d-6a2b-47ee-89c4-180c700e101b",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resource_type\": \"Charge\",\n  \"event\": \"payment_updated\",\n  \"active\": true\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-c4c9fe2d-6a2b-47ee-89c4-180c700e101b"
+                    },
+                    {
+                      "id": "354914b3-882d-4060-8077-8c5b9702b5da",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resource_type\": \"Charge\",\n  \"event\": \"payment_updated\",\n  \"active\": true\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-354914b3-882d-4060-8077-8c5b9702b5da"
+                    },
+                    {
+                      "id": "d033b44a-30e9-44b6-a4c1-78d7ac726487",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) The NexHealth API version",
+                            "key": "Nex-Api-Version",
+                            "value": "v3.0.0"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"resource_type\": \"Charge\",\n  \"event\": \"payment_updated\",\n  \"active\": true\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhook_endpoints/:id/webhook_subscriptions?subdomain=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhook_endpoints",
+                            ":id",
+                            "webhook_subscriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding",
+                              "key": "subdomain",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:20:48.000Z",
+                      "updatedAt": "2026-07-28T02:20:48.000Z",
+                      "uid": "35240-d033b44a-30e9-44b6-a4c1-78d7ac726487"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:20:48.000Z",
+                  "updatedAt": "2026-07-28T02:20:48.000Z",
+                  "uid": "35240-7b0e30ce-488e-4e65-afb7-de5256c85b7d"
+                }
+              ],
+              "id": "1a509bde-b0fc-4870-8ec0-2195abeeb2ed",
+              "createdAt": "2026-07-28T02:20:48.000Z",
+              "updatedAt": "2026-07-28T02:20:48.000Z",
+              "uid": "35240-1a509bde-b0fc-4870-8ec0-2195abeeb2ed"
+            }
+          ],
+          "id": "59b36717-b11f-4b0d-a2ea-b2b91028546d",
+          "createdAt": "2026-07-28T02:20:48.000Z",
+          "updatedAt": "2026-07-28T02:20:48.000Z",
+          "uid": "35240-59b36717-b11f-4b0d-a2ea-b2b91028546d"
+        }
+      ],
+      "id": "54c18029-f9af-47f3-9d3c-5f6bb3e898e7",
+      "createdAt": "2026-07-28T02:20:48.000Z",
+      "updatedAt": "2026-07-28T02:20:48.000Z",
+      "uid": "35240-54c18029-f9af-47f3-9d3c-5f6bb3e898e7"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

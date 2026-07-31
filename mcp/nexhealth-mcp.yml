@@ -1,0 +1,274 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/nexhealth-openapi-original.json
+note: No official NexHealth MCP server found. Candidate tool list derived one-per-operation from the OpenAPI;
+  not a published server.
+server:
+  name: nexhealth
+  transport: stdio
+tools:
+- name: getAdjustments
+  description: View adjustments
+  source_operation: openapi/nexhealth-openapi-original.json#getAdjustments
+- name: postAdjustments
+  description: Create adjustment
+  source_operation: openapi/nexhealth-openapi-original.json#postAdjustments
+- name: getAdjustmentsId
+  description: View adjustment
+  source_operation: openapi/nexhealth-openapi-original.json#getAdjustmentsId
+- name: getAppointmentTypes
+  description: View appointment types
+  source_operation: openapi/nexhealth-openapi-original.json#getAppointmentTypes
+- name: postAppointmentTypes
+  description: Create an appointment type
+  source_operation: openapi/nexhealth-openapi-original.json#postAppointmentTypes
+- name: patchAppointmentTypesId
+  description: Edit an appointment type
+  source_operation: openapi/nexhealth-openapi-original.json#patchAppointmentTypesId
+- name: getAppointmentTypesId
+  description: View an appointment type
+  source_operation: openapi/nexhealth-openapi-original.json#getAppointmentTypesId
+- name: deleteAppointmentTypesId
+  description: Delete an appointment type
+  source_operation: openapi/nexhealth-openapi-original.json#deleteAppointmentTypesId
+- name: getAppointmentTypesIdAppointmentDescriptors
+  description: View appointment type appointment descriptors
+  source_operation: openapi/nexhealth-openapi-original.json#getAppointmentTypesIdAppointmentDescriptors
+- name: getAppointmentsId
+  description: View appointment
+  source_operation: openapi/nexhealth-openapi-original.json#getAppointmentsId
+- name: patchAppointmentsId
+  description: Edit Appointment
+  source_operation: openapi/nexhealth-openapi-original.json#patchAppointmentsId
+- name: getAppointmentsIdAppointmentDescriptors
+  description: View appointment descriptors
+  source_operation: openapi/nexhealth-openapi-original.json#getAppointmentsIdAppointmentDescriptors
+- name: getAppointments
+  description: View appointments
+  source_operation: openapi/nexhealth-openapi-original.json#getAppointments
+- name: postAppointments
+  description: Create appointment
+  source_operation: openapi/nexhealth-openapi-original.json#postAppointments
+- name: postAuthenticates
+  description: Retrieve bearer token
+  source_operation: openapi/nexhealth-openapi-original.json#postAuthenticates
+- name: getCharges
+  description: View charges
+  source_operation: openapi/nexhealth-openapi-original.json#getCharges
+- name: getChargesId
+  description: View charge
+  source_operation: openapi/nexhealth-openapi-original.json#getChargesId
+- name: getDocumentTypes
+  description: View document types
+  source_operation: openapi/nexhealth-openapi-original.json#getDocumentTypes
+- name: getDocumentTypesId
+  description: View document type
+  source_operation: openapi/nexhealth-openapi-original.json#getDocumentTypesId
+- name: getInstitutions
+  description: View institutions
+  source_operation: openapi/nexhealth-openapi-original.json#getInstitutions
+- name: getInstitutionsId
+  description: View institution
+  source_operation: openapi/nexhealth-openapi-original.json#getInstitutionsId
+- name: getInsurancePlans
+  description: View insurance plans
+  source_operation: openapi/nexhealth-openapi-original.json#getInsurancePlans
+- name: getInsurancePlansId
+  description: View insurance plan
+  source_operation: openapi/nexhealth-openapi-original.json#getInsurancePlansId
+- name: getLocations
+  description: View locations
+  source_operation: openapi/nexhealth-openapi-original.json#getLocations
+- name: getLocationsId
+  description: View location
+  source_operation: openapi/nexhealth-openapi-original.json#getLocationsId
+- name: getLocationsIdAppointmentDescriptors
+  description: View location appointment descriptors
+  source_operation: openapi/nexhealth-openapi-original.json#getLocationsIdAppointmentDescriptors
+- name: getNexStaff
+  description: View nex staff
+  source_operation: openapi/nexhealth-openapi-original.json#getNexStaff
+- name: getOperatories
+  description: View operatories
+  source_operation: openapi/nexhealth-openapi-original.json#getOperatories
+- name: getOperatoriesId
+  description: View operatory
+  source_operation: openapi/nexhealth-openapi-original.json#getOperatoriesId
+- name: getPatients
+  description: View patients
+  source_operation: openapi/nexhealth-openapi-original.json#getPatients
+- name: postPatients
+  description: Create patient
+  source_operation: openapi/nexhealth-openapi-original.json#postPatients
+- name: getPatientsId
+  description: View patient
+  source_operation: openapi/nexhealth-openapi-original.json#getPatientsId
+- name: getPatientsIdDocuments
+  description: View patient documents
+  source_operation: openapi/nexhealth-openapi-original.json#getPatientsIdDocuments
+- name: postPatientsIdDocuments
+  description: Create patient document
+  source_operation: openapi/nexhealth-openapi-original.json#postPatientsIdDocuments
+- name: postPatientsIdAlerts
+  description: Create patient alert
+  source_operation: openapi/nexhealth-openapi-original.json#postPatientsIdAlerts
+- name: getPatientsIdAlerts
+  description: View patient alerts
+  source_operation: openapi/nexhealth-openapi-original.json#getPatientsIdAlerts
+- name: getPatientsIdAlertsAlertId
+  description: View patient alert
+  source_operation: openapi/nexhealth-openapi-original.json#getPatientsIdAlertsAlertId
+- name: patchPatientsIdAlertsAlertId
+  description: Edit patient alert
+  source_operation: openapi/nexhealth-openapi-original.json#patchPatientsIdAlertsAlertId
+- name: getPatientRecalls
+  description: View patient recalls
+  source_operation: openapi/nexhealth-openapi-original.json#getPatientRecalls
+- name: getPatientRecallsId
+  description: View patient recall
+  source_operation: openapi/nexhealth-openapi-original.json#getPatientRecallsId
+- name: getPaymentPlans
+  description: View payment plans
+  source_operation: openapi/nexhealth-openapi-original.json#getPaymentPlans
+- name: getPaymentPlansId
+  description: View payment plan
+  source_operation: openapi/nexhealth-openapi-original.json#getPaymentPlansId
+- name: getPayments
+  description: View payments
+  source_operation: openapi/nexhealth-openapi-original.json#getPayments
+- name: postPayments
+  description: Create payment
+  source_operation: openapi/nexhealth-openapi-original.json#postPayments
+- name: getPaymentsId
+  description: View payment
+  source_operation: openapi/nexhealth-openapi-original.json#getPaymentsId
+- name: getProcedures
+  description: View procedures
+  source_operation: openapi/nexhealth-openapi-original.json#getProcedures
+- name: getProceduresId
+  description: View procedure
+  source_operation: openapi/nexhealth-openapi-original.json#getProceduresId
+- name: getProviders
+  description: View providers
+  source_operation: openapi/nexhealth-openapi-original.json#getProviders
+- name: getProvidersId
+  description: View provider
+  source_operation: openapi/nexhealth-openapi-original.json#getProvidersId
+- name: getRecallTypes
+  description: View recall types
+  source_operation: openapi/nexhealth-openapi-original.json#getRecallTypes
+- name: getRecallTypesId
+  description: View recall type
+  source_operation: openapi/nexhealth-openapi-original.json#getRecallTypesId
+- name: getSyncStatus
+  description: View sync statuses
+  source_operation: openapi/nexhealth-openapi-original.json#getSyncStatus
+- name: getWebhookEndpoints
+  description: View webhook endpoints
+  source_operation: openapi/nexhealth-openapi-original.json#getWebhookEndpoints
+- name: postWebhookEndpoints
+  description: Create webhook endpoint
+  source_operation: openapi/nexhealth-openapi-original.json#postWebhookEndpoints
+- name: patchWebhookEndpointsId
+  description: Edit webhook endpoint
+  source_operation: openapi/nexhealth-openapi-original.json#patchWebhookEndpointsId
+- name: deleteWebhookEndpointsId
+  description: Delete webhook endpoint
+  source_operation: openapi/nexhealth-openapi-original.json#deleteWebhookEndpointsId
+- name: getWebhookEndpointsIdWebhookSubscriptions
+  description: View webhook subscriptions
+  source_operation: openapi/nexhealth-openapi-original.json#getWebhookEndpointsIdWebhookSubscriptions
+- name: postWebhookEndpointsIdWebhookSubscriptions
+  description: Create webhook subscription
+  source_operation: openapi/nexhealth-openapi-original.json#postWebhookEndpointsIdWebhookSubscriptions
+- name: patchWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
+  description: Edit webhook subscription
+  source_operation: openapi/nexhealth-openapi-original.json#patchWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
+- name: deleteWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
+  description: Delete webhook subscription
+  source_operation: openapi/nexhealth-openapi-original.json#deleteWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
+- name: getAdjustmentTypes
+  description: View adjustment types
+  source_operation: openapi/nexhealth-openapi-original.json#getAdjustmentTypes
+- name: getAdjustmentTypesId
+  description: View adjustment type
+  source_operation: openapi/nexhealth-openapi-original.json#getAdjustmentTypesId
+- name: getAvailableSlots
+  description: View available slots
+  source_operation: openapi/nexhealth-openapi-original.json#getAvailableSlots
+- name: getClinicalNotes
+  description: View clinical notes
+  source_operation: openapi/nexhealth-openapi-original.json#getClinicalNotes
+- name: getFeeScheduleProcedures
+  description: View fee schedule procedures
+  source_operation: openapi/nexhealth-openapi-original.json#getFeeScheduleProcedures
+- name: getFeeSchedules
+  description: View fee schedules
+  source_operation: openapi/nexhealth-openapi-original.json#getFeeSchedules
+- name: getFeeSchedulesId
+  description: View fee schedule
+  source_operation: openapi/nexhealth-openapi-original.json#getFeeSchedulesId
+- name: getGuarantorBalances
+  description: View guarantor balances
+  source_operation: openapi/nexhealth-openapi-original.json#getGuarantorBalances
+- name: getGuarantorBalancesId
+  description: View guarantor balance
+  source_operation: openapi/nexhealth-openapi-original.json#getGuarantorBalancesId
+- name: getInsuranceBalances
+  description: View insurance balances
+  source_operation: openapi/nexhealth-openapi-original.json#getInsuranceBalances
+- name: getInsuranceBalancesId
+  description: View insurance balance
+  source_operation: openapi/nexhealth-openapi-original.json#getInsuranceBalancesId
+- name: getClaims
+  description: View claims
+  source_operation: openapi/nexhealth-openapi-original.json#getClaims
+- name: getClaimsId
+  description: View claim
+  source_operation: openapi/nexhealth-openapi-original.json#getClaimsId
+- name: getInsuranceCoverages
+  description: View insurance coverages
+  source_operation: openapi/nexhealth-openapi-original.json#getInsuranceCoverages
+- name: getInsuranceCoveragesId
+  description: View insurance coverage
+  source_operation: openapi/nexhealth-openapi-original.json#getInsuranceCoveragesId
+- name: getOnboardings
+  description: View onboardings
+  source_operation: openapi/nexhealth-openapi-original.json#getOnboardings
+- name: postOnboardings
+  description: Create onboarding
+  source_operation: openapi/nexhealth-openapi-original.json#postOnboardings
+- name: getOnboardingsHashid
+  description: View onboarding
+  source_operation: openapi/nexhealth-openapi-original.json#getOnboardingsHashid
+- name: getPaymentTypes
+  description: View payment types
+  source_operation: openapi/nexhealth-openapi-original.json#getPaymentTypes
+- name: getPaymentTypesId
+  description: View payment type
+  source_operation: openapi/nexhealth-openapi-original.json#getPaymentTypesId
+- name: getTreatmentPlans
+  description: View treatment plans
+  source_operation: openapi/nexhealth-openapi-original.json#getTreatmentPlans
+- name: getTreatmentPlansId
+  description: View treatment plan
+  source_operation: openapi/nexhealth-openapi-original.json#getTreatmentPlansId
+- name: getWorkingHourLabels
+  description: View working hour labels
+  source_operation: openapi/nexhealth-openapi-original.json#getWorkingHourLabels
+- name: postWorkingHours
+  description: Create working hour
+  source_operation: openapi/nexhealth-openapi-original.json#postWorkingHours
+- name: getWorkingHours
+  description: View working hours
+  source_operation: openapi/nexhealth-openapi-original.json#getWorkingHours
+- name: getWorkingHoursId
+  description: View working hour
+  source_operation: openapi/nexhealth-openapi-original.json#getWorkingHoursId
+- name: patchWorkingHoursId
+  description: Edit working hour
+  source_operation: openapi/nexhealth-openapi-original.json#patchWorkingHoursId
+- name: deleteWorkingHoursId
+  description: Delete working hour
+  source_operation: openapi/nexhealth-openapi-original.json#deleteWorkingHoursId

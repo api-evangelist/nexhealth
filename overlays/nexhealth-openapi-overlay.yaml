@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for NexHealth Synchronizer API
+  version: 1.0.0
+extends: openapi/nexhealth-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-20'
+    x-apievangelist-category:
+    - Healthcare
+    - EHR
+    - Practice Management
+    - Scheduling
+    - Dental
+    x-api-key-then-bearer: API key POSTed to /authenticates returns a 1h (prod) / 24h (sandbox) bearer
+      JWT; send Nex-Api-Version header on all requests.
+- target: $.servers
+  update:
+  - url: https://nexhealth.info
+    description: Production and sandbox host (environment determined by API key type)
+- target: $.info
+  update:
+    x-status-page: https://status.nexhealth.com
+    x-changelog: https://docs.nexhealth.com/changelog
+    x-webhooks: https://docs.nexhealth.com/docs/webhooks

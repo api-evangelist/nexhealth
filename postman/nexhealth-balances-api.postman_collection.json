@@ -1,0 +1,2011 @@
+{
+  "info": {
+    "_postman_id": "996fbcc4-a90d-4b92-81cb-a4b0f367d36b",
+    "name": "NexHealth Adjustment Types Balances API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:24.000Z",
+    "updatedAt": "2026-07-28T02:17:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-996fbcc4-a90d-4b92-81cb-a4b0f367d36b"
+  },
+  "item": [
+    {
+      "name": "guarantor_balances",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View guarantor balance",
+              "id": "271608ae-33f3-4707-9ce0-294e22ea2965",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/guarantor_balances/:id?include[]=guarantor&include[]=guarantor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "guarantor_balances",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "guarantor"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "guarantor"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "1801b6b4-2843-4c26-8022-915426210dcd",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single guarantor balance"
+              },
+              "response": [
+                {
+                  "id": "f5146990-7123-4aaa-b1af-a5c35328d12d",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/guarantor_balances/:id?include[]=guarantor",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "guarantor_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "guarantor"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"foreign_id\": \"<string>\",\n    \"guarantor_id\": \"<integer>\",\n    \"location_id\": \"<integer>\",\n    \"updated_at\": \"<dateTime>\",\n    \"write_off_estimate\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"total_balance\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"insurance_estimate\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"guarantor_portion\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"total_balance_under_30\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"total_balance_31_60\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"total_balance_61_90\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"total_balance_over_90\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"guarantor\": {\n      \"id\": \"<integer>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"institution_id\": \"<integer>\",\n      \"foreign_id\": \"<string>\",\n      \"foreign_id_type\": \"<string>\",\n      \"bio\": {},\n      \"inactive\": \"<boolean>\",\n      \"last_sync_time\": \"<dateTime>\",\n      \"guarantor_id\": \"<integer>\",\n      \"billing_type\": \"<string>\",\n      \"chart_id\": \"<string>\",\n      \"preferred_language\": \"<string>\",\n      \"provider_id\": \"<integer>\"\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-f5146990-7123-4aaa-b1af-a5c35328d12d"
+                },
+                {
+                  "id": "06b5e823-6cb8-4f27-82da-d052e53713f8",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/guarantor_balances/:id?include[]=guarantor",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "guarantor_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "guarantor"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-06b5e823-6cb8-4f27-82da-d052e53713f8"
+                },
+                {
+                  "id": "245c56ee-6602-451b-85b0-49f71f85398c",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/guarantor_balances/:id?include[]=guarantor",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "guarantor_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "guarantor"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-245c56ee-6602-451b-85b0-49f71f85398c"
+                },
+                {
+                  "id": "06070d09-f7a9-430f-aa4f-7ca5b43185b2",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/guarantor_balances/:id?include[]=guarantor",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "guarantor_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "guarantor"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-06070d09-f7a9-430f-aa4f-7ca5b43185b2"
+                },
+                {
+                  "id": "94f98469-0582-4122-9702-7f09c2ff728f",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/guarantor_balances/:id?include[]=guarantor",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "guarantor_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "guarantor"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-94f98469-0582-4122-9702-7f09c2ff728f"
+                },
+                {
+                  "id": "7e88f961-ec4c-4637-af54-045eee56e59f",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/guarantor_balances/:id?include[]=guarantor",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "guarantor_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "guarantor"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-7e88f961-ec4c-4637-af54-045eee56e59f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-271608ae-33f3-4707-9ce0-294e22ea2965"
+            }
+          ],
+          "id": "2750bc45-7993-4ed9-b043-5946ac19f7f4",
+          "createdAt": "2026-07-28T02:17:25.000Z",
+          "updatedAt": "2026-07-28T02:17:25.000Z",
+          "uid": "35240-2750bc45-7993-4ed9-b043-5946ac19f7f4"
+        },
+        {
+          "name": "View guarantor balances",
+          "id": "88065ad7-9055-422a-a603-d3651b2e11a9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/guarantor_balances?subdomain=<string>&location_id=<integer>&sort=<string>&guarantor_id=<integer>&updated_since=<dateTime>&show_zero_balances=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "guarantor_balances"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by the id of the associated guarantor",
+                  "key": "guarantor_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Guarantor balances updated after the specified time (UTC)",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Show guarantor balances with zero total balance",
+                  "key": "show_zero_balances",
+                  "value": "false"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "This endpoint returns the guarantor balances for the specified location. At least one of the guarantor_id or updated_since filters must be provided"
+          },
+          "response": [
+            {
+              "id": "e88bd7c3-8b9f-454b-9706-c14954fb2de6",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/guarantor_balances?subdomain=<string>&location_id=<integer>&sort=<string>&guarantor_id=<integer>&updated_since=<dateTime>&show_zero_balances=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "guarantor_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Guarantor balances updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Show guarantor balances with zero total balance",
+                      "key": "show_zero_balances",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"foreign_id\": \"<string>\",\n      \"guarantor_id\": \"<integer>\",\n      \"location_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\",\n      \"write_off_estimate\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"insurance_estimate\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"guarantor_portion\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance_under_30\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance_31_60\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance_61_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance_over_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"foreign_id\": \"<string>\",\n      \"guarantor_id\": \"<integer>\",\n      \"location_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\",\n      \"write_off_estimate\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"insurance_estimate\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"guarantor_portion\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance_under_30\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance_31_60\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance_61_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"total_balance_over_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      }\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-e88bd7c3-8b9f-454b-9706-c14954fb2de6"
+            },
+            {
+              "id": "cf9bf0ac-17d0-4da9-a565-2f844a180b5b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/guarantor_balances?subdomain=<string>&location_id=<integer>&sort=<string>&guarantor_id=<integer>&updated_since=<dateTime>&show_zero_balances=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "guarantor_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Guarantor balances updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Show guarantor balances with zero total balance",
+                      "key": "show_zero_balances",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-cf9bf0ac-17d0-4da9-a565-2f844a180b5b"
+            },
+            {
+              "id": "0d83cfc0-a8a7-46bf-89e2-4252f4fe0ab1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/guarantor_balances?subdomain=<string>&location_id=<integer>&sort=<string>&guarantor_id=<integer>&updated_since=<dateTime>&show_zero_balances=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "guarantor_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Guarantor balances updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Show guarantor balances with zero total balance",
+                      "key": "show_zero_balances",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-0d83cfc0-a8a7-46bf-89e2-4252f4fe0ab1"
+            },
+            {
+              "id": "76b1f781-1b6e-403c-b4d3-f8b9b4b63436",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/guarantor_balances?subdomain=<string>&location_id=<integer>&sort=<string>&guarantor_id=<integer>&updated_since=<dateTime>&show_zero_balances=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "guarantor_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Guarantor balances updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Show guarantor balances with zero total balance",
+                      "key": "show_zero_balances",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-76b1f781-1b6e-403c-b4d3-f8b9b4b63436"
+            },
+            {
+              "id": "4307fa67-6457-419f-8c6b-6c0d7bee657f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/guarantor_balances?subdomain=<string>&location_id=<integer>&sort=<string>&guarantor_id=<integer>&updated_since=<dateTime>&show_zero_balances=false&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "guarantor_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the id of the associated guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Guarantor balances updated after the specified time (UTC)",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Show guarantor balances with zero total balance",
+                      "key": "show_zero_balances",
+                      "value": "false"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-4307fa67-6457-419f-8c6b-6c0d7bee657f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:25.000Z",
+          "updatedAt": "2026-07-28T02:17:25.000Z",
+          "uid": "35240-88065ad7-9055-422a-a603-d3651b2e11a9"
+        }
+      ],
+      "id": "b730c65e-c402-4206-abec-e1ff8f474bb9",
+      "createdAt": "2026-07-28T02:17:25.000Z",
+      "updatedAt": "2026-07-28T02:17:25.000Z",
+      "uid": "35240-b730c65e-c402-4206-abec-e1ff8f474bb9"
+    },
+    {
+      "name": "insurance_balances",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View insurance balance",
+              "id": "ffb089f9-7223-43f3-a973-1f55c6b32369",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_balances/:id?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_balances",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "1adac423-68b5-4b57-b81d-117d1c7b4c84",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) The ID of the insurance balance"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single insurance balance by its NexHealth id. Responds with a 404 when no insurance balance with this id exists or when it belongs to a location your token cannot access."
+              },
+              "response": [
+                {
+                  "id": "edff3e75-5aeb-42de-93b4-7fbfab79f553",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_balances/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"patient_id\": \"<integer>\",\n    \"guarantor_id\": \"<integer>\",\n    \"location_id\": \"<integer>\",\n    \"updated_at\": \"<dateTime>\",\n    \"estimated_amount_under_30\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"estimated_amount_31_60\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"estimated_amount_61_90\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"estimated_amount_over_90\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"billed_amount_under_30\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"billed_amount_31_60\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"billed_amount_61_90\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    \"billed_amount_over_90\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\"\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-edff3e75-5aeb-42de-93b4-7fbfab79f553"
+                },
+                {
+                  "id": "74a67c37-a8af-4aad-95c5-572cfc8e3021",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_balances/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-74a67c37-a8af-4aad-95c5-572cfc8e3021"
+                },
+                {
+                  "id": "be55123c-2f35-451b-a206-f744ca56ebca",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_balances/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-be55123c-2f35-451b-a206-f744ca56ebca"
+                },
+                {
+                  "id": "ce3592d8-7fa9-4758-8e91-faafb542d910",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_balances/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-ce3592d8-7fa9-4758-8e91-faafb542d910"
+                },
+                {
+                  "id": "2fd8fcb7-ab66-4334-9ce6-6dd4c88413c4",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_balances/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-2fd8fcb7-ab66-4334-9ce6-6dd4c88413c4"
+                },
+                {
+                  "id": "530ce231-ec0a-48d4-a3bc-5028b4d9a8aa",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_balances/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_balances",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:25.000Z",
+                  "updatedAt": "2026-07-28T02:17:25.000Z",
+                  "uid": "35240-530ce231-ec0a-48d4-a3bc-5028b4d9a8aa"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-ffb089f9-7223-43f3-a973-1f55c6b32369"
+            }
+          ],
+          "id": "3ba4e5ee-1478-45ac-b0f7-b4baded2e267",
+          "createdAt": "2026-07-28T02:17:25.000Z",
+          "updatedAt": "2026-07-28T02:17:25.000Z",
+          "uid": "35240-3ba4e5ee-1478-45ac-b0f7-b4baded2e267"
+        },
+        {
+          "name": "View insurance balances",
+          "id": "a3495c34-4563-4ca4-9107-4fc11bac61c1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurance_balances?subdomain=<string>&location_id=<integer>&sort=<string>&patient_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurance_balances"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Used to scope the request to the specified location",
+                  "key": "location_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter for balances of a specific patient",
+                  "key": "patient_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter for balances of a specific guarantor",
+                  "key": "guarantor_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Insurance balances updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "This endpoint returns a list of insurance balances for a location: the amounts insurance is expected to pay, broken into aging buckets. You can filter by patient_id, guarantor_id or updated_since, and must provide at least one of these filters. location_id is always required, but does not satisfy the at-least-one-filter requirement on its own."
+          },
+          "response": [
+            {
+              "id": "cc9de0cc-c7b8-4615-9281-b89b9e1c52b1",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_balances?subdomain=<string>&location_id=<integer>&sort=<string>&patient_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Insurance balances updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"location_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\",\n      \"estimated_amount_under_30\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"estimated_amount_31_60\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"estimated_amount_61_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"estimated_amount_over_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"billed_amount_under_30\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"billed_amount_31_60\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"billed_amount_61_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"billed_amount_over_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"patient_id\": \"<integer>\",\n      \"guarantor_id\": \"<integer>\",\n      \"location_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\",\n      \"estimated_amount_under_30\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"estimated_amount_31_60\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"estimated_amount_61_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"estimated_amount_over_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"billed_amount_under_30\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"billed_amount_31_60\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"billed_amount_61_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"billed_amount_over_90\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      }\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-cc9de0cc-c7b8-4615-9281-b89b9e1c52b1"
+            },
+            {
+              "id": "13c70e22-6375-4787-ae7f-25390938fbc3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_balances?subdomain=<string>&location_id=<integer>&sort=<string>&patient_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Insurance balances updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-13c70e22-6375-4787-ae7f-25390938fbc3"
+            },
+            {
+              "id": "9e4afd7a-a9e5-418c-b25f-41cbfdd3573f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_balances?subdomain=<string>&location_id=<integer>&sort=<string>&patient_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Insurance balances updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-9e4afd7a-a9e5-418c-b25f-41cbfdd3573f"
+            },
+            {
+              "id": "60582978-61ef-4f7d-a1b6-5664cbfc6aa1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_balances?subdomain=<string>&location_id=<integer>&sort=<string>&patient_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Insurance balances updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-60582978-61ef-4f7d-a1b6-5664cbfc6aa1"
+            },
+            {
+              "id": "81c897b2-0f76-4bac-a12f-2c9c16823008",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_balances?subdomain=<string>&location_id=<integer>&sort=<string>&patient_id=<integer>&guarantor_id=<integer>&updated_since=<dateTime>&start_cursor=<string>&end_cursor=<string>&per_page=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Used to scope the request to the specified location",
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific patient",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter for balances of a specific guarantor",
+                      "key": "guarantor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Insurance balances updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:17:25.000Z",
+              "updatedAt": "2026-07-28T02:17:25.000Z",
+              "uid": "35240-81c897b2-0f76-4bac-a12f-2c9c16823008"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:25.000Z",
+          "updatedAt": "2026-07-28T02:17:25.000Z",
+          "uid": "35240-a3495c34-4563-4ca4-9107-4fc11bac61c1"
+        }
+      ],
+      "id": "d8f3f319-adb7-4858-8eab-937edc0b97da",
+      "createdAt": "2026-07-28T02:17:25.000Z",
+      "updatedAt": "2026-07-28T02:17:25.000Z",
+      "uid": "35240-d8f3f319-adb7-4858-8eab-937edc0b97da"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}

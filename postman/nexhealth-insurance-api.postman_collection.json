@@ -1,0 +1,2070 @@
+{
+  "info": {
+    "_postman_id": "9ba6e760-983b-4ff4-846f-16b0deaf0cad",
+    "name": "NexHealth Adjustment Types Insurance API",
+    "description": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:53.000Z",
+    "updatedAt": "2026-07-28T02:19:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9ba6e760-983b-4ff4-846f-16b0deaf0cad"
+  },
+  "item": [
+    {
+      "name": "insurance_plans",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View insurance plan",
+              "id": "68d2ae04-581c-4956-9b85-341ec01547cd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_plans/:id?subdomain=<string>&include[]=patient_coverages&include[]=fee_schedule",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_plans",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "patient_coverages"
+                    },
+                    {
+                      "description": "Resources to be included in the response",
+                      "key": "include[]",
+                      "value": "fee_schedule"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "f2ec69d4-0170-4ec2-8eea-add07924227f",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) Id of the insurance plan"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single insurance plan by its NexHealth id. Use the include parameter to embed related resources: patient_coverages, subscribers and/or fee_schedule. Responds with a 404 when no plan with the given id exists for the institution."
+              },
+              "response": [
+                {
+                  "id": "abe3a3d5-5a29-42a4-b9e3-0e4df5840944",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_plans/:id?subdomain=<string>&include[]=fee_schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_plans",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "fee_schedule"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"payer_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"address\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"group_num\": \"<string>\",\n    \"employer_name\": \"<string>\",\n    \"foreign_id\": \"<string>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"patient_coverages\": [\n      {\n        \"id\": \"<long>\",\n        \"subscription_relation\": \"employee\",\n        \"patient_id\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"plan_id\": \"<long>\",\n        \"subscriber_num\": \"<string>\",\n        \"effective_date\": \"<date>\",\n        \"expiration_date\": \"<date>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"subscription_relation\": \"handicap_dep\",\n        \"patient_id\": \"<integer>\",\n        \"priority\": \"<integer>\",\n        \"plan_id\": \"<long>\",\n        \"subscriber_num\": \"<string>\",\n        \"effective_date\": \"<date>\",\n        \"expiration_date\": \"<date>\"\n      }\n    ],\n    \"subscribers\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"date_of_birth\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"date_of_birth\": \"<string>\"\n      }\n    ],\n    \"fee_schedule\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"location_id\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-abe3a3d5-5a29-42a4-b9e3-0e4df5840944"
+                },
+                {
+                  "id": "22e0b5a5-9dde-486a-96d6-b22fab12fa2b",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_plans/:id?subdomain=<string>&include[]=fee_schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_plans",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "fee_schedule"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-22e0b5a5-9dde-486a-96d6-b22fab12fa2b"
+                },
+                {
+                  "id": "de233029-8093-4cc4-8adb-5d73c16d2097",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_plans/:id?subdomain=<string>&include[]=fee_schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_plans",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "fee_schedule"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-de233029-8093-4cc4-8adb-5d73c16d2097"
+                },
+                {
+                  "id": "66495d35-1b95-428e-86a0-833fd9eda96e",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_plans/:id?subdomain=<string>&include[]=fee_schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_plans",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "fee_schedule"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-66495d35-1b95-428e-86a0-833fd9eda96e"
+                },
+                {
+                  "id": "411a5fe4-d537-4d18-8c0c-a5d739fabc85",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_plans/:id?subdomain=<string>&include[]=fee_schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_plans",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "fee_schedule"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-411a5fe4-d537-4d18-8c0c-a5d739fabc85"
+                },
+                {
+                  "id": "9f2cadb6-6710-4277-ab9d-08f47f07c817",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_plans/:id?subdomain=<string>&include[]=fee_schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_plans",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Resources to be included in the response",
+                          "key": "include[]",
+                          "value": "fee_schedule"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-9f2cadb6-6710-4277-ab9d-08f47f07c817"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-68d2ae04-581c-4956-9b85-341ec01547cd"
+            }
+          ],
+          "id": "60b8716e-687f-4181-bb69-73da8f4ff7bc",
+          "createdAt": "2026-07-28T02:19:53.000Z",
+          "updatedAt": "2026-07-28T02:19:53.000Z",
+          "uid": "35240-60b8716e-687f-4181-bb69-73da8f4ff7bc"
+        },
+        {
+          "name": "View insurance plans",
+          "id": "0099e431-b70e-447d-8b2f-3ccbdaba5f34",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurance_plans?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&updated_since=<dateTime>&payer_id=<string>&group_num=<string>&include_deleted=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurance_plans"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                },
+                {
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Insurance plans updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically",
+                  "key": "payer_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter for plans with the specified group number",
+                  "key": "group_num",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Include soft-deleted insurance plans in the results",
+                  "key": "include_deleted",
+                  "value": "false"
+                }
+              ]
+            },
+            "description": "This endpoint returns a list of insurance plans. All filters are optional: without any filters, every insurance plan for the institution is returned. You can narrow the results by payer_id, group_num or updated_since. Soft-deleted plans are excluded unless include_deleted is true."
+          },
+          "response": [
+            {
+              "id": "15fe534d-5fc8-4b51-a698-f546f1c2c9a9",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_plans?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&updated_since=<dateTime>&payer_id=<string>&group_num=<string>&include_deleted=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_plans"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Insurance plans updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically",
+                      "key": "payer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for plans with the specified group number",
+                      "key": "group_num",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include soft-deleted insurance plans in the results",
+                      "key": "include_deleted",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"payer_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"address\": \"<string>\",\n      \"address2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"country_code\": \"<string>\",\n      \"group_num\": \"<string>\",\n      \"employer_name\": \"<string>\",\n      \"foreign_id\": \"<string>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"payer_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"address\": \"<string>\",\n      \"address2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"country_code\": \"<string>\",\n      \"group_num\": \"<string>\",\n      \"employer_name\": \"<string>\",\n      \"foreign_id\": \"<string>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\"\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-15fe534d-5fc8-4b51-a698-f546f1c2c9a9"
+            },
+            {
+              "id": "5fc3f6ad-12fd-45e3-bbcb-bc595c1e7a5d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_plans?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&updated_since=<dateTime>&payer_id=<string>&group_num=<string>&include_deleted=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_plans"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Insurance plans updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically",
+                      "key": "payer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for plans with the specified group number",
+                      "key": "group_num",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include soft-deleted insurance plans in the results",
+                      "key": "include_deleted",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-5fc3f6ad-12fd-45e3-bbcb-bc595c1e7a5d"
+            },
+            {
+              "id": "3946a3ab-0e73-4d2f-be72-92f8af26b475",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_plans?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&updated_since=<dateTime>&payer_id=<string>&group_num=<string>&include_deleted=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_plans"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Insurance plans updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically",
+                      "key": "payer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for plans with the specified group number",
+                      "key": "group_num",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include soft-deleted insurance plans in the results",
+                      "key": "include_deleted",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-3946a3ab-0e73-4d2f-be72-92f8af26b475"
+            },
+            {
+              "id": "e4e72ac6-3963-4322-8053-b207d0b75bfc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_plans?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&updated_since=<dateTime>&payer_id=<string>&group_num=<string>&include_deleted=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_plans"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Insurance plans updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically",
+                      "key": "payer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for plans with the specified group number",
+                      "key": "group_num",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include soft-deleted insurance plans in the results",
+                      "key": "include_deleted",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-e4e72ac6-3963-4322-8053-b207d0b75bfc"
+            },
+            {
+              "id": "1c4b667a-1b52-45ff-a545-8057ec93393a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_plans?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&sort=<string>&updated_since=<dateTime>&payer_id=<string>&group_num=<string>&include_deleted=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_plans"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Insurance plans updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically",
+                      "key": "payer_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter for plans with the specified group number",
+                      "key": "group_num",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include soft-deleted insurance plans in the results",
+                      "key": "include_deleted",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-1c4b667a-1b52-45ff-a545-8057ec93393a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:19:53.000Z",
+          "updatedAt": "2026-07-28T02:19:53.000Z",
+          "uid": "35240-0099e431-b70e-447d-8b2f-3ccbdaba5f34"
+        }
+      ],
+      "id": "4df278d4-7198-45b7-ba68-47603f8ba8e5",
+      "createdAt": "2026-07-28T02:19:53.000Z",
+      "updatedAt": "2026-07-28T02:19:53.000Z",
+      "uid": "35240-4df278d4-7198-45b7-ba68-47603f8ba8e5"
+    },
+    {
+      "name": "insurance_coverages",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "View insurance coverage",
+              "id": "892648cc-463a-4256-87a2-e5eda2ef3f32",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_coverages/:id?subdomain=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_coverages",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "417dcda6-50f0-4da4-8b52-cc99140c6235",
+                      "key": "id",
+                      "value": "<long>",
+                      "description": "(Required) Insurance coverage ID"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a single insurance coverage by its NexHealth id, including details of the subscriber who holds the coverage. Responds with a 404 when no coverage with this id exists for the institution."
+              },
+              "response": [
+                {
+                  "id": "40f4b263-40f6-45e7-bab1-81776b1caded",
+                  "name": "Successful",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_coverages/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_coverages",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": {\n    \"id\": \"<long>\",\n    \"subscription_relation\": \"injured_plaintiff\",\n    \"patient_id\": \"<integer>\",\n    \"priority\": \"<integer>\",\n    \"plan_id\": \"<long>\",\n    \"subscriber_num\": \"<string>\",\n    \"effective_date\": \"<date>\",\n    \"expiration_date\": \"<date>\",\n    \"insurance_type\": \"medical\",\n    \"updated_at\": \"<dateTime>\",\n    \"active\": \"<boolean>\",\n    \"subscriber\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"date_of_birth\": \"<string>\"\n    }\n  },\n  \"count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-40f4b263-40f6-45e7-bab1-81776b1caded"
+                },
+                {
+                  "id": "11465833-4b45-41e4-9994-d7a2b1c51fc2",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_coverages/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_coverages",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-11465833-4b45-41e4-9994-d7a2b1c51fc2"
+                },
+                {
+                  "id": "4d60391f-29f1-4d75-ad34-cf8cce306d00",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_coverages/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_coverages",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-4d60391f-29f1-4d75-ad34-cf8cce306d00"
+                },
+                {
+                  "id": "03589b18-f860-49bf-a033-8074d9d15a21",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_coverages/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_coverages",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-03589b18-f860-49bf-a033-8074d9d15a21"
+                },
+                {
+                  "id": "75f41963-ccad-4d40-b9ec-742df7c68695",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_coverages/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_coverages",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-75f41963-ccad-4d40-b9ec-742df7c68695"
+                },
+                {
+                  "id": "c9baf98a-940d-454b-9ac1-e6c72d6211ec",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The NexHealth API version",
+                        "key": "Nex-Api-Version",
+                        "value": "v3.0.0"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/insurance_coverages/:id?subdomain=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "insurance_coverages",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Used to scope the request to the specified institution",
+                          "key": "subdomain",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:19:53.000Z",
+                  "updatedAt": "2026-07-28T02:19:53.000Z",
+                  "uid": "35240-c9baf98a-940d-454b-9ac1-e6c72d6211ec"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-892648cc-463a-4256-87a2-e5eda2ef3f32"
+            }
+          ],
+          "id": "18ece47b-ae2e-4caf-8212-276784d177e7",
+          "createdAt": "2026-07-28T02:19:53.000Z",
+          "updatedAt": "2026-07-28T02:19:53.000Z",
+          "uid": "35240-18ece47b-ae2e-4caf-8212-276784d177e7"
+        },
+        {
+          "name": "View insurance coverages",
+          "id": "3c3ed5ba-2877-4d13-b113-3fa7a0c80218",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurance_coverages?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&updated_since=<dateTime>&patient_id=<integer>&active=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurance_coverages"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Used to scope the request to the specified institution",
+                  "key": "subdomain",
+                  "value": "<string>"
+                },
+                {
+                  "description": "First item of the current page. Starts empty",
+                  "key": "start_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Last item of the current page. Starts empty",
+                  "key": "end_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                  "key": "per_page",
+                  "value": "5"
+                },
+                {
+                  "description": "Insurance coverages updated at or after the specified time (UTC). The comparison is inclusive and matches when either the coverage or its subscription was updated since the given time",
+                  "key": "updated_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filter for coverages of a specific patient. Responds with a 404 when no patient with this id exists",
+                  "key": "patient_id",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter active (true) or inactive (false) insurance coverages. Defaults to true, so inactive coverages are only returned when this is explicitly set to false",
+                  "key": "active",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "This endpoint returns a list of insurance coverages. All filters are optional: without any filters, every active insurance coverage for the institution is returned. Only active coverages are included by default; pass active=false to list inactive coverages instead."
+          },
+          "response": [
+            {
+              "id": "0032a476-1223-40a3-895f-9ca507f1dabd",
+              "name": "Successful",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_coverages?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&updated_since=<dateTime>&patient_id=<integer>&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_coverages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Insurance coverages updated at or after the specified time (UTC). The comparison is inclusive and matches when either the coverage or its subscription was updated since the given time",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for coverages of a specific patient. Responds with a 404 when no patient with this id exists",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter active (true) or inactive (false) insurance coverages. Defaults to true, so inactive coverages are only returned when this is explicitly set to false",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"subscription_relation\": \"self\",\n      \"patient_id\": \"<integer>\",\n      \"priority\": \"<integer>\",\n      \"plan_id\": \"<long>\",\n      \"subscriber_num\": \"<string>\",\n      \"effective_date\": \"<date>\",\n      \"expiration_date\": \"<date>\",\n      \"insurance_type\": \"dental\",\n      \"updated_at\": \"<dateTime>\",\n      \"active\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"subscription_relation\": \"child\",\n      \"patient_id\": \"<integer>\",\n      \"priority\": \"<integer>\",\n      \"plan_id\": \"<long>\",\n      \"subscriber_num\": \"<string>\",\n      \"effective_date\": \"<date>\",\n      \"expiration_date\": \"<date>\",\n      \"insurance_type\": \"dental\",\n      \"updated_at\": \"<dateTime>\",\n      \"active\": \"<boolean>\"\n    }\n  ],\n  \"page_info\": {}\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-0032a476-1223-40a3-895f-9ca507f1dabd"
+            },
+            {
+              "id": "50f66106-0215-4c02-bf8a-71846e63f9d4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_coverages?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&updated_since=<dateTime>&patient_id=<integer>&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_coverages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Insurance coverages updated at or after the specified time (UTC). The comparison is inclusive and matches when either the coverage or its subscription was updated since the given time",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for coverages of a specific patient. Responds with a 404 when no patient with this id exists",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter active (true) or inactive (false) insurance coverages. Defaults to true, so inactive coverages are only returned when this is explicitly set to false",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-50f66106-0215-4c02-bf8a-71846e63f9d4"
+            },
+            {
+              "id": "2efc648d-584d-46b6-9fe2-cc0be2798d3a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_coverages?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&updated_since=<dateTime>&patient_id=<integer>&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_coverages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Insurance coverages updated at or after the specified time (UTC). The comparison is inclusive and matches when either the coverage or its subscription was updated since the given time",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for coverages of a specific patient. Responds with a 404 when no patient with this id exists",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter active (true) or inactive (false) insurance coverages. Defaults to true, so inactive coverages are only returned when this is explicitly set to false",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-2efc648d-584d-46b6-9fe2-cc0be2798d3a"
+            },
+            {
+              "id": "9d744a89-d66c-4369-b3e7-7bfd8e0077f0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_coverages?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&updated_since=<dateTime>&patient_id=<integer>&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_coverages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Insurance coverages updated at or after the specified time (UTC). The comparison is inclusive and matches when either the coverage or its subscription was updated since the given time",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for coverages of a specific patient. Responds with a 404 when no patient with this id exists",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter active (true) or inactive (false) insurance coverages. Defaults to true, so inactive coverages are only returned when this is explicitly set to false",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-9d744a89-d66c-4369-b3e7-7bfd8e0077f0"
+            },
+            {
+              "id": "0b748073-8a48-407a-83e5-7c4a07fc1abc",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_coverages?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&updated_since=<dateTime>&patient_id=<integer>&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_coverages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Insurance coverages updated at or after the specified time (UTC). The comparison is inclusive and matches when either the coverage or its subscription was updated since the given time",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for coverages of a specific patient. Responds with a 404 when no patient with this id exists",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter active (true) or inactive (false) insurance coverages. Defaults to true, so inactive coverages are only returned when this is explicitly set to false",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-0b748073-8a48-407a-83e5-7c4a07fc1abc"
+            },
+            {
+              "id": "2d67c0a0-56fc-4412-b643-18db0bac503f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insurance_coverages?subdomain=<string>&start_cursor=<string>&end_cursor=<string>&per_page=5&updated_since=<dateTime>&patient_id=<integer>&active=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insurance_coverages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Used to scope the request to the specified institution",
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First item of the current page. Starts empty",
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Last item of the current page. Starts empty",
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return per page. Maximum allowed amount is 1000.",
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Insurance coverages updated at or after the specified time (UTC). The comparison is inclusive and matches when either the coverage or its subscription was updated since the given time",
+                      "key": "updated_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for coverages of a specific patient. Responds with a 404 when no patient with this id exists",
+                      "key": "patient_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter active (true) or inactive (false) insurance coverages. Defaults to true, so inactive coverages are only returned when this is explicitly set to false",
+                      "key": "active",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"data\": {},\n  \"error\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T02:19:53.000Z",
+              "updatedAt": "2026-07-28T02:19:53.000Z",
+              "uid": "35240-2d67c0a0-56fc-4412-b643-18db0bac503f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:19:53.000Z",
+          "updatedAt": "2026-07-28T02:19:53.000Z",
+          "uid": "35240-3c3ed5ba-2877-4d13-b113-3fa7a0c80218"
+        }
+      ],
+      "id": "fe3dc75d-e982-44c2-b3e4-dfbcb612025a",
+      "createdAt": "2026-07-28T02:19:53.000Z",
+      "updatedAt": "2026-07-28T02:19:53.000Z",
+      "uid": "35240-fe3dc75d-e982-44c2-b3e4-dfbcb612025a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://nexhealth.info"
+    }
+  ]
+}
