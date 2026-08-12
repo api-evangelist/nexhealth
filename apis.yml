@@ -517,7 +517,7 @@ common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/nexhealth/overview
 - type: OpenAPI
-  url: openapi/nexhealth-openapi-original.json
+  url: openapi/_original/nexhealth-openapi-original.json
 - type: Authentication
   url: authentication/nexhealth-authentication.yml
 - type: AgenticAccess
