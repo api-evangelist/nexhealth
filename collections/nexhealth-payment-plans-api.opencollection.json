@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Payment Plans API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View payment plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/payment_plans",
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by patient"
+              },
+              {
+                "name": "guarantor_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by guarantor"
+              },
+              {
+                "name": "updated_since",
+                "value": "",
+                "type": "query",
+                "description": "Filter for payment plans updated since a specific time"
+              }
+            ]
+          },
+          "docs": "View payment plans"
+        },
+        {
+          "info": {
+            "name": "View payment plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/payment_plans/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "View payment plan"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

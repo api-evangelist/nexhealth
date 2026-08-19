@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Sync Status API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sync Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View sync statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/sync_status",
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "read_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by read status"
+              },
+              {
+                "name": "write_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by write status"
+              },
+              {
+                "name": "location_ids[]",
+                "value": "",
+                "type": "query",
+                "description": "Return the status of sync services running on the specified locations"
+              }
+            ]
+          },
+          "docs": "View sync statuses"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1141 @@
+{
+  "item": [
+    {
+      "id": "cd0868b0-017c-485a-85e3-13e822972d47",
+      "name": "Operatories",
+      "description": {
+        "content": "A chair or room that can be booked",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d2cda678-de66-4446-b5eb-5b3798f7c419",
+          "name": "View operatories",
+          "request": {
+            "name": "View operatories",
+            "description": {
+              "content": "This endpoint returns the operatories for the specified location, narrowed down by the optional filters configured.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "operatories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>",
+                  "description": "(Required) Used to scope the request to the specified location"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_cursor",
+                  "value": "<string>",
+                  "description": "First item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_cursor",
+                  "value": "<string>",
+                  "description": "Last item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "5",
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_name",
+                  "value": "<string>",
+                  "description": "Optional name search filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "foreign_id",
+                  "value": "<string>",
+                  "description": "Query by EHR Id"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<dateTime>",
+                  "description": "Query operatories whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "appt_categories",
+                  "description": "Resources to be included in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "appt_categories",
+                  "description": "Resources to be included in the response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c96ddcab-a46b-4f48-8289-fd87ac5b098b",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "search_name",
+                      "value": "op1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"op1\",\n      \"foreign_id\": \"1\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"location_id\": 4,\n      \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"display_name\": \"op1\",\n      \"active\": true,\n      \"bookable_online\": true,\n      \"appointment_types\": [\n        {\n          \"id\": 1,\n          \"name\": \"Medical\",\n          \"parent_type\": \"Institution\",\n          \"parent_id\": 1,\n          \"minutes\": 15,\n          \"bookable_online\": false\n        },\n        {\n          \"id\": 1,\n          \"name\": \"Medical\",\n          \"parent_type\": \"Institution\",\n          \"parent_id\": 1,\n          \"minutes\": 15,\n          \"bookable_online\": false\n        }\n      ]\n    },\n    {\n      \"id\": 1,\n      \"name\": \"op1\",\n      \"foreign_id\": \"1\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"location_id\": 4,\n      \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"display_name\": \"op1\",\n      \"active\": true,\n      \"bookable_online\": true,\n      \"appointment_types\": [\n        {\n          \"id\": 1,\n          \"name\": \"Medical\",\n          \"parent_type\": \"Institution\",\n          \"parent_id\": 1,\n          \"minutes\": 15,\n          \"bookable_online\": false\n        },\n        {\n          \"id\": 1,\n          \"name\": \"Medical\",\n          \"parent_type\": \"Institution\",\n          \"parent_id\": 1,\n          \"minutes\": 15,\n          \"bookable_online\": false\n        }\n      ]\n    }\n  ],\n  \"page_info\": {\n    \"has_previous_page\": false,\n    \"has_next_page\": false,\n    \"start_cursor\": \"AAAAA\",\n    \"end_cursor\": \"BBBBBB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "265a9618-ce53-443e-8ec3-a0fbc23eb6af",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "search_name",
+                      "value": "op1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed1ae59c-4f20-463f-bd4c-94b323cb0ec0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "search_name",
+                      "value": "op1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3beead09-f081-4d67-8316-fa502ed13a82",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "search_name",
+                      "value": "op1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d49ed62-e701-40bb-beaf-68a2968f0344",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "search_name",
+                      "value": "op1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bdaeca5f-c8a7-4fbf-9808-e430dc49b21a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "search_name",
+                      "value": "op1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04a75610-3875-4c8b-a5b4-a455ec9a5bfb",
+          "name": "View operatory",
+          "request": {
+            "name": "View operatory",
+            "description": {},
+            "url": {
+              "path": [
+                "operatories",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "appt_categories",
+                  "description": "Resources to be included in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "appt_categories",
+                  "description": "Resources to be included in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The NexHealth id of the operatories"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.Nexhealth+json;version=2"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fcd83b7-617b-4200-b7ee-720c5a6f0b3a",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the operatories"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"op1\",\n    \"foreign_id\": \"1\",\n    \"foreign_id_type\": \"--DataSource-\",\n    \"location_id\": 4,\n    \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n    \"created_at\": \"2020-06-05T20:16:57.007Z\",\n    \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n    \"display_name\": \"op1\",\n    \"active\": true,\n    \"bookable_online\": true,\n    \"appointment_types\": [\n      {\n        \"id\": 1,\n        \"name\": \"Medical\",\n        \"parent_type\": \"Institution\",\n        \"parent_id\": 1,\n        \"minutes\": 15,\n        \"bookable_online\": false\n      },\n      {\n        \"id\": 1,\n        \"name\": \"Medical\",\n        \"parent_type\": \"Institution\",\n        \"parent_id\": 1,\n        \"minutes\": 15,\n        \"bookable_online\": false\n      }\n    ]\n  },\n  \"count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "498947bc-5101-4937-b931-bdf81cd69a2c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the operatories"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92458853-7a71-4125-9e76-d7e1883e5179",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the operatories"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22597e1b-3db4-41c3-9461-d49e70ff919a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the operatories"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e96326b6-9436-46f4-a010-a2bf284b3755",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the operatories"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f13ac5ef-a70d-457a-bf46-5d8b9fe15952",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operatories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "appt_categories"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the operatories"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nexhealth.info",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "823531ba-743e-4b4b-a64d-63c58d4175b9",
+    "name": "NexHealth Adjustment Types Operatories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+      "type": "text/plain"
+    }
+  }
+}

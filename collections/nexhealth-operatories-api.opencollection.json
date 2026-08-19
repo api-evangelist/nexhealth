@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Operatories API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Operatories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View operatories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/operatories",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              },
+              {
+                "name": "search_name",
+                "value": "op1",
+                "type": "query",
+                "description": "Optional name search filter"
+              },
+              {
+                "name": "foreign_id",
+                "value": "1",
+                "type": "query",
+                "description": "Query by EHR Id"
+              },
+              {
+                "name": "updated_since",
+                "value": "2024-04-12T10:30:00Z",
+                "type": "query",
+                "description": "Query operatories whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the operatories for the specified location, narrowed down by the optional filters configured."
+        },
+        {
+          "info": {
+            "name": "View operatory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/operatories/:id",
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The NexHealth id of the operatories"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "View operatory"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

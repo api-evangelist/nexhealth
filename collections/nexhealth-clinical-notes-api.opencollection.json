@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Clinical Notes API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clinical Notes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View clinical notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/clinical_notes",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "patient_id",
+                "value": "115",
+                "type": "query",
+                "description": "Filter by the id of the associated patient"
+              },
+              {
+                "name": "procedure_id",
+                "value": "116",
+                "type": "query",
+                "description": "Filter by procedure, only return clinical notes that are associated with the procedure ID. This association only exists in certain EHRs and for certain types of notes"
+              },
+              {
+                "name": "entered_before",
+                "value": "2024-04-30T23:59:59Z",
+                "type": "query",
+                "description": "Only return clinical notes that were created on or before the provided datetime"
+              },
+              {
+                "name": "entered_after",
+                "value": "2024-04-01T00:00:00Z",
+                "type": "query",
+                "description": "Only return clinical notes that were created on or after the provided datetime"
+              },
+              {
+                "name": "updated_since",
+                "value": "2024-04-12T10:30:00Z",
+                "type": "query",
+                "description": "Only return clinical notes updated after the specified time (UTC)"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              }
+            ]
+          },
+          "docs": "This endpoint returns the clinical notes for the specified location. At least one of the patient_id, procedure_id, entered_before, entered_after, or updated_since filters must be provided. Results are cursor-paginated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

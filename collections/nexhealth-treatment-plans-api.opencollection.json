@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Treatment Plans API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Treatment Plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View treatment plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/treatment_plans",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "patient_id",
+                "value": "115",
+                "type": "query",
+                "description": "Filter by patient"
+              },
+              {
+                "name": "status",
+                "value": "proposed",
+                "type": "query",
+                "description": "Filter by status"
+              },
+              {
+                "name": "updated_since",
+                "value": "2024-01-15T00:00:00Z",
+                "type": "query",
+                "description": "Treatment plans updated at or after the specified time (UTC). The boundary is inclusive: a plan whose updated_at exactly equals this value is returned"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              }
+            ]
+          },
+          "docs": "Returns a cursor-paginated list of treatment plans for the institution, with each plan's procedures embedded. Soft-deleted treatment plans are excluded. Results can be filtered by patient_id, status, and updated_since, and are ordered by id ascending — when using updated_since for incremental sync, do not assume results are ordered by update time."
+        },
+        {
+          "info": {
+            "name": "View treatment plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/treatment_plans/:id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the treatment plan"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              }
+            ]
+          },
+          "docs": "Returns a single treatment plan with its procedures embedded. Requesting a soft-deleted or unknown treatment plan returns 404."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

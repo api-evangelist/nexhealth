@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Nex Staff API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Nex Staff",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View nex staff",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/nex_staff",
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Starts with page 1"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Defaults is 5 per page and Max 300 per page"
+              },
+              {
+                "name": "inactive",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_ids[]",
+                "value": "",
+                "type": "query",
+                "description": "Locations the staff member has access to"
+              }
+            ]
+          },
+          "docs": "View nex staff"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

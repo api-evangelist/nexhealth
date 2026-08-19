@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Claims API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Claims",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View claims",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/claims",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n"
+              },
+              {
+                "name": "patient_id",
+                "value": "162",
+                "type": "query",
+                "description": "The ID of the patient associated with the claim"
+              },
+              {
+                "name": "guarantor_id",
+                "value": "1001",
+                "type": "query",
+                "description": "The ID of the guarantor associated with the claim"
+              },
+              {
+                "name": "provider_id",
+                "value": "84",
+                "type": "query",
+                "description": "The ID of the provider associated with the claim"
+              },
+              {
+                "name": "updated_since",
+                "value": "2024-04-12T10:30:00Z",
+                "type": "query",
+                "description": "Claims updated at or after the specified time (UTC). The comparison is inclusive, so a record whose updated_at exactly equals the given value is returned"
+              },
+              {
+                "name": "date_of_service",
+                "value": "2024-04-12",
+                "type": "query",
+                "description": "Claims whose date of service exactly matches the specified date"
+              },
+              {
+                "name": "include_deleted",
+                "value": "",
+                "type": "query",
+                "description": "Include soft-deleted claims in the results"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list of insurance claims for a location. You can filter by patient_id, guarantor_id, provider_id, updated_since or date_of_service, and must provide at least one of these filters. location_id is always required, but does not satisfy the at-least-one-filter requirement on its own. Soft-deleted claims are excluded unless include_deleted is true."
+        },
+        {
+          "info": {
+            "name": "View claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/claims/:id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a single insurance claim by its NexHealth id. Use the include parameter to embed related resources: patient, provider, guarantor, charges and/or charge_payouts. Note: when no claim with the given id exists, or it belongs to a location your token cannot access, this endpoint currently responds with HTTP 500 rather than a 404."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

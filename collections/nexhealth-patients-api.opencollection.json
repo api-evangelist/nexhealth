@@ -1,0 +1,218 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Patients API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Patients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View patients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/patients",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n"
+              },
+              {
+                "name": "name",
+                "value": "John Smith",
+                "type": "query",
+                "description": "Filter by patient name"
+              },
+              {
+                "name": "email",
+                "value": "john.smith@example.com",
+                "type": "query",
+                "description": "Filter by patient email"
+              },
+              {
+                "name": "phone_number",
+                "value": "5163042196",
+                "type": "query",
+                "description": "Filter by patient phone number"
+              },
+              {
+                "name": "date_of_birth",
+                "value": "1964-05-03",
+                "type": "query",
+                "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD"
+              },
+              {
+                "name": "inactive",
+                "value": "false",
+                "type": "query",
+                "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter"
+              },
+              {
+                "name": "foreign_id",
+                "value": "100437",
+                "type": "query",
+                "description": "Filter by the unique patient id from the EHR"
+              },
+              {
+                "name": "updated_since",
+                "value": "2024-04-12T10:30:00Z",
+                "type": "query",
+                "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000"
+              },
+              {
+                "name": "new_patient",
+                "value": "false",
+                "type": "query",
+                "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted."
+              },
+              {
+                "name": "non_patient",
+                "value": "false",
+                "type": "query",
+                "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any"
+              },
+              {
+                "name": "forms_syncable",
+                "value": "true",
+                "type": "query",
+                "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter"
+              },
+              {
+                "name": "location_strict",
+                "value": "false",
+                "type": "query",
+                "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list of patients for the specified location, narrowed down by the optional filters configured."
+        },
+        {
+          "info": {
+            "name": "Create patient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nexhealth.info/patients",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint creates a new patient or returns an existing patient if return_existing_if_match is true. Responds with 201 when a new patient is created, or with 200 and the existing patient when return_existing_if_match is true and a patient with matching information already exists."
+        },
+        {
+          "info": {
+            "name": "View patient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/patients/:id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a single patient. You must provide a valid patient NexHealth ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

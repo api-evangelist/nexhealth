@@ -272,3 +272,9 @@ tools:
 - name: deleteWorkingHoursId
   description: Delete working hour
   source_operation: openapi/nexhealth-openapi-original.json#deleteWorkingHoursId
+deployment:
+  mode: none
+  verified: derived
+  tools: 88
+  checked: '2026-08-12'
+  source: catalog MCP census

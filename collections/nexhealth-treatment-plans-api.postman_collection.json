@@ -1,0 +1,958 @@
+{
+  "item": [
+    {
+      "id": "48287fe2-7086-47de-a3de-e85addb15b13",
+      "name": "Treatment Plans",
+      "description": {
+        "content": "A treatment plans resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3cad7993-8892-4f4b-9c51-bd7f14f5f673",
+          "name": "View treatment plans",
+          "request": {
+            "name": "View treatment plans",
+            "description": {
+              "content": "Returns a cursor-paginated list of treatment plans for the institution, with each plan's procedures embedded. Soft-deleted treatment plans are excluded. Results can be filtered by patient_id, status, and updated_since, and are ordered by id ascending — when using updated_since for incremental sync, do not assume results are ordered by update time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "treatment_plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<integer>",
+                  "description": "Filter by patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by status"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<dateTime>",
+                  "description": "Treatment plans updated at or after the specified time (UTC). The boundary is inclusive: a plan whose updated_at exactly equals this value is returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_cursor",
+                  "value": "<string>",
+                  "description": "First item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_cursor",
+                  "value": "<string>",
+                  "description": "Last item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "5",
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3876f69f-73bf-47af-b758-3ed8a7c14f9d",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "status",
+                      "value": "proposed"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-01-15T00:00:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": [\n    {\n      \"id\": 423,\n      \"name\": \"Active treatment plan\",\n      \"patient_id\": 115,\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"status\": \"proposed\",\n      \"procedures\": [\n        {\n          \"id\": 11,\n          \"location_id\": 21,\n          \"patient_id\": 162,\n          \"provider_id\": 84,\n          \"appointment_id\": 283,\n          \"code\": \"D6100\",\n          \"name\": \"Implant Removal\",\n          \"status\": \"referred\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"body_site\": {\n            \"tooth\": [\n              \"3\",\n              \"14\"\n            ],\n            \"surface\": \"MOD\"\n          },\n          \"fee\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"start_date\": \"2022-06-24\",\n          \"end_date\": \"2022-06-24\"\n        },\n        {\n          \"id\": 11,\n          \"location_id\": 21,\n          \"patient_id\": 162,\n          \"provider_id\": 84,\n          \"appointment_id\": 283,\n          \"code\": \"D6100\",\n          \"name\": \"Implant Removal\",\n          \"status\": \"referred\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"body_site\": {\n            \"tooth\": [\n              \"3\",\n              \"14\"\n            ],\n            \"surface\": \"MOD\"\n          },\n          \"fee\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"start_date\": \"2022-06-24\",\n          \"end_date\": \"2022-06-24\"\n        }\n      ]\n    },\n    {\n      \"id\": 423,\n      \"name\": \"Active treatment plan\",\n      \"patient_id\": 115,\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"status\": \"proposed\",\n      \"procedures\": [\n        {\n          \"id\": 11,\n          \"location_id\": 21,\n          \"patient_id\": 162,\n          \"provider_id\": 84,\n          \"appointment_id\": 283,\n          \"code\": \"D6100\",\n          \"name\": \"Implant Removal\",\n          \"status\": \"referred\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"body_site\": {\n            \"tooth\": [\n              \"3\",\n              \"14\"\n            ],\n            \"surface\": \"MOD\"\n          },\n          \"fee\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"start_date\": \"2022-06-24\",\n          \"end_date\": \"2022-06-24\"\n        },\n        {\n          \"id\": 11,\n          \"location_id\": 21,\n          \"patient_id\": 162,\n          \"provider_id\": 84,\n          \"appointment_id\": 283,\n          \"code\": \"D6100\",\n          \"name\": \"Implant Removal\",\n          \"status\": \"referred\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"body_site\": {\n            \"tooth\": [\n              \"3\",\n              \"14\"\n            ],\n            \"surface\": \"MOD\"\n          },\n          \"fee\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"start_date\": \"2022-06-24\",\n          \"end_date\": \"2022-06-24\"\n        }\n      ]\n    }\n  ],\n  \"page_info\": {\n    \"has_previous_page\": false,\n    \"has_next_page\": false,\n    \"start_cursor\": \"AAAAA\",\n    \"end_cursor\": \"BBBBBB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b6bc1a2-89bd-440d-bd20-43354f394baf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "status",
+                      "value": "proposed"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-01-15T00:00:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e85f77c7-e436-4bc5-9be9-b80acf4869c6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "status",
+                      "value": "proposed"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-01-15T00:00:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9169ccc-1ea9-420c-8e5d-2d53db8b1adc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "status",
+                      "value": "proposed"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-01-15T00:00:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49ea0f6d-6e36-4510-979a-da5e51c66800",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "status",
+                      "value": "proposed"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-01-15T00:00:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a92f36cc-9ce2-46fe-97a7-4a3f22607383",
+          "name": "View treatment plan",
+          "request": {
+            "name": "View treatment plan",
+            "description": {
+              "content": "Returns a single treatment plan with its procedures embedded. Requesting a soft-deleted or unknown treatment plan returns 404.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "treatment_plans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) The ID of the treatment plan"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8a1e7b4-03af-48f0-a147-1b549526592b",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The ID of the treatment plan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": {\n    \"id\": 423,\n    \"name\": \"Active treatment plan\",\n    \"patient_id\": 115,\n    \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n    \"status\": \"proposed\",\n    \"procedures\": [\n      {\n        \"id\": 11,\n        \"location_id\": 21,\n        \"patient_id\": 162,\n        \"provider_id\": 84,\n        \"appointment_id\": 283,\n        \"code\": \"D6100\",\n        \"name\": \"Implant Removal\",\n        \"status\": \"referred\",\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n        \"body_site\": {\n          \"tooth\": [\n            \"3\",\n            \"14\"\n          ],\n          \"surface\": \"MOD\"\n        },\n        \"fee\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"start_date\": \"2022-06-24\",\n        \"end_date\": \"2022-06-24\"\n      },\n      {\n        \"id\": 11,\n        \"location_id\": 21,\n        \"patient_id\": 162,\n        \"provider_id\": 84,\n        \"appointment_id\": 283,\n        \"code\": \"D6100\",\n        \"name\": \"Implant Removal\",\n        \"status\": \"referred\",\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n        \"body_site\": {\n          \"tooth\": [\n            \"3\",\n            \"14\"\n          ],\n          \"surface\": \"MOD\"\n        },\n        \"fee\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"start_date\": \"2022-06-24\",\n        \"end_date\": \"2022-06-24\"\n      }\n    ]\n  },\n  \"count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71ae423a-5e45-4269-826a-02bcb3adafc5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The ID of the treatment plan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31569b3c-3d5c-490a-9cc9-9ee8267f468d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The ID of the treatment plan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd2a2d57-280a-414b-a5de-8231460ce0d8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The ID of the treatment plan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d39a2f96-f687-4c87-a760-083f20b9c655",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The ID of the treatment plan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed05f589-0197-4770-b886-258c7da11873",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "treatment_plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) The ID of the treatment plan"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nexhealth.info",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1195a610-61be-4935-93f3-092fed7db258",
+    "name": "NexHealth Adjustment Types Treatment Plans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+      "type": "text/plain"
+    }
+  }
+}

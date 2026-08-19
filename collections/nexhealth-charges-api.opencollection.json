@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Charges API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View charges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/charges",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "patient_id",
+                "value": "3",
+                "type": "query",
+                "description": "Filter by the id of the associated patient"
+              },
+              {
+                "name": "provider_id",
+                "value": "15",
+                "type": "query",
+                "description": "Filter by the id of the associated provider"
+              },
+              {
+                "name": "procedure_id",
+                "value": "34",
+                "type": "query",
+                "description": "Filter by the id of the associated procedure"
+              },
+              {
+                "name": "guarantor_id",
+                "value": "5",
+                "type": "query",
+                "description": "Filter by the id of the associated guarantor"
+              },
+              {
+                "name": "updated_since",
+                "value": "2024-04-12T10:30:00Z",
+                "type": "query",
+                "description": "Charges updated after the specified time (UTC)"
+              },
+              {
+                "name": "include_deleted",
+                "value": "false",
+                "type": "query",
+                "description": "Include deleted charges"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the ledger charges for the specified location. At least one of the patient_id, provider_id, procedure_id, guarantor_id, or updated_since filters must be provided."
+        },
+        {
+          "info": {
+            "name": "View charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/charges/:id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a single ledger charge"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

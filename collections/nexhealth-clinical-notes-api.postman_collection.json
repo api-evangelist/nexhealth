@@ -1,0 +1,691 @@
+{
+  "item": [
+    {
+      "id": "e20bbf07-48f3-4b28-b61a-0d5e2e19c5ec",
+      "name": "Clinical Notes",
+      "description": {
+        "content": "Clinical notes are the official documentation of a patient's clinical encounter or care interaction",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a12d231b-0f6d-4879-973e-727db2abd51d",
+          "name": "View clinical notes",
+          "request": {
+            "name": "View clinical notes",
+            "description": {
+              "content": "This endpoint returns the clinical notes for the specified location. At least one of the patient_id, procedure_id, entered_before, entered_after, or updated_since filters must be provided. Results are cursor-paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "clinical_notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>",
+                  "description": "(Required) Used to scope the request to the specified location"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<integer>",
+                  "description": "Filter by the id of the associated patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "procedure_id",
+                  "value": "<integer>",
+                  "description": "Filter by procedure, only return clinical notes that are associated with the procedure ID. This association only exists in certain EHRs and for certain types of notes"
+                },
+                {
+                  "disabled": false,
+                  "key": "entered_before",
+                  "value": "<dateTime>",
+                  "description": "Only return clinical notes that were created on or before the provided datetime"
+                },
+                {
+                  "disabled": false,
+                  "key": "entered_after",
+                  "value": "<dateTime>",
+                  "description": "Only return clinical notes that were created on or after the provided datetime"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<dateTime>",
+                  "description": "Only return clinical notes updated after the specified time (UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_cursor",
+                  "value": "<string>",
+                  "description": "First item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_cursor",
+                  "value": "<string>",
+                  "description": "Last item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "5",
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e098a54-3a51-4cd8-8211-c3528e7b8242",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clinical_notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "116"
+                    },
+                    {
+                      "key": "entered_before",
+                      "value": "2024-04-30T23:59:59Z"
+                    },
+                    {
+                      "key": "entered_after",
+                      "value": "2024-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": [\n    {\n      \"id\": 113,\n      \"patient_id\": 115,\n      \"procedure_id\": 116,\n      \"entered_at\": \"2021-01-01T00:00:00Z\",\n      \"content\": \"Patient has a fever\",\n      \"signed\": true,\n      \"completed\": true,\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n    },\n    {\n      \"id\": 113,\n      \"patient_id\": 115,\n      \"procedure_id\": 116,\n      \"entered_at\": \"2021-01-01T00:00:00Z\",\n      \"content\": \"Patient has a fever\",\n      \"signed\": true,\n      \"completed\": true,\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n    }\n  ],\n  \"page_info\": {\n    \"has_previous_page\": false,\n    \"has_next_page\": false,\n    \"start_cursor\": \"AAAAA\",\n    \"end_cursor\": \"BBBBBB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "513272c4-50f1-471e-bacd-c61a6cc5a2b9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clinical_notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "116"
+                    },
+                    {
+                      "key": "entered_before",
+                      "value": "2024-04-30T23:59:59Z"
+                    },
+                    {
+                      "key": "entered_after",
+                      "value": "2024-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b151ecd-3877-4b82-8ed6-401ce377622f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clinical_notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "116"
+                    },
+                    {
+                      "key": "entered_before",
+                      "value": "2024-04-30T23:59:59Z"
+                    },
+                    {
+                      "key": "entered_after",
+                      "value": "2024-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70743f38-e925-4958-8c65-7b928a9fbf9e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clinical_notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "116"
+                    },
+                    {
+                      "key": "entered_before",
+                      "value": "2024-04-30T23:59:59Z"
+                    },
+                    {
+                      "key": "entered_after",
+                      "value": "2024-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a413aef0-2245-4de4-8daf-1184c353643b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clinical_notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "116"
+                    },
+                    {
+                      "key": "entered_before",
+                      "value": "2024-04-30T23:59:59Z"
+                    },
+                    {
+                      "key": "entered_after",
+                      "value": "2024-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ba0607a-6f9a-40ae-8bd3-af50d3ed5aa5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clinical_notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "115"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "116"
+                    },
+                    {
+                      "key": "entered_before",
+                      "value": "2024-04-30T23:59:59Z"
+                    },
+                    {
+                      "key": "entered_after",
+                      "value": "2024-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nexhealth.info",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "427466c6-3731-488c-a6bb-e42b8bb00578",
+    "name": "NexHealth Adjustment Types Clinical Notes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+      "type": "text/plain"
+    }
+  }
+}

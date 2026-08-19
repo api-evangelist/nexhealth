@@ -1,0 +1,1276 @@
+{
+  "item": [
+    {
+      "id": "75d82878-3d66-487a-be30-4488b1fe0e76",
+      "name": "Providers",
+      "description": {
+        "content": "A providers resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53a7d3cc-d157-46c9-b4f7-6b79fe897a41",
+          "name": "View providers",
+          "request": {
+            "name": "View providers",
+            "description": {
+              "content": "This endpoint returns the providers for the institution, narrowed down by the optional filters configured.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "providers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_cursor",
+                  "value": "<string>",
+                  "description": "First item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_cursor",
+                  "value": "<string>",
+                  "description": "Last item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "5",
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>",
+                  "description": "Only return providers associated with the specified Location Id"
+                },
+                {
+                  "disabled": false,
+                  "key": "foreign_id",
+                  "value": "<string>",
+                  "description": "Unique provider id from the EHR"
+                },
+                {
+                  "disabled": false,
+                  "key": "requestable",
+                  "value": "<boolean>",
+                  "description": "Only return providers who are bookable via NexHealth online booking at the specified location_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "inactive",
+                  "value": "false",
+                  "description": "Filter result set based on inactive status, defaults to false if not specified"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<dateTime>",
+                  "description": "Query providers whose records have updated since the specified datetime in ISO8601 format. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "locations",
+                  "description": "Resources to be included in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "locations",
+                  "description": "Resources to be included in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids[]",
+                  "value": "<integer>,<integer>",
+                  "description": "NexHealth IDs"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e8c1c48-eea0-4ce2-bdfc-78ebcc21af2f",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "requestable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "83"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": [\n    {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n      \"display_name\": \"John Smith\",\n      \"npi\": \"1912507500\",\n      \"tin\": \"string\",\n      \"state_license\": \"R219935\",\n      \"specialty_code\": \"363L00000X\",\n      \"locations\": [\n        {\n          \"id\": 7,\n          \"name\": \"Default\",\n          \"institution_id\": 1,\n          \"street_address\": \"123 Law St\",\n          \"street_address_2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"country_code\": \"US\",\n          \"created_at\": \"2020-06-05T20:16:57.007Z\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"latitude\": 37.7775028,\n          \"longitude\": -122.3970603,\n          \"phone_number\": \"8888750851\",\n          \"foreign_id\": \"1\",\n          \"foreign_id_type\": \"--DataSource-\",\n          \"email\": \"defaultLocation@nexhealth.com\",\n          \"tz\": \"America/Los_Angeles\",\n          \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n          \"insert_appt_client\": true,\n          \"map_by_operatory\": true,\n          \"set_availability_by_operatory\": false,\n          \"inactive\": false,\n          \"specialty\": {\n            \"id\": 301,\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 7,\n          \"name\": \"Default\",\n          \"institution_id\": 1,\n          \"street_address\": \"123 Law St\",\n          \"street_address_2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"country_code\": \"US\",\n          \"created_at\": \"2020-06-05T20:16:57.007Z\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"latitude\": 37.7775028,\n          \"longitude\": -122.3970603,\n          \"phone_number\": \"8888750851\",\n          \"foreign_id\": \"1\",\n          \"foreign_id_type\": \"--DataSource-\",\n          \"email\": \"defaultLocation@nexhealth.com\",\n          \"tz\": \"America/Los_Angeles\",\n          \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n          \"insert_appt_client\": true,\n          \"map_by_operatory\": true,\n          \"set_availability_by_operatory\": false,\n          \"inactive\": false,\n          \"specialty\": {\n            \"id\": 3267,\n            \"name\": \"string\"\n          }\n        }\n      ],\n      \"provider_requestables\": [\n        {\n          \"location_id\": 4\n        },\n        {\n          \"location_id\": 4\n        }\n      ],\n      \"availabilities\": [\n        {\n          \"id\": 12,\n          \"provider_id\": 7,\n          \"location_id\": 3,\n          \"operatory_id\": 149,\n          \"begin_time\": \"10:30\",\n          \"end_time\": \"17:00\",\n          \"days\": [\n            \"Monday\",\n            \"Tuesday\",\n            \"Wednesday\",\n            \"Thursday\",\n            \"Friday\"\n          ],\n          \"specific_date\": \"2022-11-03\",\n          \"custom_recurrence\": {\n            \"num\": 3,\n            \"unit\": \"day\",\n            \"ref\": \"2022-11-03\"\n          },\n          \"tz_offset\": \"-0700\",\n          \"active\": true,\n          \"source\": \"synced\",\n          \"label\": {\n            \"id\": 113,\n            \"location_id\": 115,\n            \"name\": \"New patient appointments\"\n          },\n          \"appointment_types\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"minutes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bookable_online\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"minutes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bookable_online\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": 12,\n          \"provider_id\": 7,\n          \"location_id\": 3,\n          \"operatory_id\": 149,\n          \"begin_time\": \"10:30\",\n          \"end_time\": \"17:00\",\n          \"days\": [\n            \"Monday\",\n            \"Tuesday\",\n            \"Wednesday\",\n            \"Thursday\",\n            \"Friday\"\n          ],\n          \"specific_date\": \"2022-11-03\",\n          \"custom_recurrence\": {\n            \"num\": 3,\n            \"unit\": \"day\",\n            \"ref\": \"2022-11-03\"\n          },\n          \"tz_offset\": \"-0700\",\n          \"active\": true,\n          \"source\": \"synced\",\n          \"label\": {\n            \"id\": 113,\n            \"location_id\": 115,\n            \"name\": \"New patient appointments\"\n          },\n          \"appointment_types\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"minutes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bookable_online\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"minutes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bookable_online\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n      \"display_name\": \"John Smith\",\n      \"npi\": \"1912507500\",\n      \"tin\": \"string\",\n      \"state_license\": \"R219935\",\n      \"specialty_code\": \"363L00000X\",\n      \"locations\": [\n        {\n          \"id\": 7,\n          \"name\": \"Default\",\n          \"institution_id\": 1,\n          \"street_address\": \"123 Law St\",\n          \"street_address_2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"country_code\": \"US\",\n          \"created_at\": \"2020-06-05T20:16:57.007Z\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"latitude\": 37.7775028,\n          \"longitude\": -122.3970603,\n          \"phone_number\": \"8888750851\",\n          \"foreign_id\": \"1\",\n          \"foreign_id_type\": \"--DataSource-\",\n          \"email\": \"defaultLocation@nexhealth.com\",\n          \"tz\": \"America/Los_Angeles\",\n          \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n          \"insert_appt_client\": true,\n          \"map_by_operatory\": true,\n          \"set_availability_by_operatory\": false,\n          \"inactive\": false,\n          \"specialty\": {\n            \"id\": 8698,\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": 7,\n          \"name\": \"Default\",\n          \"institution_id\": 1,\n          \"street_address\": \"123 Law St\",\n          \"street_address_2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"country_code\": \"US\",\n          \"created_at\": \"2020-06-05T20:16:57.007Z\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"latitude\": 37.7775028,\n          \"longitude\": -122.3970603,\n          \"phone_number\": \"8888750851\",\n          \"foreign_id\": \"1\",\n          \"foreign_id_type\": \"--DataSource-\",\n          \"email\": \"defaultLocation@nexhealth.com\",\n          \"tz\": \"America/Los_Angeles\",\n          \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n          \"insert_appt_client\": true,\n          \"map_by_operatory\": true,\n          \"set_availability_by_operatory\": false,\n          \"inactive\": false,\n          \"specialty\": {\n            \"id\": 1258,\n            \"name\": \"string\"\n          }\n        }\n      ],\n      \"provider_requestables\": [\n        {\n          \"location_id\": 4\n        },\n        {\n          \"location_id\": 4\n        }\n      ],\n      \"availabilities\": [\n        {\n          \"id\": 12,\n          \"provider_id\": 7,\n          \"location_id\": 3,\n          \"operatory_id\": 149,\n          \"begin_time\": \"10:30\",\n          \"end_time\": \"17:00\",\n          \"days\": [\n            \"Monday\",\n            \"Tuesday\",\n            \"Wednesday\",\n            \"Thursday\",\n            \"Friday\"\n          ],\n          \"specific_date\": \"2022-11-03\",\n          \"custom_recurrence\": {\n            \"num\": 3,\n            \"unit\": \"day\",\n            \"ref\": \"2022-11-03\"\n          },\n          \"tz_offset\": \"-0700\",\n          \"active\": true,\n          \"source\": \"synced\",\n          \"label\": {\n            \"id\": 113,\n            \"location_id\": 115,\n            \"name\": \"New patient appointments\"\n          },\n          \"appointment_types\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"minutes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bookable_online\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"minutes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bookable_online\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": 12,\n          \"provider_id\": 7,\n          \"location_id\": 3,\n          \"operatory_id\": 149,\n          \"begin_time\": \"10:30\",\n          \"end_time\": \"17:00\",\n          \"days\": [\n            \"Monday\",\n            \"Tuesday\",\n            \"Wednesday\",\n            \"Thursday\",\n            \"Friday\"\n          ],\n          \"specific_date\": \"2022-11-03\",\n          \"custom_recurrence\": {\n            \"num\": 3,\n            \"unit\": \"day\",\n            \"ref\": \"2022-11-03\"\n          },\n          \"tz_offset\": \"-0700\",\n          \"active\": true,\n          \"source\": \"synced\",\n          \"label\": {\n            \"id\": 113,\n            \"location_id\": 115,\n            \"name\": \"New patient appointments\"\n          },\n          \"appointment_types\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"minutes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bookable_online\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parent_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"minutes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bookable_online\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"page_info\": {\n    \"has_previous_page\": false,\n    \"has_next_page\": false,\n    \"start_cursor\": \"AAAAA\",\n    \"end_cursor\": \"BBBBBB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fd7209f-47fc-444c-9586-262205ceeef3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "requestable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "83"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e8e5574-0740-4eac-8205-98c1cf3e58bd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "requestable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "83"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1b22d99-0713-4fb2-ba6c-6fb377327ddf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "requestable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "83"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7aa864a9-d56c-4845-9c6f-d1d0f8094ad8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "requestable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "83"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49cc1daf-070b-416b-95e0-b4ffe873b308",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "requestable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "ids[]",
+                      "value": "83"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "adc7cb72-bea2-4034-b611-82095f8a080c",
+          "name": "View provider",
+          "request": {
+            "name": "View provider",
+            "description": {
+              "content": "This endpoint returns a single provider.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "providers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "locations",
+                  "description": "Resources to be included in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "locations",
+                  "description": "Resources to be included in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The NexHealth id of the Provider"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd4659e6-7a82-49e3-9f1f-f1be54bc47a9",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the Provider"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": {\n    \"id\": 415,\n    \"email\": \"Amy.Ramos@nexhealth.com\",\n    \"first_name\": \"John\",\n    \"middle_name\": \"Anthony\",\n    \"last_name\": \"Smith\",\n    \"name\": \"John Smith\",\n    \"created_at\": \"2020-06-05T20:16:57.007Z\",\n    \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n    \"institution_id\": 105,\n    \"foreign_id\": \"100437\",\n    \"foreign_id_type\": \"--DataSource-\",\n    \"bio\": {\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"gender\": \"Female\",\n      \"zip_code\": \"20814\",\n      \"new_patient\": false,\n      \"non_patient\": true,\n      \"phone_number\": \"5163042196\",\n      \"date_of_birth\": \"1964-05-03\",\n      \"address_line_1\": \"\",\n      \"address_line_2\": \"\",\n      \"street_address\": \"\",\n      \"cell_phone_number\": \"\",\n      \"home_phone_number\": \"\",\n      \"work_phone_number\": \"\"\n    },\n    \"inactive\": false,\n    \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n    \"display_name\": \"John Smith\",\n    \"npi\": \"1912507500\",\n    \"tin\": \"string\",\n    \"state_license\": \"R219935\",\n    \"specialty_code\": \"363L00000X\",\n    \"locations\": [\n      {\n        \"id\": 7,\n        \"name\": \"Default\",\n        \"institution_id\": 1,\n        \"street_address\": \"123 Law St\",\n        \"street_address_2\": \"85335, North East\",\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"zip_code\": \"54700\",\n        \"country_code\": \"US\",\n        \"created_at\": \"2020-06-05T20:16:57.007Z\",\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n        \"latitude\": 37.7775028,\n        \"longitude\": -122.3970603,\n        \"phone_number\": \"8888750851\",\n        \"foreign_id\": \"1\",\n        \"foreign_id_type\": \"--DataSource-\",\n        \"email\": \"defaultLocation@nexhealth.com\",\n        \"tz\": \"America/Los_Angeles\",\n        \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n        \"insert_appt_client\": true,\n        \"map_by_operatory\": true,\n        \"set_availability_by_operatory\": false,\n        \"inactive\": false,\n        \"specialty\": {\n          \"id\": 6869,\n          \"name\": \"string\"\n        }\n      },\n      {\n        \"id\": 7,\n        \"name\": \"Default\",\n        \"institution_id\": 1,\n        \"street_address\": \"123 Law St\",\n        \"street_address_2\": \"85335, North East\",\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"zip_code\": \"54700\",\n        \"country_code\": \"US\",\n        \"created_at\": \"2020-06-05T20:16:57.007Z\",\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n        \"latitude\": 37.7775028,\n        \"longitude\": -122.3970603,\n        \"phone_number\": \"8888750851\",\n        \"foreign_id\": \"1\",\n        \"foreign_id_type\": \"--DataSource-\",\n        \"email\": \"defaultLocation@nexhealth.com\",\n        \"tz\": \"America/Los_Angeles\",\n        \"last_sync_time\": \"2020-06-17T19:23:49.176Z\",\n        \"insert_appt_client\": true,\n        \"map_by_operatory\": true,\n        \"set_availability_by_operatory\": false,\n        \"inactive\": false,\n        \"specialty\": {\n          \"id\": 9700,\n          \"name\": \"string\"\n        }\n      }\n    ],\n    \"provider_requestables\": [\n      {\n        \"location_id\": 4\n      },\n      {\n        \"location_id\": 4\n      }\n    ],\n    \"availabilities\": [\n      {\n        \"id\": 12,\n        \"provider_id\": 7,\n        \"location_id\": 3,\n        \"operatory_id\": 149,\n        \"begin_time\": \"10:30\",\n        \"end_time\": \"17:00\",\n        \"days\": [\n          \"Monday\",\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\",\n          \"Friday\"\n        ],\n        \"specific_date\": \"2022-11-03\",\n        \"custom_recurrence\": {\n          \"num\": 3,\n          \"unit\": \"day\",\n          \"ref\": \"2022-11-03\"\n        },\n        \"tz_offset\": \"-0700\",\n        \"active\": true,\n        \"source\": \"synced\",\n        \"label\": {\n          \"id\": 113,\n          \"location_id\": 115,\n          \"name\": \"New patient appointments\"\n        },\n        \"appointment_types\": [\n          {\n            \"id\": 1,\n            \"name\": \"Medical\",\n            \"parent_type\": \"Institution\",\n            \"parent_id\": 1,\n            \"minutes\": 15,\n            \"bookable_online\": false\n          },\n          {\n            \"id\": 1,\n            \"name\": \"Medical\",\n            \"parent_type\": \"Institution\",\n            \"parent_id\": 1,\n            \"minutes\": 15,\n            \"bookable_online\": false\n          }\n        ]\n      },\n      {\n        \"id\": 12,\n        \"provider_id\": 7,\n        \"location_id\": 3,\n        \"operatory_id\": 149,\n        \"begin_time\": \"10:30\",\n        \"end_time\": \"17:00\",\n        \"days\": [\n          \"Monday\",\n          \"Tuesday\",\n          \"Wednesday\",\n          \"Thursday\",\n          \"Friday\"\n        ],\n        \"specific_date\": \"2022-11-03\",\n        \"custom_recurrence\": {\n          \"num\": 3,\n          \"unit\": \"day\",\n          \"ref\": \"2022-11-03\"\n        },\n        \"tz_offset\": \"-0700\",\n        \"active\": true,\n        \"source\": \"synced\",\n        \"label\": {\n          \"id\": 113,\n          \"location_id\": 115,\n          \"name\": \"New patient appointments\"\n        },\n        \"appointment_types\": [\n          {\n            \"id\": 1,\n            \"name\": \"Medical\",\n            \"parent_type\": \"Institution\",\n            \"parent_id\": 1,\n            \"minutes\": 15,\n            \"bookable_online\": false\n          },\n          {\n            \"id\": 1,\n            \"name\": \"Medical\",\n            \"parent_type\": \"Institution\",\n            \"parent_id\": 1,\n            \"minutes\": 15,\n            \"bookable_online\": false\n          }\n        ]\n      }\n    ]\n  },\n  \"count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "baa1fd42-4780-425b-8f68-377dd49e14da",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the Provider"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5adf138-33be-4123-9f4c-35644ee85dd4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the Provider"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1ee3f14-6d5d-4424-bbbc-eeffb248c68c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the Provider"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "000c0f2a-d270-4bb9-96a8-45426a897426",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the Provider"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a034d70-d81f-4535-9eaf-e718e913c400",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "locations"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The NexHealth id of the Provider"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nexhealth.info",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "58cf4ba8-acb2-4727-8c3d-f187bdcfda85",
+    "name": "NexHealth Adjustment Types Providers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1129 @@
+{
+  "item": [
+    {
+      "id": "3d691500-e67e-4bc9-a1de-f2b49f7c2d7e",
+      "name": "Charges",
+      "description": {
+        "content": "Charges resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5117ced5-0dd8-4aa5-9c1c-ca754a11d345",
+          "name": "View charges",
+          "request": {
+            "name": "View charges",
+            "description": {
+              "content": "This endpoint returns the ledger charges for the specified location. At least one of the patient_id, provider_id, procedure_id, guarantor_id, or updated_since filters must be provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>",
+                  "description": "(Required) Used to scope the request to the specified location"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<integer>",
+                  "description": "Filter by the id of the associated patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "provider_id",
+                  "value": "<integer>",
+                  "description": "Filter by the id of the associated provider"
+                },
+                {
+                  "disabled": false,
+                  "key": "procedure_id",
+                  "value": "<integer>",
+                  "description": "Filter by the id of the associated procedure"
+                },
+                {
+                  "disabled": false,
+                  "key": "guarantor_id",
+                  "value": "<integer>",
+                  "description": "Filter by the id of the associated guarantor"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<dateTime>",
+                  "description": "Charges updated after the specified time (UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_deleted",
+                  "value": "false",
+                  "description": "Include deleted charges"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_cursor",
+                  "value": "<string>",
+                  "description": "First item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_cursor",
+                  "value": "<string>",
+                  "description": "Last item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "5",
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Resources to be included in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Resources to be included in the response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3415f5b-3abf-4cf2-94b6-6cfc5049c47c",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "3"
+                    },
+                    {
+                      "key": "provider_id",
+                      "value": "15"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "34"
+                    },
+                    {
+                      "key": "guarantor_id",
+                      "value": "5"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": [\n    {\n      \"id\": 113,\n      \"foreign_id\": \"1234-5678\",\n      \"location_id\": 10,\n      \"patient_id\": 3,\n      \"guarantor_id\": 5,\n      \"provider_id\": 15,\n      \"procedure_id\": 34,\n      \"procedure_code\": \"D0120\",\n      \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n      \"description\": \"This is a description\",\n      \"fee\": {\n        \"amount\": \"62.00\",\n        \"currency\": \"USD\"\n      },\n      \"charged_at\": \"2024-10-05\",\n      \"deleted_at\": \"2022-01-01T00:00:00Z\",\n      \"claim_payouts\": [\n        {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"write_off\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"allowed_amount\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"fee_schedule_procedure_code\": {\n            \"procedure_code_id\": \"ab123456-11aa-99ff-a111-d1ee12345678\",\n            \"fee\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"code\": \"D0120\",\n            \"id\": 113,\n            \"location_id\": 10,\n            \"fee_schedule_id\": 1234,\n            \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n          },\n          \"claim_id\": 1234\n        },\n        {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"write_off\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"allowed_amount\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"fee_schedule_procedure_code\": {\n            \"procedure_code_id\": \"ab123456-11aa-99ff-a111-d1ee12345678\",\n            \"fee\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"code\": \"D0120\",\n            \"id\": 113,\n            \"location_id\": 10,\n            \"fee_schedule_id\": 1234,\n            \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n          },\n          \"claim_id\": 1234\n        }\n      ]\n    },\n    {\n      \"id\": 113,\n      \"foreign_id\": \"1234-5678\",\n      \"location_id\": 10,\n      \"patient_id\": 3,\n      \"guarantor_id\": 5,\n      \"provider_id\": 15,\n      \"procedure_id\": 34,\n      \"procedure_code\": \"D0120\",\n      \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n      \"description\": \"This is a description\",\n      \"fee\": {\n        \"amount\": \"62.00\",\n        \"currency\": \"USD\"\n      },\n      \"charged_at\": \"2024-10-05\",\n      \"deleted_at\": \"2022-01-01T00:00:00Z\",\n      \"claim_payouts\": [\n        {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"write_off\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"allowed_amount\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"fee_schedule_procedure_code\": {\n            \"procedure_code_id\": \"ab123456-11aa-99ff-a111-d1ee12345678\",\n            \"fee\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"code\": \"D0120\",\n            \"id\": 113,\n            \"location_id\": 10,\n            \"fee_schedule_id\": 1234,\n            \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n          },\n          \"claim_id\": 1234\n        },\n        {\n          \"amount_billed_to_insurance\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"insurance_payment\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"write_off\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"allowed_amount\": {\n            \"amount\": \"62.00\",\n            \"currency\": \"USD\"\n          },\n          \"fee_schedule_procedure_code\": {\n            \"procedure_code_id\": \"ab123456-11aa-99ff-a111-d1ee12345678\",\n            \"fee\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"code\": \"D0120\",\n            \"id\": 113,\n            \"location_id\": 10,\n            \"fee_schedule_id\": 1234,\n            \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n          },\n          \"claim_id\": 1234\n        }\n      ]\n    }\n  ],\n  \"page_info\": {\n    \"has_previous_page\": false,\n    \"has_next_page\": false,\n    \"start_cursor\": \"AAAAA\",\n    \"end_cursor\": \"BBBBBB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb1ecec7-0350-4206-8886-e94c3cba4816",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "3"
+                    },
+                    {
+                      "key": "provider_id",
+                      "value": "15"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "34"
+                    },
+                    {
+                      "key": "guarantor_id",
+                      "value": "5"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e15f7350-eb10-4a81-a0be-7947c6ddab09",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "3"
+                    },
+                    {
+                      "key": "provider_id",
+                      "value": "15"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "34"
+                    },
+                    {
+                      "key": "guarantor_id",
+                      "value": "5"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a5d210d-ee75-4072-b78f-4ce8c672c44c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "3"
+                    },
+                    {
+                      "key": "provider_id",
+                      "value": "15"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "34"
+                    },
+                    {
+                      "key": "guarantor_id",
+                      "value": "5"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "982779d7-32db-4994-ad4d-be97904b15e8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "3"
+                    },
+                    {
+                      "key": "provider_id",
+                      "value": "15"
+                    },
+                    {
+                      "key": "procedure_id",
+                      "value": "34"
+                    },
+                    {
+                      "key": "guarantor_id",
+                      "value": "5"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "include_deleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "980d1c20-5899-4e53-908b-0a636b1d9aae",
+          "name": "View charge",
+          "request": {
+            "name": "View charge",
+            "description": {
+              "content": "This endpoint returns a single ledger charge",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "charges",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Resources to be included in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Resources to be included in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73fe7ba9-78ea-45f1-8086-bb347a25c358",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": {\n    \"id\": 113,\n    \"foreign_id\": \"1234-5678\",\n    \"location_id\": 10,\n    \"patient_id\": 3,\n    \"guarantor_id\": 5,\n    \"provider_id\": 15,\n    \"procedure_id\": 34,\n    \"procedure_code\": \"D0120\",\n    \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n    \"description\": \"This is a description\",\n    \"fee\": {\n      \"amount\": \"62.00\",\n      \"currency\": \"USD\"\n    },\n    \"charged_at\": \"2024-10-05\",\n    \"deleted_at\": \"2022-01-01T00:00:00Z\",\n    \"patient\": {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n      \"guarantor_id\": 472,\n      \"billing_type\": \"Standard Billing - finance charges\",\n      \"chart_id\": \"017407\",\n      \"preferred_language\": \"es\",\n      \"provider_id\": 23\n    },\n    \"provider\": {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n      \"display_name\": \"John Smith\",\n      \"npi\": \"1912507500\",\n      \"tin\": \"string\",\n      \"state_license\": \"R219935\",\n      \"specialty_code\": \"363L00000X\"\n    },\n    \"guarantor\": {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\"\n    },\n    \"procedure\": {\n      \"id\": 11,\n      \"location_id\": 21,\n      \"patient_id\": 162,\n      \"provider_id\": 84,\n      \"appointment_id\": 283,\n      \"code\": \"D6100\",\n      \"name\": \"Implant Removal\",\n      \"status\": \"referred\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"body_site\": {\n        \"tooth\": [\n          \"3\",\n          \"14\"\n        ],\n        \"surface\": \"MOD\"\n      },\n      \"fee\": {\n        \"amount\": \"62.00\",\n        \"currency\": \"USD\"\n      },\n      \"start_date\": \"2022-06-24\",\n      \"end_date\": \"2022-06-24\",\n      \"treatment_plan_ids\": [\n        42,\n        57\n      ]\n    },\n    \"claim_payouts\": [\n      {\n        \"amount_billed_to_insurance\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"estimated_insurance_payment\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"insurance_payment\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"write_off\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"allowed_amount\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"fee_schedule_procedure_code\": {\n          \"procedure_code_id\": \"ab123456-11aa-99ff-a111-d1ee12345678\",\n          \"fee\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"code\": \"D0120\",\n          \"id\": 113,\n          \"location_id\": 10,\n          \"fee_schedule_id\": 1234,\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n        },\n        \"claim_id\": 1234\n      },\n      {\n        \"amount_billed_to_insurance\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"estimated_insurance_payment\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"insurance_payment\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"write_off\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"allowed_amount\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"fee_schedule_procedure_code\": {\n          \"procedure_code_id\": \"ab123456-11aa-99ff-a111-d1ee12345678\",\n          \"fee\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"code\": \"D0120\",\n          \"id\": 113,\n          \"location_id\": 10,\n          \"fee_schedule_id\": 1234,\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n        },\n        \"claim_id\": 1234\n      }\n    ],\n    \"claims\": [\n      {\n        \"id\": 10,\n        \"location_id\": 1,\n        \"patient_id\": 1002,\n        \"provider_id\": 101,\n        \"guarantor_id\": 1001,\n        \"status\": \"sent\",\n        \"received_at\": \"2024-06-10T15:16:57.000Z\",\n        \"sent_at\": \"2024-06-03T11:23:12.000Z\",\n        \"note\": \"Claim was sent to the insurance company\",\n        \"primary_insurance_plan_id\": 10021,\n        \"secondary_insurance_plan_id\": 10022,\n        \"date_of_service\": \"2024-06-03\",\n        \"totals\": {\n          \"amount_billed_to_insurance\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"insurance_payment\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"write_off\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n      },\n      {\n        \"id\": 10,\n        \"location_id\": 1,\n        \"patient_id\": 1002,\n        \"provider_id\": 101,\n        \"guarantor_id\": 1001,\n        \"status\": \"sent\",\n        \"received_at\": \"2024-06-10T15:16:57.000Z\",\n        \"sent_at\": \"2024-06-03T11:23:12.000Z\",\n        \"note\": \"Claim was sent to the insurance company\",\n        \"primary_insurance_plan_id\": 10021,\n        \"secondary_insurance_plan_id\": 10022,\n        \"date_of_service\": \"2024-06-03\",\n        \"totals\": {\n          \"amount_billed_to_insurance\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"estimated_insurance_payment\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"insurance_payment\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"write_off\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"currency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\"\n      }\n    ],\n    \"totals\": {\n      \"amount_billed_to_insurance\": {\n        \"amount\": \"62.00\",\n        \"currency\": \"USD\"\n      },\n      \"estimated_insurance_payment\": {\n        \"amount\": \"62.00\",\n        \"currency\": \"USD\"\n      },\n      \"insurance_payment\": {\n        \"amount\": \"62.00\",\n        \"currency\": \"USD\"\n      },\n      \"write_off\": {\n        \"amount\": \"62.00\",\n        \"currency\": \"USD\"\n      }\n    }\n  },\n  \"count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82419a78-512d-4f16-b836-336e8b611efe",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f74aed1-0049-4292-b98b-bf0ddf075231",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a16bbc4-9acc-4a39-a888-dea12ae495a5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb29d5ec-0971-4bb4-88f3-55cd99589320",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nexhealth.info",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cef8bea4-899e-4bf0-9a04-0c06e20a4719",
+    "name": "NexHealth Adjustment Types Charges API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+      "type": "text/plain"
+    }
+  }
+}

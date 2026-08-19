@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Authenticates API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authenticates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve bearer token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nexhealth.info/authenticates"
+          },
+          "docs": "Retrieve bearer token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

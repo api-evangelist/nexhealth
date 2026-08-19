@@ -1,0 +1,297 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Appointments API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Appointments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/appointments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the appointment"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "View appointment"
+        },
+        {
+          "info": {
+            "name": "Edit Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://nexhealth.info/appointments/:id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the appointment"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint updates an existing appointment."
+        },
+        {
+          "info": {
+            "name": "View appointment descriptors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/appointments/:id/appointment_descriptors",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the appointment"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "descriptor_type",
+                "value": "",
+                "type": "query",
+                "description": "Query by descriptor type"
+              }
+            ]
+          },
+          "docs": "View appointment descriptors"
+        },
+        {
+          "info": {
+            "name": "View appointments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/appointments",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "1",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * updated_at\n  * -updated_at\n"
+              },
+              {
+                "name": "start",
+                "value": "2024-04-01T00:00:00Z",
+                "type": "query",
+                "description": "A parseable date string defining the earliest returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000"
+              },
+              {
+                "name": "end",
+                "value": "2024-04-30T23:59:59Z",
+                "type": "query",
+                "description": "A parseable date string defining the last returned records. Recommended format is YYYY-MM-DDThh:mm:ss+0000"
+              },
+              {
+                "name": "timezone",
+                "value": "America/New_York",
+                "type": "query",
+                "description": "Timezone for the appointment clinic"
+              },
+              {
+                "name": "cancelled",
+                "value": "false",
+                "type": "query",
+                "description": "Filter by cancelled status."
+              },
+              {
+                "name": "unavailable",
+                "value": "false",
+                "type": "query",
+                "description": "Unavailable appointments are used to block availability on a schedule, specify to set the filter"
+              },
+              {
+                "name": "nex_only",
+                "value": "false",
+                "type": "query",
+                "description": "Only show appointments booked via NexHealth API"
+              },
+              {
+                "name": "updated_since",
+                "value": "2024-04-12T10:30:00Z",
+                "type": "query",
+                "description": "Query appointments whose records have updated since the specified datetime in ISO8601 format. Must be a parseable date/time, recommended formats are YYYY-MM-DD or YYYY-MM-DDT00:00:00+0000"
+              },
+              {
+                "name": "appointment_type_id",
+                "value": "27",
+                "type": "query",
+                "description": "Get appointments for a specific appointment type"
+              },
+              {
+                "name": "foreign_id",
+                "value": "94",
+                "type": "query",
+                "description": "Unique appointment id from the EHR"
+              },
+              {
+                "name": "created_by",
+                "value": "197",
+                "type": "query",
+                "description": "Query appointments that were created by a specific user"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              },
+              {
+                "name": "patient_ids[]",
+                "value": "2897",
+                "type": "query",
+                "description": "Get appointments for specific patients (up to 25 ids)"
+              },
+              {
+                "name": "provider_ids[]",
+                "value": "104",
+                "type": "query",
+                "description": "Query appointments that are booked with the specified providers only"
+              },
+              {
+                "name": "operatory_ids[]",
+                "value": "181",
+                "type": "query",
+                "description": "Query appointments that are booked in the specified operatories only"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the appointments starting within the requested time window, narrowed down by the optional filters configured. At least one of location_id or foreign_id must be provided."
+        },
+        {
+          "info": {
+            "name": "Create appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nexhealth.info/appointments",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "notify_patient",
+                "value": "",
+                "type": "query",
+                "description": "Send NexHealth appointment created notifications to patient"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint books an appointment for the given patient with the given provider at the specified location. When is_guardian is true, the booking is made by a guardian and a patient object with the dependent's details must be provided. Set unavailable to true to create a block instead of a patient appointment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

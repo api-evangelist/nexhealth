@@ -1,0 +1,176 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Webhook Subscriptions API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhook Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View webhook subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/webhook_endpoints/:id/webhook_subscriptions",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook Endpoint id"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "resource_type",
+                "value": "Appointment",
+                "type": "query",
+                "description": "Filter by subscribed resource"
+              },
+              {
+                "name": "event",
+                "value": "appointment_insertion",
+                "type": "query",
+                "description": "Filter by event name"
+              }
+            ]
+          },
+          "docs": "Lists all webhook subscriptions on the given webhook endpoint. When a subdomain is provided, results are scoped to that institution and exclude subscriptions without an institution (e.g. Onboarding); omit the subdomain to list every subscription on the endpoint. Results are not paginated."
+        },
+        {
+          "info": {
+            "name": "Create webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nexhealth.info/webhook_endpoints/:id/webhook_subscriptions",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook Endpoint id"
+              },
+              {
+                "name": "subdomain",
+                "value": "demo-practice",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution. Required for institution-owned resources; must be omitted for the following resources (passing it returns 400): Onboarding"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a webhook subscription on the given webhook endpoint. The subscription is pinned to the API version used to create it (v3.0.0): webhook payloads delivered for this subscription use the v3.0.0 entity contract. To pin a subscription to a different version, create it via that version of this endpoint."
+        },
+        {
+          "info": {
+            "name": "Edit webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://nexhealth.info/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook Endpoint id"
+              },
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook Subscription id"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a webhook subscription. The subdomain parameter is required for request validation even when the subscription is not scoped to an institution (e.g. Onboarding); pass the subdomain of any institution your API user has access to."
+        },
+        {
+          "info": {
+            "name": "Delete webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://nexhealth.info/webhook_endpoints/:id/webhook_subscriptions/:subscription_id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook Endpoint id"
+              },
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook Subscription id"
+              }
+            ]
+          },
+          "docs": "Permanently deletes the webhook subscription; deliveries for it stop immediately. Returns 204 No Content on success."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1925 @@
+{
+  "item": [
+    {
+      "id": "8c522d62-9385-40d4-8975-70f8955f6b01",
+      "name": "Patients",
+      "description": {
+        "content": "A patients resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "458fad69-e221-443f-bb7d-7d195c075a9c",
+          "name": "View patients",
+          "request": {
+            "name": "View patients",
+            "description": {
+              "content": "This endpoint returns a list of patients for the specified location, narrowed down by the optional filters configured.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "patients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>",
+                  "description": "(Required) Used to scope the request to the specified location"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "id",
+                  "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * id\n  * -id\n  * updated_at\n  * -updated_at\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter by patient name"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Filter by patient email"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone_number",
+                  "value": "<string>",
+                  "description": "Filter by patient phone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_of_birth",
+                  "value": "<date>",
+                  "description": "Filter by patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "inactive",
+                  "value": "<boolean>",
+                  "description": "Filter by inactive status. When true, returns only inactive patients. When false, returns only active patients. When not specified, does not filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "foreign_id",
+                  "value": "<string>",
+                  "description": "Filter by the unique patient id from the EHR"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<dateTime>",
+                  "description": "Only return patients updated at or after the specified date/time. Must be a parseable Date, recommended formats are YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+0000"
+                },
+                {
+                  "disabled": false,
+                  "key": "new_patient",
+                  "value": "<boolean>",
+                  "description": "Filter patients by new_patient status. When true, returns only new patients with an upcoming appointment. When false, returns only non-new patients. When not specified, returns both regular patients and new patients with upcoming appointments. Patients with the attribute new_patient=true are patients that do not fully exist in the EHR so cannot be used to book appointments. When the patient record is officially created (and read by us) in the EHR, record associations will be created and any new_patient records are deleted."
+                },
+                {
+                  "disabled": false,
+                  "key": "non_patient",
+                  "value": "<boolean>",
+                  "description": "Specify if you want to filter non_patients. In case of true: return only non_patients. In case of false: Result does not include non_patients. In case of null: do not set filter/return any"
+                },
+                {
+                  "disabled": false,
+                  "key": "forms_syncable",
+                  "value": "<boolean>",
+                  "description": "Specify if you want to filter to patients that can have forms inserted into their patient file. In case of true: Return only patients that can have forms inserted into their patient file. In case of false or nil: do not filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_strict",
+                  "value": "false",
+                  "description": "Only returns patients belonging to the specified location, rather than searching across the EHR system"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_cursor",
+                  "value": "<string>",
+                  "description": "First item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_cursor",
+                  "value": "<string>",
+                  "description": "Last item of the current page. Starts empty"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "5",
+                  "description": "Number of results to return per page. Maximum allowed amount is 1000."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d487f03-af54-4366-9339-faa3381ddee7",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "name",
+                      "value": "John Smith"
+                    },
+                    {
+                      "key": "email",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "phone_number",
+                      "value": "5163042196"
+                    },
+                    {
+                      "key": "date_of_birth",
+                      "value": "1964-05-03"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "new_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "non_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "forms_syncable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": [\n    {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n      \"guarantor_id\": 472,\n      \"billing_type\": \"Standard Billing - finance charges\",\n      \"chart_id\": \"017407\",\n      \"preferred_language\": \"es\",\n      \"provider_id\": 23,\n      \"hipaa\": {\n        \"authorization\": true,\n        \"authorization_date\": \"2023-03-22\",\n        \"privacy\": true,\n        \"privacy_date\": \"2023-03-22\",\n        \"consent\": true,\n        \"consent_date\": \"2023-03-22\"\n      }\n    },\n    {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n      \"guarantor_id\": 472,\n      \"billing_type\": \"Standard Billing - finance charges\",\n      \"chart_id\": \"017407\",\n      \"preferred_language\": \"es\",\n      \"provider_id\": 23,\n      \"hipaa\": {\n        \"authorization\": true,\n        \"authorization_date\": \"2023-03-22\",\n        \"privacy\": true,\n        \"privacy_date\": \"2023-03-22\",\n        \"consent\": true,\n        \"consent_date\": \"2023-03-22\"\n      }\n    }\n  ],\n  \"page_info\": {\n    \"has_previous_page\": false,\n    \"has_next_page\": false,\n    \"start_cursor\": \"AAAAA\",\n    \"end_cursor\": \"BBBBBB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ce418fe-f19d-4b18-8b57-b078512a7957",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "name",
+                      "value": "John Smith"
+                    },
+                    {
+                      "key": "email",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "phone_number",
+                      "value": "5163042196"
+                    },
+                    {
+                      "key": "date_of_birth",
+                      "value": "1964-05-03"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "new_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "non_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "forms_syncable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e8a1eb4-3463-4ff6-b94e-3f02d86a9ec0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "name",
+                      "value": "John Smith"
+                    },
+                    {
+                      "key": "email",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "phone_number",
+                      "value": "5163042196"
+                    },
+                    {
+                      "key": "date_of_birth",
+                      "value": "1964-05-03"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "new_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "non_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "forms_syncable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09c0af74-05b6-441c-9988-d9b4db452815",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "name",
+                      "value": "John Smith"
+                    },
+                    {
+                      "key": "email",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "phone_number",
+                      "value": "5163042196"
+                    },
+                    {
+                      "key": "date_of_birth",
+                      "value": "1964-05-03"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "new_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "non_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "forms_syncable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fcc5192-a187-4c46-89bf-6541c3d63658",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "name",
+                      "value": "John Smith"
+                    },
+                    {
+                      "key": "email",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "phone_number",
+                      "value": "5163042196"
+                    },
+                    {
+                      "key": "date_of_birth",
+                      "value": "1964-05-03"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "new_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "non_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "forms_syncable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f75302b1-0efa-4cb0-8552-6791fb56f724",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "name",
+                      "value": "John Smith"
+                    },
+                    {
+                      "key": "email",
+                      "value": "john.smith@example.com"
+                    },
+                    {
+                      "key": "phone_number",
+                      "value": "5163042196"
+                    },
+                    {
+                      "key": "date_of_birth",
+                      "value": "1964-05-03"
+                    },
+                    {
+                      "key": "inactive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "foreign_id",
+                      "value": "100437"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "2024-04-12T10:30:00Z"
+                    },
+                    {
+                      "key": "new_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "non_patient",
+                      "value": "false"
+                    },
+                    {
+                      "key": "forms_syncable",
+                      "value": "true"
+                    },
+                    {
+                      "key": "location_strict",
+                      "value": "false"
+                    },
+                    {
+                      "key": "start_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3405fa0e-8a7d-4a6d-839a-5e1e52699db1",
+          "name": "Create patient",
+          "request": {
+            "name": "Create patient",
+            "description": {
+              "content": "This endpoint creates a new patient or returns an existing patient if return_existing_if_match is true. Responds with 201 when a new patient is created, or with 200 and the existing patient when return_existing_if_match is true and a patient with matching information already exists.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "patients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<integer>",
+                  "description": "(Required) Used to scope the request to the specified location"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": {\n    \"provider_id\": \"<long>\"\n  },\n  \"patient\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"bio\": {\n      \"date_of_birth\": \"<date>\",\n      \"phone_number\": \"<string>\",\n      \"home_phone_number\": \"<string>\",\n      \"cell_phone_number\": \"<string>\",\n      \"work_phone_number\": \"<string>\",\n      \"custom_contact_number\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"weight\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"street_address\": \"<string>\",\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip_code\": \"<string>\",\n      \"insurance_name\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"race\": \"<string>\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1869852-5e73-44b4-ba8c-f24801c8b960",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": 12\n  },\n  \"patient\": {\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"bio\": {\n      \"date_of_birth\": \"1964-05-03\",\n      \"phone_number\": \"5163042196\",\n      \"home_phone_number\": \"5163042197\",\n      \"cell_phone_number\": \"5163042198\",\n      \"work_phone_number\": \"5163042199\",\n      \"custom_contact_number\": \"5163042200\",\n      \"gender\": \"Female\",\n      \"weight\": 70,\n      \"height\": 175,\n      \"street_address\": \"333 Bush Street\",\n      \"address_line_1\": \"333 Bush Street\",\n      \"address_line_2\": \"Apt 4B\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip_code\": \"20814\",\n      \"insurance_name\": \"Delta Dental of California\",\n      \"ssn\": \"123-45-6789\",\n      \"race\": \"White\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": {\n    \"user\": {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n      \"guarantor_id\": 472,\n      \"billing_type\": \"Standard Billing - finance charges\",\n      \"chart_id\": \"017407\",\n      \"preferred_language\": \"es\",\n      \"preferred_locale\": \"es\",\n      \"location_ids\": [\n        101,\n        102,\n        103\n      ]\n    }\n  },\n  \"count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc643236-1ed1-4b6a-8890-438753cdc94c",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": 12\n  },\n  \"patient\": {\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"bio\": {\n      \"date_of_birth\": \"1964-05-03\",\n      \"phone_number\": \"5163042196\",\n      \"home_phone_number\": \"5163042197\",\n      \"cell_phone_number\": \"5163042198\",\n      \"work_phone_number\": \"5163042199\",\n      \"custom_contact_number\": \"5163042200\",\n      \"gender\": \"Female\",\n      \"weight\": 70,\n      \"height\": 175,\n      \"street_address\": \"333 Bush Street\",\n      \"address_line_1\": \"333 Bush Street\",\n      \"address_line_2\": \"Apt 4B\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip_code\": \"20814\",\n      \"insurance_name\": \"Delta Dental of California\",\n      \"ssn\": \"123-45-6789\",\n      \"race\": \"White\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": {\n    \"user\": {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n      \"guarantor_id\": 472,\n      \"billing_type\": \"Standard Billing - finance charges\",\n      \"chart_id\": \"017407\",\n      \"preferred_language\": \"es\",\n      \"preferred_locale\": \"es\",\n      \"location_ids\": [\n        101,\n        102,\n        103\n      ]\n    }\n  },\n  \"count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "301ede58-68d0-4865-bc63-5bb970a496ce",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": 12\n  },\n  \"patient\": {\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"bio\": {\n      \"date_of_birth\": \"1964-05-03\",\n      \"phone_number\": \"5163042196\",\n      \"home_phone_number\": \"5163042197\",\n      \"cell_phone_number\": \"5163042198\",\n      \"work_phone_number\": \"5163042199\",\n      \"custom_contact_number\": \"5163042200\",\n      \"gender\": \"Female\",\n      \"weight\": 70,\n      \"height\": 175,\n      \"street_address\": \"333 Bush Street\",\n      \"address_line_1\": \"333 Bush Street\",\n      \"address_line_2\": \"Apt 4B\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip_code\": \"20814\",\n      \"insurance_name\": \"Delta Dental of California\",\n      \"ssn\": \"123-45-6789\",\n      \"race\": \"White\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "189ea63d-3912-49ab-8940-3e1b95facbeb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": 12\n  },\n  \"patient\": {\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"bio\": {\n      \"date_of_birth\": \"1964-05-03\",\n      \"phone_number\": \"5163042196\",\n      \"home_phone_number\": \"5163042197\",\n      \"cell_phone_number\": \"5163042198\",\n      \"work_phone_number\": \"5163042199\",\n      \"custom_contact_number\": \"5163042200\",\n      \"gender\": \"Female\",\n      \"weight\": 70,\n      \"height\": 175,\n      \"street_address\": \"333 Bush Street\",\n      \"address_line_1\": \"333 Bush Street\",\n      \"address_line_2\": \"Apt 4B\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip_code\": \"20814\",\n      \"insurance_name\": \"Delta Dental of California\",\n      \"ssn\": \"123-45-6789\",\n      \"race\": \"White\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7122057-4395-4263-84a4-da6634e311e8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": 12\n  },\n  \"patient\": {\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"bio\": {\n      \"date_of_birth\": \"1964-05-03\",\n      \"phone_number\": \"5163042196\",\n      \"home_phone_number\": \"5163042197\",\n      \"cell_phone_number\": \"5163042198\",\n      \"work_phone_number\": \"5163042199\",\n      \"custom_contact_number\": \"5163042200\",\n      \"gender\": \"Female\",\n      \"weight\": 70,\n      \"height\": 175,\n      \"street_address\": \"333 Bush Street\",\n      \"address_line_1\": \"333 Bush Street\",\n      \"address_line_2\": \"Apt 4B\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip_code\": \"20814\",\n      \"insurance_name\": \"Delta Dental of California\",\n      \"ssn\": \"123-45-6789\",\n      \"race\": \"White\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a714fee-39ef-40e7-b73f-c835bc163e18",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": 12\n  },\n  \"patient\": {\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"bio\": {\n      \"date_of_birth\": \"1964-05-03\",\n      \"phone_number\": \"5163042196\",\n      \"home_phone_number\": \"5163042197\",\n      \"cell_phone_number\": \"5163042198\",\n      \"work_phone_number\": \"5163042199\",\n      \"custom_contact_number\": \"5163042200\",\n      \"gender\": \"Female\",\n      \"weight\": 70,\n      \"height\": 175,\n      \"street_address\": \"333 Bush Street\",\n      \"address_line_1\": \"333 Bush Street\",\n      \"address_line_2\": \"Apt 4B\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip_code\": \"20814\",\n      \"insurance_name\": \"Delta Dental of California\",\n      \"ssn\": \"123-45-6789\",\n      \"race\": \"White\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "688248e0-536d-4929-b15c-d0654c5ffde6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": {\n    \"provider_id\": 12\n  },\n  \"patient\": {\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"bio\": {\n      \"date_of_birth\": \"1964-05-03\",\n      \"phone_number\": \"5163042196\",\n      \"home_phone_number\": \"5163042197\",\n      \"cell_phone_number\": \"5163042198\",\n      \"work_phone_number\": \"5163042199\",\n      \"custom_contact_number\": \"5163042200\",\n      \"gender\": \"Female\",\n      \"weight\": 70,\n      \"height\": 175,\n      \"street_address\": \"333 Bush Street\",\n      \"address_line_1\": \"333 Bush Street\",\n      \"address_line_2\": \"Apt 4B\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip_code\": \"20814\",\n      \"insurance_name\": \"Delta Dental of California\",\n      \"ssn\": \"123-45-6789\",\n      \"race\": \"White\"\n    }\n  },\n  \"return_existing_if_match\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9da680b1-7aa7-4523-8188-e7e2651f92c1",
+          "name": "View patient",
+          "request": {
+            "name": "View patient",
+            "description": {
+              "content": "This endpoint returns a single patient. You must provide a valid patient NexHealth ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "patients",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "(Required) Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Resources to be included in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>",
+                  "description": "Resources to be included in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The NexHealth API version",
+                "key": "Nex-Api-Version",
+                "value": "v3.0.0"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16b2bdc2-5ee2-44a8-9289-dd0c4a58ed04",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": {\n    \"id\": 415,\n    \"email\": \"Amy.Ramos@nexhealth.com\",\n    \"first_name\": \"John\",\n    \"middle_name\": \"Anthony\",\n    \"last_name\": \"Smith\",\n    \"name\": \"John Smith\",\n    \"created_at\": \"2020-06-05T20:16:57.007Z\",\n    \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n    \"institution_id\": 105,\n    \"foreign_id\": \"100437\",\n    \"foreign_id_type\": \"--DataSource-\",\n    \"bio\": {\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"gender\": \"Female\",\n      \"zip_code\": \"20814\",\n      \"new_patient\": false,\n      \"non_patient\": true,\n      \"phone_number\": \"5163042196\",\n      \"date_of_birth\": \"1964-05-03\",\n      \"address_line_1\": \"\",\n      \"address_line_2\": \"\",\n      \"street_address\": \"\",\n      \"cell_phone_number\": \"\",\n      \"home_phone_number\": \"\",\n      \"work_phone_number\": \"\"\n    },\n    \"inactive\": false,\n    \"last_sync_time\": \"2024-04-12T10:30:00Z\",\n    \"guarantor_id\": 472,\n    \"billing_type\": \"Standard Billing - finance charges\",\n    \"chart_id\": \"017407\",\n    \"preferred_language\": \"es\",\n    \"provider_id\": 23,\n    \"hipaa\": {\n      \"authorization\": true,\n      \"authorization_date\": \"2023-03-22\",\n      \"privacy\": true,\n      \"privacy_date\": \"2023-03-22\",\n      \"consent\": true,\n      \"consent_date\": \"2023-03-22\"\n    },\n    \"children\": [\n      {\n        \"id\": 415,\n        \"email\": \"Amy.Ramos@nexhealth.com\",\n        \"first_name\": \"John\",\n        \"middle_name\": \"Anthony\",\n        \"last_name\": \"Smith\",\n        \"name\": \"John Smith\",\n        \"created_at\": \"2020-06-05T20:16:57.007Z\",\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n        \"institution_id\": 105,\n        \"foreign_id\": \"100437\",\n        \"foreign_id_type\": \"--DataSource-\",\n        \"bio\": {\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"gender\": \"Female\",\n          \"zip_code\": \"20814\",\n          \"new_patient\": false,\n          \"non_patient\": true,\n          \"phone_number\": \"5163042196\",\n          \"date_of_birth\": \"1964-05-03\",\n          \"address_line_1\": \"\",\n          \"address_line_2\": \"\",\n          \"street_address\": \"\",\n          \"cell_phone_number\": \"\",\n          \"home_phone_number\": \"\",\n          \"work_phone_number\": \"\"\n        },\n        \"inactive\": false,\n        \"last_sync_time\": \"2024-04-12T10:30:00Z\"\n      },\n      {\n        \"id\": 415,\n        \"email\": \"Amy.Ramos@nexhealth.com\",\n        \"first_name\": \"John\",\n        \"middle_name\": \"Anthony\",\n        \"last_name\": \"Smith\",\n        \"name\": \"John Smith\",\n        \"created_at\": \"2020-06-05T20:16:57.007Z\",\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n        \"institution_id\": 105,\n        \"foreign_id\": \"100437\",\n        \"foreign_id_type\": \"--DataSource-\",\n        \"bio\": {\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"gender\": \"Female\",\n          \"zip_code\": \"20814\",\n          \"new_patient\": false,\n          \"non_patient\": true,\n          \"phone_number\": \"5163042196\",\n          \"date_of_birth\": \"1964-05-03\",\n          \"address_line_1\": \"\",\n          \"address_line_2\": \"\",\n          \"street_address\": \"\",\n          \"cell_phone_number\": \"\",\n          \"home_phone_number\": \"\",\n          \"work_phone_number\": \"\"\n        },\n        \"inactive\": false,\n        \"last_sync_time\": \"2024-04-12T10:30:00Z\"\n      }\n    ],\n    \"guarantor\": {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\"\n    },\n    \"provider\": {\n      \"id\": 415,\n      \"email\": \"Amy.Ramos@nexhealth.com\",\n      \"first_name\": \"John\",\n      \"middle_name\": \"Anthony\",\n      \"last_name\": \"Smith\",\n      \"name\": \"John Smith\",\n      \"created_at\": \"2020-06-05T20:16:57.007Z\",\n      \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n      \"institution_id\": 105,\n      \"foreign_id\": \"100437\",\n      \"foreign_id_type\": \"--DataSource-\",\n      \"bio\": {\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"gender\": \"Female\",\n        \"zip_code\": \"20814\",\n        \"new_patient\": false,\n        \"non_patient\": true,\n        \"phone_number\": \"5163042196\",\n        \"date_of_birth\": \"1964-05-03\",\n        \"address_line_1\": \"\",\n        \"address_line_2\": \"\",\n        \"street_address\": \"\",\n        \"cell_phone_number\": \"\",\n        \"home_phone_number\": \"\",\n        \"work_phone_number\": \"\"\n      },\n      \"inactive\": false,\n      \"last_sync_time\": \"2024-04-12T10:30:00Z\"\n    },\n    \"last_visited_appointment\": {\n      \"id\": 1822,\n      \"provider_id\": 102,\n      \"provider_name\": \"Dr. John Smith\",\n      \"start_time\": \"2021-12-06T09:45:00.000Z\",\n      \"end_time\": \"2021-12-06T10:00:00.000Z\",\n      \"location_id\": 1,\n      \"confirmed\": true\n    },\n    \"upcoming_appts\": [\n      {\n        \"id\": 1822,\n        \"provider_id\": 102,\n        \"provider_name\": \"Dr. John Smith\",\n        \"start_time\": \"2021-12-06T09:45:00.000Z\",\n        \"end_time\": \"2021-12-06T10:00:00.000Z\",\n        \"location_id\": 1,\n        \"confirmed\": true\n      },\n      {\n        \"id\": 1822,\n        \"provider_id\": 102,\n        \"provider_name\": \"Dr. John Smith\",\n        \"start_time\": \"2021-12-06T09:45:00.000Z\",\n        \"end_time\": \"2021-12-06T10:00:00.000Z\",\n        \"location_id\": 1,\n        \"confirmed\": true\n      }\n    ],\n    \"procedures\": [\n      {\n        \"id\": 11,\n        \"location_id\": 21,\n        \"patient_id\": 162,\n        \"provider_id\": 84,\n        \"appointment_id\": 283,\n        \"code\": \"D6100\",\n        \"name\": \"Implant Removal\",\n        \"status\": \"referred\",\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n        \"body_site\": {\n          \"tooth\": [\n            \"3\",\n            \"14\"\n          ],\n          \"surface\": \"MOD\"\n        },\n        \"fee\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"start_date\": \"2022-06-24\",\n        \"end_date\": \"2022-06-24\",\n        \"treatment_plan_ids\": [\n          42,\n          57\n        ]\n      },\n      {\n        \"id\": 11,\n        \"location_id\": 21,\n        \"patient_id\": 162,\n        \"provider_id\": 84,\n        \"appointment_id\": 283,\n        \"code\": \"D6100\",\n        \"name\": \"Implant Removal\",\n        \"status\": \"referred\",\n        \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n        \"body_site\": {\n          \"tooth\": [\n            \"3\",\n            \"14\"\n          ],\n          \"surface\": \"MOD\"\n        },\n        \"fee\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"start_date\": \"2022-06-24\",\n        \"end_date\": \"2022-06-24\",\n        \"treatment_plan_ids\": [\n          42,\n          57\n        ]\n      }\n    ],\n    \"insurance_coverages\": [\n      {\n        \"id\": 18,\n        \"subscription_relation\": \"self\",\n        \"patient_id\": 25,\n        \"priority\": 2,\n        \"plan_id\": 18,\n        \"subscriber_num\": \"123456789\",\n        \"effective_date\": \"2022-01-01\",\n        \"expiration_date\": \"2022-12-31\",\n        \"plan\": {\n          \"id\": 18,\n          \"payer_id\": \"87726\",\n          \"name\": \"United Healthcare\",\n          \"address\": \"123 Law St\",\n          \"address2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"country_code\": \"US\",\n          \"group_num\": \"12345\",\n          \"employer_name\": \"Walmart\",\n          \"foreign_id\": \"1\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"deleted_at\": \"2024-09-15T11:21:26.003Z\"\n        },\n        \"subscriber\": {\n          \"id\": 415,\n          \"name\": \"John Smith\",\n          \"date_of_birth\": \"1990-06-05\"\n        }\n      },\n      {\n        \"id\": 18,\n        \"subscription_relation\": \"self\",\n        \"patient_id\": 25,\n        \"priority\": 2,\n        \"plan_id\": 18,\n        \"subscriber_num\": \"123456789\",\n        \"effective_date\": \"2022-01-01\",\n        \"expiration_date\": \"2022-12-31\",\n        \"plan\": {\n          \"id\": 18,\n          \"payer_id\": \"87726\",\n          \"name\": \"United Healthcare\",\n          \"address\": \"123 Law St\",\n          \"address2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"country_code\": \"US\",\n          \"group_num\": \"12345\",\n          \"employer_name\": \"Walmart\",\n          \"foreign_id\": \"1\",\n          \"updated_at\": \"2020-06-05T20:16:57.007Z\",\n          \"deleted_at\": \"2024-09-15T11:21:26.003Z\"\n        },\n        \"subscriber\": {\n          \"id\": 415,\n          \"name\": \"John Smith\",\n          \"date_of_birth\": \"1990-06-05\"\n        }\n      }\n    ],\n    \"adjustments\": [\n      {\n        \"id\": 113,\n        \"foreign_id\": \"1234-5678\",\n        \"location_id\": 10,\n        \"patient_id\": 3,\n        \"guarantor_id\": 5,\n        \"provider_id\": 15,\n        \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n        \"description\": \"This is a description\",\n        \"deleted_at\": \"2024-09-15T11:21:26.003Z\",\n        \"adjustment_amount\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"adjusted_at\": \"2024-10-01\",\n        \"transaction_id\": \"NHP:JXZEQ1234\",\n        \"charge_id\": 1111,\n        \"claim_id\": 2222,\n        \"adjustment_type_id\": 5\n      },\n      {\n        \"id\": 113,\n        \"foreign_id\": \"1234-5678\",\n        \"location_id\": 10,\n        \"patient_id\": 3,\n        \"guarantor_id\": 5,\n        \"provider_id\": 15,\n        \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n        \"description\": \"This is a description\",\n        \"deleted_at\": \"2024-09-15T11:21:26.003Z\",\n        \"adjustment_amount\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"adjusted_at\": \"2024-10-01\",\n        \"transaction_id\": \"NHP:JXZEQ1234\",\n        \"charge_id\": 1111,\n        \"claim_id\": 2222,\n        \"adjustment_type_id\": 5\n      }\n    ],\n    \"charges\": [\n      {\n        \"id\": 113,\n        \"foreign_id\": \"1234-5678\",\n        \"location_id\": 10,\n        \"patient_id\": 3,\n        \"guarantor_id\": 5,\n        \"provider_id\": 15,\n        \"procedure_id\": 34,\n        \"procedure_code\": \"D0120\",\n        \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n        \"description\": \"This is a description\",\n        \"fee\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"charged_at\": \"2024-10-05\",\n        \"deleted_at\": \"2022-01-01T00:00:00Z\"\n      },\n      {\n        \"id\": 113,\n        \"foreign_id\": \"1234-5678\",\n        \"location_id\": 10,\n        \"patient_id\": 3,\n        \"guarantor_id\": 5,\n        \"provider_id\": 15,\n        \"procedure_id\": 34,\n        \"procedure_code\": \"D0120\",\n        \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n        \"description\": \"This is a description\",\n        \"fee\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"charged_at\": \"2024-10-05\",\n        \"deleted_at\": \"2022-01-01T00:00:00Z\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"id\": 113,\n        \"foreign_id\": \"1234-5678\",\n        \"location_id\": 10,\n        \"patient_id\": 3,\n        \"guarantor_id\": 5,\n        \"provider_id\": 15,\n        \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n        \"description\": \"This is a description\",\n        \"deleted_at\": \"2024-09-15T11:21:26.003Z\",\n        \"payment_amount\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"paid_at\": \"2024-10-01\",\n        \"transaction_id\": \"NHP:JXZEQ1234\",\n        \"charge_id\": 1111,\n        \"claim_id\": 2222,\n        \"payment_plan_id\": 3,\n        \"insurance_plan_id\": 4,\n        \"payment_type_id\": 5\n      },\n      {\n        \"id\": 113,\n        \"foreign_id\": \"1234-5678\",\n        \"location_id\": 10,\n        \"patient_id\": 3,\n        \"guarantor_id\": 5,\n        \"provider_id\": 15,\n        \"updated_at\": \"2024-09-05T20:31:17.007Z\",\n        \"description\": \"This is a description\",\n        \"deleted_at\": \"2024-09-15T11:21:26.003Z\",\n        \"payment_amount\": {\n          \"amount\": \"62.00\",\n          \"currency\": \"USD\"\n        },\n        \"paid_at\": \"2024-10-01\",\n        \"transaction_id\": \"NHP:JXZEQ1234\",\n        \"charge_id\": 1111,\n        \"claim_id\": 2222,\n        \"payment_plan_id\": 3,\n        \"insurance_plan_id\": 4,\n        \"payment_type_id\": 5\n      }\n    ],\n    \"patient_alerts\": [\n      {\n        \"id\": 10,\n        \"patient_id\": 101,\n        \"note\": \"Patient is late on payment\",\n        \"disabled_at\": \"2024-02-05T20:16:57.007Z\",\n        \"created_at\": \"2023-11-11T10:11:01.007Z\",\n        \"updated_at\": \"2024-01-14T14:11:01.007Z\"\n      },\n      {\n        \"id\": 10,\n        \"patient_id\": 101,\n        \"note\": \"Patient is late on payment\",\n        \"disabled_at\": \"2024-02-05T20:16:57.007Z\",\n        \"created_at\": \"2023-11-11T10:11:01.007Z\",\n        \"updated_at\": \"2024-01-14T14:11:01.007Z\"\n      }\n    ],\n    \"appointments\": [\n      {\n        \"id\": 1822,\n        \"provider_id\": 102,\n        \"provider_name\": \"Dr. John Smith\",\n        \"start_time\": \"2021-12-06T09:45:00.000Z\",\n        \"end_time\": \"2021-12-06T10:00:00.000Z\",\n        \"location_id\": 1,\n        \"confirmed\": true\n      },\n      {\n        \"id\": 1822,\n        \"provider_id\": 102,\n        \"provider_name\": \"Dr. John Smith\",\n        \"start_time\": \"2021-12-06T09:45:00.000Z\",\n        \"end_time\": \"2021-12-06T10:00:00.000Z\",\n        \"location_id\": 1,\n        \"confirmed\": true\n      }\n    ],\n    \"location_ids\": [\n      101,\n      102,\n      103\n    ],\n    \"address\": {\n      \"line_1\": \"333 Bush Street\",\n      \"line_2\": \"Apt 4B\",\n      \"postal_code\": \"20814\",\n      \"city\": \"New York\",\n      \"region\": \"NY\"\n    }\n  },\n  \"count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1b8fae3-c98f-40c2-a23f-62e33c30a738",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63c213e8-8ec9-409b-825c-675214906686",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58044be9-3635-43cc-8ee1-e5c3381e333a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc23c125-c080-4db8-a1d8-1304ed0d2db9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2dd5b036-a2b3-4971-a350-ff6326e7ff18",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The NexHealth API version",
+                    "key": "Nex-Api-Version",
+                    "value": "v3.0.0"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nexhealth.info",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "64a43532-99a8-42da-bc00-e88b5abc5b59",
+    "name": "NexHealth Adjustment Types Patients API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+      "type": "text/plain"
+    }
+  }
+}

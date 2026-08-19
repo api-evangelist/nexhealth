@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Patient Recalls API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Patient Recalls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View patient recalls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/patient_recalls",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "recall_id",
+                "value": "1",
+                "type": "query",
+                "description": "Filter by the id of the associated recall type"
+              },
+              {
+                "name": "patient_id",
+                "value": "1",
+                "type": "query",
+                "description": "Filter by the id of the associated patient"
+              },
+              {
+                "name": "foreign_id",
+                "value": "1",
+                "type": "query",
+                "description": "Filter by the EHR id of the recall"
+              },
+              {
+                "name": "updated_since",
+                "value": "2024-04-12T10:30:00Z",
+                "type": "query",
+                "description": "Return records updated since the specified date/time in ISO8601 format"
+              },
+              {
+                "name": "due_after",
+                "value": "2024-08-01T00:00:00Z",
+                "type": "query",
+                "description": "Return recalls due on or after the specified date/time in ISO8601 format"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * date_due\n  * -date_due\n"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the patient recalls for the specified location, narrowed down by the optional filters configured."
+        },
+        {
+          "info": {
+            "name": "View patient recall",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/patient_recalls/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              }
+            ]
+          },
+          "docs": "View patient recall"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

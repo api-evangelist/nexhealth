@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Appointment Types API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Appointment Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View appointment types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/appointment_types",
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "View appointment types"
+        },
+        {
+          "info": {
+            "name": "Create an appointment type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nexhealth.info/appointment_types",
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an appointment type"
+        },
+        {
+          "info": {
+            "name": "View an appointment type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/appointment_types/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Id of the associated location,required when appointment types are location specific and when including sub-resources"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "View an appointment type"
+        },
+        {
+          "info": {
+            "name": "Edit an appointment type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://nexhealth.info/appointment_types/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit an appointment type"
+        },
+        {
+          "info": {
+            "name": "Delete an appointment type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://nexhealth.info/appointment_types/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Id of the associated location, required when appointment types are location specific"
+              }
+            ]
+          },
+          "docs": "Delete an appointment type"
+        },
+        {
+          "info": {
+            "name": "View appointment type appointment descriptors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/appointment_types/:id/appointment_descriptors",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Id of the associated location, required when appointment types are location specific"
+              },
+              {
+                "name": "descriptor_type",
+                "value": "",
+                "type": "query",
+                "description": "Query by descriptor type"
+              }
+            ]
+          },
+          "docs": "View appointment type appointment descriptors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

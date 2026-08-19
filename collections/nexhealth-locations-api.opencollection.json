@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Locations API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/locations",
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "inactive",
+                "value": "false",
+                "type": "query",
+                "description": "Filter by inactive status"
+              },
+              {
+                "name": "foreign_id",
+                "value": "1",
+                "type": "query",
+                "description": "Find location by the integrated system Id"
+              },
+              {
+                "name": "filter_by_subscription_feature",
+                "value": "",
+                "type": "query",
+                "description": "Filter by subscription feature"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the institutions accessible to the caller, each with its nested list of locations. Pass subdomain to scope the response to a single institution."
+        },
+        {
+          "info": {
+            "name": "View location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/locations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The NexHealth location id"
+              }
+            ]
+          },
+          "docs": "View location"
+        },
+        {
+          "info": {
+            "name": "View location appointment descriptors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/locations/:id/appointment_descriptors",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The NexHealth location id"
+              },
+              {
+                "name": "descriptor_type",
+                "value": "",
+                "type": "query",
+                "description": "Query by descriptor type"
+              }
+            ]
+          },
+          "docs": "View location appointment descriptors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

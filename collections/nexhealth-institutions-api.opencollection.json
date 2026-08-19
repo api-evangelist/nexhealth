@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Institutions API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Institutions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View institutions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/institutions"
+          },
+          "docs": "View institutions"
+        },
+        {
+          "info": {
+            "name": "View institution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/institutions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The NexHealth id of the institution"
+              }
+            ]
+          },
+          "docs": "View institution"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Available Slots API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Available Slots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View available slots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/available_slots",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "start_date",
+                "value": "2024-04-15",
+                "type": "query",
+                "description": "Date string you want results to start at, format YYYY-MM-DD"
+              },
+              {
+                "name": "days",
+                "value": "7",
+                "type": "query",
+                "description": "Number of days to include, counting the start date. For best performance, this value should not exceed 14 days."
+              },
+              {
+                "name": "appointment_type_id",
+                "value": "27",
+                "type": "query",
+                "description": "Specify an appointment type to filter returned slots and set slot_length to appointment_type.minutes"
+              },
+              {
+                "name": "working_hour_label_id",
+                "value": "11",
+                "type": "query",
+                "description": "Filter by specific working hour label"
+              },
+              {
+                "name": "working_hour_source",
+                "value": "manual",
+                "type": "query",
+                "description": "Filter by source of working hours"
+              },
+              {
+                "name": "slot_length",
+                "value": "30",
+                "type": "query",
+                "description": "Manually specify slot length in minutes. Defaults to 15 minutes"
+              },
+              {
+                "name": "slot_interval",
+                "value": "15",
+                "type": "query",
+                "description": "Manually specify the time in minutes between returned slot start times when a contiguous opening exists longer than the slot_length"
+              },
+              {
+                "name": "overlapping_operatory_slots",
+                "value": "false",
+                "type": "query",
+                "description": "Return all available slots for operatories at a given time instead of returning only the first found. Default is false"
+              },
+              {
+                "name": "appointments_per_timeslot",
+                "value": "",
+                "type": "query",
+                "description": "Number of appointments (default:1, max:5) that can be booked in a single slot. Only supported for eClinicalWorks and NextGen."
+              },
+              {
+                "name": "lids[]",
+                "value": "1",
+                "type": "query",
+                "description": "Array of Location Ids"
+              },
+              {
+                "name": "pids[]",
+                "value": "83",
+                "type": "query",
+                "description": "Array of Provider Ids"
+              },
+              {
+                "name": "operatory_ids[]",
+                "value": "54",
+                "type": "query",
+                "description": "Specify this if booking is mapped to operatory in this location"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the bookable slots for the requested locations over the given date range, computed from provider availabilities and existing appointments. At least one of pids or appointment_type_id must be provided."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

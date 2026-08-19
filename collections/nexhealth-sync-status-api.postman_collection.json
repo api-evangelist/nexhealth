@@ -1,0 +1,432 @@
+{
+  "item": [
+    {
+      "id": "e32b8876-797b-402a-b224-262e9947ad52",
+      "name": "Sync Status",
+      "description": {
+        "content": "Status of a NexHealth EHR synchronization service",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0aa35321-b5e3-48b2-af2b-8d2fdf197e74",
+          "name": "View sync statuses",
+          "request": {
+            "name": "View sync statuses",
+            "description": {},
+            "url": {
+              "path": [
+                "sync_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subdomain",
+                  "value": "<string>",
+                  "description": "Used to scope the request to the specified institution"
+                },
+                {
+                  "disabled": false,
+                  "key": "read_status",
+                  "value": "<string>",
+                  "description": "Filter by read status"
+                },
+                {
+                  "disabled": false,
+                  "key": "write_status",
+                  "value": "<string>",
+                  "description": "Filter by write status"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids[]",
+                  "value": "<integer>",
+                  "description": "Return the status of sync services running on the specified locations"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids[]",
+                  "value": "<integer>",
+                  "description": "Return the status of sync services running on the specified locations"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.Nexhealth+json;version=2"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b246da3-495f-452e-b22c-356009cf2ec9",
+              "name": "Successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sync_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "read_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "write_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": false,\n  \"description\": \"Description\",\n  \"error\": [\n    \"Error message\"\n  ],\n  \"data\": [\n    {\n      \"institution_id\": 1,\n      \"sync_source_type\": \"DataSource\",\n      \"sync_source_name\": \"My Source\",\n      \"emr\": {\n        \"id\": 11,\n        \"name\": \"dentrix\",\n        \"display_name\": \"Dentrix\",\n        \"type\": \"onprem\"\n      },\n      \"read_status\": \"green\",\n      \"read_status_at\": \"2020-06-05T20:16:57.007Z\",\n      \"write_status\": \"red\",\n      \"write_status_at\": \"2020-06-05T20:16:57.007Z\",\n      \"locations\": [\n        {\n          \"id\": 7,\n          \"name\": \"Default\",\n          \"street_address\": \"123 Law St\",\n          \"street_address_2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"phone_number\": \"8888750851\",\n          \"email\": \"defaultLocation@nexhealth.com\",\n          \"inactive\": false\n        },\n        {\n          \"id\": 7,\n          \"name\": \"Default\",\n          \"street_address\": \"123 Law St\",\n          \"street_address_2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"phone_number\": \"8888750851\",\n          \"email\": \"defaultLocation@nexhealth.com\",\n          \"inactive\": false\n        }\n      ]\n    },\n    {\n      \"institution_id\": 1,\n      \"sync_source_type\": \"DataSource\",\n      \"sync_source_name\": \"My Source\",\n      \"emr\": {\n        \"id\": 11,\n        \"name\": \"dentrix\",\n        \"display_name\": \"Dentrix\",\n        \"type\": \"onprem\"\n      },\n      \"read_status\": \"green\",\n      \"read_status_at\": \"2020-06-05T20:16:57.007Z\",\n      \"write_status\": \"red\",\n      \"write_status_at\": \"2020-06-05T20:16:57.007Z\",\n      \"locations\": [\n        {\n          \"id\": 7,\n          \"name\": \"Default\",\n          \"street_address\": \"123 Law St\",\n          \"street_address_2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"phone_number\": \"8888750851\",\n          \"email\": \"defaultLocation@nexhealth.com\",\n          \"inactive\": false\n        },\n        {\n          \"id\": 7,\n          \"name\": \"Default\",\n          \"street_address\": \"123 Law St\",\n          \"street_address_2\": \"85335, North East\",\n          \"city\": \"New York\",\n          \"state\": \"NY\",\n          \"zip_code\": \"54700\",\n          \"phone_number\": \"8888750851\",\n          \"email\": \"defaultLocation@nexhealth.com\",\n          \"inactive\": false\n        }\n      ]\n    }\n  ],\n  \"count\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60665400-c5b5-4108-8327-429187660cf9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sync_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "read_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "write_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ab71c22-afe5-4413-9565-d3b0dd55c281",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sync_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "read_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "write_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f63a053f-7b13-4478-9bb0-f7820c7cf039",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sync_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "read_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "write_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5306d550-a376-4f76-afed-326012e65176",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sync_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subdomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "read_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "write_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_ids[]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.Nexhealth+json;version=2"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.Nexhealth+json;version=2"
+                }
+              ],
+              "body": "{\n  \"code\": true,\n  \"description\": \"string\",\n  \"data\": {},\n  \"error\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://nexhealth.info",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1aff6838-6263-4a97-8c42-ab3c43293b46",
+    "name": "NexHealth Adjustment Types Sync Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.\n\nContact Support:\n Name: NexHealth\n Email: info@nexhealth.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Onboardings API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Onboardings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View onboardings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/onboardings",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Filter by institution subdomain. Must be a subdomain your application has access to (as returned by the API in a previous query); an unknown or inaccessible subdomain returns 403 Forbidden. When omitted, onboardings for all of your organization's institutions are returned, including onboardings not yet matched to an institution."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by status"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma-separated string of fields to sort on.\nInclude a leading dash for descending order.\n\nAvailable fields:\n  * created_at\n  * -created_at\n  * status\n  * -status\n  * subdomain\n  * -subdomain\n"
+              }
+            ]
+          },
+          "docs": "Returns the onboardings created by your organization. Each record represents a practice setup flow: either a full onboarding of a new institution or an installation added to an existing institution. Each setup flow appears once: installations that were created as part of an onboarding are represented by their parent onboarding and are not listed separately, although their IDs (e.g. from webhook events) can still be fetched individually via GET /onboardings/:id. Optionally filter by subdomain or "
+        },
+        {
+          "info": {
+            "name": "Create onboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nexhealth.info/onboardings",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an onboarding link to set up NexHealth at a practice. Include institution_name to onboard a new institution, or subdomain to add locations to an existing institution. Send the returned url to practice staff; it expires 3 months after creation. Only production applications can create onboardings."
+        },
+        {
+          "info": {
+            "name": "View onboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/onboardings/:hashid",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hashid",
+                "value": "y2wxl82zldm4",
+                "type": "path",
+                "description": "The ID of the onboarding, as returned in the id field by the list and create endpoints."
+              }
+            ]
+          },
+          "docs": "Returns a single onboarding by its ID. Responds with 404 if the ID does not exist or was created by another organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

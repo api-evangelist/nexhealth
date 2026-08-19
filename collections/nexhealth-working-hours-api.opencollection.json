@@ -1,0 +1,316 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Working Hours API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Working Hours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View working hour labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/working_hour_labels",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "3",
+                "type": "query",
+                "description": "Id of the associated location. Returns labels tied to the location as well as institution-wide labels available to it"
+              },
+              {
+                "name": "search_name",
+                "value": "New patient",
+                "type": "query",
+                "description": "Filter working hour labels by search term"
+              },
+              {
+                "name": "active",
+                "value": "true",
+                "type": "query",
+                "description": "Filter by active status."
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list of Working Hour Labels, narrowed down by the optional filters configured."
+        },
+        {
+          "info": {
+            "name": "View working hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/working_hours",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              },
+              {
+                "name": "start_cursor",
+                "value": "",
+                "type": "query",
+                "description": "First item of the current page. Starts empty"
+              },
+              {
+                "name": "end_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Last item of the current page. Starts empty"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Maximum allowed amount is 1000."
+              },
+              {
+                "name": "provider_id",
+                "value": "7",
+                "type": "query",
+                "description": "Filter for specific provider"
+              },
+              {
+                "name": "operatory_id",
+                "value": "149",
+                "type": "query",
+                "description": "Filter for specific operatory"
+              },
+              {
+                "name": "label_id",
+                "value": "11",
+                "type": "query",
+                "description": "Filter by specific label"
+              },
+              {
+                "name": "source",
+                "value": "manual",
+                "type": "query",
+                "description": "Filter by source of working hour"
+              },
+              {
+                "name": "active",
+                "value": "true",
+                "type": "query",
+                "description": "Filter active/not active"
+              },
+              {
+                "name": "ignore_past_dates",
+                "value": "false",
+                "type": "query",
+                "description": "Filter out working hours configured for specific dates in the past"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the working hours for the specified location, narrowed down by the optional filters configured."
+        },
+        {
+          "info": {
+            "name": "Create working hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nexhealth.info/working_hours",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified location"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint creates an availability for a provider at the specified location. Exactly one of days, specific_date, or custom_recurrence must be configured."
+        },
+        {
+          "info": {
+            "name": "View working hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/working_hours/:id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the working hour"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included in the response"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a single working hour."
+        },
+        {
+          "info": {
+            "name": "Edit working hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://nexhealth.info/working_hours/:id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the working hour"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint updates an existing working hour. At most one of days, specific_date, or custom_recurrence can be provided. The appointment_types field is included in the response only when appointment_type_ids or appointment_category_ids were part of the update."
+        },
+        {
+          "info": {
+            "name": "Delete working hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://nexhealth.info/working_hours/:id",
+            "headers": [
+              {
+                "name": "Nex-Api-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the working hour"
+              },
+              {
+                "name": "subdomain",
+                "value": "",
+                "type": "query",
+                "description": "Used to scope the request to the specified institution"
+              }
+            ]
+          },
+          "docs": "This endpoint deletes a working hour."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

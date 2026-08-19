@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexHealth Adjustment Types Webhook Endpoints API",
+    "version": "v20240412"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhook Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View webhook endpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nexhealth.info/webhook_endpoints",
+            "params": [
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Return only active or inactive endpoints"
+              }
+            ]
+          },
+          "docs": "View webhook endpoints"
+        },
+        {
+          "info": {
+            "name": "Create webhook endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nexhealth.info/webhook_endpoints",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create webhook endpoint"
+        },
+        {
+          "info": {
+            "name": "Edit webhook endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://nexhealth.info/webhook_endpoints/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook Endpoint id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit webhook endpoint"
+        },
+        {
+          "info": {
+            "name": "Delete webhook endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://nexhealth.info/webhook_endpoints/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook Endpoint id"
+              }
+            ]
+          },
+          "docs": "Delete webhook endpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
