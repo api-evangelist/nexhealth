@@ -42,6 +42,18 @@ tags:
 - Patients
 - Health Records
 - Insurance
+- Webhook
+tags_raw:
+- Company
+- Healthcare
+- EHR
+- Practice Management
+- Scheduling
+- Appointments
+- Dental
+- Patients
+- Health Records
+- Insurance
 - Webhooks
 maintainers:
 - FN: Kin Lane
@@ -224,6 +236,8 @@ apis:
   humanURL: https://docs.nexhealth.com/reference/introduction
   baseURL: https://nexhealth.info
   tags:
+  - institutions
+  tags_raw:
   - Institutions
   properties:
   - type: OpenAPI
