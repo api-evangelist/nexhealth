@@ -280,6 +280,8 @@ apis:
   humanURL: https://docs.nexhealth.com/reference/introduction
   baseURL: https://nexhealth.info
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
