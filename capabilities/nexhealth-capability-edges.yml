@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 13
+edge_count: 17
 edges:
 - tag: Appointments
   spec_file: nexhealth-appointments-api-openapi.yml
@@ -142,3 +142,48 @@ edges:
     API_V2_Entities_Insurance_Subscriber
   reason: Exposes patient insurance plans and coverage/subscriber details used to establish benefits and
     coverage before service; verification-adjacent, hence moderate confidence.
+- tag: Operatories
+  spec_file: nexhealth-operatories-api-openapi.yml
+  capability_id: BC-2800.10
+  capability_id_l1: BC-2800
+  capability_name: Scheduling & Appointment Management
+  confidence: 0.7
+  evidence: GET /operatories  getOperatories  View operatories; schemas API_V2_Entities_OperatoryWithResources,
+    API_V2_Entities_AppointmentTypeBasic
+  reason: Operatories are the treatment rooms/chairs used as bookable resources, returned with their resources
+    and appointment types — resource scheduling data underpinning appointment booking.
+  recovered_from: healthcare-vertical-edges.json
+- tag: Payments
+  spec_file: nexhealth-payments-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.7
+  evidence: POST /payments  Create payment; API_V2_Entities_Patient_Ledger_Charge, API_V2_Entities_Ledger_Insurance_ClaimBasic,
+    API_V20240412_Entities_Ledger_Payment
+  reason: Records and reads payments posted to patient ledger charges and insurance claims — cash application
+    against customer (patient) invoices, which is accounts receivable management. Not subscription billing,
+    since charges originate from clinical procedures.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: Webhook Endpoints
+  spec_file: nexhealth-webhook-endpoints-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.7
+  evidence: POST /webhook_endpoints  Create webhook endpoint; API_V2_Entities_WebhookEndpoint
+  reason: NexHealth is a developer API platform; these operations manage the lifecycle of outbound webhook
+    endpoints that developers register to receive events, which matches Webhook & Event Subscription Management.
+    Confidence moderated because webhook plumbing is generic infrastructure.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: Webhook Subscriptions
+  spec_file: nexhealth-webhook-subscriptions-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.7
+  evidence: POST /webhook_endpoints/{id}/webhook_subscriptions  Create webhook subscription; API_V2_Entities_WebhookSubscription
+  reason: Create/edit/delete of event subscriptions attached to webhook endpoints on a developer-facing
+    API platform; matches lifecycle of outbound webhook/event subscriptions. Moderate confidence as this
+    is generic integration plumbing.
+  recovered_from: sweep-20260829T005356Z-edges.json
