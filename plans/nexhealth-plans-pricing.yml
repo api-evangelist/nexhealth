@@ -1,0 +1,22 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.nexhealth.com/pricing
+sources:
+- https://www.nexhealth.com/pricing
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: negotiated
+published: false
+note: Quote-request configurator; no numeric prices shown. Mentions monthly or annual billing options
+  and 'Custom plans available. Contact us to discuss your needs.'
+plan_count: 1
+plans:
+- name: Custom package
+  price_text: Tell us about your practice to get a quote.
+  period: none
+  included_quota: Scheduling, Forms, Communications, Payments, Verification, Insights; EHR Integration,
+    HIPAA compliance and security, white-glove support

@@ -544,6 +544,8 @@ apis:
   - type: Authentication
     url: authentication/nexhealth-authentication.yml
 common:
+- type: Plans
+  url: plans/nexhealth-plans-pricing.yml
 - type: CapabilityMap
   url: capabilities/nexhealth-capability-edges.yml
   name: NexHealth Business Capability Map
