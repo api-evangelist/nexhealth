@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: NexHealth Adjustment Types Locations API
+  title: NexHealth Locations API
   description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
   termsOfService: https://www.nexhealth.com/terms-of-service
   contact:
@@ -194,7 +194,7 @@ paths:
       operationId: getLocationsIdAppointmentDescriptors
 components:
   schemas:
-    API_Errors_InternalServerError:
+    API_Errors_BadRequest:
       type: object
       properties:
         code:
@@ -210,8 +210,8 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_Forbidden:
+      description: API_Errors_BadRequest model
+    API_Errors_NotFound:
       type: object
       properties:
         code:
@@ -227,7 +227,7 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
+      description: API_Errors_NotFound model
     API_V2_Entities_Location:
       type: object
       properties:
@@ -246,35 +246,41 @@ components:
           example: 1
           description: Institution id
         street_address:
-          type: string
+          type:
+          - string
+          - 'null'
           example: 123 Law St
           description: Location street address
-          nullable: true
         street_address_2:
-          type: string
+          type:
+          - string
+          - 'null'
           example: 85335, North East
           description: Location street address 2
-          nullable: true
         city:
-          type: string
+          type:
+          - string
+          - 'null'
           example: New York
           description: Location city
-          nullable: true
         state:
-          type: string
+          type:
+          - string
+          - 'null'
           example: NY
           description: 2 letter state code
-          nullable: true
         zip_code:
-          type: string
+          type:
+          - string
+          - 'null'
           example: '54700'
           description: Location zip code
-          nullable: true
         country_code:
-          type: string
+          type:
+          - string
+          - 'null'
           example: US
           description: Location country code
-          nullable: true
         created_at:
           type: string
           example: '2020-06-05T20:16:57.007Z'
@@ -284,22 +290,25 @@ components:
           example: '2020-06-05T20:16:57.007Z'
           description: Location last updation time in UTC
         latitude:
-          type: number
+          type:
+          - number
+          - 'null'
           format: float
           example: 37.7775028
           description: Geolocated latitude determined by the address
-          nullable: true
         longitude:
-          type: number
+          type:
+          - number
+          - 'null'
           format: float
           example: -122.3970603
           description: Geolocated longitude determined by the address
-          nullable: true
         phone_number:
-          type: string
+          type:
+          - string
+          - 'null'
           example: '8888750851'
           description: Practice phone number
-          nullable: true
         foreign_id:
           type: string
           example: '1'
@@ -309,19 +318,21 @@ components:
           example: --DataSource-
           description: Unique identifier for the integrated system
         email:
-          type: string
+          type:
+          - string
+          - 'null'
           example: defaultLocation@nexhealth.com
           description: Location email id
-          nullable: true
         tz:
           type: string
           example: America/Los_Angeles
           description: Timezone name
         last_sync_time:
-          type: string
+          type:
+          - string
+          - 'null'
           example: '2020-06-17T19:23:49.176Z'
           description: Last time the resource was refreshed with data from the data source
-          nullable: true
         insert_appt_client:
           type: boolean
           example: true
@@ -340,229 +351,6 @@ components:
           description: Is this location not being actively used?
         specialty:
           $ref: '#/components/schemas/API_Entities_Specialty'
-    API_Errors_Unauthorized:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
-    API_V2_Entities_InstitutionBasicWithLocations:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 1
-          description: Institution Id
-        name:
-          type: string
-          example: General Practice - Dr. P. Sherman DDS
-          description: Institution Name
-        subdomain:
-          type: string
-          example: example-subdomain
-          description: Institution subdomain
-        locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V2_Entities_Location'
-          description: List of locations belonging to the institution
-    API_Entities_Location:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 7
-          description: Location id
-        name:
-          type: string
-          example: Default
-          description: Location name
-        institution_id:
-          type: integer
-          format: int32
-          example: 1
-          description: Institution id
-        street_address:
-          type: string
-          example: 123 Law St
-          description: Location street address
-          nullable: true
-        street_address_2:
-          type: string
-          example: 85335, North East
-          description: Location street address 2
-          nullable: true
-        city:
-          type: string
-          example: New York
-          description: Location city
-          nullable: true
-        state:
-          type: string
-          example: NY
-          description: 2 letter state code
-          nullable: true
-        zip_code:
-          type: string
-          example: '54700'
-          description: Location zip code
-          nullable: true
-        country_code:
-          type: string
-          example: US
-          description: Location country code
-          nullable: true
-        created_at:
-          type: string
-          example: '2020-06-05T20:16:57.007Z'
-          description: Location created time in UTC
-        updated_at:
-          type: string
-          example: '2020-06-05T20:16:57.007Z'
-          description: Location last updation time in UTC
-        latitude:
-          type: number
-          format: float
-          example: 37.7775028
-          description: Geolocated latitude determined by the address
-          nullable: true
-        longitude:
-          type: number
-          format: float
-          example: -122.3970603
-          description: Geolocated longitude determined by the address
-          nullable: true
-        phone_number:
-          type: string
-          example: '8888750851'
-          description: Practice phone number
-          nullable: true
-        foreign_id:
-          type: string
-          example: '1'
-          description: Unique identifier from the integrated system
-        foreign_id_type:
-          type: string
-          example: --DataSource-
-          description: Unique identifier for the integrated system
-        email:
-          type: string
-          example: defaultLocation@nexhealth.com
-          description: Location email id
-          nullable: true
-        tz:
-          type: string
-          example: America/Los_Angeles
-          description: Timezone name
-        last_sync_time:
-          type: string
-          example: '2020-06-17T19:23:49.176Z'
-          description: Last time the resource was refreshed with data from the data source
-          nullable: true
-        insert_appt_client:
-          type: boolean
-          example: true
-          description: True if appointments created at this location are inserted into the EHR
-        map_by_operatory:
-          type: boolean
-          example: true
-          description: True if this location uses and therefore requires an operatory to schedule appointments
-        set_availability_by_operatory:
-          type: boolean
-          example: false
-          description: True if the location has appointment types specific to an operatory, false if the appointment types are specific to a provider
-        inactive:
-          type: boolean
-          example: false
-          description: Is this location not being actively used?
-        specialty:
-          $ref: '#/components/schemas/API_Entities_Specialty'
-    API_Errors_BadRequest:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
-    API_V2_Entities_EmrApptDescriptor_Collection_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V2_Entities_EmrApptDescriptor_Collection_Response model
-    API_V2_Entities_InstitutionBasicWithLocations_Collection_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V2_Entities_InstitutionBasicWithLocations'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V2_Entities_InstitutionBasicWithLocations_Collection_Response model
     API_Entities_Location_Response:
       type: object
       properties:
@@ -589,7 +377,7 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_Entities_Location_Response model
-    API_Errors_NotFound:
+    API_Errors_Forbidden:
       type: object
       properties:
         code:
@@ -605,7 +393,7 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
+      description: API_Errors_Forbidden model
     API_V2_Entities_EmrApptDescriptor:
       type: object
       properties:
@@ -662,6 +450,240 @@ components:
           format: date-time
           example: '2021-05-21T16:23:03.046Z'
           description: The datetime the descriptor was last updated in UTC
+    API_V2_Entities_InstitutionBasicWithLocations_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_InstitutionBasicWithLocations'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_InstitutionBasicWithLocations_Collection_Response model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_Entities_Location:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 7
+          description: Location id
+        name:
+          type: string
+          example: Default
+          description: Location name
+        institution_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Institution id
+        street_address:
+          type:
+          - string
+          - 'null'
+          example: 123 Law St
+          description: Location street address
+        street_address_2:
+          type:
+          - string
+          - 'null'
+          example: 85335, North East
+          description: Location street address 2
+        city:
+          type:
+          - string
+          - 'null'
+          example: New York
+          description: Location city
+        state:
+          type:
+          - string
+          - 'null'
+          example: NY
+          description: 2 letter state code
+        zip_code:
+          type:
+          - string
+          - 'null'
+          example: '54700'
+          description: Location zip code
+        country_code:
+          type:
+          - string
+          - 'null'
+          example: US
+          description: Location country code
+        created_at:
+          type: string
+          example: '2020-06-05T20:16:57.007Z'
+          description: Location created time in UTC
+        updated_at:
+          type: string
+          example: '2020-06-05T20:16:57.007Z'
+          description: Location last updation time in UTC
+        latitude:
+          type:
+          - number
+          - 'null'
+          format: float
+          example: 37.7775028
+          description: Geolocated latitude determined by the address
+        longitude:
+          type:
+          - number
+          - 'null'
+          format: float
+          example: -122.3970603
+          description: Geolocated longitude determined by the address
+        phone_number:
+          type:
+          - string
+          - 'null'
+          example: '8888750851'
+          description: Practice phone number
+        foreign_id:
+          type: string
+          example: '1'
+          description: Unique identifier from the integrated system
+        foreign_id_type:
+          type: string
+          example: --DataSource-
+          description: Unique identifier for the integrated system
+        email:
+          type:
+          - string
+          - 'null'
+          example: defaultLocation@nexhealth.com
+          description: Location email id
+        tz:
+          type: string
+          example: America/Los_Angeles
+          description: Timezone name
+        last_sync_time:
+          type:
+          - string
+          - 'null'
+          example: '2020-06-17T19:23:49.176Z'
+          description: Last time the resource was refreshed with data from the data source
+        insert_appt_client:
+          type: boolean
+          example: true
+          description: True if appointments created at this location are inserted into the EHR
+        map_by_operatory:
+          type: boolean
+          example: true
+          description: True if this location uses and therefore requires an operatory to schedule appointments
+        set_availability_by_operatory:
+          type: boolean
+          example: false
+          description: True if the location has appointment types specific to an operatory, false if the appointment types are specific to a provider
+        inactive:
+          type: boolean
+          example: false
+          description: Is this location not being actively used?
+        specialty:
+          $ref: '#/components/schemas/API_Entities_Specialty'
+    API_V2_Entities_EmrApptDescriptor_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_EmrApptDescriptor_Collection_Response model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_V2_Entities_InstitutionBasicWithLocations:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Institution Id
+        name:
+          type: string
+          example: General Practice - Dr. P. Sherman DDS
+          description: Institution Name
+        subdomain:
+          type: string
+          example: example-subdomain
+          description: Institution subdomain
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_Location'
+          description: List of locations belonging to the institution
     API_Entities_Specialty:
       type: object
       properties:

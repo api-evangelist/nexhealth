@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: NexHealth Adjustment Types Sync Status API
+  title: NexHealth Sync Status API
   description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
   termsOfService: https://www.nexhealth.com/terms-of-service
   contact:
@@ -92,57 +92,6 @@ paths:
       operationId: getSyncStatus
 components:
   schemas:
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_Forbidden:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
-    API_Errors_Unauthorized:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
     API_Errors_BadRequest:
       type: object
       properties:
@@ -160,29 +109,67 @@ components:
             type: string
           description: Any errors that occured during the execution of the request.
       description: API_Errors_BadRequest model
-    API_V2_Entities_Emr:
+    API_Entities_LocationBasic:
       type: object
       properties:
         id:
           type: integer
           format: int32
-          example: 11
-          description: EMR id
+          example: 7
+          description: Location id
         name:
           type: string
-          example: dentrix
-          description: EMR name
-        display_name:
+          example: Default
+          description: Location name
+        street_address:
           type: string
-          example: Dentrix
-          description: EMR display name
-        type:
+          example: 123 Law St
+          description: Location street address
+        street_address_2:
           type: string
-          enum:
-          - cloud
-          - onprem
-          example: onprem
-          description: Type of EMR. Can be cloud or onprem.
+          example: 85335, North East
+          description: Location street address 2
+        city:
+          type: string
+          example: New York
+          description: Location city
+        state:
+          type: string
+          example: NY
+          description: 2 letter state code
+        zip_code:
+          type: string
+          example: '54700'
+          description: Patient zip code
+        phone_number:
+          type: string
+          example: '8888750851'
+          description: Practice phone number
+        email:
+          type: string
+          example: defaultLocation@nexhealth.com
+          description: Location email id
+        inactive:
+          type: boolean
+          example: false
+          description: Is this location not being actively used?
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
     API_V2_Entities_SyncStatus_Collection_Response:
       type: object
       properties:
@@ -211,6 +198,40 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_V2_Entities_SyncStatus_Collection_Response model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
     API_V2_Entities_SyncStatus:
       type: object
       properties:
@@ -258,50 +279,29 @@ components:
           items:
             $ref: '#/components/schemas/API_Entities_LocationBasic'
           description: Locations whose data this service is synchronizing with
-    API_Entities_LocationBasic:
+    API_V2_Entities_Emr:
       type: object
       properties:
         id:
           type: integer
           format: int32
-          example: 7
-          description: Location id
+          example: 11
+          description: EMR id
         name:
           type: string
-          example: Default
-          description: Location name
-        street_address:
+          example: dentrix
+          description: EMR name
+        display_name:
           type: string
-          example: 123 Law St
-          description: Location street address
-        street_address_2:
+          example: Dentrix
+          description: EMR display name
+        type:
           type: string
-          example: 85335, North East
-          description: Location street address 2
-        city:
-          type: string
-          example: New York
-          description: Location city
-        state:
-          type: string
-          example: NY
-          description: 2 letter state code
-        zip_code:
-          type: string
-          example: '54700'
-          description: Patient zip code
-        phone_number:
-          type: string
-          example: '8888750851'
-          description: Practice phone number
-        email:
-          type: string
-          example: defaultLocation@nexhealth.com
-          description: Location email id
-        inactive:
-          type: boolean
-          example: false
-          description: Is this location not being actively used?
+          enum:
+          - cloud
+          - onprem
+          example: onprem
+          description: Type of EMR. Can be cloud or onprem.
   securitySchemes:
     Authorization:
       type: apiKey

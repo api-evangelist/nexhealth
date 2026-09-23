@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: NexHealth Adjustment Types Authenticates API
+  title: NexHealth Authenticates API
   description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
   termsOfService: https://www.nexhealth.com/terms-of-service
   contact:
@@ -52,23 +52,6 @@ components:
           type: string
           example: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoiYXBpX3VzZXIiLCJleHAiOjE2MjgwMDM2NDMsImlhdCI6MTYyODAwMzYzMywianRpIjoiYTEzYzdlZTAtNmMwOC00YTE5LWExYzAtN2ZkMjNlNDJiZDEzIn0.zu8rJk6F4ZRzkflWPK0ykxRNsJR9A6IZiU9kxcsdxn4
           description: Use this bearer token to access protected routes
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
     API_Errors_Unauthorized:
       type: object
       properties:
@@ -86,6 +69,23 @@ components:
             type: string
           description: Any errors that occured during the execution of the request.
       description: API_Errors_Unauthorized model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
     API_V2_Entities_AuthorizationResponse_Response:
       type: object
       properties:

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: NexHealth Adjustment Types Onboardings API
+  title: NexHealth Onboardings API
   description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
   termsOfService: https://www.nexhealth.com/terms-of-service
   contact:
@@ -225,7 +225,33 @@ paths:
       operationId: getOnboardingsHashid
 components:
   schemas:
-    API_Errors_InternalServerError:
+    API_V20240412_Entities_Api_Onboarding_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V20240412_Entities_Api_Onboarding_Response model
+    API_Errors_BadRequest:
       type: object
       properties:
         code:
@@ -241,7 +267,55 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
+      description: API_Errors_BadRequest model
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor model
     API_Errors_Forbidden:
       type: object
       properties:
@@ -259,6 +333,75 @@ components:
             type: string
           description: Any errors that occured during the execution of the request.
       description: API_Errors_Forbidden model
+    API_V20240412_Entities_Api_Onboarding:
+      type: object
+      properties:
+        id:
+          type: string
+          example: y2wxl82zldm4
+          description: The ID of the onboarding process.
+        created_at:
+          type: string
+          format: date-time
+          example: '2026-01-01T00:00:00Z'
+          description: The timestamp the onboarding url was created.
+        subdomain:
+          type:
+          - string
+          - 'null'
+          example: test-subdomain
+          description: The subdomain of the institution this onboarding belongs to. Null until the onboarding has been matched to an institution (e.g. while a new institution is still being set up).
+        url:
+          type: string
+          example: https://app.nexhealth.com/onboardings/y2wxl82zldm4
+          description: The link to send to practice staff to complete setup. Format varies by onboarding type. Expires at url_expires_at.
+        url_expires_at:
+          type: string
+          format: date-time
+          example: '2026-02-01T00:00:00Z'
+          description: When the url will expire and no longer be valid.
+        status:
+          type: string
+          enum:
+          - in_progress
+          - complete
+          - failed
+          example: in_progress
+          description: 'Current state of the onboarding. in_progress: the link has been created and setup is not finished; complete: setup finished (including installations completed manually by NexHealth); failed: the onboarding failed, was cancelled, or was disabled and will not proceed.'
+        booking_params:
+          type:
+          - object
+          - 'null'
+          example:
+            location_id: 105
+            appointment_type_ids:
+            - 19
+            - 20
+          description: Data collected during setup for online booking. Contains "location_id" (ID of the location selected during setup; may be serialized as an integer or numeric string) and "appointment_type_ids" (array of appointment type IDs), each present only after the corresponding setup step has run. Always null for installation-based onboardings. Before setup begins it is an empty object on the retrieve and create endpoints and null on the list endpoint.
+        availability_ready_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2026-01-01T00:00:00Z'
+          description: When the onboarding location first became bookable. Null until availability is ready.
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
     postOnboardings:
       type: object
       properties:
@@ -306,56 +449,7 @@ components:
       required:
       - onboarding
       description: Create onboarding
-    API_V20240412_Entities_Api_Onboarding:
-      type: object
-      properties:
-        id:
-          type: string
-          example: y2wxl82zldm4
-          description: The ID of the onboarding process.
-        created_at:
-          type: string
-          format: date-time
-          example: '2026-01-01T00:00:00Z'
-          description: The timestamp the onboarding url was created.
-        subdomain:
-          type: string
-          example: test-subdomain
-          description: The subdomain of the institution this onboarding belongs to. Null until the onboarding has been matched to an institution (e.g. while a new institution is still being set up).
-          nullable: true
-        url:
-          type: string
-          example: https://app.nexhealth.com/onboardings/y2wxl82zldm4
-          description: The link to send to practice staff to complete setup. Format varies by onboarding type. Expires at url_expires_at.
-        url_expires_at:
-          type: string
-          format: date-time
-          example: '2026-02-01T00:00:00Z'
-          description: When the url will expire and no longer be valid.
-        status:
-          type: string
-          enum:
-          - in_progress
-          - complete
-          - failed
-          example: in_progress
-          description: 'Current state of the onboarding. in_progress: the link has been created and setup is not finished; complete: setup finished (including installations completed manually by NexHealth); failed: the onboarding failed, was cancelled, or was disabled and will not proceed.'
-        booking_params:
-          type: object
-          example:
-            location_id: 105
-            appointment_type_ids:
-            - 19
-            - 20
-          description: Data collected during setup for online booking. Contains "location_id" (ID of the location selected during setup; may be serialized as an integer or numeric string) and "appointment_type_ids" (array of appointment type IDs), each present only after the corresponding setup step has run. Always null for installation-based onboardings. Before setup begins it is an empty object on the retrieve and create endpoints and null on the list endpoint.
-          nullable: true
-        availability_ready_at:
-          type: string
-          format: date-time
-          example: '2026-01-01T00:00:00Z'
-          description: When the onboarding location first became bookable. Null until availability is ready.
-          nullable: true
-    API_Errors_Unauthorized:
+    API_Errors_InternalServerError:
       type: object
       properties:
         code:
@@ -371,98 +465,7 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
-    API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
-        page_info:
-          type: object
-          example:
-            has_previous_page: false
-            has_next_page: false
-            start_cursor: AAAAA
-            end_cursor: BBBBBB
-          description: Pagination information that can be used for fetching previous and next pages.
-      description: API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor model
-    API_Errors_BadRequest:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
-    API_V20240412_Entities_Api_Onboarding_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V20240412_Entities_Api_Onboarding_Response model
-    API_Errors_NotFound:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
+      description: API_Errors_InternalServerError model
   securitySchemes:
     Authorization:
       type: apiKey

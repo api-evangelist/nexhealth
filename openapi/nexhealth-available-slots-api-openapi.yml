@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: NexHealth Adjustment Types Available Slots API
+  title: NexHealth Available Slots API
   description: v3.0.0 and v20240412 are two names for the same API version; the Nex-Api-Version header accepts either value. Welcome to the developer hub and documentation for NexHealth API. This section of guide describes the operations, response parameters, request parameters, and parameter constraints related to User API. The term Operations refer to functions or methods. The operations are included in requests and send to the web server. Each operation performs a different action or a query on database.
   termsOfService: https://www.nexhealth.com/terms-of-service
   contact:
@@ -184,57 +184,6 @@ paths:
       operationId: getAvailableSlots
 components:
   schemas:
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_Forbidden:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
-    API_Errors_Unauthorized:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
     API_Errors_BadRequest:
       type: object
       properties:
@@ -252,6 +201,23 @@ components:
             type: string
           description: Any errors that occured during the execution of the request.
       description: API_Errors_BadRequest model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
     API_V20240412_Entities_AvailableSlotResponse:
       type: object
       properties:
@@ -261,28 +227,59 @@ components:
           example: 1
           description: Relevant location id
         pid:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
           example: 83
           description: Relevant providers id. Omitted when slots are not grouped by provider
-          nullable: true
         operatory_id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
           example: 54
           description: Relevant operatory id. Omitted when slots are not grouped by operatory
-          nullable: true
         slots:
           type: array
           items:
             $ref: '#/components/schemas/API_V20240412_Entities_AvailableSlot'
           description: Array of available start times
         next_available_date:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
           example: '2022-11-17'
           description: The earliest date when a valid slot exists
-          nullable: true
+    API_V20240412_Entities_AvailableSlot:
+      type: object
+      properties:
+        time:
+          type: string
+          example: '2017-10-09T07:00:00.000-04:00'
+          description: Start time of the slot in the practices timezone
+        end_time:
+          type: string
+          example: '2017-10-09T07:30:00.000-04:00'
+          description: End time of the slot in the practices timezone
+        operatory_id:
+          type: integer
+          format: int64
+          example: 54
+          description: Operatory id for the slot. Omitted when the slot is not tied to an operatory
+        provider_id:
+          type: integer
+          format: int32
+          example: 83
+          description: Provider id for the slot, if available. Omitted when the slot is not tied to provider
+        working_hour_label_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 11
+          description: ID of working hour label of this slot
     API_V20240412_Entities_AvailableSlotResponse_Collection_Response:
       type: object
       properties:
@@ -311,33 +308,40 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_V20240412_Entities_AvailableSlotResponse_Collection_Response model
-    API_V20240412_Entities_AvailableSlot:
+    API_Errors_Unauthorized:
       type: object
       properties:
-        time:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
           type: string
-          example: '2017-10-09T07:00:00.000-04:00'
-          description: Start time of the slot in the practices timezone
-        end_time:
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
           type: string
-          example: '2017-10-09T07:30:00.000-04:00'
-          description: End time of the slot in the practices timezone
-        operatory_id:
-          type: integer
-          format: int64
-          example: 54
-          description: Operatory id for the slot. Omitted when the slot is not tied to an operatory
-        provider_id:
-          type: integer
-          format: int32
-          example: 83
-          description: Provider id for the slot, if available. Omitted when the slot is not tied to provider
-        working_hour_label_id:
-          type: integer
-          format: int64
-          example: 11
-          description: ID of working hour label of this slot
-          nullable: true
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
   securitySchemes:
     Authorization:
       type: apiKey
