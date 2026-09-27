@@ -109,6 +109,63 @@ components:
             type: string
           description: Any errors that occured during the execution of the request.
       description: API_Errors_BadRequest model
+    API_V2_Entities_Emr:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 11
+          description: EMR id
+        name:
+          type: string
+          example: dentrix
+          description: EMR name
+        display_name:
+          type: string
+          example: Dentrix
+          description: EMR display name
+        type:
+          type: string
+          enum:
+          - cloud
+          - onprem
+          example: onprem
+          description: Type of EMR. Can be cloud or onprem.
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
     API_Entities_LocationBasic:
       type: object
       properties:
@@ -170,68 +227,6 @@ components:
             type: string
           description: Any errors that occured during the execution of the request.
       description: API_Errors_Forbidden model
-    API_V2_Entities_SyncStatus_Collection_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V2_Entities_SyncStatus'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V2_Entities_SyncStatus_Collection_Response model
-    API_Errors_Unauthorized:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
     API_V2_Entities_SyncStatus:
       type: object
       properties:
@@ -279,29 +274,34 @@ components:
           items:
             $ref: '#/components/schemas/API_Entities_LocationBasic'
           description: Locations whose data this service is synchronizing with
-    API_V2_Entities_Emr:
+    API_V2_Entities_SyncStatus_Collection_Response:
       type: object
       properties:
-        id:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_SyncStatus'
+        count:
           type: integer
           format: int32
-          example: 11
-          description: EMR id
-        name:
-          type: string
-          example: dentrix
-          description: EMR name
-        display_name:
-          type: string
-          example: Dentrix
-          description: EMR display name
-        type:
-          type: string
-          enum:
-          - cloud
-          - onprem
-          example: onprem
-          description: Type of EMR. Can be cloud or onprem.
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_SyncStatus_Collection_Response model
   securitySchemes:
     Authorization:
       type: apiKey

@@ -285,115 +285,37 @@ paths:
       operationId: getFeeSchedulesId
 components:
   schemas:
-    API_V2_Entities_Price:
-      type: object
-      properties:
-        amount:
-          type: string
-          example: '62.00'
-          description: The currency value, in whole units (e.g. dollars)
-        currency:
-          type: string
-          example: USD
-          description: The ISO currency code
-    API_Errors_BadRequest:
+    API_Entities_FeeSchedule_Collection_Response_WithCursor:
       type: object
       properties:
         code:
           type: boolean
-          description: Indicates the success or failure of the request.
+          example: false
+          description: Indicates the success or failure of the request
         description:
           type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
+          example: Description
+          description: Additional context on the request to help with debugging.
         error:
           type: array
           items:
             type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
-    API_Entities_FeeSchedule:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 113
-          description: Fee schedule id
-        name:
-          type: string
-          example: Cash
-          description: The name of the fee schedule
-        active:
-          type:
-          - boolean
-          - 'null'
-          example: true
-          description: Indicates if the fee schedule is active
-        location_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 21
-          description: The id of the location this fee schedule belongs to
-        updated_at:
-          type: string
-          format: date-time
-          example: '2020-06-05T20:16:57.007Z'
-          description: Fee Schedule update date in UTC
-    API_Errors_NotFound:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
         data:
-          type: object
-        error:
           type: array
           items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
-    API_Errors_Forbidden:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
+            $ref: '#/components/schemas/API_Entities_FeeSchedule'
+        page_info:
           type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
-    API_V20240412_Entities_FeeScheduleProcedureCodeBasic:
-      type: object
-      properties:
-        procedure_code_id:
-          type:
-          - string
-          - 'null'
-          example: ab123456-11aa-99ff-a111-d1ee12345678
-          description: The uuid of the procedure code associated with the fee schedule
-        fee:
-          $ref: '#/components/schemas/API_V2_Entities_Price'
-        code:
-          type:
-          - string
-          - 'null'
-          example: D0120
-          description: The code of the procedure associated with the fee schedule
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_Entities_FeeSchedule_Collection_Response_WithCursor model
     API_V20240412_Entities_FeeScheduleProcedureCode:
       type: object
       properties:
@@ -461,7 +383,18 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_V20240412_Entities_FeeSchedule_Response model
-    API_Errors_Unauthorized:
+    API_V2_Entities_Price:
+      type: object
+      properties:
+        amount:
+          type: string
+          example: '62.00'
+          description: The currency value, in whole units (e.g. dollars)
+        currency:
+          type: string
+          example: USD
+          description: The ISO currency code
+    API_Errors_BadRequest:
       type: object
       properties:
         code:
@@ -477,69 +410,37 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
-    API_V20240412_Entities_FeeScheduleProcedureCode_Collection_Response_WithCursor:
+      description: API_Errors_BadRequest model
+    API_Entities_FeeSchedule:
       type: object
       properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
+        id:
+          type: integer
+          format: int64
+          example: 113
+          description: Fee schedule id
+        name:
           type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V20240412_Entities_FeeScheduleProcedureCode'
-        page_info:
-          type: object
-          example:
-            has_previous_page: false
-            has_next_page: false
-            start_cursor: AAAAA
-            end_cursor: BBBBBB
-          description: Pagination information that can be used for fetching previous and next pages.
-      description: API_V20240412_Entities_FeeScheduleProcedureCode_Collection_Response_WithCursor model
-    API_Entities_FeeSchedule_Collection_Response_WithCursor:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
+          example: Cash
+          description: The name of the fee schedule
+        active:
+          type:
+          - boolean
+          - 'null'
+          example: true
+          description: Indicates if the fee schedule is active
+        location_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 21
+          description: The id of the location this fee schedule belongs to
+        updated_at:
           type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_Entities_FeeSchedule'
-        page_info:
-          type: object
-          example:
-            has_previous_page: false
-            has_next_page: false
-            start_cursor: AAAAA
-            end_cursor: BBBBBB
-          description: Pagination information that can be used for fetching previous and next pages.
-      description: API_Entities_FeeSchedule_Collection_Response_WithCursor model
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Fee Schedule update date in UTC
     API_Errors_InternalServerError:
       type: object
       properties:
@@ -557,6 +458,40 @@ components:
             type: string
           description: Any errors that occured during the execution of the request.
       description: API_Errors_InternalServerError model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
     API_V20240412_Entities_FeeSchedule:
       type: object
       properties:
@@ -592,6 +527,71 @@ components:
           items:
             $ref: '#/components/schemas/API_V20240412_Entities_FeeScheduleProcedureCodeBasic'
           description: The procedure fees associated with this schedule
+    API_V20240412_Entities_FeeScheduleProcedureCodeBasic:
+      type: object
+      properties:
+        procedure_code_id:
+          type:
+          - string
+          - 'null'
+          example: ab123456-11aa-99ff-a111-d1ee12345678
+          description: The uuid of the procedure code associated with the fee schedule
+        fee:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        code:
+          type:
+          - string
+          - 'null'
+          example: D0120
+          description: The code of the procedure associated with the fee schedule
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V20240412_Entities_FeeScheduleProcedureCode_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_FeeScheduleProcedureCode'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_FeeScheduleProcedureCode_Collection_Response_WithCursor model
   securitySchemes:
     Authorization:
       type: apiKey

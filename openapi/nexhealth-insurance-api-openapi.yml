@@ -371,23 +371,6 @@ paths:
       operationId: getInsuranceCoveragesId
 components:
   schemas:
-    API_Errors_BadRequest:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
     API_Entities_FeeSchedule:
       type: object
       properties:
@@ -418,7 +401,7 @@ components:
           format: date-time
           example: '2020-06-05T20:16:57.007Z'
           description: Fee Schedule update date in UTC
-    API_Errors_NotFound:
+    API_Errors_BadRequest:
       type: object
       properties:
         code:
@@ -434,74 +417,94 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
-    API_V2_Entities_Insurance_PatientCoverage:
+      description: API_Errors_BadRequest model
+    API_Entities_Insurance_EhrPlan:
       type: object
       properties:
         id:
           type: integer
           format: int64
           example: 18
-          description: Coverage id
-        subscription_relation:
+          description: Plan id
+        payer_id:
+          type:
+          - string
+          - 'null'
+          example: '87726'
+          description: A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically
+        name:
+          type:
+          - string
+          - 'null'
+          example: United Healthcare
+          description: Plan name
+        address:
+          type:
+          - string
+          - 'null'
+          example: 123 Law St
+          description: Street address
+        address2:
+          type:
+          - string
+          - 'null'
+          example: 85335, North East
+          description: Street address 2
+        city:
+          type:
+          - string
+          - 'null'
+          example: New York
+          description: City
+        state:
+          type:
+          - string
+          - 'null'
+          example: NY
+          description: 2 letter state code
+        zip_code:
+          type:
+          - string
+          - 'null'
+          example: '54700'
+          description: Zip code
+        country_code:
+          type:
+          - string
+          - 'null'
+          example: US
+          description: 2 letter country code
+        group_num:
+          type:
+          - string
+          - 'null'
+          example: '12345'
+          description: Group number
+        employer_name:
+          type:
+          - string
+          - 'null'
+          example: Walmart
+          description: Employer name
+        foreign_id:
+          type:
+          - string
+          - 'null'
+          example: '1'
+          description: Foreign Id is a unique identifier from the integrated system
+        updated_at:
           type: string
-          enum:
-          - self
-          - spouse
-          - child
-          - employee
-          - handicap_dep
-          - signif_other
-          - injured_plaintiff
-          - life_partner
-          - dependent
-          - other
-          example: self
-          description: The relationship of this patient to the subscriber
-        patient_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 25
-          description: The ID of the covered patient
-        priority:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 2
-          description: 'The relative priority of this insurance coverage where the lowest value is the patient''s primary insurance
-
-            and higher values represent secondary and tertiary policies'
-        plan_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 18
-          description: The ID of the insurance plan this coverage subscribes to
-        subscriber_num:
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Insurance Plan update date in UTC
+        deleted_at:
           type:
           - string
           - 'null'
-          example: '123456789'
-          description: The subscriber's identification number for the plan
-        effective_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-01-01'
-          description: The date the coverage takes effect
-        expiration_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-12-31'
-          description: The date the coverage expires
-    API_Errors_Forbidden:
+          format: date-time
+          example: '2024-09-15T11:21:26.003Z'
+          description: The UTC date and time the insurance plan was deleted. Null unless the plan is soft-deleted; deleted plans are only returned when include_deleted is true
+    API_Errors_InternalServerError:
       type: object
       properties:
         code:
@@ -517,7 +520,25 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
+      description: API_Errors_InternalServerError model
+    API_V2_Entities_Insurance_Subscriber:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 415
+          description: The subscriber's id
+        name:
+          type: string
+          example: John Smith
+          description: The subscriber's full name
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+          example: '1990-06-05'
+          description: The subscriber's date of birth in YYYY-MM-DD format
     API_V20240412_Entities_Insurance_PatientCoverage:
       type: object
       properties:
@@ -605,6 +626,23 @@ components:
           - 'null'
           example: true
           description: Whether the insurance coverage is currently active
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
     API_V20240412_Entities_Insurance_PatientCoverage_Collection_Response_WithCursor:
       type: object
       properties:
@@ -751,6 +789,163 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_V20240412_Entities_Insurance_PatientCoverageDetailed_Response model
+    API_Entities_Insurance_EhrPlan_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_Entities_Insurance_EhrPlan'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_Entities_Insurance_EhrPlan_Collection_Response_WithCursor model
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_V20240412_Entities_Insurance_EhrPlanWithIncludes_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V20240412_Entities_Insurance_EhrPlanWithIncludes'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V20240412_Entities_Insurance_EhrPlanWithIncludes_Response model
+    API_V2_Entities_Insurance_PatientCoverage:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 18
+          description: Coverage id
+        subscription_relation:
+          type: string
+          enum:
+          - self
+          - spouse
+          - child
+          - employee
+          - handicap_dep
+          - signif_other
+          - injured_plaintiff
+          - life_partner
+          - dependent
+          - other
+          example: self
+          description: The relationship of this patient to the subscriber
+        patient_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 25
+          description: The ID of the covered patient
+        priority:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 2
+          description: 'The relative priority of this insurance coverage where the lowest value is the patient''s primary insurance
+
+            and higher values represent secondary and tertiary policies'
+        plan_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 18
+          description: The ID of the insurance plan this coverage subscribes to
+        subscriber_num:
+          type:
+          - string
+          - 'null'
+          example: '123456789'
+          description: The subscriber's identification number for the plan
+        effective_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2022-01-01'
+          description: The date the coverage takes effect
+        expiration_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2022-12-31'
+          description: The date the coverage expires
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
     API_V20240412_Entities_Insurance_EhrPlanWithIncludes:
       type: object
       properties:
@@ -849,201 +1044,6 @@ components:
           description: List of individuals who hold subscriptions to this plan
         fee_schedule:
           $ref: '#/components/schemas/API_Entities_FeeSchedule'
-    API_Errors_Unauthorized:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
-    API_V2_Entities_Insurance_Subscriber:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 415
-          description: The subscriber's id
-        name:
-          type: string
-          example: John Smith
-          description: The subscriber's full name
-        date_of_birth:
-          type:
-          - string
-          - 'null'
-          example: '1990-06-05'
-          description: The subscriber's date of birth in YYYY-MM-DD format
-    API_Entities_Insurance_EhrPlan_Collection_Response_WithCursor:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_Entities_Insurance_EhrPlan'
-        page_info:
-          type: object
-          example:
-            has_previous_page: false
-            has_next_page: false
-            start_cursor: AAAAA
-            end_cursor: BBBBBB
-          description: Pagination information that can be used for fetching previous and next pages.
-      description: API_Entities_Insurance_EhrPlan_Collection_Response_WithCursor model
-    API_V20240412_Entities_Insurance_EhrPlanWithIncludes_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          $ref: '#/components/schemas/API_V20240412_Entities_Insurance_EhrPlanWithIncludes'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V20240412_Entities_Insurance_EhrPlanWithIncludes_Response model
-    API_Entities_Insurance_EhrPlan:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 18
-          description: Plan id
-        payer_id:
-          type:
-          - string
-          - 'null'
-          example: '87726'
-          description: A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically
-        name:
-          type:
-          - string
-          - 'null'
-          example: United Healthcare
-          description: Plan name
-        address:
-          type:
-          - string
-          - 'null'
-          example: 123 Law St
-          description: Street address
-        address2:
-          type:
-          - string
-          - 'null'
-          example: 85335, North East
-          description: Street address 2
-        city:
-          type:
-          - string
-          - 'null'
-          example: New York
-          description: City
-        state:
-          type:
-          - string
-          - 'null'
-          example: NY
-          description: 2 letter state code
-        zip_code:
-          type:
-          - string
-          - 'null'
-          example: '54700'
-          description: Zip code
-        country_code:
-          type:
-          - string
-          - 'null'
-          example: US
-          description: 2 letter country code
-        group_num:
-          type:
-          - string
-          - 'null'
-          example: '12345'
-          description: Group number
-        employer_name:
-          type:
-          - string
-          - 'null'
-          example: Walmart
-          description: Employer name
-        foreign_id:
-          type:
-          - string
-          - 'null'
-          example: '1'
-          description: Foreign Id is a unique identifier from the integrated system
-        updated_at:
-          type: string
-          format: date-time
-          example: '2020-06-05T20:16:57.007Z'
-          description: Insurance Plan update date in UTC
-        deleted_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2024-09-15T11:21:26.003Z'
-          description: The UTC date and time the insurance plan was deleted. Null unless the plan is soft-deleted; deleted plans are only returned when include_deleted is true
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
   securitySchemes:
     Authorization:
       type: apiKey
