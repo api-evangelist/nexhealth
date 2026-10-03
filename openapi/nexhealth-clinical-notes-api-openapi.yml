@@ -195,7 +195,7 @@ components:
           format: date-time
           example: '2020-06-05T20:16:57.007Z'
           description: Clinical Note update date in UTC
-    API_Errors_BadRequest:
+    API_Errors_NotFound:
       type: object
       properties:
         code:
@@ -211,41 +211,7 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_Unauthorized:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
+      description: API_Errors_NotFound model
     API_Errors_Forbidden:
       type: object
       properties:
@@ -294,7 +260,7 @@ components:
             end_cursor: BBBBBB
           description: Pagination information that can be used for fetching previous and next pages.
       description: API_V20240412_Entities_ClinicalNote_Collection_Response_WithCursor model
-    API_Errors_NotFound:
+    API_Errors_InternalServerError:
       type: object
       properties:
         code:
@@ -310,7 +276,41 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
+      description: API_Errors_InternalServerError model
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
   securitySchemes:
     Authorization:
       type: apiKey

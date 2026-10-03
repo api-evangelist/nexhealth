@@ -179,35 +179,7 @@ paths:
       operationId: deleteWebhookEndpointsId
 components:
   schemas:
-    API_V2_Entities_WebhookEndpoint_Collection_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V2_Entities_WebhookEndpoint'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V2_Entities_WebhookEndpoint_Collection_Response model
-    API_Errors_BadRequest:
+    API_Errors_NotFound:
       type: object
       properties:
         code:
@@ -223,41 +195,7 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_Unauthorized:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
+      description: API_Errors_NotFound model
     postWebhookEndpoints:
       type: object
       properties:
@@ -270,32 +208,16 @@ components:
       required:
       - target_url
       description: Create webhook endpoint
-    API_V2_Entities_WebhookEndpoint_Response:
+    patchWebhookEndpointsId:
       type: object
       properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
+        target_url:
           type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          $ref: '#/components/schemas/API_V2_Entities_WebhookEndpoint'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V2_Entities_WebhookEndpoint_Response model
+          description: URL to send POST requests to in response to subscribed events. Must use HTTPS in production
+        active:
+          type: boolean
+          description: Return only active or inactive endpoints
+      description: Edit webhook endpoint
     API_V2_Entities_WebhookEndpoint:
       type: object
       properties:
@@ -326,7 +248,35 @@ components:
           format: date-time
           example: '2020-06-05T20:16:57.007Z'
           description: Endpoint update date in UTC
-    API_Errors_NotFound:
+    API_V2_Entities_WebhookEndpoint_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_WebhookEndpoint'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_WebhookEndpoint_Collection_Response model
+    API_Errors_InternalServerError:
       type: object
       properties:
         code:
@@ -342,17 +292,67 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
-    patchWebhookEndpointsId:
+      description: API_Errors_InternalServerError model
+    API_Errors_BadRequest:
       type: object
       properties:
-        target_url:
-          type: string
-          description: URL to send POST requests to in response to subscribed events. Must use HTTPS in production
-        active:
+        code:
           type: boolean
-          description: Return only active or inactive endpoints
-      description: Edit webhook endpoint
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_V2_Entities_WebhookEndpoint_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_WebhookEndpoint'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_WebhookEndpoint_Response model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
   securitySchemes:
     Authorization:
       type: apiKey

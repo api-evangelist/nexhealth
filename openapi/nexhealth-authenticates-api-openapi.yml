@@ -45,6 +45,13 @@ paths:
       operationId: postAuthenticates
 components:
   schemas:
+    API_V2_Entities_AuthorizationResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          example: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoiYXBpX3VzZXIiLCJleHAiOjE2MjgwMDM2NDMsImlhdCI6MTYyODAwMzYzMywianRpIjoiYTEzYzdlZTAtNmMwOC00YTE5LWExYzAtN2ZkMjNlNDJiZDEzIn0.zu8rJk6F4ZRzkflWPK0ykxRNsJR9A6IZiU9kxcsdxn4
+          description: Use this bearer token to access protected routes
     API_Errors_InternalServerError:
       type: object
       properties:
@@ -105,13 +112,6 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_V2_Entities_AuthorizationResponse_Response model
-    API_V2_Entities_AuthorizationResponse:
-      type: object
-      properties:
-        token:
-          type: string
-          example: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoiYXBpX3VzZXIiLCJleHAiOjE2MjgwMDM2NDMsImlhdCI6MTYyODAwMzYzMywianRpIjoiYTEzYzdlZTAtNmMwOC00YTE5LWExYzAtN2ZkMjNlNDJiZDEzIn0.zu8rJk6F4ZRzkflWPK0ykxRNsJR9A6IZiU9kxcsdxn4
-          description: Use this bearer token to access protected routes
   securitySchemes:
     Authorization:
       type: apiKey
