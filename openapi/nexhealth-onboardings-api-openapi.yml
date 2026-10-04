@@ -225,195 +225,6 @@ paths:
       operationId: getOnboardingsHashid
 components:
   schemas:
-    API_Errors_NotFound:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
-    API_Errors_Forbidden:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
-    API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
-        page_info:
-          type: object
-          example:
-            has_previous_page: false
-            has_next_page: false
-            start_cursor: AAAAA
-            end_cursor: BBBBBB
-          description: Pagination information that can be used for fetching previous and next pages.
-      description: API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor model
-    postOnboardings:
-      type: object
-      properties:
-        onboarding:
-          type: object
-          description: Onboarding details
-          properties:
-            institution_name:
-              type: string
-              description: The institution's name. Only include this if you are onboarding a new institution.
-              example: Smile Dental Group
-            institution_zip_code:
-              type: string
-              description: The institution's zip code. Only used when onboarding a new institution (institution_name); ignored when subdomain is provided. If you omit it, practice staff will be asked to enter it during setup.
-              example: '94105'
-            institution_website:
-              type: string
-              description: The institution's website URL. Only include this if you are onboarding a new institution. If you omit it, practice staff will be asked to enter it during setup.
-              example: https://www.smiledentalgroup.example.com
-            institution_email:
-              type: string
-              description: The institution's primary email address. Only include this if you are onboarding a new institution. If you omit it, practice staff will be asked to enter it during setup.
-              example: office@smiledentalgroup.example.com
-            subdomain:
-              type: string
-              description: The subdomain for the institution you want to add locations to. You need to include this when you want to add new locations to an existing institution. Ensure the subdomain used is returned by the API in a previous query. If both subdomain and institution_name are provided, subdomain takes precedence and all institution_* fields are ignored.
-              example: smile-dental
-            emr_name:
-              type: string
-              description: 'The name of the electronic medical record (EMR) system where you want to install the Synchronizer. Note: drchrono is only supported when onboarding a new institution (institution_name), not when adding to an existing institution (subdomain).'
-              enum:
-              - athena
-              - curve2
-              - cloud9
-              - denticon
-              - dentrix
-              - dentrixascend
-              - drchrono
-              - eaglesoft
-              - ecw
-              - modmed
-              - nextgen
-              - opendental
-              example: opendental
-      required:
-      - onboarding
-      description: Create onboarding
-    API_V20240412_Entities_Api_Onboarding_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V20240412_Entities_Api_Onboarding_Response model
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_BadRequest:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
-    API_Errors_Unauthorized:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
     API_V20240412_Entities_Api_Onboarding:
       type: object
       properties:
@@ -466,6 +277,195 @@ components:
           format: date-time
           example: '2026-01-01T00:00:00Z'
           description: When the onboarding location first became bookable. Null until availability is ready.
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    postOnboardings:
+      type: object
+      properties:
+        onboarding:
+          type: object
+          description: Onboarding details
+          properties:
+            institution_name:
+              type: string
+              description: The institution's name. Only include this if you are onboarding a new institution.
+              example: Smile Dental Group
+            institution_zip_code:
+              type: string
+              description: The institution's zip code. Only used when onboarding a new institution (institution_name); ignored when subdomain is provided. If you omit it, practice staff will be asked to enter it during setup.
+              example: '94105'
+            institution_website:
+              type: string
+              description: The institution's website URL. Only include this if you are onboarding a new institution. If you omit it, practice staff will be asked to enter it during setup.
+              example: https://www.smiledentalgroup.example.com
+            institution_email:
+              type: string
+              description: The institution's primary email address. Only include this if you are onboarding a new institution. If you omit it, practice staff will be asked to enter it during setup.
+              example: office@smiledentalgroup.example.com
+            subdomain:
+              type: string
+              description: The subdomain for the institution you want to add locations to. You need to include this when you want to add new locations to an existing institution. Ensure the subdomain used is returned by the API in a previous query. If both subdomain and institution_name are provided, subdomain takes precedence and all institution_* fields are ignored.
+              example: smile-dental
+            emr_name:
+              type: string
+              description: 'The name of the electronic medical record (EMR) system where you want to install the Synchronizer. Note: drchrono is only supported when onboarding a new institution (institution_name), not when adding to an existing institution (subdomain).'
+              enum:
+              - athena
+              - curve2
+              - cloud9
+              - denticon
+              - dentrix
+              - dentrixascend
+              - drchrono
+              - eaglesoft
+              - ecw
+              - modmed
+              - nextgen
+              - opendental
+              example: opendental
+      required:
+      - onboarding
+      description: Create onboarding
+    API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_Api_Onboarding_Collection_Response_WithCursor model
+    API_V20240412_Entities_Api_Onboarding_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V20240412_Entities_Api_Onboarding'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V20240412_Entities_Api_Onboarding_Response model
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
   securitySchemes:
     Authorization:
       type: apiKey

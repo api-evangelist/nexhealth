@@ -296,57 +296,6 @@ components:
           type: string
           example: USD
           description: The ISO currency code
-    API_Errors_NotFound:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
-    API_V20240412_Entities_FeeScheduleProcedureCodeBasic:
-      type: object
-      properties:
-        procedure_code_id:
-          type:
-          - string
-          - 'null'
-          example: ab123456-11aa-99ff-a111-d1ee12345678
-          description: The uuid of the procedure code associated with the fee schedule
-        fee:
-          $ref: '#/components/schemas/API_V2_Entities_Price'
-        code:
-          type:
-          - string
-          - 'null'
-          example: D0120
-          description: The code of the procedure associated with the fee schedule
-    API_Errors_Forbidden:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
     API_V20240412_Entities_FeeSchedule_Response:
       type: object
       properties:
@@ -404,7 +353,7 @@ components:
             end_cursor: BBBBBB
           description: Pagination information that can be used for fetching previous and next pages.
       description: API_Entities_FeeSchedule_Collection_Response_WithCursor model
-    API_Errors_InternalServerError:
+    API_Errors_Forbidden:
       type: object
       properties:
         code:
@@ -420,7 +369,7 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
+      description: API_Errors_Forbidden model
     API_Entities_FeeSchedule:
       type: object
       properties:
@@ -486,7 +435,7 @@ components:
           items:
             $ref: '#/components/schemas/API_V20240412_Entities_FeeScheduleProcedureCodeBasic'
           description: The procedure fees associated with this schedule
-    API_Errors_BadRequest:
+    API_Errors_NotFound:
       type: object
       properties:
         code:
@@ -502,7 +451,55 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
+      description: API_Errors_NotFound model
+    API_V20240412_Entities_FeeScheduleProcedureCodeBasic:
+      type: object
+      properties:
+        procedure_code_id:
+          type:
+          - string
+          - 'null'
+          example: ab123456-11aa-99ff-a111-d1ee12345678
+          description: The uuid of the procedure code associated with the fee schedule
+        fee:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        code:
+          type:
+          - string
+          - 'null'
+          example: D0120
+          description: The code of the procedure associated with the fee schedule
+    API_V20240412_Entities_FeeScheduleProcedureCode_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_FeeScheduleProcedureCode'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_FeeScheduleProcedureCode_Collection_Response_WithCursor model
     API_V20240412_Entities_FeeScheduleProcedureCode:
       type: object
       properties:
@@ -544,37 +541,40 @@ components:
           format: date-time
           example: '2020-06-05T20:16:57.007Z'
           description: Fee Schedule Procedure update date in UTC
-    API_V20240412_Entities_FeeScheduleProcedureCode_Collection_Response_WithCursor:
+    API_Errors_BadRequest:
       type: object
       properties:
         code:
           type: boolean
-          example: false
-          description: Indicates the success or failure of the request
+          description: Indicates the success or failure of the request.
         description:
           type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
         error:
           type: array
           items:
             type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
         data:
+          type: object
+        error:
           type: array
           items:
-            $ref: '#/components/schemas/API_V20240412_Entities_FeeScheduleProcedureCode'
-        page_info:
-          type: object
-          example:
-            has_previous_page: false
-            has_next_page: false
-            start_cursor: AAAAA
-            end_cursor: BBBBBB
-          description: Pagination information that can be used for fetching previous and next pages.
-      description: API_V20240412_Entities_FeeScheduleProcedureCode_Collection_Response_WithCursor model
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
     API_Errors_Unauthorized:
       type: object
       properties:

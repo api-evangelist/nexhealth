@@ -374,7 +374,49 @@ paths:
       operationId: deleteWebhookEndpointsIdWebhookSubscriptionsSubscriptionId
 components:
   schemas:
-    API_Errors_NotFound:
+    API_V2_Entities_WebhookSubscription:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Subscription id
+        webhook_endpoint_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Webhook Endpoint id
+        institution_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 1
+          description: 'Institution id. Null for subscriptions to resources not owned by an institution (currently: Onboarding)'
+        resource_type:
+          type: string
+          example: Appointment
+          description: Resource type
+        event:
+          type: string
+          example: appointment_insertion
+          description: Event type
+        active:
+          type: boolean
+          example: true
+          description: True if subscription is active
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Subscription create date in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Subscription update date in UTC
+    API_Errors_Forbidden:
       type: object
       properties:
         code:
@@ -390,8 +432,21 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
-    API_V2_Entities_WebhookSubscription_Collection_Response:
+      description: API_Errors_Forbidden model
+    patchWebhookEndpointsIdWebhookSubscriptionsSubscriptionId:
+      type: object
+      properties:
+        new_endpoint_id:
+          type: integer
+          format: int32
+          description: Id of another webhook endpoint owned by the same API user to move this subscription to. Future webhook deliveries go to the new endpoint. Returns 404 if the id does not belong to one of your webhook endpoints. After a successful move, subsequent requests for the subscription must use the new endpoint id in the URL path; requests using the old endpoint id return 404.
+          example: 1
+        active:
+          type: boolean
+          description: Set to false to pause webhook deliveries for this subscription, or true to resume them. Omitting the param leaves the current value unchanged.
+          example: true
+      description: Edit webhook subscription
+    API_V2_Entities_WebhookSubscription_Response:
       type: object
       properties:
         code:
@@ -410,16 +465,14 @@ components:
           - Error message
           description: Any errors that occur during the execution of the request.
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription'
+          $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription'
         count:
           type: integer
           format: int32
           example: 2
           description: Number of total objects, in case of collection.
-      description: API_V2_Entities_WebhookSubscription_Collection_Response model
-    API_Errors_Forbidden:
+      description: API_V2_Entities_WebhookSubscription_Response model
+    API_Errors_NotFound:
       type: object
       properties:
         code:
@@ -435,7 +488,24 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
+      description: API_Errors_NotFound model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
     postWebhookEndpointsIdWebhookSubscriptions:
       type: object
       properties:
@@ -521,7 +591,24 @@ components:
       - resource_type
       - event
       description: Create webhook subscription
-    API_V2_Entities_WebhookSubscription_Response:
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_V2_Entities_WebhookSubscription_Collection_Response:
       type: object
       properties:
         code:
@@ -540,102 +627,15 @@ components:
           - Error message
           description: Any errors that occur during the execution of the request.
         data:
-          $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription'
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_WebhookSubscription'
         count:
           type: integer
           format: int32
           example: 2
           description: Number of total objects, in case of collection.
-      description: API_V2_Entities_WebhookSubscription_Response model
-    patchWebhookEndpointsIdWebhookSubscriptionsSubscriptionId:
-      type: object
-      properties:
-        new_endpoint_id:
-          type: integer
-          format: int32
-          description: Id of another webhook endpoint owned by the same API user to move this subscription to. Future webhook deliveries go to the new endpoint. Returns 404 if the id does not belong to one of your webhook endpoints. After a successful move, subsequent requests for the subscription must use the new endpoint id in the URL path; requests using the old endpoint id return 404.
-          example: 1
-        active:
-          type: boolean
-          description: Set to false to pause webhook deliveries for this subscription, or true to resume them. Omitting the param leaves the current value unchanged.
-          example: true
-      description: Edit webhook subscription
-    API_V2_Entities_WebhookSubscription:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 1
-          description: Subscription id
-        webhook_endpoint_id:
-          type: integer
-          format: int32
-          example: 1
-          description: Webhook Endpoint id
-        institution_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 1
-          description: 'Institution id. Null for subscriptions to resources not owned by an institution (currently: Onboarding)'
-        resource_type:
-          type: string
-          example: Appointment
-          description: Resource type
-        event:
-          type: string
-          example: appointment_insertion
-          description: Event type
-        active:
-          type: boolean
-          example: true
-          description: True if subscription is active
-        created_at:
-          type: string
-          format: date-time
-          example: '2020-06-05T20:16:57.007Z'
-          description: Subscription create date in UTC
-        updated_at:
-          type: string
-          format: date-time
-          example: '2020-06-05T20:16:57.007Z'
-          description: Subscription update date in UTC
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_BadRequest:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
+      description: API_V2_Entities_WebhookSubscription_Collection_Response model
     API_Errors_Unauthorized:
       type: object
       properties:

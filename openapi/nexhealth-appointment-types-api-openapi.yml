@@ -409,90 +409,6 @@ paths:
       operationId: getAppointmentTypesIdAppointmentDescriptors
 components:
   schemas:
-    API_V2_Entities_AppointmentTypeWithResources_Collection_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeWithResources'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V2_Entities_AppointmentTypeWithResources_Collection_Response model
-    API_V2_Entities_AppointmentTypeWithResources_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeWithResources'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V2_Entities_AppointmentTypeWithResources_Response model
-    API_V2_Entities_AppointmentTypeBasic:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 1
-          description: Appointment type Id
-        name:
-          type: string
-          example: Medical
-          description: Appointment type name. Unique string identifier
-        parent_type:
-          type: string
-          example: Institution
-          description: Parent type for appointment type. Defines the belongs to relationship with either Institution or Location
-        parent_id:
-          type: integer
-          format: int32
-          example: 1
-          description: Identifies the specific resource the appointment type belongs to (see parent_type)
-        minutes:
-          type: integer
-          format: int32
-          example: 15
-          description: Default duration of appointments of this appointment type
-        bookable_online:
-          type: boolean
-          example: false
-          description: True if this appointment type should be bookable via the NexHealth online booking page
     patchAppointmentTypesId:
       type: object
       properties:
@@ -532,40 +448,41 @@ components:
       required:
       - appointment_type
       description: Edit an appointment type
-    API_Errors_Forbidden:
+    API_V2_Entities_AppointmentTypeWithResources:
       type: object
       properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Appointment type Id
+        name:
           type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
+          example: Medical
+          description: Appointment type name. Unique string identifier
+        parent_type:
+          type: string
+          example: Institution
+          description: Parent type for appointment type. Defines the belongs to relationship with either Institution or Location
+        parent_id:
+          type: integer
+          format: int32
+          example: 1
+          description: Identifies the specific resource the appointment type belongs to (see parent_type)
+        minutes:
+          type: integer
+          format: int32
+          example: 15
+          description: Default duration of appointments of this appointment type
+        bookable_online:
+          type: boolean
+          example: false
+          description: True if this appointment type should be bookable via the NexHealth online booking page
+        descriptors:
           type: array
           items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
-    API_Errors_NotFound:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
+            $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor'
+          description: EHR descriptors
     API_V2_Entities_EmrApptDescriptor_Collection_Response:
       type: object
       properties:
@@ -620,79 +537,6 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_V2_Entities_AppointmentTypeBasic_Response model
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_BadRequest:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
-    postAppointmentTypes:
-      type: object
-      properties:
-        location_id:
-          type: integer
-          format: int32
-          description: Id of the associated location, required when appointment types are location specific
-        appointment_type:
-          type: object
-          properties:
-            name:
-              type: string
-              description: Appointment type name. Unique string identifier
-            minutes:
-              type: integer
-              format: int32
-              description: The length of time this appointment type takes up, increments of 5 minutes recommended
-            parent_type:
-              type: string
-              description: Parent model to scope appointment types to, defaults to Institution
-              enum:
-              - Institution
-              - Location
-            parent_id:
-              type: integer
-              format: int32
-              description: Id of the parent model of the associated appointment type, required if parent_type is Location
-            bookable_online:
-              type: boolean
-              description: Set to True if this appointment type should be bookable via the NexHealth online booking page
-            emr_appt_descriptor_ids:
-              type: array
-              description: Array of EMR appointment descriptor ids
-              items:
-                type: integer
-                format: int32
-      required:
-      - appointment_type
-      description: Create an appointment type
     API_V2_Entities_EmrApptDescriptor:
       type: object
       properties:
@@ -749,7 +593,33 @@ components:
           format: date-time
           example: '2021-05-21T16:23:03.046Z'
           description: The datetime the descriptor was last updated in UTC
-    API_Errors_Unauthorized:
+    API_V2_Entities_AppointmentTypeWithResources_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeWithResources'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_AppointmentTypeWithResources_Response model
+    API_Errors_Forbidden:
       type: object
       properties:
         code:
@@ -765,8 +635,53 @@ components:
           items:
             type: string
           description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
-    API_V2_Entities_AppointmentTypeWithResources:
+      description: API_Errors_Forbidden model
+    API_V2_Entities_AppointmentTypeWithResources_Collection_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V2_Entities_AppointmentTypeWithResources'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_AppointmentTypeWithResources_Collection_Response model
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V2_Entities_AppointmentTypeBasic:
       type: object
       properties:
         id:
@@ -796,11 +711,96 @@ components:
           type: boolean
           example: false
           description: True if this appointment type should be bookable via the NexHealth online booking page
-        descriptors:
+    postAppointmentTypes:
+      type: object
+      properties:
+        location_id:
+          type: integer
+          format: int32
+          description: Id of the associated location, required when appointment types are location specific
+        appointment_type:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Appointment type name. Unique string identifier
+            minutes:
+              type: integer
+              format: int32
+              description: The length of time this appointment type takes up, increments of 5 minutes recommended
+            parent_type:
+              type: string
+              description: Parent model to scope appointment types to, defaults to Institution
+              enum:
+              - Institution
+              - Location
+            parent_id:
+              type: integer
+              format: int32
+              description: Id of the parent model of the associated appointment type, required if parent_type is Location
+            bookable_online:
+              type: boolean
+              description: Set to True if this appointment type should be bookable via the NexHealth online booking page
+            emr_appt_descriptor_ids:
+              type: array
+              description: Array of EMR appointment descriptor ids
+              items:
+                type: integer
+                format: int32
+      required:
+      - appointment_type
+      description: Create an appointment type
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
           type: array
           items:
-            $ref: '#/components/schemas/API_V2_Entities_EmrApptDescriptor'
-          description: EHR descriptors
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
   securitySchemes:
     Authorization:
       type: apiKey

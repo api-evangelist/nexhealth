@@ -354,243 +354,6 @@ paths:
       operationId: getPatientsId
 components:
   schemas:
-    API_V2_Entities_Price:
-      type: object
-      properties:
-        amount:
-          type: string
-          example: '62.00'
-          description: The currency value, in whole units (e.g. dollars)
-        currency:
-          type: string
-          example: USD
-          description: The ISO currency code
-    API_Errors_NotFound:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
-    API_V20240412_Entities_PatientWithPrivacyAuthorization_Collection_Response_WithCursor:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/API_V20240412_Entities_PatientWithPrivacyAuthorization'
-        page_info:
-          type: object
-          example:
-            has_previous_page: false
-            has_next_page: false
-            start_cursor: AAAAA
-            end_cursor: BBBBBB
-          description: Pagination information that can be used for fetching previous and next pages.
-      description: API_V20240412_Entities_PatientWithPrivacyAuthorization_Collection_Response_WithCursor model
-    API_V2_Entities_AppointmentBasic:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 1822
-          description: Appointment id
-        provider_id:
-          type: integer
-          format: int32
-          example: 102
-          description: Provider id
-        provider_name:
-          type: string
-          example: Dr. John Smith
-          description: Provider name
-        start_time:
-          type: string
-          format: date-time
-          example: '2021-12-06T09:45:00.000Z'
-          description: Start time of the appointment in UTC
-        end_time:
-          type: string
-          format: date-time
-          example: '2021-12-06T10:00:00.000Z'
-          description: End time of the appointment in UTC
-        location_id:
-          type: integer
-          format: int32
-          example: 1
-          description: Location id
-        confirmed:
-          type: boolean
-          example: true
-          description: Is this appointment confirmed?
-    API_V2_Entities_PatientsResponses_Create:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/API_V2_Entities_PatientBasic'
-    API_V2_Entities_PatientAlert:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 10
-          description: Patient Alert id
-        patient_id:
-          type: integer
-          format: int32
-          example: 101
-          description: Id of the associated patient
-        note:
-          type: string
-          example: Patient is late on payment
-          description: The note for the patient alert
-        disabled_at:
-          type: string
-          format: date-time
-          example: '2024-02-05T20:16:57.007Z'
-          description: The time that the alert was disabled in UTC
-        created_at:
-          type: string
-          format: date-time
-          example: '2023-11-11T10:11:01.007Z'
-          description: The time that the alert was created in UTC
-        updated_at:
-          type: string
-          format: date-time
-          example: '2024-01-14T14:11:01.007Z'
-          description: The time that the alert was last updated in UTC
-    API_V2_Entities_ProcedureBodySite:
-      type: object
-      properties:
-        tooth:
-          type: array
-          items:
-            type: string
-          example:
-          - '3'
-          - '14'
-          description: Tooth identifier strings, typically tooth numbers
-        surface:
-          type: string
-          example: MOD
-          description: Tooth surface codes
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_V2_Entities_PrivacyAuthorization:
-      type: object
-      properties:
-        authorization:
-          type: boolean
-          example: true
-          description: Whether the patient has provided HIPAA authorization
-        authorization_date:
-          type: string
-          format: date
-          example: '2023-03-22'
-          description: Date the patient provided HIPAA authorization
-        privacy:
-          type: boolean
-          example: true
-          description: Whether the patient has acknowledged HIPAA privacy notice
-        privacy_date:
-          type: string
-          format: date
-          example: '2023-03-22'
-          description: Date the patient acknowledged HIPAA privacy notice
-        consent:
-          type: boolean
-          example: true
-          description: Whether the patient has provided HIPAA consent
-        consent_date:
-          type: string
-          format: date
-          example: '2023-03-22'
-          description: Date the patient provided HIPAA consent
-    API_V20240412_Entities_PatientDetailed_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          $ref: '#/components/schemas/API_V20240412_Entities_PatientDetailed'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V20240412_Entities_PatientDetailed_Response model
-    API_Errors_Forbidden:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Forbidden model
     API_V20240412_Entities_Ledger_Payment:
       type: object
       properties:
@@ -699,346 +462,68 @@ components:
           format: int64
           example: 5
           description: The ID of the payment type for this payment
-    API_V20240412_Entities_Procedure:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 11
-          description: Procedure id
-        location_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 21
-          description: Location id
-        patient_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 162
-          description: Patient id
-        provider_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 84
-          description: Provider id
-        appointment_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 283
-          description: Appointment id. Null when the procedure is not attached to an appointment
-        code:
-          type:
-          - string
-          - 'null'
-          example: D6100
-          description: Procedure code
-        name:
-          type:
-          - string
-          - 'null'
-          example: Implant Removal
-          description: Procedure name
-        status:
-          type:
-          - string
-          - 'null'
-          enum:
-          - planned
-          - scheduled
-          - completed
-          - inactive
-          - referred
-          example: referred
-          description: Procedure status
-        updated_at:
-          type: string
-          format: date-time
-          example: '2020-06-05T20:16:57.007Z'
-          description: Procedure update date in UTC
-        body_site:
-          $ref: '#/components/schemas/API_V2_Entities_ProcedureBodySite'
-        fee:
-          $ref: '#/components/schemas/API_V2_Entities_Price'
-        start_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-06-24'
-          description: Start date for procedure
-        end_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-06-24'
-          description: End date for procedure
-        treatment_plan_ids:
-          type: array
-          items:
-            type: integer
-            format: int64
-          example:
-          - 42
-          - 57
-          description: Treatment plan ids
-    API_Entities_Insurance_EhrPlan:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 18
-          description: Plan id
-        payer_id:
-          type:
-          - string
-          - 'null'
-          example: '87726'
-          description: A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically
-        name:
-          type:
-          - string
-          - 'null'
-          example: United Healthcare
-          description: Plan name
-        address:
-          type:
-          - string
-          - 'null'
-          example: 123 Law St
-          description: Street address
-        address2:
-          type:
-          - string
-          - 'null'
-          example: 85335, North East
-          description: Street address 2
-        city:
-          type:
-          - string
-          - 'null'
-          example: New York
-          description: City
-        state:
-          type:
-          - string
-          - 'null'
-          example: NY
-          description: 2 letter state code
-        zip_code:
-          type:
-          - string
-          - 'null'
-          example: '54700'
-          description: Zip code
-        country_code:
-          type:
-          - string
-          - 'null'
-          example: US
-          description: 2 letter country code
-        group_num:
-          type:
-          - string
-          - 'null'
-          example: '12345'
-          description: Group number
-        employer_name:
-          type:
-          - string
-          - 'null'
-          example: Walmart
-          description: Employer name
-        foreign_id:
-          type:
-          - string
-          - 'null'
-          example: '1'
-          description: Foreign Id is a unique identifier from the integrated system
-        updated_at:
-          type: string
-          format: date-time
-          example: '2020-06-05T20:16:57.007Z'
-          description: Insurance Plan update date in UTC
-        deleted_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2024-09-15T11:21:26.003Z'
-          description: The UTC date and time the insurance plan was deleted. Null unless the plan is soft-deleted; deleted plans are only returned when include_deleted is true
-    API_V2_Entities_Insurance_Subscriber:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          example: 415
-          description: The subscriber's id
-        name:
-          type: string
-          example: John Smith
-          description: The subscriber's full name
-        date_of_birth:
-          type:
-          - string
-          - 'null'
-          example: '1990-06-05'
-          description: The subscriber's date of birth in YYYY-MM-DD format
-    API_Errors_Unauthorized:
+    API_V20240412_Entities_PatientDetailed_Response:
       type: object
       properties:
         code:
           type: boolean
-          description: Indicates the success or failure of the request.
+          example: false
+          description: Indicates the success or failure of the request
         description:
           type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
+          example: Description
+          description: Additional context on the request to help with debugging.
         error:
           type: array
           items:
             type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_Unauthorized model
-    API_V2_Entities_PatientBasic:
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V20240412_Entities_PatientDetailed'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V20240412_Entities_PatientDetailed_Response model
+    API_V2_Entities_AppointmentBasic:
       type: object
       properties:
         id:
           type: integer
-          format: int32
-          example: 415
-          description: User id
-        email:
-          type:
-          - string
-          - 'null'
-          example: Amy.Ramos@nexhealth.com
-          description: User email
-        first_name:
-          type: string
-          example: John
-          description: First name
-        middle_name:
-          type:
-          - string
-          - 'null'
-          example: Anthony
-          description: Middle name
-        last_name:
-          type: string
-          example: Smith
-          description: Last name
-        name:
-          type: string
-          example: John Smith
-          description: Full name
-        created_at:
-          type: string
-          format: date-time
-          example: '2020-06-05T20:16:57.007Z'
-          description: User creation date in UTC
-        updated_at:
-          type: string
-          format: date-time
-          example: '2020-06-05T20:16:57.007Z'
-          description: User last updation date in UTC
-        institution_id:
+          format: int64
+          example: 1822
+          description: Appointment id
+        provider_id:
           type: integer
           format: int32
-          example: 105
-          description: The institution this user belongs to
-        foreign_id:
-          type:
-          - string
-          - 'null'
-          example: '100437'
-          description: Foreign Id is a unique identifier from the integrated system
-        foreign_id_type:
+          example: 102
+          description: Provider id
+        provider_name:
           type: string
-          example: --DataSource-
-          description: Foreign Id type is a unique string identifier for the integrated system
-        bio:
-          type: object
-          example:
-            city: New York
-            state: NY
-            gender: Female
-            zip_code: '20814'
-            new_patient: false
-            non_patient: true
-            phone_number: '5163042196'
-            date_of_birth: '1964-05-03'
-            address_line_1: ''
-            address_line_2: ''
-            street_address: ''
-            cell_phone_number: ''
-            home_phone_number: ''
-            work_phone_number: ''
-          description: Patient biographical data, fields shown in our example response represent all possible data we retrieve but depending on system and what is actually saved in the health records system you cannot assume any field will consistently be returned
-        inactive:
-          type: boolean
-          example: false
-          description: Is the user inactivated?
-        last_sync_time:
-          type:
-          - string
-          - 'null'
+          example: Dr. John Smith
+          description: Provider name
+        start_time:
+          type: string
           format: date-time
-          example: '2024-04-12T10:30:00Z'
-          description: The most recent time the resource's data changed meaningfully at the source
-        guarantor_id:
-          type:
-          - integer
-          - 'null'
+          example: '2021-12-06T09:45:00.000Z'
+          description: Start time of the appointment in UTC
+        end_time:
+          type: string
+          format: date-time
+          example: '2021-12-06T10:00:00.000Z'
+          description: End time of the appointment in UTC
+        location_id:
+          type: integer
           format: int32
-          example: 472
-          description: User id of this patient's responsible party
-        billing_type:
-          type:
-          - string
-          - 'null'
-          example: Standard Billing - finance charges
-          description: Used by practices in some integrated systems to categorize and filter patients when creating reports, requesting payments, and performing other related office tasks. Some integrated systems call this an account type rather than a billing type
-        chart_id:
-          type:
-          - string
-          - 'null'
-          example: '017407'
-          description: User-facing ID for referencing patient data, used in some integrated systems. Depending on the system, the chart ID supplements or replaces the foreign_id as the ID visible to EHR users
-        preferred_language:
-          type:
-          - string
-          - 'null'
-          example: es
-          description: Patient's preferred language as an ISO 639-1 code, if specified in the integrated system
-        preferred_locale:
-          type:
-          - string
-          - 'null'
-          example: es
-          description: The patient's preferred language setting used for displaying NexHealth forms and communications
-        location_ids:
-          type: array
-          items:
-            type: integer
-            format: int32
-          example:
-          - 101
-          - 102
-          - 103
-          description: Array of location ids associated with the user
+          example: 1
+          description: Location id
+        confirmed:
+          type: boolean
+          example: true
+          description: Is this appointment confirmed?
     API_V2_Entities_User:
       type: object
       properties:
@@ -1125,395 +610,68 @@ components:
           format: date-time
           example: '2024-04-12T10:30:00Z'
           description: The most recent time the resource's data changed meaningfully at the source
-    API_V20240412_Entities_Ledger_Adjustment:
+    API_V2_Entities_PrivacyAuthorization:
+      type: object
+      properties:
+        authorization:
+          type: boolean
+          example: true
+          description: Whether the patient has provided HIPAA authorization
+        authorization_date:
+          type: string
+          format: date
+          example: '2023-03-22'
+          description: Date the patient provided HIPAA authorization
+        privacy:
+          type: boolean
+          example: true
+          description: Whether the patient has acknowledged HIPAA privacy notice
+        privacy_date:
+          type: string
+          format: date
+          example: '2023-03-22'
+          description: Date the patient acknowledged HIPAA privacy notice
+        consent:
+          type: boolean
+          example: true
+          description: Whether the patient has provided HIPAA consent
+        consent_date:
+          type: string
+          format: date
+          example: '2023-03-22'
+          description: Date the patient provided HIPAA consent
+    API_V2_Entities_PatientAlert:
       type: object
       properties:
         id:
           type: integer
           format: int64
-          example: 113
-          description: Resource id
-        foreign_id:
-          type: string
-          example: 1234-5678
-          description: Unique identifier of this resource from the integrated system
-        location_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
           example: 10
-          description: The ID of the location that this item is for
+          description: Patient Alert id
         patient_id:
-          type:
-          - integer
-          - 'null'
+          type: integer
           format: int32
-          example: 3
-          description: The ID of the patient that this item is for
-        guarantor_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 5
-          description: The ID of the guarantor that this item is for
-        provider_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 15
-          description: The ID of the provider that this item is for
+          example: 101
+          description: Id of the associated patient
+        note:
+          type: string
+          example: Patient is late on payment
+          description: The note for the patient alert
+        disabled_at:
+          type: string
+          format: date-time
+          example: '2024-02-05T20:16:57.007Z'
+          description: The time that the alert was disabled in UTC
+        created_at:
+          type: string
+          format: date-time
+          example: '2023-11-11T10:11:01.007Z'
+          description: The time that the alert was created in UTC
         updated_at:
           type: string
           format: date-time
-          example: '2024-09-05T20:31:17.007Z'
-          description: Last updated time for item in UTC
-        description:
-          type:
-          - string
-          - 'null'
-          example: This is a description
-          description: A description of the item
-        deleted_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2024-09-15T11:21:26.003Z'
-          description: Deleted time for item in UTC
-        adjustment_amount:
-          $ref: '#/components/schemas/API_V2_Entities_Price'
-        adjusted_at:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2024-10-01'
-          description: The UTC date adjustment was made
-        transaction_id:
-          type:
-          - string
-          - 'null'
-          example: NHP:JXZEQ1234
-          description: The ID of the transaction for this adjustment
-        charge_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 1111
-          description: The ID of the charge for this adjustment
-        claim_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 2222
-          description: The ID of the insurance claim for this adjustment
-        adjustment_type_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 5
-          description: The ID of the adjustment type for this adjustment
-    API_V20240412_Entities_Ledger_ChargeBasicWithDelete:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 113
-          description: Resource id
-        foreign_id:
-          type: string
-          example: 1234-5678
-          description: Unique identifier of this resource from the integrated system
-        location_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 10
-          description: The ID of the location that this item is for
-        patient_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 3
-          description: The ID of the patient that this item is for
-        guarantor_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 5
-          description: The ID of the guarantor that this item is for
-        provider_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 15
-          description: The ID of the provider that this item is for
-        procedure_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 34
-          description: The ID of the procedure associated with this charge
-        procedure_code:
-          type:
-          - string
-          - 'null'
-          example: D0120
-          description: The procedure code associated with this charge
-        updated_at:
-          type: string
-          format: date-time
-          example: '2024-09-05T20:31:17.007Z'
-          description: Last updated time for item in UTC
-        description:
-          type:
-          - string
-          - 'null'
-          example: This is a description
-          description: A description of the charge
-        fee:
-          $ref: '#/components/schemas/API_V2_Entities_Price'
-        charged_at:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2024-10-05'
-          description: The UTC date charge was made
-        deleted_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          example: '2022-01-01T00:00:00Z'
-          description: The UTC datetime the charge was deleted
-    API_Errors_BadRequest:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
-    API_V2_Entities_Insurance_PatientCoverageForIndividual:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 18
-          description: Coverage id
-        subscription_relation:
-          type: string
-          enum:
-          - self
-          - spouse
-          - child
-          - employee
-          - handicap_dep
-          - signif_other
-          - injured_plaintiff
-          - life_partner
-          - dependent
-          - other
-          example: self
-          description: The relationship of this patient to the subscriber
-        patient_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 25
-          description: The ID of the covered patient
-        priority:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 2
-          description: 'The relative priority of this insurance coverage where the lowest value is the patient''s primary insurance
-
-            and higher values represent secondary and tertiary policies'
-        plan_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 18
-          description: The ID of the insurance plan this coverage subscribes to
-        subscriber_num:
-          type:
-          - string
-          - 'null'
-          example: '123456789'
-          description: The subscriber's identification number for the plan
-        effective_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-01-01'
-          description: The date the coverage takes effect
-        expiration_date:
-          type:
-          - string
-          - 'null'
-          format: date
-          example: '2022-12-31'
-          description: The date the coverage expires
-        plan:
-          $ref: '#/components/schemas/API_Entities_Insurance_EhrPlan'
-        subscriber:
-          $ref: '#/components/schemas/API_V2_Entities_Insurance_Subscriber'
-    postPatients:
-      type: object
-      properties:
-        provider:
-          type: object
-          example:
-            provider_id: 12
-          properties:
-            provider_id:
-              type: integer
-              format: int64
-              description: Id of the provider with which to intake this new patient
-          required:
-          - provider_id
-        patient:
-          type: object
-          properties:
-            first_name:
-              type: string
-              description: Patient first name
-              example: John
-            last_name:
-              type: string
-              description: Patient last name
-              example: Smith
-            email:
-              type: string
-              description: Patient email id. Must match regular expression /\A([^@\s]+)@((?:[-a-z0-9]\.)[a-z]{2,})\Z/
-              example: john.smith@example.com
-            bio:
-              type: object
-              description: Patient Bio
-              properties:
-                date_of_birth:
-                  type: string
-                  format: date
-                  description: Patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD. Cannot be more than 130 years in the past or in the future
-                  example: '1964-05-03'
-                phone_number:
-                  type: string
-                  description: Patient phone number
-                  example: '5163042196'
-                home_phone_number:
-                  type: string
-                  description: Patient home phone number
-                  example: '5163042197'
-                cell_phone_number:
-                  type: string
-                  description: Patient cell phone number
-                  example: '5163042198'
-                work_phone_number:
-                  type: string
-                  description: Patient work place phone number
-                  example: '5163042199'
-                custom_contact_number:
-                  type: string
-                  description: Patient custom contact phone number
-                  example: '5163042200'
-                gender:
-                  type: string
-                  description: Patient gender. Gender will default to Female if not provided. This is to ensure compatibility with all EHRs. This will be updated when the patient visits the office and updates their info
-                  enum:
-                  - Male
-                  - Female
-                  - Other
-                  example: Female
-                weight:
-                  type: integer
-                  format: int32
-                  description: Patient weight in KG
-                  example: 70
-                height:
-                  type: integer
-                  format: int32
-                  description: Patient height in CM
-                  example: 175
-                street_address:
-                  type: string
-                  description: Patient full street address
-                  example: 333 Bush Street
-                address_line_1:
-                  type: string
-                  description: Patient street address line 1
-                  example: 333 Bush Street
-                address_line_2:
-                  type: string
-                  description: Patient street address line 2
-                  example: Apt 4B
-                city:
-                  type: string
-                  description: Patient city
-                  example: New York
-                state:
-                  type: string
-                  description: Patient living state
-                  example: NY
-                zip_code:
-                  type: string
-                  description: Patient zip code
-                  example: '20814'
-                insurance_name:
-                  type: string
-                  description: Insurance name
-                  example: Delta Dental of California
-                ssn:
-                  type: string
-                  description: Patient SSN
-                  example: 123-45-6789
-                race:
-                  type: string
-                  description: Patient race
-                  example: White
-              required:
-              - date_of_birth
-              - phone_number
-          required:
-          - first_name
-          - last_name
-          - email
-          - bio
-        return_existing_if_match:
-          type: boolean
-          description: If true, return existing patient with matching information (200 OK) instead of raising an error. If false, raise an error when a patient with matching information already exists (400 Bad Request). Matching is based on date of birth, name, and phone number.
-          default: false
-      required:
-      - provider
-      - patient
-      description: Create patient
+          example: '2024-01-14T14:11:01.007Z'
+          description: The time that the alert was last updated in UTC
     API_V20240412_Entities_PatientDetailed:
       type: object
       properties:
@@ -1697,65 +855,6 @@ components:
           description: Array of location ids associated with the user
         address:
           $ref: '#/components/schemas/API_V2_Entities_PatientAddress'
-    API_V2_Entities_PatientAddress:
-      type: object
-      properties:
-        line_1:
-          type:
-          - string
-          - 'null'
-          example: 333 Bush Street
-          description: Address line 1
-        line_2:
-          type:
-          - string
-          - 'null'
-          example: Apt 4B
-          description: Address line 2
-        postal_code:
-          type:
-          - string
-          - 'null'
-          example: '20814'
-          description: Zip code
-        city:
-          type:
-          - string
-          - 'null'
-          example: New York
-          description: City
-        region:
-          type:
-          - string
-          - 'null'
-          example: NY
-          description: State
-    API_V2_Entities_PatientsResponses_Create_Response:
-      type: object
-      properties:
-        code:
-          type: boolean
-          example: false
-          description: Indicates the success or failure of the request
-        description:
-          type: string
-          example: Description
-          description: Additional context on the request to help with debugging.
-        error:
-          type: array
-          items:
-            type: string
-          example:
-          - Error message
-          description: Any errors that occur during the execution of the request.
-        data:
-          $ref: '#/components/schemas/API_V2_Entities_PatientsResponses_Create'
-        count:
-          type: integer
-          format: int32
-          example: 2
-          description: Number of total objects, in case of collection.
-      description: API_V2_Entities_PatientsResponses_Create_Response model
     API_V20240412_Entities_PatientWithPrivacyAuthorization:
       type: object
       properties:
@@ -1876,6 +975,907 @@ components:
           description: User id of this patient's primary provider
         hipaa:
           $ref: '#/components/schemas/API_V2_Entities_PrivacyAuthorization'
+    postPatients:
+      type: object
+      properties:
+        provider:
+          type: object
+          example:
+            provider_id: 12
+          properties:
+            provider_id:
+              type: integer
+              format: int64
+              description: Id of the provider with which to intake this new patient
+          required:
+          - provider_id
+        patient:
+          type: object
+          properties:
+            first_name:
+              type: string
+              description: Patient first name
+              example: John
+            last_name:
+              type: string
+              description: Patient last name
+              example: Smith
+            email:
+              type: string
+              description: Patient email id. Must match regular expression /\A([^@\s]+)@((?:[-a-z0-9]\.)[a-z]{2,})\Z/
+              example: john.smith@example.com
+            bio:
+              type: object
+              description: Patient Bio
+              properties:
+                date_of_birth:
+                  type: string
+                  format: date
+                  description: Patient date of birth. Must be a parseable date string, recommended format is YYYY-MM-DD. Cannot be more than 130 years in the past or in the future
+                  example: '1964-05-03'
+                phone_number:
+                  type: string
+                  description: Patient phone number
+                  example: '5163042196'
+                home_phone_number:
+                  type: string
+                  description: Patient home phone number
+                  example: '5163042197'
+                cell_phone_number:
+                  type: string
+                  description: Patient cell phone number
+                  example: '5163042198'
+                work_phone_number:
+                  type: string
+                  description: Patient work place phone number
+                  example: '5163042199'
+                custom_contact_number:
+                  type: string
+                  description: Patient custom contact phone number
+                  example: '5163042200'
+                gender:
+                  type: string
+                  description: Patient gender. Gender will default to Female if not provided. This is to ensure compatibility with all EHRs. This will be updated when the patient visits the office and updates their info
+                  enum:
+                  - Male
+                  - Female
+                  - Other
+                  example: Female
+                weight:
+                  type: integer
+                  format: int32
+                  description: Patient weight in KG
+                  example: 70
+                height:
+                  type: integer
+                  format: int32
+                  description: Patient height in CM
+                  example: 175
+                street_address:
+                  type: string
+                  description: Patient full street address
+                  example: 333 Bush Street
+                address_line_1:
+                  type: string
+                  description: Patient street address line 1
+                  example: 333 Bush Street
+                address_line_2:
+                  type: string
+                  description: Patient street address line 2
+                  example: Apt 4B
+                city:
+                  type: string
+                  description: Patient city
+                  example: New York
+                state:
+                  type: string
+                  description: Patient living state
+                  example: NY
+                zip_code:
+                  type: string
+                  description: Patient zip code
+                  example: '20814'
+                insurance_name:
+                  type: string
+                  description: Insurance name
+                  example: Delta Dental of California
+                ssn:
+                  type: string
+                  description: Patient SSN
+                  example: 123-45-6789
+                race:
+                  type: string
+                  description: Patient race
+                  example: White
+              required:
+              - date_of_birth
+              - phone_number
+          required:
+          - first_name
+          - last_name
+          - email
+          - bio
+        return_existing_if_match:
+          type: boolean
+          description: If true, return existing patient with matching information (200 OK) instead of raising an error. If false, raise an error when a patient with matching information already exists (400 Bad Request). Matching is based on date of birth, name, and phone number.
+          default: false
+      required:
+      - provider
+      - patient
+      description: Create patient
+    API_V2_Entities_Price:
+      type: object
+      properties:
+        amount:
+          type: string
+          example: '62.00'
+          description: The currency value, in whole units (e.g. dollars)
+        currency:
+          type: string
+          example: USD
+          description: The ISO currency code
+    API_Errors_Forbidden:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Forbidden model
+    API_V2_Entities_ProcedureBodySite:
+      type: object
+      properties:
+        tooth:
+          type: array
+          items:
+            type: string
+          example:
+          - '3'
+          - '14'
+          description: Tooth identifier strings, typically tooth numbers
+        surface:
+          type: string
+          example: MOD
+          description: Tooth surface codes
+    API_V2_Entities_PatientsResponses_Create_Response:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          $ref: '#/components/schemas/API_V2_Entities_PatientsResponses_Create'
+        count:
+          type: integer
+          format: int32
+          example: 2
+          description: Number of total objects, in case of collection.
+      description: API_V2_Entities_PatientsResponses_Create_Response model
+    API_V2_Entities_Insurance_PatientCoverageForIndividual:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 18
+          description: Coverage id
+        subscription_relation:
+          type: string
+          enum:
+          - self
+          - spouse
+          - child
+          - employee
+          - handicap_dep
+          - signif_other
+          - injured_plaintiff
+          - life_partner
+          - dependent
+          - other
+          example: self
+          description: The relationship of this patient to the subscriber
+        patient_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 25
+          description: The ID of the covered patient
+        priority:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 2
+          description: 'The relative priority of this insurance coverage where the lowest value is the patient''s primary insurance
+
+            and higher values represent secondary and tertiary policies'
+        plan_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 18
+          description: The ID of the insurance plan this coverage subscribes to
+        subscriber_num:
+          type:
+          - string
+          - 'null'
+          example: '123456789'
+          description: The subscriber's identification number for the plan
+        effective_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2022-01-01'
+          description: The date the coverage takes effect
+        expiration_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2022-12-31'
+          description: The date the coverage expires
+        plan:
+          $ref: '#/components/schemas/API_Entities_Insurance_EhrPlan'
+        subscriber:
+          $ref: '#/components/schemas/API_V2_Entities_Insurance_Subscriber'
+    API_Entities_Insurance_EhrPlan:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 18
+          description: Plan id
+        payer_id:
+          type:
+          - string
+          - 'null'
+          example: '87726'
+          description: A unique ID number that is assigned to an insurance company for the purpose of transmitting provider claims electronically
+        name:
+          type:
+          - string
+          - 'null'
+          example: United Healthcare
+          description: Plan name
+        address:
+          type:
+          - string
+          - 'null'
+          example: 123 Law St
+          description: Street address
+        address2:
+          type:
+          - string
+          - 'null'
+          example: 85335, North East
+          description: Street address 2
+        city:
+          type:
+          - string
+          - 'null'
+          example: New York
+          description: City
+        state:
+          type:
+          - string
+          - 'null'
+          example: NY
+          description: 2 letter state code
+        zip_code:
+          type:
+          - string
+          - 'null'
+          example: '54700'
+          description: Zip code
+        country_code:
+          type:
+          - string
+          - 'null'
+          example: US
+          description: 2 letter country code
+        group_num:
+          type:
+          - string
+          - 'null'
+          example: '12345'
+          description: Group number
+        employer_name:
+          type:
+          - string
+          - 'null'
+          example: Walmart
+          description: Employer name
+        foreign_id:
+          type:
+          - string
+          - 'null'
+          example: '1'
+          description: Foreign Id is a unique identifier from the integrated system
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Insurance Plan update date in UTC
+        deleted_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2024-09-15T11:21:26.003Z'
+          description: The UTC date and time the insurance plan was deleted. Null unless the plan is soft-deleted; deleted plans are only returned when include_deleted is true
+    API_V20240412_Entities_PatientWithPrivacyAuthorization_Collection_Response_WithCursor:
+      type: object
+      properties:
+        code:
+          type: boolean
+          example: false
+          description: Indicates the success or failure of the request
+        description:
+          type: string
+          example: Description
+          description: Additional context on the request to help with debugging.
+        error:
+          type: array
+          items:
+            type: string
+          example:
+          - Error message
+          description: Any errors that occur during the execution of the request.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/API_V20240412_Entities_PatientWithPrivacyAuthorization'
+        page_info:
+          type: object
+          example:
+            has_previous_page: false
+            has_next_page: false
+            start_cursor: AAAAA
+            end_cursor: BBBBBB
+          description: Pagination information that can be used for fetching previous and next pages.
+      description: API_V20240412_Entities_PatientWithPrivacyAuthorization_Collection_Response_WithCursor model
+    API_V2_Entities_PatientAddress:
+      type: object
+      properties:
+        line_1:
+          type:
+          - string
+          - 'null'
+          example: 333 Bush Street
+          description: Address line 1
+        line_2:
+          type:
+          - string
+          - 'null'
+          example: Apt 4B
+          description: Address line 2
+        postal_code:
+          type:
+          - string
+          - 'null'
+          example: '20814'
+          description: Zip code
+        city:
+          type:
+          - string
+          - 'null'
+          example: New York
+          description: City
+        region:
+          type:
+          - string
+          - 'null'
+          example: NY
+          description: State
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
+    API_V20240412_Entities_Procedure:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 11
+          description: Procedure id
+        location_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 21
+          description: Location id
+        patient_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 162
+          description: Patient id
+        provider_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 84
+          description: Provider id
+        appointment_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 283
+          description: Appointment id. Null when the procedure is not attached to an appointment
+        code:
+          type:
+          - string
+          - 'null'
+          example: D6100
+          description: Procedure code
+        name:
+          type:
+          - string
+          - 'null'
+          example: Implant Removal
+          description: Procedure name
+        status:
+          type:
+          - string
+          - 'null'
+          enum:
+          - planned
+          - scheduled
+          - completed
+          - inactive
+          - referred
+          example: referred
+          description: Procedure status
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: Procedure update date in UTC
+        body_site:
+          $ref: '#/components/schemas/API_V2_Entities_ProcedureBodySite'
+        fee:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        start_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2022-06-24'
+          description: Start date for procedure
+        end_date:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2022-06-24'
+          description: End date for procedure
+        treatment_plan_ids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          example:
+          - 42
+          - 57
+          description: Treatment plan ids
+    API_V2_Entities_PatientsResponses_Create:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/API_V2_Entities_PatientBasic'
+    API_V20240412_Entities_Ledger_ChargeBasicWithDelete:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 113
+          description: Resource id
+        foreign_id:
+          type: string
+          example: 1234-5678
+          description: Unique identifier of this resource from the integrated system
+        location_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 10
+          description: The ID of the location that this item is for
+        patient_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 3
+          description: The ID of the patient that this item is for
+        guarantor_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 5
+          description: The ID of the guarantor that this item is for
+        provider_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 15
+          description: The ID of the provider that this item is for
+        procedure_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 34
+          description: The ID of the procedure associated with this charge
+        procedure_code:
+          type:
+          - string
+          - 'null'
+          example: D0120
+          description: The procedure code associated with this charge
+        updated_at:
+          type: string
+          format: date-time
+          example: '2024-09-05T20:31:17.007Z'
+          description: Last updated time for item in UTC
+        description:
+          type:
+          - string
+          - 'null'
+          example: This is a description
+          description: A description of the charge
+        fee:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        charged_at:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2024-10-05'
+          description: The UTC date charge was made
+        deleted_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2022-01-01T00:00:00Z'
+          description: The UTC datetime the charge was deleted
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
+    API_Errors_Unauthorized:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_Unauthorized model
+    API_V2_Entities_Insurance_Subscriber:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 415
+          description: The subscriber's id
+        name:
+          type: string
+          example: John Smith
+          description: The subscriber's full name
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+          example: '1990-06-05'
+          description: The subscriber's date of birth in YYYY-MM-DD format
+    API_V2_Entities_PatientBasic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 415
+          description: User id
+        email:
+          type:
+          - string
+          - 'null'
+          example: Amy.Ramos@nexhealth.com
+          description: User email
+        first_name:
+          type: string
+          example: John
+          description: First name
+        middle_name:
+          type:
+          - string
+          - 'null'
+          example: Anthony
+          description: Middle name
+        last_name:
+          type: string
+          example: Smith
+          description: Last name
+        name:
+          type: string
+          example: John Smith
+          description: Full name
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User creation date in UTC
+        updated_at:
+          type: string
+          format: date-time
+          example: '2020-06-05T20:16:57.007Z'
+          description: User last updation date in UTC
+        institution_id:
+          type: integer
+          format: int32
+          example: 105
+          description: The institution this user belongs to
+        foreign_id:
+          type:
+          - string
+          - 'null'
+          example: '100437'
+          description: Foreign Id is a unique identifier from the integrated system
+        foreign_id_type:
+          type: string
+          example: --DataSource-
+          description: Foreign Id type is a unique string identifier for the integrated system
+        bio:
+          type: object
+          example:
+            city: New York
+            state: NY
+            gender: Female
+            zip_code: '20814'
+            new_patient: false
+            non_patient: true
+            phone_number: '5163042196'
+            date_of_birth: '1964-05-03'
+            address_line_1: ''
+            address_line_2: ''
+            street_address: ''
+            cell_phone_number: ''
+            home_phone_number: ''
+            work_phone_number: ''
+          description: Patient biographical data, fields shown in our example response represent all possible data we retrieve but depending on system and what is actually saved in the health records system you cannot assume any field will consistently be returned
+        inactive:
+          type: boolean
+          example: false
+          description: Is the user inactivated?
+        last_sync_time:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2024-04-12T10:30:00Z'
+          description: The most recent time the resource's data changed meaningfully at the source
+        guarantor_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 472
+          description: User id of this patient's responsible party
+        billing_type:
+          type:
+          - string
+          - 'null'
+          example: Standard Billing - finance charges
+          description: Used by practices in some integrated systems to categorize and filter patients when creating reports, requesting payments, and performing other related office tasks. Some integrated systems call this an account type rather than a billing type
+        chart_id:
+          type:
+          - string
+          - 'null'
+          example: '017407'
+          description: User-facing ID for referencing patient data, used in some integrated systems. Depending on the system, the chart ID supplements or replaces the foreign_id as the ID visible to EHR users
+        preferred_language:
+          type:
+          - string
+          - 'null'
+          example: es
+          description: Patient's preferred language as an ISO 639-1 code, if specified in the integrated system
+        preferred_locale:
+          type:
+          - string
+          - 'null'
+          example: es
+          description: The patient's preferred language setting used for displaying NexHealth forms and communications
+        location_ids:
+          type: array
+          items:
+            type: integer
+            format: int32
+          example:
+          - 101
+          - 102
+          - 103
+          description: Array of location ids associated with the user
+    API_V20240412_Entities_Ledger_Adjustment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 113
+          description: Resource id
+        foreign_id:
+          type: string
+          example: 1234-5678
+          description: Unique identifier of this resource from the integrated system
+        location_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 10
+          description: The ID of the location that this item is for
+        patient_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 3
+          description: The ID of the patient that this item is for
+        guarantor_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 5
+          description: The ID of the guarantor that this item is for
+        provider_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 15
+          description: The ID of the provider that this item is for
+        updated_at:
+          type: string
+          format: date-time
+          example: '2024-09-05T20:31:17.007Z'
+          description: Last updated time for item in UTC
+        description:
+          type:
+          - string
+          - 'null'
+          example: This is a description
+          description: A description of the item
+        deleted_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          example: '2024-09-15T11:21:26.003Z'
+          description: Deleted time for item in UTC
+        adjustment_amount:
+          $ref: '#/components/schemas/API_V2_Entities_Price'
+        adjusted_at:
+          type:
+          - string
+          - 'null'
+          format: date
+          example: '2024-10-01'
+          description: The UTC date adjustment was made
+        transaction_id:
+          type:
+          - string
+          - 'null'
+          example: NHP:JXZEQ1234
+          description: The ID of the transaction for this adjustment
+        charge_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 1111
+          description: The ID of the charge for this adjustment
+        claim_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 2222
+          description: The ID of the insurance claim for this adjustment
+        adjustment_type_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 5
+          description: The ID of the adjustment type for this adjustment
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
   securitySchemes:
     Authorization:
       type: apiKey

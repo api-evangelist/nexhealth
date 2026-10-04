@@ -276,23 +276,34 @@ paths:
       operationId: patchPatientsIdAlertsAlertId
 components:
   schemas:
-    API_Errors_NotFound:
+    postPatientsIdAlerts:
       type: object
       properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
+        patient_alert:
           type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_NotFound model
+          description: Patient alert details
+          properties:
+            note:
+              type: string
+              description: The note for the patient alert
+          required:
+          - note
+      required:
+      - patient_alert
+      description: Create patient alert
+    patchPatientsIdAlertsAlertId:
+      type: object
+      properties:
+        patient_alert:
+          type: object
+          description: Patient Alert update
+          properties:
+            disabled:
+              type: boolean
+              description: Disable patient alert
+      required:
+      - patient_alert
+      description: Edit patient alert
     API_Errors_Forbidden:
       type: object
       properties:
@@ -310,6 +321,23 @@ components:
             type: string
           description: Any errors that occured during the execution of the request.
       description: API_Errors_Forbidden model
+    API_Errors_NotFound:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_NotFound model
     API_V2_Entities_PatientAlert_Response:
       type: object
       properties:
@@ -336,34 +364,6 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_V2_Entities_PatientAlert_Response model
-    patchPatientsIdAlertsAlertId:
-      type: object
-      properties:
-        patient_alert:
-          type: object
-          description: Patient Alert update
-          properties:
-            disabled:
-              type: boolean
-              description: Disable patient alert
-      required:
-      - patient_alert
-      description: Edit patient alert
-    postPatientsIdAlerts:
-      type: object
-      properties:
-        patient_alert:
-          type: object
-          description: Patient alert details
-          properties:
-            note:
-              type: string
-              description: The note for the patient alert
-          required:
-          - note
-      required:
-      - patient_alert
-      description: Create patient alert
     API_V2_Entities_PatientAlert:
       type: object
       properties:
@@ -396,40 +396,6 @@ components:
           format: date-time
           example: '2024-01-14T14:11:01.007Z'
           description: The time that the alert was last updated in UTC
-    API_Errors_InternalServerError:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_InternalServerError model
-    API_Errors_BadRequest:
-      type: object
-      properties:
-        code:
-          type: boolean
-          description: Indicates the success or failure of the request.
-        description:
-          type: string
-          description: Additional context about the request to help with debugging.
-        data:
-          type: object
-        error:
-          type: array
-          items:
-            type: string
-          description: Any errors that occured during the execution of the request.
-      description: API_Errors_BadRequest model
     API_V2_Entities_PatientAlert_Collection_Response:
       type: object
       properties:
@@ -458,6 +424,40 @@ components:
           example: 2
           description: Number of total objects, in case of collection.
       description: API_V2_Entities_PatientAlert_Collection_Response model
+    API_Errors_BadRequest:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_BadRequest model
+    API_Errors_InternalServerError:
+      type: object
+      properties:
+        code:
+          type: boolean
+          description: Indicates the success or failure of the request.
+        description:
+          type: string
+          description: Additional context about the request to help with debugging.
+        data:
+          type: object
+        error:
+          type: array
+          items:
+            type: string
+          description: Any errors that occured during the execution of the request.
+      description: API_Errors_InternalServerError model
     API_Errors_Unauthorized:
       type: object
       properties:
